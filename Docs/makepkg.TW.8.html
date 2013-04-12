@@ -1,0 +1,524 @@
+<HTML><HEAD><TITLE>Manpage of makepkg</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><style type="text/css">
+<!--
+body,td,th {
+	font-family: 新細明體;
+}
+-->
+</style></HEAD><BODY>
+<H1>makepkg</H1>
+Section:  (8)<BR>Updated: August 3, 2004<BR>
+<A HREF="#index">目錄</A>
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME - 名稱</H2>
+
+makepkg - 套件包裝應用程式<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS - 語法</H2>
+
+<B>makepkg [選項]</B>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION - 說明</H2>
+
+<B>makepkg</B> 可幫助您包裝套件.  他全部只需要一個可用來包裝套件的 linux 平台, wget, 和一些包裝用的 scripts.  一個 script-based 的套件包裝的優點就是您只需要花一次功夫.  Once you
+have the build script for a package, 之後每次您只需要執行 makepkg 來讓他自動完成包裝的程序 : 下載和檢驗源碼的完整性, 檢查程式的相依關係,
+設定 buildtime settings, 建立套件, 安裝套件到一個暫時的 root 目錄下, make customizations, 產生 meta-info, 和所有 <B>pacman</B> 需要用到的資訊和設定.
+<P>
+<B>makeworld</B> can be used to rebuild an entire package group or the
+entire build tree.  請參閱 <B>makeworld --help</B> 來獲得使用語法的相關資訊.
+<A NAME="lbAE">&nbsp;</A>
+<H2>BUILD PROCESS (或著 *如何建立你自己的套件*)</H2>
+
+Start in an isolated directory (ie, it's not used for anything other
+than building this package).  The build script should be called PKGBUILD
+and it should bear resemblance to the example below.
+<P>
+<B>NOTE:</B> If you have a local copy of the Arch Build System (ABS) tree
+on your computer, you can copy the PKGBUILD.proto file to your new package
+build directory and edit it from there.  To acquire/sync the ABS tree, use
+the <B>abs</B> script included with pacman/makepkg.
+<P>
+<DL COMPACT>
+<DT><DT></DL>
+<A NAME="lbAF">&nbsp;</A>
+<H2>PKGBUILD 例子:</H2>
+
+<DD>
+<DD>
+<DL COMPACT><DT><DD>
+<PRE>
+pkgname=modutils
+pkgver=2.4.25
+pkgrel=1
+pkgdesc=&quot;Utilities for inserting and removing modules from the linux kernel&quot;
+url=&quot;<A HREF="http://www.kernel.org">http://www.kernel.org</A>&quot;
+backup=(etc/modules.conf)
+makedepends=('bash' 'mawk')
+depends=('glibc' 'zlib')
+source=(<A HREF="ftp://ftp.kernel.org/pub/linux/utils/kernel/$pkgname/v2.4/$pkgname-$pkgver.tar.bz2">ftp://ftp.kernel.org/pub/linux/utils/kernel/$pkgname/v2.4/$pkgname-$pkgver.tar.bz2</A> \
+        modules.conf)
+md5sums=('2c0cca3ef6330a187c6ef4fe41ecaa4d' \
+        '35175bee593a7cc7d6205584a94d8625')
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr --enable-insmod-static
+  make || return 1
+  make prefix=$startdir/pkg/usr install
+  mv $startdir/pkg/usr/sbin $startdir/pkg
+  mkdir -p $startdir/pkg/etc
+  cp ../modules.conf $startdir/pkg/etc
+}
+</PRE>
+
+</DL>
+
+<P>
+As you can see, the setup is fairly simple.  The first three lines define
+the package name and version info.  They also define the final package name
+which will be of the form <I>$pkgname-$pkgver-$pkgrel.pkg.tar.gz</I>.  The fourth
+line provides a brief description of the package.  These four lines should
+be present in every PKGBUILD script.
+<P>
+The line with <I>backup=</I> specifies files that should be treated specially
+when removing or upgrading packages.  See <B>HANDLING CONFIG FILES</B> in
+the <I>pacman</I> manpage for more information on this.
+<P>
+Lines 7 and 8 list the dependencies for this package.  The <I>depends</I> array
+specifies the run-time dependencies and <I>makedepends</I> specifies the build-time
+dependencies.  In order to run the package, <I>depends</I> must be satisfied.  To
+build the package, <B>all</B> dependencies must be satisifed first.  makepkg
+will check this before attempting to build the package.
+<P>
+The <I>source</I> array tells makepkg which files to download/extract before compiling
+begins.  The <I>md5sums</I> array provides md5sums for each of these files.  These
+are used to validate the integrity of the source files.
+<P>
+Once your PKGBUILD is created, you can run <I>makepkg</I> from the build directory.
+makepkg will then check dependencies and look for the source files required to
+build.  If some are missing it will attempt to download them, provided there is
+a fully-qualified URL in the <I>source</I> array.
+<P>
+The sources are then extracted into a directory called ./src and
+the <I>build</I> function is called.  This is where all package configuration,
+building, and installing should be done.  Any customization will likely take
+place here.
+<P>
+After a package is built, the <I>build</I> function must install the package
+files into a special package root, which can be referenced by <B>$startdir/pkg</B>
+in the <I>build</I> function.  The typical way to do this is one of the following:
+<DL COMPACT><DT><DD>
+<PRE>
+
+make DESTDIR=$startdir/pkg install
+
+or
+
+make prefix=$startdir/pkg/usr install
+
+</PRE>
+
+</DL>
+
+Notice that the &quot;/usr&quot; portion should be present with &quot;prefix&quot;, but not &quot;DESTDIR&quot;.
+&quot;DESTDIR&quot; is the favorable option to use, but not all Makefiles support it.  Use
+&quot;prefix&quot; only when &quot;DESTDIR&quot; is unavailable.
+<P>
+Once the package is successfully installed into the package root, <I>makepkg</I>
+will remove some directories (as per Arch Linux package guidelines; if you use
+this elsewhere, feel free to change it) like /usr/doc and /usr/info.  It will
+then strip debugging info from libraries and binaries and generate a meta-info
+file.  Finally, it will compress everything into a .pkg.tar.gz file and leave it
+in the directory you ran <B>makepkg</B> from.
+<P>
+At this point you should have a package file in the current directory, named
+something like name-version-release.pkg.tar.gz.  Done!
+<P>
+<A NAME="lbAG">&nbsp;</A>
+<H2>安裝/升級/移除 Scripting</H2>
+
+Pacman has the ability to store and execute a package-specific script when it
+installs, removes, or upgrades a package.  This allows a package to &quot;configure
+itself&quot; after installation and do the opposite right before it is removed.
+<P>
+The exact time the script is run varies with each operation:
+<DL COMPACT>
+<DT><B>pre_install</B>
+
+<DD>
+script is run right before files are extracted.
+<P>
+<DT><B>post_install</B>
+
+<DD>
+script is run right after files are extracted.
+<P>
+<DT><B>pre_upgrade</B>
+
+<DD>
+script is run right before files are extracted.
+<P>
+<DT><B>post_upgrade</B>
+
+<DD>
+script is run after files are extracted.
+<P>
+<DT><B>pre_remove</B>
+
+<DD>
+script is run right before files are removed.
+<P>
+<DT><B>post_remove</B>
+
+<DD>
+script is run right after files are removed.
+<P>
+
+To use this feature, just create a file (eg, pkgname.install) and put it in
+the same directory as the PKGBUILD script.  Then use the <I>install</I> directive:
+<DL COMPACT><DT><DD>
+<PRE>
+install=pkgname.install
+</PRE>
+
+</DL>
+
+<P>
+The install script does not need to be specified in the <I>source</I> array.
+<P>
+<DT><DT></DL>
+<A NAME="lbAH">&nbsp;</A>
+<H2>Install scripts 必須遵守下面的格式 :</H2>
+
+<DD>
+<DD>
+<DL COMPACT><DT><DD>
+<PRE>
+# arg 1:  the new package version
+pre_install() {
+  #
+  #  do pre-install stuff here
+  #
+  /bin/true
+}
+
+# arg 1:  the new package version
+post_install() {
+  #
+  #  do post-install stuff here
+  #
+  /bin/true
+}
+
+# arg 1:  the new package version
+# arg 2:  the old package version
+pre_upgrade() {
+  #
+  #  do pre-upgrade stuff here
+  #
+  /bin/true
+}
+
+# arg 1:  the new package version
+# arg 2:  the old package version
+post_upgrade() {
+  #
+  #  do post-upgrade stuff here
+  #
+  /bin/true
+}
+
+# arg 1:  the old package version
+pre_remove() {
+  #
+  #  do pre-remove stuff here
+  #
+  /bin/true
+}
+
+# arg 1:  the old package version
+post_remove() {
+  #
+  #  do post-remove stuff here
+  #
+  /bin/true
+}
+
+op=$1
+shift
+$op $*
+</PRE>
+
+</DL>
+
+<P>
+This template is also available in your ABS tree (/var/abs/install.proto).
+<P>
+<A NAME="lbAI">&nbsp;</A>
+<H2>PKGBUILD 指示元 (Directives)</H2>
+
+<DL COMPACT>
+<DT><B>pkgname</B>
+
+<DD>
+套件的名稱.  This has be a unix-friendly name as it will be
+used in the package filename.
+  <P>
+<DT><B>pkgver</B>
+
+<DD>
+軟體作者發佈的版本編號 (eg, 2.7.1).
+  <P>
+<DT><B>pkgrel</B>
+
+<DD>
+Arch Linux 套件專屬的發行編號.
+  <P>
+<DT><B>pkgdesc</B>
+
+<DD>
+關於套件的簡單說明和他的功用.
+  <P>
+<DT><B>force</B>
+
+<DD>
+This is used to force the package to be upgraded by <B>--sysupgrade</B>, even
+if its an older version.
+<P>
+<DT><B>url</B>
+
+<DD>
+This field contains an optional URL that is associated with the piece of software
+being packaged.  This is typically the project's website.
+<P>
+<DT><B>license</B>
+
+<DD>
+Sets the license type (eg, &quot;GPL&quot;, &quot;BSD&quot;, &quot;NON-FREE&quot;).  (<B>Note</B>: This
+option is still in development and may change in the future)
+<P>
+<DT><B>install</B>
+
+<DD>
+Specifies a special install script that is to be included in the package.
+This file should reside in the same directory as the PKGBUILD, and will be
+copied into the package by makepkg.  It does not need to be included in the
+<I>source</I> array.  (eg, install=modutils.install)
+<P>
+<DT><B>source </B><I>(array)</I> 
+
+<DD>
+The <I>source</I> line is an array of source files required to build the
+package.  Source files must reside in the same directory as the PKGBUILD
+file, unless they have a fully-qualified URL.  Then if the source file
+does not already exist in /var/cache/pacman/src, the file is downloaded
+by wget.
+<P>
+<DT><B>md5sums </B><I>(array)</I>
+
+<DD>
+If this field is present, it should contain an MD5 hash for every source file
+specified in the <I>source</I> array (in the same order).  makepkg will use
+this to verify source file integrity during subsequent builds.  To easily
+generate md5sums, first build using the PKGBUILD then run
+<B>makepkg -g &gt;&gt;PKGBILD</B>.  Then you can edit the PKGBUILD and move the
+<I>md5sums</I> line from the bottom to an appropriate location.
+<P>
+<DT><B>groups </B><I>(array)</I>
+
+<DD>
+This is an array of symbolic names that represent groups of packages, allowing
+you to install multiple packages by requesting a single target.  For example,
+one could install all KDE packages by installing the 'kde' group.
+<P>
+<DT><B>backup </B><I>(array)</I> 
+
+<DD>
+A space-delimited array of filenames (without a preceding slash). The
+<I>backup</I> line will be propagated to the package meta-info file for
+pacman.  This will designate all files listed there to be backed up if this
+package is ever removed from a system.  See <B>HANDLING CONFIG FILES</B> in
+the <I>pacman</I> manpage for more information.
+<P>
+<DT><B>depends </B><I>(array)</I> 
+
+<DD>
+An array of packages that this package depends on to build and run.  Packages
+in this list should be surrounded with single quotes and contain at least the
+package name.  They can also include a version requirement of the form
+<B>name&lt;&gt;version</B>, where &lt;&gt; is one of these three comparisons: <B>&gt;=</B>
+(greater than equal to), <B>&lt;=</B> (less than or equal to), or <B>=</B> (equal to).
+See the PKGBUILD example above for an example of the <I>depends</I> directive.
+<P>
+<DT><B>makedepends </B><I>(array)</I>
+
+<DD>
+An array of packages that this package depends on to build (ie, not required
+to run).  Packages in this list should follow the same format as <I>depends</I>.
+<P>
+<DT><B>conflicts </B><I>(array)</I> 
+
+<DD>
+An array of packages that will conflict with this package (ie, they cannot both
+be installed at the same time).  This directive follows the same format as
+<I>depends</I> except you cannot specify versions here, only package names.
+<P>
+<DT><B>provides </B><I>(array)</I> 
+
+<DD>
+An array of &quot;virtual provisions&quot; that this package provides.  This allows a package
+to provide dependency names other than it's own package name.  For example, the
+kernel-scsi and kernel-ide packages can each provide 'kernel' which allows packages
+to simply depend on 'kernel' rather than &quot;kernel-scsi OR kernel-ide OR ...&quot;
+<P>
+<DT><B>replaces </B><I>(array)</I> 
+
+<DD>
+This is an array of packages that this package should replace, and can be used to handle
+renamed/combined packages.  For example, if the kernel package gets renamed
+to kernel-ide, then subsequent 'pacman -Syu' calls will not pick up the upgrade, due
+to the differing package names.  <I>replaces</I> handles this.
+<P>
+</DL>
+<A NAME="lbAJ">&nbsp;</A>
+<H2>MAKEPKG 選項</H2>
+
+<DL COMPACT>
+<DT><B>-b, --builddeps</B>
+
+<DD>
+Build missing dependencies from source.  When makepkg finds missing build-time or
+run-time dependencies, it will look for the dependencies' PKGBUILD files under
+$ABSROOT (set in your /etc/makepkg.conf).  If it finds them it will
+run another copy of makepkg to build and install the missing dependencies.
+The child makepkg calls will be made with the <B>-b</B> and <B>-i</B> options.
+<DT><B>-c, --clean</B>
+
+<DD>
+Clean up leftover work files/directories after a successful build.
+<DT><B>-C, --cleancache</B>
+
+<DD>
+Removes all source files from the cache directory to free up diskspace.
+<DT><B>-d, --nodeps</B>
+
+<DD>
+Do not perform any dependency checks.  This will let you override/ignore any
+dependencies required.  There's a good chance this option will break the build
+process if all of the dependencies aren't installed.
+<DT><B>-f, --force</B>
+
+<DD>
+<B>makepkg</B> will not build a package if a <I>pkgname-pkgver-pkgrel.pkg.tar.gz</I>
+file already exists in the build directory.  You can override this behaviour with
+the <B>--force</B> switch.
+<DT><B>-g, --genmd5</B>
+
+<DD>
+Download all source files (if required) and use <I>md5sum</I> to generate md5 hashes
+for each of them.  You can then redirect the output into your PKGBUILD for source
+validation (makepkg -g &gt;&gt;PKGBUILD).
+<DT><B>-h, --help</B>
+
+<DD>
+Output syntax and commandline options.
+<DT><B>-i, --install</B>
+
+<DD>
+Install/Upgrade the package after a successful build.
+<DT><B>-j &lt;jobs&gt;</B>
+
+<DD>
+Sets MAKEFLAGS=&quot;-j&lt;jobs&gt;&quot; before building the package.  This is useful for overriding
+the MAKEFLAGS setting in /etc/makepkg.conf.
+<DT><B>-m, --nocolor</B>
+
+<DD>
+Disable color in output messages
+<DT><B>-n, --nostrip</B>
+
+<DD>
+Do not strip binaries and libraries.
+<DT><B>-o, --nobuild</B>
+
+<DD>
+Download and extract files only, do not build.
+<DT><B>-p &lt;buildscript&gt;</B>
+
+<DD>
+Read the package script <I>&lt;buildscript&gt;</I> instead of the default (<I>PKGBUILD</I>).
+<DT><B>-r, --rmdeps</B>
+
+<DD>
+Upon successful build, remove any dependencies installed by makepkg/pacman during
+dependency auto-resolution (using <B>-b</B> or <B>-s</B>).
+<DT><B>-s, --syncdeps</B>
+
+<DD>
+Install missing dependencies using pacman.  When makepkg finds missing build-time
+or run-time dependencies, it will run pacman to try and resolve them.  If successful,
+pacman will download the missing packages from a package repository and
+install them for you.
+<DT><B>-w &lt;destdir&gt;</B>
+
+<DD>
+Write the resulting package file to the directory <I>&lt;destdir&gt;</I> instead of the
+current working directory.
+<P>
+</DL>
+<A NAME="lbAK">&nbsp;</A>
+<H2>CONFIGURATION - 設定</H2>
+
+Configuration options are stored in <I>/etc/makepkg.conf</I>.  This file is parsed
+as a bash script, so you can export any special compiler flags you wish
+to use.  This is helpful for building for different architectures, or with
+different optimizations.
+<P>
+<B>NOTE:</B> This does not guarantee that all package Makefiles will use
+your exported variables.  Some of them are flaky...
+<A NAME="lbAL">&nbsp;</A>
+<H2>其他相關說明</H2>
+
+<B>pacman</B> is the package manager that uses packages built by makepkg.
+<P>
+See the Arch Linux Documentation for package-building guidelines if you wish
+to contribute packages to the Arch Linux project.
+<A NAME="lbAM">&nbsp;</A>
+<H2>AUTHOR - 作者</H2>
+
+<PRE>
+Judd Vinet &lt;<A HREF="mailto:jvinet@zeroflux.org">jvinet@zeroflux.org</A>&gt;
+</PRE>
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A>
+<H2>目錄</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME - 程式名稱</A>
+<DD>
+<DT><A HREF="#lbAC">SYNOPSIS - 使用語法</A>
+<DD>
+<DT><A HREF="#lbAD">DESCRIPTION - 功用說明</A>
+<DD>
+<DT><A HREF="#lbAE">BUILD PROCESS (or How To Build Your Own Packages)</A><DD>
+<DT><A HREF="#lbAF">PKGBUILD Example :</A>
+<DD>
+<DT><A HREF="#lbAG">Install/Upgrade/Remove Scripting</A><DD>
+<DT><A HREF="#lbAH">Install scripts must follow this format :</A>
+<DD>
+<DT><A HREF="#lbAI">PKGBUILD Directives - 指示元</A>
+<DD>
+<DT><A HREF="#lbAJ">MAKEPKG OPTIONS - 選項</A>
+<DD>
+<DT><A HREF="#lbAK">CONFIGURATION - 設定</A>
+<DD>
+<DT><A HREF="#lbAL">SEE ALSO - 相關說明</A>
+<DD>
+<DT><A HREF="#lbAM">AUTHOR - 作者</A>
+<DD>
+</DL>
+<HR>
+</BODY>
+</HTML>

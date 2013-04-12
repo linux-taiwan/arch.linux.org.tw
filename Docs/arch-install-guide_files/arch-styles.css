@@ -1,0 +1,141 @@
+body {
+	background: white;
+	color: black;
+	font-family: Verdana, Trebuchet MS, Tahoma, Luxi Sans, sans-serif;
+	font-size: small;
+	margin: 2em;
+}
+img {
+	border: none;
+}
+h1, h2, h3, h4 {
+	color: #2f6dff;
+}
+h1 {
+	text-align: center;
+	font-size: xx-large;
+}
+h2 {
+	font-size: x-large;
+	font-style: italic;
+}
+h3 {
+	font-size: large;
+}
+h4 {
+	font-size: medium;
+	font-style: italic;
+}
+ul li {
+	margin-bottom: 0.3em;
+}
+tr {
+	vertical-align: middle;
+}
+td {
+	vertical-align: top;
+}
+th {
+	color: white;
+	background: #2f6dff;
+}
+hr {
+	height:1px;
+	color: #2f6dff;
+}
+a {
+	color: #2f6dff;
+	text-decoration: underline;
+}
+a:hover {
+}
+dl {
+	padding: 0.5em;
+	border: thin outset blue;
+	background-color: #eee;
+}
+dt {
+	color: #1111ee;
+	font-family: monospace;
+	margin-top: 1em;
+}
+/* special classes */
+/* an 'address' tag including name and email address
+ * should be included for every author of a document */
+address {
+	font-style: italic;
+	text-align: center;
+}
+/* Email addresses, no matter where they appear, should
+ * be linked with the 'email' class */
+a.email:before {
+	content: "<";
+}
+a.email:after {
+	content: ">";
+}
+a.email {
+	font-style: normal;
+}
+/* document version style */
+div.version {
+	font-style: italic;
+	text-align: center;
+}
+/* document date style */
+div.date {
+	font-weight: bold;
+	text-align: center;
+}
+/* different text color for content that is supposed to
+ * contrast (nicely) with flowing text */
+code {
+	color: #1111ee;
+}
+/* notes and warnings should be boxed */
+div.note, div.warning {
+	border-style: solid;
+	border-width: thin thin thin thick;
+	background-color: #eee;
+	padding: 0.75em;
+}
+/* border color for informational notes and hints */
+div.note {
+	border-color: blue;
+}
+/* border color for important warnings */
+div.warning {
+	border-color: red;
+}
+/* code is for inline code, pre is for boxed sections
+ * of formatted code or keyboard input */
+code, pre {
+	font-family: monospace;
+	white-space: pre;
+}
+pre {
+	border: thin outset blue;
+	background-color: #eee;
+	padding: 0.5em;
+}
+/* thumbnail for images */
+div.thumbnail {
+	text-align: center;
+	padding: 0.2em;
+}
+div.thumbnail p {
+	font-size: smaller;
+	font-weight: bold;
+	text-align: center;
+}
+div.thumbnail img {
+	border: none;
+}
+/* optional coloring of user input */
+span.type {
+	color: #1111ee;
+}
+/* optional coloring of remarks inbetween user input */
+span.remark {
+	color: red;
+}

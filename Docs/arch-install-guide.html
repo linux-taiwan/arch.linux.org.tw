@@ -1,0 +1,2154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+  <title>Arch Linux 安裝指南</title>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link rel="stylesheet" type="text/css" href="arch-install-guide_files/arch-styles.css" />
+
+  <style type="text/css">
+<!--
+body,td,th {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #000000;
+}
+body {
+background-color: #EAEAEA;
+}
+-->
+  </style></head>
+
+<body>
+<h1>Arch Linux 0.7 (Wombat) </h1>
+
+<h1>安裝指南中文版</h1>
+
+<div class="date">Sep 19, 2004</div>
+
+<div class="version">Version 1.0.0</div>
+
+<address> Dennis Herbrich <a class="email" href="mailto:dennis@archlinux.org">dennis@archlinux.org</a> </address>
+
+<address> Judd Vinet <a class="email" href="mailto:judd@archlinux.org">judd@archlinux.org</a><br /></address>
+<div style="text-align: center;">
+中文版翻譯：wHisKy
+</div>
+<h2 id="summary">概要</h2>
+
+<p> 這是 Arch Linux 發行套件 0.7 版 (<strong>Wombat</strong>) 的<strong>通用使用者手冊</strong>。
+這份文件的主題包含了如何取得必備的檔案，如何安裝發行套件和如何設定一個基本，可啟動的系統。此外，這份文件還包含了一些關於系統架構與 Arch
+專屬工具程式，例如 <code>pacman</code> 套件管理程式和 ABS 的簡略參考資訊。</p>
+
+<h2 id="toc">目錄</h2>
+
+<div class="toc">
+<ol>
+<li><a href="#intro">前言Introduction</a>
+<ol>
+<li><a href="#whatis">什麼是What is Arch Linux?</a></li>
+<li><a href="#license">版權宣告License</a></li>
+<li><a href="#feedback">貢獻與迴響Credits and Feedback</a></li>
+</ol>
+</li>
+<li><a href="#install">安裝Installing Arch Linux</a>
+<ol>
+<li><a href="#preinst">安裝前的準備Pre-Installation</a></li>
+<li><a href="#cdinst">使用Using The CD-ROM</a></li>
+<li><a href="#floppyinst">使用Using The Floppies</a></li>
+<li><a href="#commoninst">通用安裝程序Common Installation Procedure</a></li>
+</ol>
+</li>
+<li><a href="#config">系統設定System Configuration</a>
+<ol>
+<li><a href="#cfiles">設定指令檔Configuration Files</a></li>
+<li><a href="#bootrc">啟動指令檔Boot Scripts</a></li>
+<li><a href="#userman">管理使用者User Management</a></li>
+<li><a href="#internet">網路連線Internet Access</a></li>
+</ol>
+</li>
+<li><a href="#packages">程式套件的管理Package Management</a>
+<ol>
+<li><a href="#pacman">Pacman</a></li>
+<li><a href="#repos">讀取Accessing Repositories</a></li>
+</ol>
+</li>
+<li><a href="#abs">Arch 建立系統Arch Build System (ABS)</a>
+<ol>
+<li><a href="#source">執行檔 vs 原始碼Binary vs. Source</a></li>
+<li><a href="#syncing"> 同步您的 ABS 樹狀架構Synchronizing Your ABS Tree</a></li>
+<li><a href="#build">如何建立程式套件How To Build Packages</a></li>
+<li><a href="#guidelines">程式套件標準指南Package Guidelines</a></li>
+</ol>
+</li>
+<li><a href="#faq">常見問答集Frequently Asked Questions</a>
+<ol>
+<li><a href="#faq1">在安裝程式套件時，pacman 無法解決套件 A 的 dependencies 因為套件 B 並不在
+package set</a></li>
+<li><a href="#faq2">在系統啟動時，我得到了一個 kernel panic 的訊息 : <q>Unable
+to open initial console</q></a></li>
+<li><a href="#faq3">如何使用 pacman --sync 這個指令來安裝在安裝光碟上的程式套件 (so it resolves dependencies for me)?</a></li>
+<li><a href="#faq4">在安裝系統的程序中，我該如何建立多個 swap 分割區?</a></li>
+<li><a href="#faq5">如何使用 rescue system 來重新設定 LILO ?</a></li>
+<li><a href="#faq6">我無法 ssh 連線到我自己的機器內!</a></li>
+<li><a href="#faq7">How should I load modules during boot now?</a></li>
+<li><a href="#faq8">Kernel 核心拒絕啟動因為<q>lost
+interrupt</q></a></li>
+<li><a href="#faq9">在播放音樂或是讀取 DVD 光碟片時，我得到<q>access denied</q> 的錯誤訊息</a></li>
+<li><a href="#faq10">使用 pacman 安裝程式套件時，我得到這個錯誤訊息 : <q>error : xorg conflicts with xfree86</q></a></li>
+</ol>
+</li>
+</ol>
+</div>
+
+<h2 id="intro">前言Introduction</h2>
+
+<h3 id="whatis">什麼是What is Arch Linux?</h3>
+
+<p> Arch Linux 是個專為 i686 微處理器最佳化過的 linux 發行套件。他一開始是採用另一套 Linux 發行套件 <a href="http://www.crux.nu/">CRUX</a> 的架構。Crux 是一套由 Per Lid&eacute;n 開發，很棒的 Linux 發行套件。</p>
+
+<p> Arch 代表了<strong> 快速fast, 輕巧lightweight, flexible 和簡易 simple</strong>.
+這些形容詞可能看起來都沒啥吸引人之處，但是他們都是事實。 Arch 是套專為<strong>i686 微處理器最佳化</strong>的 Linux 發行套件， so you get more for your cpu cycle.
+跟 Redhat 等其他 Linux 發行套件相比， Arch 顯得輕巧多了，同時他的簡易設計也讓我們可以<strong>輕鬆的擴充</strong>他的功能，並依照我們對系統的需求and mold into whatever kind of
+system you're building. </p>
+<p> This is backed by an <strong>easy-to-use binary package system</strong>
+that allows you to upgrade your entire system with one command. Arch
+also uses a <strong>ports-like package build system</strong> (Arch
+Build System) to make it easy to build packages, which can also be
+synchronized with one command. Oh yeah, and you can rebuild your entire
+system with one command, too. Everything is done quite simply and
+transparently. </p>
+
+<p> Arch Linux strives to maintain the <strong>latest stable version</strong>
+of its software. We currently support a fairly streamlined core package
+set with a growing collection of extra packages made by users and <acronym title="Arch Linux">AL</acronym> developers. </p>
+
+<p> 為了追求簡單和輕巧這兩個目標，一些對 linux 系統執行上沒什麼用處的部分都已經被摒除在外，例如 /usr/doc 和 info pages 等等。在我個人的使用經驗上，這些東西幾乎根本沒有機會被用到，如果你真的需要這些資訊，相同的資料都可以更簡單的從網路上取得。
+Manpages all the way... </p>
+
+<p> Arch Linux also strives to use some of the newer features that are
+available to linux users, 例如對 hotplug 和 udev 的支援。 Arch Linux
+0.7 (Wombat) 內定使用 2.6 版的 linux kernel ，並直接支援
+XFS/JFS這兩種檔案系統。</p>
+
+<h3 id="license">版權宣告</h3>
+
+<p> Arch Linux， pacman，所有的相關文件與 scripts 的版權 &copy;2002-2005 都歸 Judd
+Vinet 所有，並使用 <a href="http://www.gnu.org/copyleft/gpl.html">GNU Public
+License</a>
+的版權規定。 </p>
+
+<h3 id="feedback">貢獻與迴響Credits and Feedback</h3>
+
+<p> 這一份文件主要採用了This document is heavily based on the works of Judd Vinet
+<a class="email" href="mailto:judd@archlinux.org">judd@archlinux.org</a>.
+局部的修正Minor corrections and a good bunch of modifications and additions
+have been made by Dennis Herbrich <a class="email" href="mailto:dennis@archlinux.org">dennis@archlinux.org</a>.
+任何關於這份文件的修正和迴響都該提交到 <a href="http://bugs.archlinux.org/" title="Bugtracker">bugtracker</a>。 An uncountable lot of people have
+contributed and will contribute to the evolution of the official Arch
+Linux Documentation by submitting corrections and suggesting
+improvement, it's way too unpractical to list them all. However, you
+know who you are, and without your help this would be near impossible
+to maintain and improve. Thank you!
+</p>
+
+<p>繁體中文版本參考了由</p>
+
+<p> ietiland &lt;<a href="mailto:ietiland2@yahoo.com.tw">ietiland2@yahoo.com.tw</a>&gt;<br />
+Neil Lin &lt;<a href="mailto:neil536t@yam.com">neil536t@yam.com</a>&gt;
+</p>
+
+翻譯的 Arch Linux 安裝手冊 0.6 版中文
+<h2 id="install">安裝 Arch Linux</h2>
+
+<h3 id="preinst">安裝前的準備Pre-Installation</h3>
+
+<p> Arch Linux 是個為 i686 微處理器量身訂做的 GNU/Linux 套件。要使用 Arch Linux，您的系統<strong>至
+少需裝備</strong> pentium II 或是更高階的微處理器。Arch Linux 將<strong>無法</strong>在任何較低
+階的 X86 微處理器 (I386, I486, I586) 上執行。</p>
+
+<div class="note">
+<p>我們也有一版專為 i586 建立的程式套件組，但是因為人力的關係，這組套件並沒有持續的在更新，有人有興趣出來接嗎？</p>
+<p>譯者註 : 在 Arch Linux 的討論版內可以看到有人開始接管這一版專為 i586 訂製的 Arch Linux。 </p>
+</div>
+
+<p> 在開始安裝 Arch Linux前，您必須先決定好要您希望用哪一種<strong>安裝方式</strong>。Arch Linux
+提供了一個可開機的 ISO 映象檔讓您可直接使用<strong>光碟安裝</strong>，您當然也可以使用磁碟片來從<strong> FTP
+上安裝</strong>。您也可以下載一個只有大概 200 MB 大小，只包含了 <code>base</code> (基本套件組) 和 <code>kernels</code>
+(核心套件組) 的 <code>base</code> ISO 映象檔 but is otherwise identical. </p>
+
+<p> <strong>如果您的系統沒有光碟機</strong>，您當然只能使用磁碟片或是透過 FTP 的方法來安裝了。</p>
+
+<p> <strong>Otherwise obtain a bootable Arch installation CD</strong>,
+either by downloading and burning the latest ISO from <a href="#mirrorlist" title="list of Arch Linux mirrors">one of the
+mirrors</a> listed below, or by letting someone else <strong>burn a
+copy</strong> if your dialup connection simply doesn't cut it, or you
+don't own a cd writer. You can also <a href="http://www.osdisc.com/cgi-bin/view.cgi/products/linux/arch">purchase
+a cd</a> online from OSDisc, shipping nearly world-wide. </p>
+
+<p> 您也可以<strong>使用光碟透過 FTP 安裝</strong>， the <strong>floppy variant</strong>
+is really only recommended as a <strong>last resort</strong>, as it's
+painfully slow and disks tend to be broken more often than they are
+intact. </p>
+
+<p> Furthermore you should not worry about <strong>using an old ISO</strong>
+for installation, as <strong>upgrading the system</strong> to the
+current branch <strong>is a breeze</strong> once you've got your base
+system set up. At least if you've got a <strong>broadband connection</strong>.
+</p>
+
+<div class="warning"> 在<strong>安裝的過程中</strong>，目前您依然<strong>無法</strong>透
+過<strong> PPP 撥接連線的方式</strong>來連接上網，因為使用 ppp 撥接所需的 pppd daemin 和 ISDN
+應用程式都沒有包含在 root disk image 內。 </div>
+
+<p> For a successful FTP install you <em>must</em> have a <strong>gateway
+in your LAN</strong> that is actually connected to the internet and
+routes any requests from the PC to be installed into the internet and
+back. Or, <strong>alternatively</strong>, you can of course have a
+properly set up <strong>FTP server in your LAN</strong> to install
+from. Point is that you cannot attach a modem to your PC and set up a
+connection with your provider with the Installer. It won't work. </p>
+
+<p> The <strong>newbie-friendliest method</strong> of installing Arch
+Linux surely is <strong>installing the base system</strong> and all
+you need to get online <strong>from the CD</strong>, and then run a
+complete system upgrade and add any other packages you want or need
+once you set up your internet connection. </p>
+
+<div class="warning"> Another thing you should know before trying to
+install Arch Linux is that during the install you're asked a few
+questions about which hard drive to prepare, what modules to load, and
+what changes to make to certain system-critical files like lilo.conf
+and rc.conf. The <strong>installer will not hold your hand</strong>
+here and guide you through any potential setup known and unknown to
+mankind, you are <strong>expected to know what to put in and leave out</strong>.
+This is quite a requirement for a newbie, so if this intimidates you
+already, <strong>make sure you read through this whole document</strong>
+to get at least a vague idea what is going to be asked, and check back
+on IRC, the <a href="http://bbs.archlinux.org/">forums</a> or a linux
+guru in your neighborhood if anything is not clear to you before you
+totally mess up your system. You may of course boldly step into the
+fight and tinker around and try until it works, but don't tell anyone
+afterwards you haven't been warned. That being said, it's not as bad as
+it seems. ;) </div>
+
+<h4 id="whatsneeded">您將需要什麼</h4>
+
+<ul>
+
+<li> a working <strong>knowledge</strong> of Linux and your system,
+尤其是您的系統的硬體資訊</li>
+<li> Arch Linux <strong>安裝媒體installation media</strong> (參閱 <a href="#mirrorlist">the mirror list</a>)
+  <ul>
+<li>一片 Arch Linux 安裝光碟，<em>或是</em></li>
+<li> 2-7 片磁碟片，依照您的系統的要求 : SCSI， ethernet，等等。</li>
+</ul>
+</li>
+<li> 一台<strong> i686-based 電腦系統</strong> (PPro, Pentium 2 或更高階，
+Athlon/Duron，等等。請注意， AMD K6， Transmeta Crusoe， CyrixIII 與 VIA-C3
+都不在支援的名單內。) </li>
+<li> 一些<strong>可消磨的時間</strong> </li>
+</ul>
+
+<h4 id="mirrorlist">取得 Arch Linux</h4>
+
+<p> 您可以從 <a href="http://www.archlinux.org/download.php">下載網頁</a>
+上的列出的任何一個鏡像站下載 Arch Linux。如果您選擇使用從 FTP
+來安裝，並下載了磁碟片的映象檔，請選擇一個提供這些程式套件的 mirror。 Likewise, 如果您希望從光碟來安裝，請確定您選擇的鏡像站有提供光碟片的 ISO 映象檔。</p>
+
+<p> 下面所列出的 mirrors 只是提供參考用 (請注意有些 mirror 網站可能已經<strong>資料過時</strong>;
+請參閱網站以取得最新的鏡像站名單): </p>
+
+<table cellspacing="1">
+
+<tbody>
+<tr>
+<th colspan="2" style="text-align: left;">下載 MIRRORS</th>
+</tr>
+<tr>
+<td class="postbody" width="316"> <a href="ftp://cle.linux.org.tw/pub/ArchLinux/" target="_blank">ftp://cle.linux.org.tw/pub/ArchLinux/</a></td>
+<td style="text-align: right;" width="149">
+<div align="left">台灣 Taiwan </div>
+</td>
+</tr>
+<tr>
+<td> <a href="http://prdownloads.sourceforge.net/archlinux/">
+http://prdownloads.sourceforge.net (ISO only) </a> </td>
+<td style="text-align: right;">
+<div align="left">美國 USA</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.nethat.com/pub/linux/archlinux/">
+ftp://ftp.nethat.com </a> </td>
+<td style="text-align: right;">
+<div align="left">美國 USA</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.ibiblio.org/pub/linux/distributions/archlinux/">
+ftp://ftp.ibiblio.org </a> </td>
+<td style="text-align: right;">
+<div align="left">美國 USA</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.oit.unc.edu/pub/Linux/distributions/archlinux/">
+ftp://ftp.oit.unc.edu </a> </td>
+<td style="text-align: right;">
+<div align="left">美國 USA</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp-linux.cc.gatech.edu/pub/linux/distributions/archlinux/">
+ftp://ftp-linux.cc.gatech.edu </a> </td>
+<td style="text-align: right;">
+<div align="left">美國 USA</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.belnet.be/packages/archlinux/">
+ftp://ftp.belnet.be </a> </td>
+<td style="text-align: right;">
+<div align="left">比利時 Belgium </div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.kegep.tuc.gr/archlinux/">
+ftp://ftp.kegep.tuc.gr/archlinux/ </a> </td>
+<td style="text-align: right;">
+<div align="left">希臘 Greece</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.du.se/pub/mirrors/sourceforge/archlinux/">
+ftp://ftp.du.se (ISO only) </a> </td>
+<td style="text-align: right;">
+<div align="left">瑞典Sweden</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.fsn.hu/pub/linux/distributions/archlinux/">
+ftp://ftp.fsn.hu </a> </td>
+<td style="text-align: right;">
+<div align="left">匈牙利 Hungary</div>
+</td>
+</tr>
+<tr>
+<td> <a href="http://darkstar.ist.utl.pt/archlinux/">
+http://darkstar.ist.utl.pt </a> </td>
+<td style="text-align: right;">
+<div align="left">葡萄牙 Portugal</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.parrswood.net/Mirrors/ftp.archlinux.org/">
+ftp://ftp.parrswood.net </a> </td>
+<td style="text-align: right;">
+<div align="left">英國 Great Britain</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.nluug.nl/pub/metalab/distributions/archlinux/">
+ftp://ftp.nluug.nl </a> </td>
+<td style="text-align: right;">
+<div align="left">荷蘭 Netherlands</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.surfnet.nl/pub/os/Linux/distr/archlinux/">
+ftp://ftp.surfnet.nl </a> </td>
+<td style="text-align: right;">
+<div align="left">荷蘭 Netherlands</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.archlinux.de/pub/archlinux/">
+ftp://ftp.archlinux.de </a> </td>
+<td style="text-align: right;">
+<div align="left">德國 Germany</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.mpi-sb.mpg.de/pub/linux/mirror/ftp.ibiblio.org/pub/Linux/distributions/archlinux/">
+ftp://ftp.mpi-sb.mpg.de </a> </td>
+<td style="text-align: right;">
+<div align="left">德國 Germany</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.tu-chemnitz.de/pub/linux/sunsite.unc-mirror/distributions/archlinux/">
+ftp://ftp.tu-chemnitz.de </a> </td>
+<td style="text-align: right;">
+<div align="left">德國 Germany</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.gwdg.de/pub/linux/metalab/distributions/archlinux/">
+ftp://ftp.gwdg.de </a> </td>
+<td style="text-align: right;">
+<div align="left">德國 Germany</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://ftp.rez-gif.supelec.fr/pub/Linux/distrib/archlinux/">
+ftp://ftp.rez-gif.supelec.fr </a> </td>
+<td style="text-align: right;">
+<div align="left">法國 France</div>
+</td>
+</tr>
+<tr>
+<td> <a href="http://archlinux.antesis.org/">
+http://archlinux.antesis.org </a> </td>
+<td style="text-align: right;">
+<div align="left">法國 France</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://archlinux.creativa.cl/">
+ftp://archlinux.creativa.cl </a> </td>
+<td style="text-align: right;">
+<div align="left">智利 Chile</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://saule.mintis.lt/pub/linux/">
+ftp://saule.mintis.lt </a> </td>
+<td style="text-align: right;">
+<div align="left">立陶宛 Lithuania</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://sunsite.icm.edu.pl/site/linux-sunsite/distributions/archlinux/">
+ftp://sunsite.icm.edu.pl </a> </td>
+<td style="text-align: right;">
+<div align="left">波蘭 Poland</div>
+</td>
+</tr>
+<tr>
+<td> <a href="http://mirror.pacific.net.au/ibiblio/distributions/archlinux/">
+http://mirror.pacific.net.au </a> </td>
+<td style="text-align: right;">
+<div align="left">澳大利亞 Australia</div>
+</td>
+</tr>
+<tr>
+<td> <a href="ftp://gd.tuwien.ac.at/opsys/linux/archlinux">
+ftp://gd.tuwien.ac.at </a> </td>
+<td style="text-align: right;">
+<div align="left">奧地利 Austria</div>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4>準備安裝媒體 Media</h4>
+
+<h4>磁片安裝Floppy Install</h4>
+
+<ol>
+
+<li> 下載 <code>images/boot.img</code> (path is relative to the mirror
+root) </li>
+<li>下載 <code>images/root.img</code></li>
+<li> 下載 any add-on images you need from the <code>images/addons/</code> 子目錄 : <dl>
+<dt>ether_pcmcia.img</dt>
+<dd>PCMCIA 應用程式/模組，乙太網路模組</dd>
+<dt>fs.img</dt>
+<dd>XFS/JFS filesystem 應用程式， Ext2 額外應用程式</dd>
+<dt>keymaps_usb_firewire.img</dt>
+<dd>Additional keymaps/consolefonts, USB/Firewire 模組</dd>
+<dt>raid_lvm.img</dt>
+<dd>RAID/LVM 模組與應用程式</dd>
+<dt>scsi.img</dt>
+<dd>SCSI 模組</dd>
+</dl>
+</li>
+<li> 找出一些空白的磁碟片，然後<strong>將映象檔寫到磁碟片</strong>上<strong> </strong>:
+<pre><span class="remark">(插入第一片磁碟)</span><br /># <span class="type">dd if=boot.img of=/dev/fd0</span><br /><span class="remark">(插入第二片磁碟)</span><br /># <span class="type">dd if=root.img of=/dev/fd0</span><br /><span class="remark">(repeat for any additional add-on images)</span><br /># <span class="type">dd if=scsi.img of=/dev/fd0</span></pre>
+<div class="note"> 如果您需要在 <strong>Windows 環境下</strong>寫入這些映象檔，您可以 <a href="ftp://ftp.archlinux.org/images/rawrite.exe">下載 rawrite.exe</a>
+並用這個程式來取代 <code>dd </code>這個指令和功能。</div>
+</li>
+<li> 記錄並寫下所有您的<strong>網路設定參數</strong>，以便在之後的安裝程序中直接輸入，如果您希望從 FTP 來安裝
+:
+<ul>
+<li>IP Address</li>
+<li>Subnet Mask</li>
+<li>Gateway</li>
+<li> 您的網路卡的 Ethernet 模組 (例如 : eepro100, 8139too) </li>
+</ul>
+</li>
+</ol>
+
+<h4>光碟安裝CD Install</h4>
+
+<ol>
+
+<li> 下載 <code>0.7/iso/i686/arch-0.7.iso</code> (path relative to
+mirror root) </li>
+<li>下載 <code>0.7/iso/i686/arch-0.7.md5sum</code></li>
+<li>使用<code> md5sum</code> 來<strong>檢驗</strong> .iso 映象的的<strong>完整性</strong>
+:
+<pre># <span class="type">md5sum --check arch-0.7.md5sum</span><br />arch-0.7.iso: OK</pre>
+</li>
+<li> <strong>燒錄 .iso 映象檔</strong>到空白光碟片上
+(這個步驟將會依照您所使用的作業系統/應用程式的不同而異)。
+<div class="note"> 如果您希望下載 base (基本的) 或是 beta 的 ISO
+映象檔，請輸入正確的檔案名稱，例如 : <code>arch-0.7-base.iso</code> 而不是 <code>arch-0.7.iso，</code>
+likewise for the md5sum. </div>
+</li>
+<li> 記錄並寫下所有您的<strong>網路設定參數</strong>，以便在之後的安裝程序中直接輸入，如果您希望從 FTP 來安裝
+:
+<ul>
+<li>IP Address</li>
+<li>Subnet Mask</li>
+<li>Gateway</li>
+<li> 您的網路卡的 Ethernet 模組 (例如 : eepro100, 8139too)
+</li>
+</ul>
+</li>
+</ol>
+
+<h3 id="cdinst">使用光碟Using the CD-ROM</h3>
+
+<p> 如果您不是使用光碟片開機與安裝，您該略過這個章節，直接跳到 <a href="#floppyinst">磁碟片安裝Floppy
+Installation instructions</a> 。如果您對開機程序已經很熟悉了，您也可以略過這一段 babble ，直接跳到<a href="#commoninst">通用安裝程序Common Install Procedure</a> 一節，在這一章節，我們將會依序介紹安裝ArchLinux 的步驟。</p>
+
+<p> 將 ArchLinux 的安裝光碟放到光碟機內後<strong>重新啟動您的電腦</strong>。請記得先把系統的 <strong>BIOS</strong> 設定為允許 <strong>由光碟機開機</strong>。如果您不知道該怎麼設定這一個步驟，請查閱您的<strong>主機板的手冊</strong>或是向您的系統銷售商詢問相關細節。當系統正確由光碟片開機後，您將會看到一個啟動提示號 <strong>（boot prompt）</strong> 一直等待您輸入指令，並顯示目前您可以使用的選擇有哪些。如果您要安裝 Arch Linux 到一台裝配 <strong>IDE</strong> 硬碟的電腦內，請在提示號後直接<strong>按一下 &lt;ENTER&gt; 按鍵</strong>。如果您的系統使用了 <strong>SCSI</strong>
+的周邊，請輸入 <code>arch-scsi</code> 來載入支援 SCSI 的核心（SCSI-enabled kernel）。您也可以在此鍵入任何<strong> 核心參數（kernel parameters）</strong>如果您覺得您將有需要。</p>
+<div class="note"> 如果您的光碟因為不明的原因無法啟動，而您所用的光碟機已經有點年紀，同時您使用了 CD-RW 的光碟片來安裝，建議您改用CDR的空片來複製安裝光碟片。一些比較老舊的光碟機 [例如我的這一台 - Dennis] 可能無法正確讀取 CD-RW 光碟片上的資料。</div>
+
+<p> 在系統啟動程序結束時，您應該會在電腦螢幕上看到一個 <strong>root
+shell</strong> with a handful of instructions filling the upper half of
+your screen. At this point you are ready to commence the <a href="#commoninst">actual installation</a>. Don't let those
+instructions fool you; When booting from a CD, you don't have to run
+the <code>loaddisk</code> anymore as it's done automatically during
+boot. </p>
+
+<h3 id="floppyinst">使用磁碟片Using The Floppies</h3>
+
+<div class="note"> 如果您有<em>_任何</em>_機會使用 ArchLinux 的安裝光碟啟動您的系統，我們_<em>強烈建議</em>_您就直接用安裝光碟來安裝 ArchLinux 了。Not only are the floppies themselves <strong>prone to failure</strong>,
+the whole boot process takes much longer, and if you need a handful of
+modules the disk-juggling is very unnerving. Note that you do <em>not</em>
+have to boot from floppies to install via FTP, CD-ROM will do <em>just
+fine</em>. </div>
+
+<p> <strong>Reboot your computer</strong> with the boot disk in the
+floppy drive. After some disk-crunching noises, you should come to a <strong>boot
+prompt</strong>, waiting eagerly for your input. <strong>Press Enter</strong>
+to continue the boot process after adding any potentially needed kernel
+parameters. </p>
+
+<div class="note"> If you are using a <strong>USB keyboard</strong>,
+you will need to <strong>load USB support</strong> automatically at
+bootup. You can do this by <strong>setting the <code>NEEDUSB</code>
+parameter</strong> to your USB bus type. For example, if you have a <code>UHCI</code>
+bus, you would type <code>arch NEEDUSB=uhci</code> at the boot prompt.
+After the root disk loads, you will be prompted to <strong>load the
+USB add-on disk</strong>, which will be auto-loaded after a 10-second
+wait. If you're not sure what kind of USB bus you have, try specifying <code>NEEDUSB=auto</code>,
+which will load all three (UHCI,OHCI,EHCI) bus modules. </div>
+
+<p> Partway through the boot-up process, you will be prompted: </p>
+
+<pre>VFS: Insert root floppy disk to be loaded into RAM disk and press ENTER</pre>
+
+<p> Insert the <strong>root disk</strong> in the drive and hit Enter.
+After some more chunking you will be given a <strong>shell</strong>.
+Since you'll be needing your <strong>ethernet module</strong> for the
+install, you should now <strong>load the modules</strong> from the <strong>ether_pcmcia
+disk</strong>. Put the disk in the drive and run: </p>
+
+<pre># <span class="type">loaddisk /dev/floppy/0</span></pre>
+
+<p> After a while all ethernet modules will be <strong>extracted to
+the filesystem</strong>. If the directory <code>/lib/modules/</code>
+is still empty after this command, and/or you got a couple of errors,
+your disk is most likely <strong>gone bad</strong>. Create a new
+modules disk, and <strong>try again</strong>. You do <em>not</em>
+need to reboot in this case, just reissue the <code>loaddisk</code>
+command. Don't be worried if you have <strong>several disks</strong>
+failing this way, it's unfortunately quite common. Don't say nobody
+told you. </p>
+
+<p> You should also <strong>load any additional add-on disks</strong>
+that you need, such as SCSI or RAID/LVM. Use the <code>loaddisk</code>
+command as above for each disk, order does not matter. </p>
+
+<p> If you know which <strong>ethernet module</strong> you need, you
+should <strong>load it now</strong> with the <code>modprobe</code>
+command. Don't worry too much if you don't, the installer program will
+probe for the right module automatically. </p>
+
+<h3 id="commoninst">通用安裝程序Common Installation Procedure</h3>
+
+<p> 到目前為止，您的系統應該已經正常開機，同時您的At this point your system should be booted,
+and the hard drive to which you'd like to install, as well as your
+installation source, must be accessible. 如果有必要，請確定所有必須的模組都已經載入。</p>
+
+<p> <strong>安裝步驟 :</strong> </p>
+
+<div class="toc">
+<ol style="list-style-type: none; list-style-image: none; list-style-position: outside;">
+<li><a href="#commoninst1">執行Running Setup</a></li>
+<li><a href="#commoninst2">設定網路Configure Network (如果您要從 FTP 安裝FTP
+Install only)</a></li>
+<li><a href="#commoninst31">準備硬碟Prepare Hard Drive</a>
+<ol style="list-style-type: none; list-style-image: none; list-style-position: outside;">
+<li><a href="#commoninst31">自動設定Auto-Prepare</a></li>
+<li><a href="#commoninst32">切割硬碟Partition Hard Drives</a></li>
+<li><a href="#commoninst33">設定Set Filesystem Mountpoints</a></li>
+</ol>
+</li>
+<li><a href="#commoninst4">選擇軟體套件Select Packages</a></li>
+<li><a href="#commoninst5">安裝軟體套件Install Packages</a></li>
+<li><a href="#commoninst6">安裝核心Install Kernel</a></li>
+<li><a href="#commoninst7">設定系統Configure System</a></li>
+<li><a href="#commoninst8">安裝啟動載入器Install Bootloader</a></li>
+<li><a href="#commoninst9">結束安裝Exit Install</a></li>
+</ol>
+</div>
+
+<p> Using the <strong>available shell tools</strong>, experienced
+users are also able to <strong>prepare the hard drive or any devices</strong>
+needed for the installation <strong>before starting the installer</strong>.
+You may simply <strong>skip this paragraph</strong> if you don't see
+any immediate need for further manual interaction. Note that the Arch
+Linux installation media also contains a <code>/arch/quickinst</code>
+script for experienced users. This script installs the <q>base</q> set
+of packages to a <strong>user-specified destination directory</strong>.
+If you are doing an exotic install with fun things like RAID and LVM,
+or don't want to use the installer at all, you'll probably want to use
+the <code>quickinst</code> script. </p>
+
+<h4 id="commoninst1">執行Running Setup</h4>
+
+<p> 現在您可以執行 <code>/arch/setup</code> 來啟動安裝程式。 After some info messages
+you will be prompted for the <strong>installation method</strong> of
+your choice. 如果您有網路寬頻，您可能會<strong>想要從 FTP 來安裝</strong> you might <strong>prefer</strong>
+the <strong>FTP installation</strong> to ensure you get the latest
+packages instead of using the <strong>potentially outdated</strong> CD
+contents. Note that you will probably run into trouble if you have an
+interesting proxy setup. If you can't use a CD-ROM, this is the <strong>only
+viable method</strong> of installing ArchLinux. </p>
+
+<div class="warning"> When navigating the setup script, make sure that
+you select <strong>DONE</strong> from the submenus after performing
+each step. This saves any settings you make in preparation for the next
+step. Further, avoid backstepping through previous steps in the
+installation process as this can also confuse the installer. </div>
+</p>
+<div class="note"> It's actually rather easy to set up your <strong>own
+FTP package mirror</strong> or create your own <strong>bootable
+installation CD</strong> with the packages you need, making the task of
+installing <strong>several instances</strong> of ArchLinux across
+multiple machines rather simple, whilst at the same time saving a lot
+of <strong>mirror bandwidth</strong>. Make your and our life's easier,
+and look into these alternatives! </div>
+
+<p> 如果您選擇使用<strong>光碟片安裝</strong>，您將只能安裝<strong>光碟片內包含的軟體</strong>，這些軟體的
+版本可能都會有點老舊。當然，Of course it has the merit that you <strong>won't need
+an internet connection</strong>, and is therefore the recommended
+choice for <strong>dialup users</strong> or anyone else who does not
+feel like downloading <strong>about at least 100 MB</strong> of
+packages. </p>
+
+<p> 在從兩個選擇中決定您要使用的安裝方法後，您將可在電腦螢幕上看到<strong>安裝選單</strong>，<strong>依照必須完成的
+順序</strong>列出安裝過程必須的步驟。</p>
+
+<div class="note"> 在安裝中任何時候，您都可以切換顯示到第五個 <strong>virtual console</strong>
+(<code>ALT-F5</code>) 來檢視安裝過程中，每個下達的<strong>指令的輸出訊息</strong>。 使用 (<code>ALT-F1</code>)
+來切回到正在執行安裝程式的第一個 console ，如果您有需要<strong>手動執行某些指令</strong>，在安裝過程中您可以使用任何
+F-key 組合鍵來開啟其他的 console。</div>
+
+<h4 id="commoninst2">設定網路Configure Network (如果您要從 FTP 安裝)</h4>
+
+<p> <code>Configure Network</code> 將允許您<strong>安裝和設定您的網路環境</strong>。</p>
+
+<p> If <strong>no eth0 device is available</strong> yet, you will be
+asked whether you want the installer to <strong>probe for a network
+module</strong>. Choose <code>YES</code> here unless that messes up
+your system <em>horribly</em> (which shouldn't happen), or <code>NO</code>
+if you want to <strong>load the module manually</strong>. If the
+installer <strong>fails to find a matching network module</strong>,
+make sure you ran the <code>loaddisk</code> command correctly earlier
+to make the ethernet modules available. When <strong>booting from
+CD-ROM</strong>, this is done <strong>automatically</strong> for you.
+If your network card is <strong>still not found</strong>, make sure
+your card is <strong>properly physically installed</strong> and <strong>supported</strong>
+by the linux kernel at all. </p>
+
+<p> <strong>When the correct module is loaded</strong>, you will be
+given the option to <strong>configure your network with DHCP</strong>.
+If you're connected to a DHCP server, hit <code>YES</code> and let the
+installer do the rest. If you select <code>NO</code>, you will be
+asked to <strong>enter the networking information manually</strong>,
+which you hopefully wrote down as you were told. </p>
+
+<div class="note"> This menu entry is <strong>only available when
+choosing FTP Installation</strong>, for rather obvious reasons. </div>
+
+<h4 id="commoninst31">準備硬碟Prepare Hard Drive</h4>
+
+<p> <code>Prepare Hard Drive</code> 將會將螢幕顯示切換到有<strong>兩個選項</strong>的子選
+單讓您準備要用來安裝 arch Linux 的硬碟。</p>
+
+<p> The <strong>first choice</strong> is <code>Auto-Prepare</code>,
+which will <strong>automatically partition your hard drive</strong>
+into a <code>/boot</code>, <code>swap</code>, and <code>root</code>
+partition, and then <strong>create filesystems</strong> on all three.
+These partitions will also be <strong>automatically mounted</strong>
+in the proper place. To be exact, this option will create a </p>
+
+<ul>
+
+<li>32 MB ext2 /boot 分割區</li>
+<li>256 MB swap 分割區</li>
+<li>ext3 root 分割區（剩下所有您可用的空間）</li>
+</ul>
+
+<p> Actual sizes may <strong>vary slightly</strong> due to different
+hard disk geometries. You can choose this option if you don't know much
+about hard drive partitions, but be warned: </p>
+
+<div class="warning"> AUTO-PREPARE 自動準備將會把您所選擇的硬碟上的資料完全刪除！<br />
+<br />
+Read the warning presented by the installer <strong>very carefully</strong>,
+and make sure the <strong>correct device</strong> is about to be
+partitioned! </div>
+
+<p> A way to <strong>verify your choice</strong> for a device to
+partition would be to <strong>open another terminal</strong> (<code>ALT-F2</code>,
+<code>Enter</code>) and enter </p>
+
+<pre># <span class="type">cfdisk -P s &lt;name of device&gt;</span></pre>
+
+<p> there to display the current partition table of the selected
+device, which should suffice to identify the hard disk. </p>
+
+<p> If <strong>no device name is shown</strong> (<q>[nothing] will be
+COMPLETELY ERASED! ...</q>), and the installer produces an <q>Device
+not valid</q> error after hitting <code>YES</code>, make sure you <strong>loaded
+all needed modules</strong> if it's a SCSI, RAID, etc. device. You can
+still load any modules now by changing to another terminal and issuing
+the commands there, then return to the installer process on terminal
+one (<code>ALT-F1</code>). </p>
+
+<p> If you prefer to do the <strong>partitioning manually</strong>,
+use the other two options, <code>Partition Hard Drives</code> and <code>Set
+Filesystem Mountpoints</code> to prepare the target media according to
+your specifications as outlined below. Otherwise <code>Return to Main Menu</code> after a successful auto-preparation. </p>
+
+<h4 id="commoninst32">切割硬碟Partition Hard Drives</h4>
+
+<p> <code>Partition Hard Drives</code> should be <strong>skipped</strong>
+if you chose <code>Auto-Prepare</code> already. </p>
+
+<p> Otherwise you should <strong>select the disc(s)</strong> you want
+to partition, and you'll be dropped into the <code>cfdisk</code>
+program where you can freely modify the partitioning information until
+you <code>[Write]</code> and <code>[Quit]</code>. </p>
+
+<div class="note"> 您至少需要一個<code> swap</code> 和一個 <code>root</code>
+分割區來繼續下一步的安裝步驟。</div>
+
+<h4 id="commoninst33">設定Set Filesystem Mountpoints</h4>
+
+<p> <code>Set Filesystem Mountpoints</code> should also be <strong>skipped</strong>
+if you chose to <code>Auto-Prepare</code> your hard drive. You should
+select this choice once the partition information is <strong>edited to
+your liking</strong> with the previous menu selection, <strong>or
+already existent</strong> through whatever other means. </p>
+
+<p> The <strong>first question</strong> to answer is what partition to
+use as <code>swap</code>. Select the previously created <code>swap</code>
+partition from the list, and select the partition that is supposed to
+become your <code>root</code> partition in the next step. </p>
+
+<p> <strong>Every time</strong> you specify a partition to mount, you
+will be asked if you want to <strong>create a filesystem</strong> on
+the respective partition. If you select <code>YES</code>, you will be
+asked what filesystem to create (a matter of taste, really. Choose <code>ext2</code>
+if you have no clue), and <strong>the partition will be formatted</strong>
+with the chosen filesystem, <strong>destroying all data</strong> in
+the process. It should be no problem, however, to say <code>NO</code>
+at this point to preserve any existing files on the partition. </p>
+
+<div class="warning"> If you want to <strong>preserve existing data</strong>
+on a partition, you are strongly advised to <strong>create backups</strong>
+instead of hoping that nothing will go wrong during the install. Don't
+say I didn't warn you! </div>
+<p>
+<div class="note"> You will <em>not</em> be asked for a filesystem to
+use on your <code>swap</code> partition, as this partition uses a
+specific filesystem of it's own. </div>
+
+<p> If you want to mount <strong>any other partitions</strong>, for
+example a seperate <code>/boot</code> or <code>/home</code>
+partition, you will be able to do so now. Simply </p>
+
+<ul>
+
+<li>選擇要 mount 的分割區</li>
+<li> 選擇要使用的 filesystem (如果您想建立新的分割區並刪除原有的資料)</li>
+<li>choose a mountpoint for the partition</li>
+</ul>
+
+<p> Repeat these steps until you're satisfied, then select <code>DONE</code>
+to <strong>create any filesystems</strong> and <strong>mount the
+partitions</strong> in their respective places. After formatting and
+mounting all partitions, you will be dropped into the <code>Main Menu</code>,
+ready to proceed. </p>
+
+<div class="warning"> Do <strong>not</strong> mount <code>/tmp</code>
+on a seperate partition just yet, as it will <em>badly confuse</em>
+the installer! Simply leave the designated <code>/tmp</code> partition
+alone until the installation is done, and configure the partition
+manually after you have a running system if you must have a seperate
+partition for <code>/tmp</code>. </div>
+
+<h4 id="commoninst4">選擇軟體套件Select Packages</h4>
+
+<p> <code>Select Packages</code> 這個指令將可允許你從 CD 或是 FTP 鏡像站選擇你要安裝的軟體套件。</p>
+
+<p> <strong>If you chose CD-ROM installation</strong>, you have to
+tell the installer whether it should try to <strong>mount the CD</strong>
+itself, or whether you <strong> already mounted the source media in <code>/src</code></strong>.
+Select the option according to what you need; Normally you will want to
+choose <code>CD</code>, after which you will be given the possibility
+to <strong>choose a CDROM drive</strong> from the list of all detected
+devices. </p>
+
+<div class="note"> If your <strong>CD-ROM drive is not displayed</strong>
+in the list, make sure you loaded any modules that may be needed, like
+SCSI or USB storage support. </div>
+
+<p> <strong>If you chose FTP Installation</strong>, you will be asked
+to choose a mirror close to you from a list, or select <code>CUSTOM</code>
+to enter your own fully qualified FTP path to an installation source,
+ie. a <strong>prepared server in your LAN</strong>, or a mirror that's
+not listed for whatever reason. </p>
+
+<p> Whatever source you chose, <strong>after fetching the package list</strong>
+you'll be dropped into the <strong>package category selection</strong>
+screen. </p>
+
+<div class="note"> If you are presented an <strong>error while
+fetching the package database</strong>, you should either <strong>choose
+another FTP mirror</strong>, make sure your <strong>network is working</strong>
+at all, and you didn't slip any <strong>typos into your custom server
+address</strong>. You might also have <strong>goofed mounting of your
+source media</strong> in the <code>/src</code> directory, if you chose
+that option. </div>
+
+<p> Now, once that is tackled, you have the opportunity to <strong>specify
+whole package groups</strong> from which you'd generally like to
+install packages, then fine-tune your coarse selection by (de)selecting
+individual packages. </p>
+
+<p> Any packages in the <code>BASE</code> category <strong>should
+stay selected under all circumstances</strong>, and you should <strong>select
+any other group</strong> which contains a package you might need.
+Please note that the upcoming <strong>individual package selection</strong>
+screen will <em>only</em> offer packages which are in the categories
+you select here, so if you only select <code>BASE</code>, you won't be
+able to add any other packages than those in the <code>BASE</code>
+category. </p>
+
+<div class="note"> If you want to only <strong>select the bare minimum</strong>
+for installation, but be able to <strong>browse through all available
+packages</strong> nevertheless to see if anything interesting is there
+to add, you should <strong>select all package categories</strong>, but
+choose to <strong>NOT select all packages by default</strong>. </div>
+
+<p> The <q>Select all packages by default?</q> question can be easily
+misunderstood; Basically you are asked whether you want all the
+packages in the categories you just chose to be selected or not. <br />
+If you select <code>YES</code>, the <strong>whole list</strong> of
+packages contained in the <strong>chosen categories</strong> will be
+displayed <em>and</em> selected, and your job will be to <em>deselect</em>
+what you do <em>not</em> want.<br />
+If you select <code>NO</code>, the <strong>same list of packages</strong>
+will displayed, but <em>only</em> packages of the <code>BASE</code>
+category will be selected, and you'll have to <strong> explicitly
+select any other packages you want to install</strong>. </p>
+
+<div class="note"> 選擇<code> NO</code> helps to install a lean
+system! </div>
+
+<p> It is recommended that you <strong>install all the <code>BASE</code>
+packages</strong>, but not anything else at this point. Don't worry
+about getting all the packages you want - you can <strong>easily
+install more</strong> of them once the basic system boots by itself.
+The only exception to this rule is installing any packages you need for
+<strong>setting up internet connectivity</strong>. These packages
+usually are: </p>
+
+<dl>
+
+<dt>dhcpcd (base)</dt>
+<dd>加入這一項如果你的機器是 DHCP client.</dd>
+<dt>isdn4k-utils (network)</dt>
+<dd>加入這一項如果你使用 ISDN 撥接來上網</dd>
+<dt>ppp (daemons)</dt>
+<dd>加入這一項如果你使用類比數據機 analog modem 來撥接上網</dd>
+<dt>rp-pppoe (network)</dt>
+<dd>加入這一項如果你使用 DSL 來模擬 pseudo-dialup.</dd>
+</dl>
+
+<div class="warning"> 我們提供下載的基本 ISO 映象檔<strong>並不包含</strong>任何除了 <code>BASE</code>
+category 以外的套件，所以如果你需要撥接程式相關的套件，你必須要下載完整版的安裝光碟映象檔! </div>
+
+<p> Once you're done selecting the packages you need, leave the
+selection screen and continue to the next step, <code>Install Packages</code>.
+</p>
+
+<h4 id="commoninst5">安裝軟體套件Install Packages</h4>
+
+<p> <code>Install Packages</code> 將開始<strong>安裝 <code>pacman</code>
+和其他的程式套件</strong> you selected with <strong>resolved
+dependencies</strong> onto your harddisk. </p>
+
+<p> <strong>If you skipped preparation of your hard drive</strong>,
+you will be asked where your <code>root</code> partition has been
+mounted. This should only happen to people who partitioned and created
+filesystems on the target devices <strong>manually</strong>. Those
+people will have to enter the <strong> root directory where the
+packages shall be installed</strong>. By default, the installer mounts
+the <code>root</code> partition in <code>/mnt</code>, and any extra
+partitions below. </p>
+
+<p> Error messages and debugging output is output to terminal five (<code>ALT-F5</code>).
+After the packages are installed, proceed to the next step, <code>Install
+Kernel</code>. </p>
+
+<h4 id="commoninst6">安裝核心Install Kernel</h4>
+
+<p> <code>Install Kernel</code> 將詢問您要安裝哪一版的核心映象檔到硬碟內。</p>
+
+<dl>
+
+<dt>2.6 IDE</dt>
+<dd> Install the stock 2.6.x kernel with IDE support only. Note that
+with the 2.6.x series, it is now possible to use ATAPI cd writers and
+USB storage without SCSI emulation. </dd>
+<dt>2.6 SCSI</dt>
+<dd> Install the stock 2.6.x kernel with IDE and SCSI support. Choose
+this if you have any SCSI drives installed. When in doubt, take this
+kernel as a slightly slower and larger, but rather failsafe default. </dd>
+<dt>2.4 IDE</dt>
+<dd>Install the stock 2.4.x kernel with IDE support only.</dd>
+<dt>2.4 SCSI</dt>
+<dd> Install the stock 2.4.x kernel with IDE and SCSI support. Choose
+this if you have any SCSI drives installed, or need SCSI emulation for
+an IDE CD-Writer drive or USB Storage devices. </dd>
+<dt>2.6 SRC</dt>
+<dd> Uncompress the 2.6 kernel sources to allow you to build your own
+kernel right now. Not for the faint of heart, as you're pretty much on
+your own. Don't choose this. </dd>
+<dt>2.4 SRC</dt>
+<dd> Build a 2.4 kernel from source. Again, it's recommended to wait
+with kernel fiddling (if it's necessary at all to deviate from the
+stock kernel) until your base system is up and running. </dd>
+</dl>
+
+<div class="note"> 請注意，<strong>ArchLinux 預設使用 2.6
+版的<strong>核心</strong></strong>。這其實不是很重要，但是我還是想先告訴您一聲。</div>
+
+<h4 id="commoninst7">設定系統Configure System</h4>
+
+<p> <code>Configure System</code> allows you to edit the configuration
+files crucial for your newly installed system. </p>
+
+<p> If you're in a real hurry, you may <strong>skip this step</strong>
+entirely and hope the defaults will work, but it's <strong>strongly
+recommended</strong> to iterate through the list of config file
+presented here and change options accordingly. Please refer to the <a href="#config">System Configuration</a> section for detailed
+instructions. </p>
+
+<h4 id="commoninst8">安裝啟動載入器Install Bootloader</h4>
+
+<p> <code>Install Bootloader</code> will install a bootloader on your
+hard drive, either <code>GRUB</code> (recommended) or <code>LILO</code>,
+depending on your personal preference. </p>
+
+<p> Make sure you've <strong>edited the appropriate configuration file</strong>
+before selecting this, or at least checked whether the chosen defaults
+are sane. </p>
+
+<p> If you choose to <strong>install LILO</strong>, the bootloader
+will be <strong>automatically installed</strong> according to your
+settings in the configuration file, whilst <strong>GRUB demands the
+selection of a partition</strong> to install the bootloader to. Here
+you should choose what you would enter as the <code>boot</code> option
+of LILO, which is usually the entry named <code>[...]/disc</code>, as
+it refers the <strong>master boot record</strong> of the respective
+hard disk. Detailed error messages can be found as usual on VT5, if
+anything goes wrong. </p>
+
+<div class="note"> If you plan on setting up a <strong>multiboot system</strong>,
+it might be a better option to install the bootloader in your <code>root</code>
+or <code>/boot</code> partition, and refer to that boot sector from
+whatever other boot loader you want to reside in the master boot
+record. </div>
+<p>
+<div class="warning"> Installing a boot loader in the <acronym title="Master Boot Record">MBR</acronym> will relentlessly <strong>overwrite
+any existing bootloader</strong>! Make sure you understand the
+implications of that if you're running a multiboot system, or want to <strong>preserve
+an installed bootloader</strong> from another OS! </div>
+
+<h4 id="commoninst9">結束安裝Exit Install</h4>
+
+<p> 現在請選擇 <code>Exit Install</code>，將安裝光碟片移出光碟機，然後在命令輸入列上鍵入 <code>reboot</code>
+並開始禱告吧 ! </p>
+
+<p> 如果您的系統成功啟動，您可以以<code> root</code> 的身份登入<strong>而且不需要任何密碼</strong>，所以<strong>您第一個該做的事情</strong>就是，在成功登入後，馬上使用 <code>passwd</code> 這個指令<strong>設定一個密碼</strong>給 <code>root</code> ，依照 <a href="#userman">使用者管理User Management</a> 這一章節的說明，<strong>新增一位使用者</strong>，然後設定您的<a href="#internet">網路連線Internet Connection</a>。</p>
+
+<p> 恭喜您！ Now you can proceed getting into the <strong>nitty-gritty</strong>
+of configuring the interesting parts of your system. </p>
+
+<h2 id="config">系統設定System Configuration</h2>
+
+<p> 這些都是 Arch Linux 的<strong>核心系統設定檔</strong>。 You should be comfortable hand-editing these files with a
+text-editor, because there aren't any GUI apps to help you out. Only
+the most basic configuration files are listed here. If you need help
+configuring a specific service, please read the appropriate manpage or
+refer to any online documentation. </p>
+
+<p> Arch Linux 並不使用任何 <strong>abstraction layer</strong> 來幫助您管理您的系統。因此， you can usually stick to any
+instructions published by the author of a software, or whatever you
+find in a search engine of your choice, and it'll work out without
+confusing your system, because your system just <strong>does not care</strong>.
+</p>
+
+<h3 id="cfiles">系統設定檔Configuration Files</h3>
+
+<p> 在嘗試啟動您新安裝好的系統前，您至少應該先<strong>看一下這些檔案</strong>並確認他們並沒 too far off. </p>
+
+<p> <strong>系統設定檔清單List of Configuration Files</strong> </p>
+
+<div class="toc">
+<ol style="list-style-type: none; list-style-image: none; list-style-position: outside;">
+<li><a href="#cfile1">/etc/rc.conf</a></li>
+<li><a href="#cfile2">/boot/grub/menu.lst</a></li>
+<li><a href="#cfile3">/etc/lilo.conf</a></li>
+<li><a href="#cfile4">/etc/hosts</a></li>
+<li><a href="#cfile5">/etc/fstab</a></li>
+<li><a href="#cfile6">/etc/modprobe.conf</a></li>
+<li><a href="#cfile7">/etc/modules.conf</a></li>
+<li><a href="#cfile8">/etc/resolv.conf</a></li>
+<li><a href="#cfile9">/etc/conf.d/*</a></li>
+<li><a href="#cfile10">/etc/profile</a></li>
+</ol>
+</div>
+
+<h4 id="cfile1">/etc/rc.conf</h4>
+
+<p> This is the <strong>main configuration file</strong> for Arch
+Linux. It allows you to set your keyboard, timezone, hostname, network,
+daemons to run and modules to load at bootup, profiles, and more. You
+should <strong>read through all the settings</strong> in this file and
+make sure you understand them: </p>
+
+<dl>
+
+<dt>HARDWARECLOCK</dt>
+<dd> Either <code>UTC</code> if your BIOS clock is set to UTC or
+GMT, or <code>localtime</code> if your BIOS clock is set to your local
+time. If you have an OS installed which cannot handle UTC BIOS times
+correctly, like Windows, choose <code>localtime</code> here, otherwise
+prefer <code>UTC</code>, which makes daylight savings time a non-issue
+and has a few other positive aspects. </dd>
+<dt>TIMEZONE</dt>
+<dd> 指定您用的時區。 Possible time zones are the <strong>relative
+path to a zoneinfo file</strong> starting from the directory <code>/usr/share/zoneinfo</code>.
+For example, a german timezone would be <code>Europe/Berlin</code>,
+which refers to the file <code>/usr/share/zoneinfo/Europe/Berlin</code>.
+If you don't know the exact name of your timezone file, worry about it
+later. </dd>
+<dt>KEYMAP</dt>
+<dd> Defines the keymap to load with the <code>loadkeys</code>
+program on bootup. Possible keymaps are found in <code>/usr/share/kbd/keymaps</code>.
+Please note that this setting is only valid for your TTYs, not any
+graphical window managers or X. </dd>
+<dt>CONSOLEFONT</dt>
+<dd> Defines the console font to load with the <code>setfont</code>
+program on bootup. Possible fonts are found in <code>/usr/share/kbd/consolefonts</code>.
+</dd>
+<dt>USECOLOR</dt>
+<dd> 啟用 (或是 禁用) <strong>colorized status messages</strong>
+during boot-up. </dd>
+<dt>USELVM</dt>
+<dd> Set to "YES" to run a <code>vgchange</code> during sysinit,
+thus activating any LVM groups. If you have no idea what this means,
+don't bother. </dd>
+<dt>HOSTNAME</dt>
+<dd> Set this to the hostname of the machine, without the domain
+part. This is totally your choice, as long as you stick to letters,
+digits and a few common special characters like the dash. Don't be too
+creative here, though. </dd>
+<dt>MODULES</dt>
+<dd> In this array you can list the <strong>names of modules you
+want to load during bootup</strong> without the need to bind them to a
+hardware device as in the modprobe.conf (or modules.conf, if you're
+using kernel 2.4.x). Simply add the name of the module here, and put
+any options into the modprobe.conf if need be. Prepending a module with
+a bang ('!') will not load the module during bootup. </dd>
+<dt>INTERFACES</dt>
+<dd> Here you define the settings for your <strong>networking
+interfaces</strong>. The default lines and the included comments
+explain the setup well enough. If you do not use DHCP to configure a
+device, just keep in mind that the value of the variable (whose name
+must be equal to the name of the device which is supposed to be
+configured) equals the line which would be appended to the <code>ifconfig</code>
+command if you were to configure the device manually in the shell. </dd>
+<dt>ROUTES</dt>
+<dd> You can define your own <strong>static network routes</strong>
+with arbitrary names here. Look at the example for a <strong>default
+gateway</strong> to get the idea. Basically the quoted part is passed
+exactly as you pass it to the <code>route add</code> command,
+therefore reading <code>man route</code> is recommended if you don't
+know what to write here. </dd>
+<dt>DAEMONS</dt>
+<dd> This array simply lists the names of those scripts contained in <code>/etc/rc.d/</code>
+which are supposed to be started during the boot process. If a script
+name is prefixed with a bang (!), it is not executed. Usually you do
+not need to change the defaults to get a running system, but will edit
+this array quite often once you install system services like <code>sshd</code>.
+</dd>
+</dl>
+
+<h4 id="cfile2">/boot/grub/menu.lst</h4>
+
+<p> <strong>GRUB is the default bootloader</strong> for Arch Linux.
+You should check and modify this file to accomodate your boot setup <strong>if
+you want to use GRUB</strong>, otherwise read on about the <a href="#cfile3">LILO configuration</a>. </p>
+
+<p> GRUB 的設定其實蠻簡單的，最大的問題只是 the biggest hurdle is that it uses
+yet another device naming scheme different from <code>DevFS</code> and
+<code>/dev</code>; Your hard disks as a whole are referred to as <code>(hd0)</code>,
+<code>(hd1)</code>, etc., sequentially numbered in order of appearance
+on the IDE/SCSI bus, just like the <code>disc0</code>, <code>disc1</code>,
+etc. subdirectories in DevFS. The partitions of a disk are referred to
+with <code>(hd0,0)</code>, <code>(hd0,1)</code> and so on, with <code>0</code>
+meaning the first partition. A few conversion examples are included in
+the default <code>menu.lst</code> to aid your understanding. </p>
+
+<p> 當您融會貫通 device naming 的概念後，您所需要作的只是幫您的啟動區段<strong>選擇一個不錯的標題</strong>，<strong>supply
+the correct partition device</strong> as a parameter to the <code>root</code>
+option to have it mounted as <code>/</code> on bootup, and create a <code>kernel</code>
+line that includes the partition and path where the kernel is located
+as well as any boot parameters. You should be <strong>fine with the
+defaults</strong>, just check whether the partition information is
+correct in the <code>root</code> and <code>kernel</code> line. </p>
+
+<p> 要建立一個可載入<strong>其他 OS 的啟動區塊 (bootsector)</strong> 的啟動選項，下面這個例子應該會很有幫助。依照這個例子，您應該可以成功的設定並啟動任何  Microsoft-based 的作業系統， just
+add this block to the file after any other sections, and modify the
+partition device accordingly to refer to the partition containing the
+bootsector of the OS you are intending to boot. </p>
+
+<pre># (1) Other OS<br />title My Other OS<br />rootnoverify (hd0,1)<br />makeactive<br />chainloader +1</pre>
+
+<p> 關於其他作業系統 (OS) 的進階設定，請參閱 <a href="http://www.gnu.org/software/grub/manual/">GRUB 的線上使用手冊</a>。</p>
+
+<h4 id="cfile3">/etc/lilo.conf</h4>
+
+<p> 這個檔案是 <strong>LILO Bootloader</strong> 的設定檔。如果您想使用 LILO 來啟動您的系統，請先檢查並<strong>正確設定</strong>這個檔案的內容。如果您需要其他說明與幫助，請參閱 <a href="http://netadmintools.com/html/5lilo.conf.man.html">LILO
+說明手冊</a>。 </p>
+
+<p> Things you should check are the <code>root=</code> lines in the
+image sections and the <code>boot=</code> line right at the beginning
+of the file. The <code>root</code> lines specify the device which
+shall be mounted as the <strong>root filesystem</strong> on bootup. If
+you don't know what is supposed to be entered here, change to another
+terminal and type <code>mount</code> to see a <strong>list of all
+currently mounted drives</strong>, and look for the line which displays
+a device name mounted <code>on /mnt type [...]</code>. The device path
+at the beginning of this very line should be entered in the <code>root</code>
+lines of your <code>lilo.conf</code>. Change if necessary. </p>
+
+<p> The <code>boot</code> line <strong>should be okay by default</strong>
+in most cases. Unless you have a <strong>weird boot manager setup</strong>
+in mind with multiple OSes, the device referenced here should be having
+the same disc number your <code>root</code> lines have, but not end
+with <code>part1</code> or something other but a mere <code>disc</code>.
+This references the disc as a whole, not only one of it's partitions,
+and therefore instructs LILO to write into the Master Boot Record,
+which is what you usually want. If not, you can repair the overwritten
+boot sector of another OS later. </p>
+
+<div class="warning"> To prevent some serious grief, you should make
+sure you <strong>know how to restore the bootsector</strong> of your
+other OSes, for example with Windows's <code>FIXBOOT/FIXMBR</code>
+tools. </div>
+
+<p> To be on the safe side, you should keep the option <code>lba32</code>
+right below the <code>prompt</code> line. This will prevent some
+geometry issues from happening. </p>
+
+<p> In some cases, depending on your BIOS, LILO will not run on bootup
+and <strong>spill out an error code infinitely</strong>. In most cases
+you either removed the <code>lba32</code> option, or your hardware
+setup is a little special, meaning that maybe your CD-ROM drive is
+primary master and the hard disk you installed secondary slave. This
+can very well irritiate your BIOS, and <strong>prevent a boot up</strong>.
+To prevent that you can try and <strong>make the install drive the
+primary master</strong> on your IDE bus. If you've got a mixed IDE and
+SCSI system and the problem persists, you'll probably need some
+experimentation with the <code>disk</code> and <code>bios</code>
+options of LILO to provide a working mapping; The disk drives in your
+system are numbered sequentially by your BIOS, starting with 0x80. If
+you're lucky your SCSI controller tells you which drive has which BIOS
+ID, but usually you're not. How the drives are effectively numbered is
+depending on your BIOS, so in the worst case you can only guess until
+it works. A typical disk line would look like this: </p>
+
+<pre>boot=/dev/discs0/disc0/disc<br />disk=/dev/discs0/disc0/disc bios=0x80</pre>
+
+<p> The <code>disk</code> option maps a BIOS ID to the disk device
+known to linux. Note that there is still <strong>no guarantee that
+things will work</strong> as other things can be wrong, so do not
+despair if all your tries fail, but rather <strong>try rearranging
+your hardware</strong> in a way that's not totally odd. In this area
+too much can go wrong and needs special handling to be explained here.
+In most cases the <code>lba32</code> option will suffice anyway. Old
+hard drives will usually need a little more <strong>special care</strong>
+until they do as told. </p>
+
+<div class="note"> Don't become fidgety when reading this section, I
+(Dennis) just happened to stumble over this problem when experimenting
+with a rather odd system, and figured it'd be a good idea to mention
+this show stopper and workarounds here. You probably won't ever
+experience this, and if you do, use GRUB. ;) </div>
+
+<p> How to <a href="#faq5">recreate a LILO boot sector</a> with only a
+rescue disk is explained later in this document. </p>
+
+<h4 id="cfile4">/etc/hosts</h4>
+
+<p> This is where you stick <strong>hostname/ip pairs of other
+computers</strong> on your network. If a hostname isn't part of DNS,
+you can add it here. You usually don't need to change anything here,
+but you might want to add the hostname and hostname + domain of the
+machine to this file, resolving to the IP of your network interface. If
+you don't know what you're doing, leave this file alone until you read <code>man
+hosts</code>. </p>
+
+<h4 id="cfile5">/etc/fstab</h4>
+
+<p> Your <strong>filesystem settings and mountpoints</strong> are
+configured here. The install program should have created the necessary
+entries for you, but you should look over it and make sure it's right. </p>
+
+<h4 id="cfile6">/etc/modprobe.conf</h4>
+
+<p> 這個檔案<strong>只有對 2.6.x kernels</strong> 有用。</p>
+
+<p> This tells the kernel which modules it needs to load for system
+devices. For example, to have the kernel load your Realtek 8139
+ethernet module when it starts the network (ie. tries to setup <code>eth0</code>),
+use this line: </p>
+
+<pre>alias eth0 8139too</pre>
+
+<p> The syntax of this file is nearly identical to the old <code>modules.conf</code>
+scheme, unless you use some of the more exotic options like <code>post-install</code>.
+Then you should invest a little time into reading <code>man
+modprobe.conf</code>. </p>
+
+<h4 id="cfile7">/etc/modules.conf</h4>
+
+<p> 這個檔案<strong>只有對2.4.x kernels</strong> 有用。</p>
+
+<p> This tells the kernel which modules it needs to load for system
+devices. For example, to have the kernel load your Realtek 8139
+ethernet module when it starts the network (ie. tries to setup <code>eth0</code>),
+use this line: </p>
+
+<pre>alias eth0 8139too</pre>
+
+<h4 id="cfile8">/etc/resolv.conf</h4>
+
+<p> 使用這個檔案來<strong>設定您的 nameserver(s)</strong> that
+you will use. 基本上他的內容應該如下 : </p>
+
+<pre>search domain.tld<br />nameserver 192.168.0.1<br />nameserver 192.168.0.2</pre>
+
+<p> Replace <code>domain.tld</code> and the ip addresses with your
+settings. The so called <code>search</code> domain specifies the
+default domain that is <strong>appended to unqualified hostnames
+automatically</strong>. Setting this, a <code>ping myhost</code> will
+effectively become a <code>ping myhost.domain.tld</code> with the
+above values. These settings usually aren't mighty important, though,
+and most people should <strong>leave them alone</strong> for now. If
+you use DHCP, this file will be fed with the correct values
+automatically when networking is started, meaning you <strong>can and
+should happily ignore this file</strong> altogether. </p>
+
+<h4 id="cfile9">/etc/conf.d/*</h4>
+
+<p> During setup, this is <strong>totally unimportant</strong>.
+Consider this as reference for the interested. </p>
+
+<p> Some daemon scripts will have a <strong>matching configuration
+file in this directory</strong> that contains some more or less useful
+default values. When a daemon is started, it will first source the
+settings from it's config file within this directory, and then source
+the <code>/etc/rc.conf</code>. This means you can easily <strong>centralize
+all your daemon configuration options</strong> in the <code>rc.conf</code>
+simply by setting an appropriate variable value, or split up your
+configuration over multiple files if you prefer a decentralized
+approach to this issue. Ain't life great if it's all just simple
+scripting? </p>
+
+<h4 id="cfile10">/etc/profile</h4>
+
+<p> This script is run on each user login to initialize the system. It
+is kept quite simple under Arch Linux (most things are). You may wish
+to edit or customize it to suit your needs. </p>
+
+<p> Specifically, if you want to change your language settings (the
+default is English), you may wish to edit the line that says <code>export
+LANG=my_locale</code> in <code>/etc/profile</code>. To obtain a list
+of possible locales on your system, take a look at the output of the <kbd>locale
+-a</kbd> command. Choose the one that suits you best and update the
+value of the <code>LANG</code> variable to reflect this choice. </p>
+
+<h3 id="bootrc">啟動Boot Scripts</h3>
+
+<p> Arch Linux uses a fairly simple bootup sequence quite similar to
+*BSDs. The first boot script to run is <code>/etc/rc.sysinit</code>.
+When it's done, <code>/etc/rc.multi</code> will be called (in a normal
+bootup). The last script to run will be <code>/etc/rc.local</code>.
+When started in runlevel 1, the single user mode, the script <code>/etc/rc.single</code>
+is run instead of <code>/etc/rc.multi</code>. You will <em>not</em>
+find an endless symlink collection in the <code>/etc/rc?.d/</code>
+directories to define the bootup sequence for all possible runleves. In
+fact, due to this approach <strong>Arch only really has three runlevels</strong>,
+if you take starting up X in runlevel 5 into account. The boot scripts
+are using the variables and definitions found in the <code>/etc/rc.conf</code>
+file and also a <strong>set of general functions</strong> defined in
+the <code>/etc/rc.d/functions</code> script. If you plan to write <strong>your
+own daemon files</strong>, you should consider having a look at this
+file and existing daemon scripts. </p>
+
+<p><strong>Boot Script Overview</strong></p>
+
+<div class="toc">
+<ol style="list-style-type: none; list-style-image: none; list-style-position: outside;">
+<li><a href="#rcfile1">/etc/rc.sysinit</a></li>
+<li><a href="#rcfile2">/etc/rc.single</a></li>
+<li><a href="#rcfile3">/etc/rc.multi</a></li>
+<li><a href="#rcfile4">/etc/rc.local</a></li>
+<li><a href="#rcfile5">/etc/rc.shutdown</a></li>
+<li><a href="#rcfile6">/etc/rc.d/*</a></li>
+</ol>
+</div>
+
+<h4 id="rcfile1">/etc/rc.sysinit</h4>
+
+<p> The main system boot script. It does <strong>boot-critical things</strong>
+like mounting filesystems, running devfsd, activating swap, loading
+modules, setting localization parameters, etc. <strong>You will most
+likely never need to edit this file</strong>! </p>
+
+<h4 id="rcfile2">/etc/rc.single</h4>
+
+<p> Single-user startup. <strong>Not used in a normal boot-up</strong>.
+If the system is started in single-user mode, for example with the
+kernel parameter <code>1</code> before booting or during normal
+multi-user operation with the command <code>init 1</code>, this script
+makes sure <strong>no daemons are running</strong> except for the bare
+minimum; <code>syslogd</code>, <code>klogd</code> and <code>devfsd</code>.
+The single-user mode is useful if you need to make any <strong>changes
+to the system</strong> while making sure that <strong>no remote user</strong>
+can do anything that might cause <strong>data loss or damage</strong>.
+</p>
+
+<p> For desktop users, this mode usually is useless as crud. You'll
+probably never need to edit this script, either. </p>
+
+<h4 id="rcfile3">/etc/rc.multi</h4>
+
+<p> Multi-user startup script. It <strong>starts all daemons</strong>
+you configured in the <code>DAEMONS</code> array (set in <code>/etc/rc.conf</code>)
+after which it calls <code>/etc/rc.local</code>. You shouldn't feel a
+pressing need to edit this file. </p>
+
+<h4 id="rcfile4">/etc/rc.local</h4>
+
+<p> Local multi-user startup script. It is a good place to put any
+last-minute commands you want the system to run <strong>at the end of
+the bootup process</strong>. This is finally the one and only script
+you should <strong>modify if needed</strong>, and you have <strong>total
+freedom</strong> on what to add to this script. </p>
+
+<div class="note"> Most common system configuration tasks, like loading
+modules, changing the console font or setting up devices, usually have
+a dedicated place where they belong. To avoid confusion, you should
+make sure that whatever you intend to add to your <code>rc.local</code>
+isn't feeling just as home in <code>/etc/profile.d/</code> or any
+other already existant config location instead. </div>
+
+<h4 id="rcfile5">/etc/rc.shutdown</h4>
+
+<p> System shutdown script. It stops daemons, unmounts filesystems,
+deactivates the swap, etc. Just don't touch. </p>
+
+<h4 id="rcfile6">/etc/rc.d/*</h4>
+
+<p> This directory <strong>contains the daemon scripts</strong>
+referred to from the <code>rc.conf</code>'s <code>DAEMONS</code>
+array. In addition to being called on bootup, you can use these scripts
+when the system is running to manage the services of your system. For
+example the command </p>
+
+<pre># <code>/etc/rc.d/postfix stop</code></pre>
+
+<p> will <strong>stop the postfix daemon</strong>. Of course a script
+only exists when the appropriate package has been installed (in this
+case <code>postfix</code>). With a basic system install, you don't
+have many scripts in here, but rest assured that <em>all</em> relevant
+daemon scripts end up here. This directory is pretty much the
+equivalent to the <code>/etc/rc3.d/</code> or <code>/etc/init.d/</code>
+directories of other distributions, without all the symlink hassle. </p>
+
+<h3 id="userman">使用者管理User Management</h3>
+
+<p> Users and groups can be added and deleted with the standard
+commands provided in the <code>util-linux</code> package: <code>useradd</code>,
+<code>userdel</code>, <code>groupadd</code>, <code>groupdel</code>, <code>passwd</code>,
+and <code>gpasswd</code>. The typical way of adding a user is similar
+to this procedure: </p>
+
+<pre># <span class="type">useradd -m -s /bin/bash johndoe</span><br /># <span class="type">passwd johndoe</span></pre>
+
+<p> The first command will <strong>add the user</strong> named <code>johndoe</code>
+to the system, <strong>create a home directory</strong> for him at <code>/home/johndoe</code>,
+and place some <strong>default login files</strong> in his home
+directory. It will also <strong>set his login shell</strong> to be <code>/bin/bash</code>.
+The second command will <strong>ask you for a password</strong> for
+the <code>johndoe</code> user. A <strong>password is required</strong>
+to activate the account. </p>
+
+<p> As an alternative to the <code>useradd</code> command, the <code>adduser</code>
+script is also available to interactively create new users on your
+system simply by answering questions. </p>
+
+<p> <strong>See the manpages</strong> for more information on the
+remaining commands. It is a <strong>good idea</strong> to create one
+or multiple <strong>normal users for your day-to-day work</strong> to
+fully use the available security features and <strong>minimize
+potential damage</strong> that may be the result of using the <code>root</code>
+user for anything but system administration tasks. </p>
+
+<h3 id="internet">網路連線Internet Access</h3>
+
+<p> Due to a lack of developers for dialup issues, connecting Arch to
+the Internet with a dialup line is requiring a lot of manual setup. If
+at all possible, set up a dedicated router which you can then use as a
+default gateway on the Arch box. </p>
+
+<div class="note"> There are quite a few dialup related documents in
+the <a href="http://wiki.archlinux.org/">Arch Linux Wiki</a> </div>
+
+<h4 id="inetmodem">Analog Modem</h4>
+
+<p> To be able to use a <strong>Hayes-compatible, external, analog
+modem</strong>, you need to at least have the <code>ppp</code> package
+installed. Modify the file <code>/etc/ppp/options</code> to suit your
+needs and according to <code>man pppd</code>. You will need to define
+a <strong>chat script</strong> to supply your username and passwort to
+the <acronym title="Internet Service Provider">ISP</acronym> after the
+initial connection has been established. The manpages for <code>pppd</code>
+and <code>chat</code> have examples in them that should suffice to get
+a connection up and running if you're either <strong>experienced or
+stubborn enough</strong>. In <code>DevFS</code>, your serial ports
+usually are <code>/dev/cua0</code> and <code>/dev/cua1</code>. </p>
+
+<p> Instead of fighting a glorious battle with the plain <code>pppd</code>,
+you may opt to install <code>wvdial</code> or a similar tool to ease
+the setup process considerably. </p>
+
+<div class="note"> In case you're using a so called <strong>WinModem</strong>,
+which is basically a PCI plugin card working as an internal analog
+modem, you should endulge in the vast information found on <a href="http://linmodems.org/">the LinModem homepage</a>. </div>
+
+<h4 id="inetisdn">ISDN</h4>
+
+<p> Setting up ISDN is done in three steps: </p>
+
+<ol>
+
+<li>Install and configure hardware</li>
+<li>Install and configure the ISDN utilities</li>
+<li>Add settings for your ISP</li>
+</ol>
+
+<p> The current <strong>Arch stock kernels include the necessary ISDN
+modules</strong>, meaning that you won't need to recompile your kernel
+unless you're about to use rather odd ISDN hardware. After <strong>physically
+installing your ISDN card</strong> in your machine or plugging in your
+USB ISDN-Box, you can try <strong>loading the modules</strong> with
+modprobe. Nearly all passive ISDN PCI cards are handled by the <code>hisax</code>
+module which needs two parameters; <code>type</code> and <code>protocol</code>.
+You must set <code>protocol</code> to '1' if your country uses the <strong>1TR6</strong>
+standard, '2' if it uses <strong>EuroISDN</strong> (EDSS1), '3' if
+you're hooked to a so called <strong>leased-line without D-channel</strong>,
+and '4' for <strong>US NI1</strong>. </p>
+
+<p> Details on all those settings and how to set them is included in
+the kernel documentation, more specifically in the <code>isdn</code>
+subdirectory, or available online. The type parameter depends on your
+card; A list of all possible types is to be found in the <code>README.HiSax</code>
+kernel documentation. <strong>Choose your card and load the module</strong>
+with the appropriate options like this: </p>
+
+<pre># <span class="type">modprobe hisax type=18 protocol=2</span></pre>
+
+<p> This will load the <code>hisax</code> module for my ELSA Quickstep
+1000PCI, being used in Germany with the EDSS1 protocol. You should find
+<strong>helpful debugging output</strong> in your <code>/var/log/debug</code>
+file in which you should see your card being prepared for action.
+Please note that you will probably need to load some <code>usb</code>
+modules before you can work with an external USB ISDN Adapter. </p>
+
+<p> Once you confirmed that your card works with certain settings, you
+can <strong>add the module options</strong> to your <code>/etc/modprobe.conf</code>
+(or <code>/etc/modules.conf</code> if you're using kernel 2.4.x): </p>
+
+<pre>alias ippp0 hisax<br />options hisax type=18 protocol=2</pre>
+
+<p> Alternatively you can only add the <code>options</code> line here,
+and add <code>hisax</code> to your <code>MODULES</code> array in the <code>rc.conf</code>.
+Your choice, really, but this example has the advantage that the module
+will not be loaded until it's really needed. </p>
+
+<p> That being done <strong>you should have working, supported hardware</strong>.
+Now you need the basic utilities to actually use it! </p>
+
+<p> <strong>Install the <code>isdn4k-utils</code> package</strong>,
+and read the manpage to <code>isdnctrl</code>, it'll get you started.
+Further down in the manpage you will find explanations on <strong>how
+to create a configuration file</strong> that can be parsed by isdnctrl,
+as well as some helpful setup examples. </p>
+
+<div class="note"> Please note that you have to add your SPID to your
+MSN setting seperated by a colon if you use US NI1. </div>
+
+<p> After you configured your ISDN card with the <code>isdnctrl</code>
+utility, you should be able to <strong>dial into the machine you
+specified</strong> with the <code>PHONE_OUT</code> parameter, but <strong>fail
+the username and password authentication</strong>. To make this work <strong>add
+your username and password</strong> to <code>/etc/ppp/pap-secrets</code>
+or <code>/etc/ppp/chap-secrets</code> as if you were configuring a
+normal analogous PPP link, depending on which protocol your ISP uses
+for authentication. If in doubt, put your data into both files. </p>
+
+<p> If you set up everything correctly, you should now be able to
+establish a dialup connection with <code>isdnctrl dial ippp0</code> as
+<code>root</code>. If you have any problems, remember to check the
+logfiles! </p>
+
+<h4 id="inetdsl">DSL (PPPoE)</h4>
+
+<div class="note"> These instructions are only relevant to you if your
+PC itself is supposed to manage the connection to your ISP. You do not
+need to do anything but define a correct <strong>default gateway </strong>if
+you are using a <strong>seperate router</strong> of some sort to do
+the grunt work. </div>
+
+<p> Before you can use your DSL online connection, you will have to <strong>physically
+install the network card</strong> that is supposed to be connected to
+the DSL-Modem into your computer. After adding your newly installed
+network card to the <code>modules.conf</code>/<code>modprobe.conf</code>
+or the <code>MODULES</code> array, you should install the <code>rp-pppoe</code>
+package and run the <code>adsl-setup</code> script to configure your
+connection. After you have entered all the data, you can connect and
+disconnect your line with </p>
+
+<pre># <span class="type">/etc/rc.d/adsl start</span></pre>
+
+<p>and</p>
+
+<pre># <span class="type">/etc/rc.d/adsl stop</span></pre>
+
+<p> respectively. The setup usually is rather easy and straightforward,
+but feel free to read the manpages for hints. If you want to
+automatically dial in on bootup, add <code>adsl</code> to your <code>DAEMONS</code>
+array. </p>
+
+<h2 id="packages">軟體套件管理Package Management</h2>
+
+<h3 id="pacman">Pacman</h3>
+
+<p> <code>pacman</code> 是個is the package manager which tracks all the
+software installed on your system. It has <strong>simple dependency
+support</strong> and uses the standard <strong>tar-gz archive format</strong>
+for all packages. Some common tasks are explained below with the
+respective commands in long and short option form. For an up to date
+explanation of pacman's options, read <code>man pacman</code>. This
+overview is merely scratching the surface of <code>pacman</code>'s
+current capabilities. </p>
+
+<p><strong>常見的工作Typical tasks:</strong></p>
+
+<div class="toc">
+<ol style="list-style-type: none; list-style-image: none; list-style-position: outside;">
+<li><a href="#pac1">從套件壓縮檔新增套件Adding a new package with a package file</a></li>
+<li><a href="#pac2">從套件壓縮檔更新套件Upgrading a package with a package file</a></li>
+<li><a href="#pac3">移除套件Removing packages</a></li>
+<li><a href="#pac4">更新套件清單Refreshing the package list</a></li>
+<li><a href="#pac5">更新系統Upgrading the system</a></li>
+<li><a href="#pac6">從 repositories 新增/更新套件 Adding/Upgrading a package from the repositories</a></li>
+<li><a href="#pac7">列出安裝的套件清單List installed packages</a></li>
+<li><a href="#pac8">檢查某個特定套件是否已經安裝Check if a specific package is installed</a></li>
+<li><a href="#pac9">顯示某個特定套件的相關資訊Display specific package info</a></li>
+<li><a href="#pac10">顯示某個套件內包含的所有檔案的清單Display list of files contained in package</a></li>
+<li><a href="#pac11">查出某個特定的檔案是屬於哪一個套件的Find out which package a specific file belongs to</a></li>
+</ol>
+</div>
+
+<h4 id="pac1">從套件壓縮檔新增套件Adding a new package with a package file</h4>
+
+<pre># <span class="type">pacman --add foo.pkg.tar.gz</span><br /># <span class="type">pacman -A foo.pkg.tar.gz</span></pre>
+
+<p> This will install the <code>foo.pkg.tar.gz</code> package on the
+system. <strong>If dependencies are missing, pacman will exit</strong>
+with an error and report the missing deps, but <em>not</em> attempt to
+resolve the dependencies automatically. Look at the <code>--sync</code>
+option if you expect this functionality. </p>
+
+<h4 id="pac2">從套件壓縮檔更新套件Upgrading a package with a package file</h4>
+
+<pre># <span class="type">pacman --upgrade foo.pkg.tar.gz</span><br /># <span class="type">pacman -U foo.pkg.tar.gz</span></pre>
+
+<p> This does essentially the same as the <code>--add</code>
+operation, but will additionally <strong>upgrade an already-installed
+package</strong> at no extra cost. I can personally not imagine a case
+where you'd prefer <code>--add</code> over this <code>--upgrade</code>
+function. </p>
+
+<h4 id="pac3">移除套件Removing packages</h4>
+
+<pre># <span class="type">pacman --remove foo</span><br /># <span class="type">pacman -R foo</span></pre>
+
+<p> This will <strong>remove all files</strong> belonging to the
+package named <code>foo</code>, <strong>except for configuration files</strong>
+that have been edited. Only supply the name of the package to this
+command, without the <code>pkg.tar.gz</code> suffix. </p>
+
+<p> To remove any and all trace of a package, add the <code>--nosave</code>
+option to the above command. </p>
+
+<h4 id="pac4">更新套件清單Refreshing the package list</h4>
+
+<pre># <span class="type">pacman --sync --refresh</span><br /># <span class="type">pacman -Sy</span></pre>
+
+<p> This will <strong>retrieve a fresh master package list</strong>
+from the repositories defined in the <code>/etc/pacman.conf</code>
+file and uncompress it into the database area. You should use this
+before using <code>--sysupgrade</code> to make sure you get the newest
+packages. Depending on your <code>pacman.conf</code> settings, this
+command may require a working internet connection to access FTP-based
+repositories. This option is quite similar to Debian's <code>apt-get
+update</code> command. </p>
+
+<h4 id="pac5">更新系統Upgrading the system</h4>
+
+<pre># <span class="type">pacman --sync --sysupgrade</span><br /># <span class="type">pacman -Su</span></pre>
+
+<p> This command will <strong>upgrade all packages that are out-of-date</strong>
+on your system by comparing the local package version to the versions
+in the master package list that gets downloaded with the <code>--refresh</code>
+command. It's a good idea to run this every now and then to keep your
+system up to date. Note that <strong>this command does NOT implicitly
+refresh the master package list</strong>, so it's usually wiser to
+combine both commands into one: </p>
+
+<pre># <span class="type">pacman --sync --refresh --sysupgrade</span><br /># <span class="type">pacman -Syu</span></pre>
+
+<p> With these options pacman will automatically retrieve the current
+master package list and do a full system upgrade to the latest packages
+with all dependencies being automagically resolved. You will want to
+run this quite often. </p>
+
+<h4 id="pac6">由 repositories 新增/更新某個套件Adding/Upgrading a package from the repositories</h4>
+
+<pre># <span class="type">pacman --sync foo</span><br /># <span class="type">pacman -S foo</span></pre>
+
+<p> Retrieve and install package <code>foo</code>, complete with all
+dependencies it requires. Before using any sync option, make sure you
+refreshed the package list, or add <code>--refresh</code> or <code>-y</code>
+to the options to do it before the installation attempt. Unlike <code>--add</code>,
+the <code>--sync</code> option does not differ between installing and
+upgrading packages. Depending on your <code>pacman.conf</code>
+settings this function requires working internet access. </p>
+
+<h4 id="pac7">列出所有已經安裝的套件名單List installed packages</h4>
+
+<pre># <span class="type">pacman --query</span><br /># <span class="type">pacman -Q</span></pre>
+
+<p> Displays the list of all installed packages in the system. </p>
+
+<h4 id="pac8">檢查某個程式套件是否已經安裝Check if a specific package is installed</h4>
+
+<pre># <span class="type">pacman --query foo</span><br /># <span class="type">pacman -Q foo</span></pre>
+
+<p> Instead of grepping the full list for a name, you can append the
+name of the package you are looking for to the query command. This
+command will display the name and version of the <code>foo</code>
+package if it is installed, nothing otherwise. </p>
+
+<h4 id="pac9">顯示特定的程式套件的資訊Display specific package info</h4>
+
+<pre># <span class="type">pacman --query --info foo</span><br /># <span class="type">pacman -Qi foo</span></pre>
+
+<p> Displays information on the installed package <code>foo</code>
+(size, install date, build date, dependencies, conflicts, etc.). To
+display this information for a package file that is not yet installed,
+add the <code>--file</code> or <code>-p</code> option, respectively: </p>
+
+<pre># <span class="type">pacman --query --info --file foo.pkg.tar.gz</span><br /># <span class="type">pacman -Qip foo.pkg.tar.gz</span></pre>
+
+<h4 id="pac10">Display list of files contained in package</h4>
+
+<pre># <span class="type">pacman --query --list foo</span><br /># <span class="type">pacman -Ql foo</span></pre>
+
+<p> Lists all files belonging to package <code>foo</code>. </p>
+
+<h4 id="pac11">找出某個特定檔案是屬於哪一個程式套件的</h4>
+
+<pre># <span class="type">pacman --query --owns /path/to/file</span><br /># <span class="type">pacman -Qo /path/to/file</span></pre>
+
+<p> This query displays the name and version of the package which
+contains the file referenced by it's full path as a parameter. </p>
+
+<h3 id="repos">Accessing Repositories</h3>
+
+<p> A package repository is a <strong>collection of packages and a
+package meta-info file</strong> that can reside in a local directory or
+on a remote FTP/HTTP server. The default repository for an Arch system
+is the <code>current</code> repository. This is kept up to date with
+the latest version of most software and stays fairly bleeding-edge. </p>
+
+<p> Many users also choose to activate the <code>extra</code> package
+repository which <strong>contains more packages that are not part of
+Arch's core package set</strong>. You can activate this repo by
+uncommenting the appropriate lines in your <code>/etc/pacman.conf</code>.
+This repository is activated by default. </p>
+
+<p> You can also build, maintain and use your own package repositories.
+See the <a href="http://www.archlinux.org/pacman/pacman.8.html">
+pacman manpage</a> for instructions. </p>
+
+<p> If you install from a CD and end up having a problem accessing the
+Internet, you may need to install additional packages from the CD. You
+can locate the packages on the cd and install them manually using <code>pacman
+-A packagename.pkg.tar.gz</code> Alternatively, you can temporarily set
+up a local repository to access the CD. Mount the CD on <code>/mnt/cd</code>
+using the command <code>mount /mnt/cd</code> (assuming your fstab is
+properly set up). Then add the following lines to your <code>/etc/pacman.conf</code>:
+</p>
+
+<pre>[cd]<br />Server = file:///mnt/cd/arch/pkg<br />	</pre>
+
+<p> You will then be able to install additional packages to help you
+get your Internet access set up. </p>
+
+<h2 id="abs">Arch Build System (ABS)</h2>
+
+<h3 id="source">執行檔 vs. 原始碼 Binary vs. Source</h3>
+
+<p> Where <code>pacman</code> is responsible for the <strong>binary</strong>
+side of the package world, <code>ABS</code> is responsible for the <strong>source</strong>
+side: It helps you to <strong>build your own custom packages</strong>
+from source code, also letting you rebuild Arch Linux packages with
+your own <strong>customizations</strong>. The procedure usually goes
+as follows: </p>
+
+<ol>
+
+<li> Synchronize your ABS tree with the server (run <code>abs</code>
+as root) </li>
+<li> Create a new directory in <code>/var/abs/local/</code> named
+after the package you are going to create </li>
+<li> Copy the <code>PKGBUILD.proto</code> prototype from <code>/var/abs/</code>
+into your newly created directory, remove the <code>proto,</code>
+suffix, and edit it for the new package. </li>
+<li> Run <code>makepkg</code> in the working directory with the <code>PKGBUILD</code>
+file. </li>
+<li> Install the newly built package with <code>pacman</code>. </li>
+<li> Send the package to your friends for bragging rights (or give it
+to an Archer so s/he can stick it in the master ABS tree). </li>
+</ol>
+
+<h3 id="syncing">同步您的Synchronizing Your ABS Tree</h3>
+
+<p> You can synchronize all the <code>PKGBUILD</code> files in <code>/var/abs</code>
+by running the <code>abs</code> script as root. It requires the <code>cvsup</code>
+package to operate and will complain if you don't have it installed.
+Using CVS as the transfer medium allows you to follow different version
+trees within ABS - this can be configured in <code>/etc/abs/supfile.arch</code>.
+For example, the default supfile is set to track the <code>current</code>
+package tree, which is bleeding-edge and the recommended source to
+follow. You can also follow specific versions. See the comments in the
+supfiles for more info. </p>
+
+<p> ABS supports multiple repositories, which can be enabled or
+disabled from <code>/etc/abs/abs.conf</code>. By default abs will
+follow the <code>current</code> and <code>extra</code> repositories,
+but not <code>unstable</code>. </p>
+
+<p> You will also see an <code>/etc/abs/supfile.extra</code> file.
+This will give you access to all the unofficial build scripts that were
+not included in the main ABS repository. If you do not want to use this
+repository, you can delete the file, but usually it makes more sense to
+edit <code>abs.conf</code> accordingly instead. </p>
+
+<h3 id="build">如何包裝一個套件How to Build Packages</h3>
+
+<p> 包裝套件的程序已經在 thoroughly explained in the <a href="http://www.archlinux.org/pacman/makepkg.8.html">makepkg manpage</a>.
+See it for instructions on building your own packages. If that's not
+helping you, keep your eyes peeled for tutorials in the Wiki, or ask
+for help in the forums or IRC. </p>
+
+<h3 id="guidelines">套件包裝守則Package Guidelines</h3>
+
+<p> 當您要為 Arch Linux 包裝一個套件時，您必須<strong>遵守下面所列出的套件包裝守則</strong>，尤其是如果您想把您所包裝好的套件<strong>回饋 contribute</strong>
+到 Arch Linux 時。</p>
+
+<h4>套件的命名Package Naming</h4>
+
+<ul>
+
+<li> 套件的名稱必須只包含 <strong>alphanumeric characters
+only</strong>; 所有的英文字母都必須是<strong>小寫</strong>. </li>
+<li> 套件的版本<strong>必須與程式原作者釋放出的程式版本一致</strong>。如果有需要，版本編號可以包含英文字母 (例如， nmap 的版本是 2.54BETA32). <strong>Version tags may not
+  include hyphens!</strong> Letters, numbers, and periods only. </li>
+<li> Package releases are <strong>specific to Arch Linux packages</strong>.
+These allow users to differentiate between newer and older package
+builds. When a new package version is first released, the <strong>release
+count starts at 1</strong>. Then as fixes and optimizations are made,
+the package will be <strong>re-released</strong> to the AL public and
+the <strong>release number will increment</strong>. When a new version
+comes out, the release count resets to 1. Package release tags follow
+the <strong>same naming restrictions as version tags</strong>. </li>
+</ul>
+
+<h4>目錄Directories</h4>
+
+<p> <strong>Configuration files</strong> 必須放在 <code>/etc</code>
+這個目錄下。如果有超過一個以上的 configuration file，一般我們都會<strong>使用一個子目錄</strong>來保持 <code>/etc</code>
+盡可能的 clean。使用 <code>/etc/{pkgname}/</code> 其中<code> {pkgname}</code>
+表示你的套件的名稱 (或是其他合適的名稱，例如，apache 可以使用 <code>/etc/httpd/</code>). </p>
+
+<p> Package files should follow these <strong>general directory
+guidelines</strong>: </p>
+
+<table cellspacing="1">
+
+<tbody>
+<tr>
+<td><code>/etc</code></td>
+<td style="padding-left: 1em;"> <strong>System-essential</strong>
+configuration files </td>
+</tr>
+<tr>
+<td><code>/usr/bin</code></td>
+<td style="padding-left: 1em;">Application binaries</td>
+</tr>
+<tr>
+<td><code>/usr/sbin</code></td>
+<td style="padding-left: 1em;">System binaries</td>
+</tr>
+<tr>
+<td><code>/usr/lib</code></td>
+<td style="padding-left: 1em;">Libraries</td>
+</tr>
+<tr>
+<td><code>/usr/include</code></td>
+<td style="padding-left: 1em;">Header files</td>
+</tr>
+<tr>
+<td><code>/usr/lib/{pkg}</code></td>
+<td style="padding-left: 1em;">Modules, plugins, etc.</td>
+</tr>
+<tr>
+<td><code>/usr/man</code></td>
+<td style="padding-left: 1em;">Manpages</td>
+</tr>
+<tr>
+<td><code>/usr/share/{pkg}</code></td>
+<td style="padding-left: 1em;">Application data</td>
+</tr>
+<tr>
+<td><code>/etc/{pkg}</code></td>
+<td style="padding-left: 1em;">Configuration files for <code>{pkg}</code></td>
+</tr>
+<tr>
+<td><code>/opt</code></td>
+<td style="padding-left: 1em;"> Large self-contained packages
+such as KDE, Mozilla, etc. </td>
+</tr>
+</tbody>
+</table>
+
+<h4>makepkg Duties</h4>
+
+<p> 如果您使用 makepkg 來包裝您的套件，makepkg 將會自動執行下列的動作 : </p>
+
+<ol>
+
+<li> 檢查程式套件的 <strong>依存關係 dependencies</strong> 是否符合are installed </li>
+<li>從伺服器上 <strong>下載源碼</strong>檔案</li>
+<li> <strong>解壓縮 (解包) </strong> 源碼檔</li>
+<li> 執行任何需要的 <strong>patching</strong> </li>
+<li> <strong>Builds</strong> 程式並安裝到一個虛假的 root 內 </li>
+<li> <strong>移除</strong>套件內的 <code>/usr/doc</code>，<code>/usr/info</code>，<code>/usr/share/doc</code>，和 <code>/usr/share/info</code> </li>
+<li> <strong>移除Strips</strong> symbols from binaries </li>
+<li> <strong>移除Strips</strong> 程式庫內的除錯 symbols</li>
+<li> 建立Generates the <strong>package meta file</strong> which is
+included with each package </li>
+<li> <strong>Compresses</strong> the fake root into the package file
+</li>
+<li> <strong>Stores</strong> the package file in the configured
+destination directory (<acronym title="Current Working Directory">cwd</acronym>
+by default) </li>
+</ol>
+
+<h4>其他Other</h4>
+
+<p> 請<strong>避免加入新的變數 variables</strong> 在你的 <code>PKGBUILD</code>
+安裝 scripts內，因為這些變數可能會和 makepkg 自己的變數<strong>起衝突</strong>。</p>
+
+<p> <strong>避免</strong>使用 <code>/usr/libexec/</code> for
+anything. 請直接使用 <code>/usr/lib/{pkg}</code> 。 </p>
+
+<p> The <q>Packager</q> field from the package meta file can be <strong>customized</strong>
+by the package builder by modifying the appropriate option in the <code>/etc/makepkg.conf</code>
+file, or alternatively by exporting the <code>PACKAGER</code>
+environment variable before building packages with <code>makepkg</code>:
+</p>
+
+<pre># <span class="type">export PACKAGER="John Doe &lt;your.email&gt;"</span></pre>
+
+<h4>提交包裝好的套件Submitting Packages</h4>
+
+<p>在提交出您包好的套件前，請注意下列幾點 :</p>
+
+<ol>
+
+<li> 請依照下面的格式，在您的 <strong><code>PKGBUILD</code> 檔案一開始的地方加入一行註解 </strong>:
+  <pre># Contributor: Your Name &lt;your.email&gt;</pre>
+</li>
+<li> 檢查程式套件的<strong>依存性 dependencies</strong> (例如，執行 <code>ldd</code>
+on 動態執行程式，檢查 scripts 執行時所需要的工具程式，等等)。使用
+Jason Chu <a href="mailto:jason@archlinux.org" class="email">jason@archlinux.org</a> 寫的 <code>namcap</code> 這個應用程式也是個不錯的方法，這個程式主要是用來檢查你包裝的套件的 the sanity 。 <code>namcap</code> 將會告訴你任何可能存在的 permissions 錯誤，依存性錯誤，多餘的依存關係，和任何其他一般的錯誤。你可以使用  <code>pacman</code> 來安裝 <code>namcap</code>
+這個套件。</li>
+<li> 所有的程式套件都必須放在一個目錄下並<strong>壓縮成單一 tar 檔案</strong>。目錄內必須包含新<strong>built package</strong>，<code>PKGBUILD</code>，<code>filelist</code>，和<strong>其他檔案additional
+files</strong> (patches, install, ...)。壓縮檔的名稱必須至少包含了程式套件的名稱。</li>
+<li> Watch for announcements regarding the actual submission of
+packages, as a new implementation of the whole procedure is currently
+being discussed among the developers. If you think your package is too
+important to wait, you may of course ask a <strong>Trusted User</strong>
+if he would be willing to take your package for inclusion in his
+repository. </li>
+</ol>
+
+<h2 id="faq">常見問答集Frequently Asked Questions</h2>
+
+<div class="note"> 這份 FAQ 在這邊只列出<strong>關於啟動或是安裝 Arch Linux 系統時你可能會遇到的問題與答案</strong>。如果你有關於系統應用程式的使用問題， XFree86 的設定問題，等等。或著如何是定你的硬體，請參考 <a href="http://wiki.archlinux.org/">Wiki</a> 上的相關章節。如果你覺得有些問題應該在這邊出現卻沒出現，請知會這份文件的作者，你可以在這份文件一開始的地方找到他們的聯絡方法。</div>
+
+<h3 id="faq1"> 在安裝程式套件時， pacman 無法解決套件 A 的依賴關係 dependencies 因為套件 B 並不在
+package set </h3>
+
+<p> Unless something is very broken and thus very likely to be reported
+by multiple people soon, you probably just forgot to <strong>mount
+your target partitions properly</strong>. This causes pacman to
+decompress the package database into the initial ramdisk, which fills
+up quite nicely and ultimatively leads to this error. </p>
+
+<p> Make sure that you use the <code>DONE</code> and <em>not</em> the
+<code>CANCEL</code> option offered by the <code>Filesystem Mountpoints</code>
+menu to apply your choices. This error should not happen if you use the
+<code>Auto-Prepare</code> feature; please report this as a bug. </p>
+
+<h3 id="faq2">當系統啟動時，我得到一個 kernel panic 的錯誤訊息 : <q>Unable to open
+initial console</q> </h3>
+
+<p> 你可能編譯了自己設定過的核心同時又<strong>忘記加入 <code>DevFS</code> 的支援設定</strong>。在設定你的核心時，請記得開啟對<q> /dev 檔案系統的支援然後在系統啟動時 *自動* 掛載他們。</q>You'll also need <q>Prompt for development and/or
+incomplete code/drivers</q> to see these option at all. </p>
+
+<h3 id="faq3">要怎麼使用 pacman --sync 來安裝在 CD 上的程式套件 (so it resolves
+dependencies for me)? </h3>
+
+<p> 如果你不想從網路上下載更新的套件，希望從光碟上安裝程式套件，你需要先<strong>把安裝 CD 掛載在某個地方</strong>
+(例如，<code>/mnt/cd</code>) 然後在 <code>/etc/pacman.conf</code> 內的 <code>[current]</code> 這一行下加入下面這一行指令 : </p>
+
+<pre>Server = file:///mnt/cd</pre>
+
+<p> 將 <code>/mnt/cd</code> 用你選擇的掛載點取代。然後使用指令 <code>pacman --sync</code> 就像你平常更新套件清單時一樣 - 套件管理程式將會先檢查在 <code>/mnt/cd</code> 這個目錄下的程式套件。</p>
+
+<h3 id="faq4">在安裝的過程中，如何建立多個 swap 分割區? </h3>
+
+<p> 如果你想要建立和使用多個 swap 分割區，你當然無法使用安裝程式提供的 <code>Auto-Prepare</code>
+這個功能。您必須<strong>自己手動來設定</strong>，隨便您想設定多少個，就設定多少個。Go through the rest of the
+install, <strong>don't mind that you're only asked for one swap
+partition</strong> during the mount-point setting. Once you're through
+with the install and are about to edit your system configuration files,
+you can <strong>edit the fstab file and include a line for every swap
+device you created earlier</strong>. Simply copy the automatically
+generated swap line, and modify the referenced device according to your
+setup. The <strong>additional swaps will be activated after the bootup</strong>
+when <code>swapon -a</code> is being run by the initscripts. </p>
+
+<p> 如果，為了不知名的任何理由，你不能等到系統完全安裝完畢後才啟動其他的 swap 分割區或是檔案，你必須先在其他的虛擬終端機上開啟一個 shell 然後為每一個你之前已經切割好/準備好的 swap 分割區或是檔案鍵入 <code>swapon &lt;device&gt;</code> 這個指令。然後接著上面的解釋繼續完成安裝的程序。</p>
+
+<p> 如果你真的真的計畫設定多個 swap 檔案或是分割區，你必須明白一點，<strong>一個需要很多 swap 空間的系統核心其實是在哭訴他需要更多的記憶體</strong>，而不是真的需要更多的 swap 空間。請記得好好的餵飽你的小企鵝，謝謝。</p>
+
+<h3 id="faq5">如何從急救系統 (rescue system)來重新設定 LILO ? </h3>
+
+<p> As a first step you simply boot from the Arch Install CD or disks. <strong>如果您的分割區都依然完整</strong>同時也不需要任何檢查， you should
+supply the <code>root=</code> kernel boot parameter as the
+instructions tell you. That will boot directly into your system, and
+you can skip all but the last step of actually reconfiguring and
+running <code>lilo</code>. </p>
+
+<p> If you cannot boot your old root directly, boot the CD as if you
+were going to start an installation. Once you're in a shell, you mount
+the root partition of your harddisk into the <code>/mnt</code>
+directory, for example like this: </p>
+
+<pre># <span class="type">mount /dev/discs/disc0/part3 /mnt</span></pre>
+
+<p> Then you mount any other partitions to their respective mount
+points within that root of yours, for example a <code>/boot</code>
+partition: </p>
+
+<pre># <span class="type">mount /dev/discs/disc0/part1 /mnt/boot</span></pre>
+
+<p> Now you need to mount your <code>DevFS</code> directory in the <code>/mnt</code>
+area, where <code>lilo</code> will be able to find it: </p>
+
+<pre># <span class="type">/mnt/bin/mount --bind /dev /mnt/dev</span></pre>
+
+<p> Once everything is mounted, make this <code>/mnt</code> directory
+your new root with the <code>chroot /mnt</code> command. This will
+start a new shell and drop you into the <code>/mnt</code> directory,
+which will be considered your <code>/</code> from then on. </p>
+
+<p> Now you can edit <code>/etc/lilo.conf</code> to your liking and
+run <code>lilo</code> to fix anything that needs fixing. Simply type <code>exit</code>
+when you want to break out of this root again, back into the original
+file tree. You can now <code>reboot</code> and test your changes. </p>
+
+<h3 id="faq6">我無法 ssh 連線到我自己的機器內 !</h3>
+
+<p>請先編輯您的 <code>/etc/hosts.deny</code> 檔案。 系統預設的設定將拒絕所有 incoming 連線要求。</p>
+
+<h3 id="faq7"> 在啟動時如何載入模組How should I load modules during boot now? </h3>
+
+<p> If you want to <strong>load a module unconditionally without a
+specific device binding</strong>, add the name of the module to the <code>MODULES</code>
+array of your <code>/etc/rc.conf</code>. For <strong>on demand
+loading on device access</strong>, add it as usual with the <code>alias</code>
+command to your <code>/etc/modprobe.conf</code> (<code>/etc/modules.conf</code>
+for 2.4 kernels). To pass any options to a module you want to load
+through the <code>MODULES</code> array, only add the appropriate<code>options</code>
+line to the <code>/etc/modprobe.conf</code>. </p>
+
+<h3 id="faq8"> Kernel 核心拒絕啟動因為 <q>lost interrupt</q>
+</h3>
+
+<p>Kernel 核心拒絕啟動。系統整個卡在 :</p>
+
+<pre>IRQ probe failed for hda<br />hda lost interrupt</pre>
+
+<p>這個錯誤發生在 2.6.X 核心和某些硬碟控制卡上。一個可行的解決方法就是在系統啟動時，鍵入 <code>acpi=off</code> 這個指令。</p>
+<h3 id="faq9"> I get <q>access denied</q> errors trying to play sound
+or read DVDs </h3>
+
+<p> 請將您的使用者帳號加入 <code>optical</code> 與 <code>audio</code>
+群組. </p>
+
+<pre># gpasswd -a johndoe optical<br /># gpasswd -a johndoe audio</pre>
+
+登出，然後重新登入Logout, then login as your regular user (eg, <code>johndoe</code>) so
+the group changes can take effect.
+<p> 如果您有一台 DVD 光碟機，您可能需要建立一個 <code>/dev/dvd</code>
+symlink 連接到您的真實 DVD 光碟機。</p>
+
+<p> 例如，如果您使用 udev 然後您的 DVD 光碟機是在 <code>/dev/hdc </code>，您可以在 root 的身份下輸入下列指令 : </p>
+
+<pre># cat &gt;&gt;/etc/udev/rules.d/00.rules &lt;&lt;EOF<br />&gt; KERNEL="hdc", NAME="hdc", SYMLINK="dvd"<br />&gt; EOF<br /># /etc/start_udev<br /># mount /dev/pts<br /># mount /dev/shm</pre>
+
+<h3 id="faq10"> 使用 pacman 安裝 packages 時, 我得到這個錯誤訊息 : <q>error : xorg
+conflicts with xfree86</q> </h3>
+
+<p> 這是個暫時性的問題，因為我們正將正個系統轉移到 xorg 環境下。目前，還有一些 packages 依然要求ll depend on
+xfree86 specifically，所以 <code>pacman </code>有時會搞不清楚狀況。</p>
+
+<p> 你可以清楚要求系統先安裝 xorg ，然後再安裝其他的 packages 來解決這個問題。</p>
+
+<pre># pacman -S xorg<br /># pacman -S otherpkg1 otherpkg2 ...<br />
+</pre>
+<h2 id="glossary">附錄 - 翻譯對照表</h2>
+<p>為了方便閱讀與之後的維護工作，這裡列出了一些單字的翻譯對照表。很多翻譯名詞可能都不是非常 conventional，因為我對很多名詞的中文（台灣）慣用語不是很清楚。翻譯時為了求效率（其實也拖了很久），就沒有去仔細推敲每個名詞的正確中文翻譯。</p>
+<p>如果你對下面這份對照表內的單字和翻譯有疑問，歡迎你寫信來告知我，或是在 ArchLinux@CLE 的論壇提出討論。</p>
+<p> - A -</p>
+<p>- B -<br />
+boot :<br />
+boot loader :
+</p>
+<p>- C -</p>
+<p>- D -<br />
+  dependency : 相依性
+    <br />
+    distribution : 發行套件
+</p>
+<p>- E -</p>
+<p>- F -<br />
+  file system : 檔案系統
+</p>
+<p>- G -</p>
+<p>- H -</p>
+<p>- I -<br />
+  image/ISO : 映象檔</p>
+<p>- J -</p>
+<p>- K -<br />
+  kernel : 核心
+</p>
+<p>- L -<br />
+  library : 程式庫
+</p>
+<p>- M - <br />
+  mirror : 鏡像站
+  <br />
+  module : 模組
+  <br />
+  mount/mount point : 掛載/掛載點
+</p>
+<p>- N -</p>
+<p>- O -</p>
+<p>- P -<br />
+  package : （程式/發行)套件
+    <br />
+    partition : 分割區<br />
+    plug-in : 外掛
+</p>
+<p>- Q -</p>
+<p>- R -<br />
+  reposirory : </p>
+<p>- S -<br />
+  source/source file :
+</p>
+<p>- T -</p>
+<p>- U -</p>
+<p>- V -</p>
+<p>- W -</p>
+<p>- X -</p>
+<p>- Y -</p>
+<p>- Z - </p>
+</body>
+</html>

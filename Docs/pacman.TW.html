@@ -1,0 +1,377 @@
+<html><head><title>Pacman - 一個簡單的套件管理程式</title>
+
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="Pacman_files/style.css"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<center>
+	<h1>Pacman</h1>
+	<p><img src="Pacman_files/pacman.png"><br>
+	  <br>
+  一個 Linux 上以 tar.gz 包裝的套件的簡單管理程式.<br>
+  </p>
+</center>
+<a href="http://www.archlinux.org/pacman/pacman.8.html">pacman(8)</a><br>
+<a href="http://www.archlinux.org/pacman/makepkg.8.html">makepkg(8)</a>
+<hr>
+<h2>描述</h2>
+pacman 是個 Linux 上的套件管理應用程式.  他使用簡單的 .tar.gz 檔案做為套件的格式, 並維護一個文字為主的套件程式庫 (不僅只是階層上的分類), 如果說有需要手動更改一些設定的話 hand tweaking
+is necessary.
+<p> 
+pacman does not strive to "do everything."  It will add, remove and
+upgrade packages in the system, and it will allow you to query the
+package database for installed packages, files and owners.  It also
+attempts to handle dependencies automatically and can download packages
+from a remote server.
+</p><p>
+Although the package manager itself is quite simple, the pacman tarball
+also comes with scripts that help automate building and installing
+packages.  These are used extensively in the Arch Build System (ABS),
+used in <a href="http://www.archlinux.org/">Arch Linux</a>.
+</p><p>
+As of version 2.0, pacman can also keep your system's packages in
+sync with a master server.  You can follow CURRENT and STABLE trees,
+or lock yourself into a specific version.  See the pacman manpage
+for more info on this (--sync operation).
+<br>
+</p><p>
+
+</p>
+<h2>更新</h2>
+<ul>
+<li><b>2005-01-11 ::</b> Pacman v2.9.5 發佈!</li>
+<li><b>2004-12-19 ::</b> Pacman v2.9.4 發佈!</li>
+<li><b>2004-12-18 ::</b> Pacman v2.9.3 發佈!</li>
+<li><b>2004-09-25 ::</b> Pacman v2.9.2 發佈!</li>
+<li><b>2004-09-24 ::</b> Pacman v2.9.1 發佈!</li>
+<li><b>2004-09-18 ::</b> Pacman v2.9 發佈!</li>
+<li><b>2004-08-22 ::</b> Pacman v2.8.4 發佈!</li>
+</ul>
+<p>
+
+</p>
+<h2>LIBTAR 修正</h2>
+
+Pacman 使用 libtar 來處裡 TAR 格式檔案, 但是在 1.2.11 版中有個記憶體 leak
+的問題. 這個問題可能在 pacman 處裡比較大一點的檔案時佔用非常大量的記憶體.  下面這個 patch
+將可修正這個問題.  感謝 <a href="http://www.fukt.bth.se/%7Eper/">Per Lidén</a> 提出的修正.
+<br>
+<ul><li><a href="http://www.archlinux.org/pacman/libtar-1.2.11.patch">libtar-1.2.11.patch</a></li></ul>
+
+
+<h2>安裝</h2>
+
+從 <a href="ftp://ftp.archlinux.org/other/pacman">
+ftp://ftp.archlinux.org/other/pacman</a> 下載, 將下載的檔案解壓縮然後執行下面這三個神奇指令 :<br>
+<blockquote>
+	<code>
+	$ ./configure<br>
+	$ make<br>
+	# make install<br>
+	</code>
+</blockquote>
+<p>
+如果你的 man 檔案放在 /usr/man 以外的目錄下, 在開始安裝編譯前, 你可能需要先修改 Makefile 內關於 MANDIR 這一行的內容來符合你的設定.
+</p>
+<p>
+注意 :  因為 pacman 是採用靜態編譯, 你將會需要 glibc, zlib 和 libtar 的靜態函示庫.<br>
+</p>
+<p>
+
+<a name="changelog">&nbsp;</a>
+<table class="doctable">
+<tbody><tr>
+  <th class="docth">更新紀錄</th>
+</tr>
+<tr><td class="doctd">
+<pre>版本            描述
+-----------------------------------------------------------------------------
+2.9.5         - bug 修正: missing files after re-ordering packages wrt
+                deps with --upgrade
+              - 新增 "Repository" line to -Si output
+              - patch from Tommi Rantala to fix trim() behaviour with
+                empty or whitespace-only strings
+              - 修正 removal order when using -Rc or -Rs
+2.9.4         - 修正 a bug that was introduced from another bug 修正 :-/
+2.9.3         - 修正 a couple manpage typos
+              - 新增 --ignore to -S operations, works just like IgnorePkg
+              - respect IgnorePkg list when pulling in dependencies
+              - numerous memleak fixes
+              - some code changes to improve customizability/branding
+              - Makefile fix for nonstandard lib search paths (Kevin Piche)
+              - 修正 the leftover directories in /tmp
+              - speed improvement patches from Tommi Rantala
+2.9.2         - bug 修正 for 2.9.1
+2.9.1         - --refresh now only downloads fresh packages lists if they've
+                been updated (currently only works with FTP)
+2.9           - Improved -Rs functionality -- pacman now tracks why a package
+                is installed: explicitly, or as a dependency for another
+                package.  -Rs will only remove dependencies that were not
+                explicitly installed.
+              - 新增 compressed package size to sync DBs -- shows the total
+                size of packages before downloading
+              - Patch from Tommi Rantala:
+                - Allow --info and --list together in queries
+              - Patch from Kevin Piche:
+                - Use list_add_sorted() with -Sg
+              - Patch from Hegedus Marton Csaba:
+                - Better manpage compression
+              - 新增 checks for additional hyphens in package versions
+              - mktemp was failing if %pmo_root%/tmp was missing -- 修正
+2.8.4         - 新增 updatesync script from Jason Chu
+              - Changed the pacman binary to be dynamically linked
+                - Included a pacman.static binary as well
+                - 新增 fakeroot checks when seeing if we're root
+              - 修正 makepkg to use 'tail -n 1' instead of 'tail -1'
+              - 新增 patch from Kevin Piche:
+                - Cleanup db_loadpkgs(), add list_add_sorted()
+              - 修正 a memory leak in db_find_conflicts()
+2.8.3         - 修正 a little makepkg bug with bash 3.0
+              - 修正 resolvedeps to always prefer literals over provisios
+              - 新增 --config option to specify an alternate config file
+              - 新增 "Include" directive to include repositories from
+                config files (inspired by Michael Baehr's patch)
+              - 新增 patch from Jason Chu:
+                - Even smarter file-conflict checking
+2.8.2         - 修正 a segfault bug in file-conflict checks
+              - Made --noconfirm actually work.  Go me.
+2.8.1         - 新增 a HoldPkg option in pacman.conf, for the more
+                exploratory users who run things like "pacman -R pacman".  It
+                will ask for confirmation before removing any packages listed
+                in the HoldPkg list
+              - 新增 a --noconfirm switch for use with script automation
+              - Modified dependency resolution to prefer packages explicitly
+                requested on the cmdline instead of those pulled in by
+                resolvedeps().  Example, if neither "xorg" nor "xfree86" is
+                installed and "blackbox xfree86" is requested, "xfree86" will
+                be used instead of "xorg"
+              - 新增 patch from Jason Chu:
+                - Smarter file-conflict checking with symlinked paths and
+                  with files that move from one package to another
+2.8           - bug 修正es:
+                - #861:  file:/// urls not handled properly with XferCommand
+                - #1003: set umask before scriptlet calls
+                - #1027: download problems with http urls using -U/-A
+                - #1044: segfaults when using -Rs
+                - #863:  "missing post_remove" errors with some packages
+                - #875:  detect low disk space properly
+                - #986:  makepkg -e doesn't validate files
+                - #1010: add -j option to makepkg
+                - #1028: make pacman -Sp runnable as non-root
+              - 新增 pre_install and pre_upgrade scriptlet support
+              - 新增 an "Architecture" field in the package meta-data
+              - 新增 patch from Aurelien Foret which improves performance
+                adding or removing packages
+              - 新增 implementation of GNU's strverscmp function for better
+                portability
+              - 新增 explicit unlink() calls when --force is used, which
+                prevents those nasty "Text file busy" errors when you
+                force-upgrade something like pacman or glibc.
+2.7.9         - 新增 the "force" option to packages, so --sysupgrade can
+                downgrade packages when it needs to
+2.7.8         - 新增 post_remove scriptlet support
+              - 新增 -Qs option (bug #854)
+              - a provisio does not imply conflict, to make a provisio target
+                conflict with anything else that provides the same thing, you
+                can now do this by specifying the provisio target as both a
+                provides and a conflict, eg:
+                   conflicts=('x-server')
+                   provides=('x-server')
+              - cleaned up the download progress bar a bit
+              - 新增 %o parameter to XferCommand so wget can resume properly
+              - 修正 a segfault in downloadfiles() (bug #787)
+              - patches from Oliver Burnett-Hall
+                - gensync uses a better temp dir (bug #774)
+                - PKGDEST can be set in makepkg.conf (bug #783)
+              - patches from Aurelien Foret
+                - segfault fix, couple memory leaks
+                - more sanity checks in "provides" searches
+                - 修正 a little display bug in the progress bar
+                - made -Qip look like -Qi
+                - -Sc now removes OLD packages from cache, use -Scc for all
+2.7.7         - 新增 an XferCommand directive that will make pacman use an
+                external download utility like wget
+              - 新增 a license field to package meta-data
+              - add url support to -A and -U operations (download packages)
+              - -Ss now searches thru provides fields
+              - 新增 --dbonly option to -R
+2.7.6         - 新增 --print-uris option
+              - 修正 an http download bug (bug #667)
+              - 修正 a segfault related to replaces/conflicts handling
+2.7.5         - "replaces" packages were ignoring IgnorePkg in pacman.conf
+              - 修正 another bug in conflict handling
+              - found an out-dated reference to /usr/abs, 修正
+              - 新增 a --recursive option for package removal, which removes
+                all deps of a target that aren't required by other packages
+2.7.4         - 修正 a bug in conflict handling, where installing a
+                conflicting package would fail even if the new package
+                "provided" it
+              - if pacman sees a newer version of itself during an upgrade,
+                it will ask to install itself first, then be re-run to upgrade
+                the other packages.
+              - You can now use the --info option with --sync to display an
+                uninstalled package's dependency info.
+              - 新增 a sane umask before db writes
+              - buffer overflow fix (bug #442)
+2.7.3         - makepkg not longer strips files with .exe or .dll extensions
+              - 新增 Aurelien's patch:
+                - proxy support (no authentication yet)
+                - HTTP/1.1 support
+                - an improved progress bar with transfer rates and ETA
+              - cleaned up warning output a bit
+2.7.2         - Supressed "No such file" messages during stripping
+              - Removed extra newlines in /var/log/pacman.log
+              - 新增 a --noextract option to makepkg to skip source extraction
+2.7.1         - 修正 a couple obscure segfaults
+              - LogFiles were logging incorrect dates - 修正
+              - Cleaned up md5sum output in makepkg -g
+              - 新增 (optional) colorized output messages to makepkg
+              - Renamed the "stable" repo to "release" in pacman.conf
+              - Renamed the "unofficial" repo to "extra" in pacman.conf
+2.7           - 新增 build-time dependencies to makepkg (Jason Chu)
+              - 新增 md5sum integrity checking to packages in --sync
+                mode (Aurelien Foret)
+              - Memory leak fixes (Aurelien Foret)
+              - 新增 CARCH variable to makepkg.conf for use in PKGBUILDs
+              - 新增 LogFile option for direct-to-file logging
+              - 新增 -Qii handling to show modified config files
+              - Allow --sync targets to specify an explicit repository to
+                sync from (eg, pacman -S current/patch)
+2.6.4         - Altered pacman_upgrade() to allow a package to replace itself
+2.6.3         - A couple memory fixes in the new replaces code
+2.6.2         - 修正 a memory cleanup bug
+              - Aurelien's patch:
+                - bug #159 implemented (for -S and -R)
+                - 修正 a bug with pacman -Sg (pacman was browsing only one
+                  db to get groups)
+                - 修正 a bug with list_merge()
+                - 修正 some MLK (in dumppkg() and with "-Qi --orphans")
+                - now "pacman -Sg" only displays groups (without content)
+                  whereas "pacman -Sg target1 target2" displays groups
+                  target1 and target2 with content
+2.6.1         - 新增 http download support (Aurelien Foret)
+              - Improved makepkg's --builddeps behaviour when called via
+                makeworld
+              - makepkg's md5 validation now occurs before source extraction
+              - makepkg delays fakeroot entry until after option parsing
+              - 修正 an argument-passing bug in fakeroot
+              - Modified pacman's behaviour wrt provides -- it now allows
+                multiple packages to be installed, even if they provide the
+                same thing (they were treated as conflicts before)
+2.6           - 新增 group handling, so one can run 'pacman -S kde' and
+                install all files from the KDE group
+              - 修正 a duplication bug in cascade package removal
+              - 新增 support for virtual provisions with "provides" tags
+              - When conflicts are encountered, pacman now offers the chance
+                to remove the conflicting packages (provides or literals)
+              - 新增 support for renamed/combined packages with a "replaces"
+                tag
+              - 新增 --nostrip option to makepkg
+              - Improved --search to list all packages from all repos when
+                a search term is omitted
+              - 新增 logging support through syslog()
+              - 新增 fakeroot support to makepkg (RomanK)
+              - 新增 MD5sum generation/validation to makepkg (RomanK)
+              - 修正 a progress bar bug (Aurelien Foret)
+              - Sorted makepkg's .FILELISTs (Aurelien Foret)
+              - Targets are now re-ordered w.r.t. dependencies when
+                using -A/-U
+              - Modified --search to work when called as -Sys
+              - Modified abs to use ABS_ROOT from /etc/abs/abs.conf (Aurelien)
+              - Other bug fixes
+2.5.1         - Minor bug fixes
+2.5           - 新增 an URL tag to package info
+              - Sped up package load times by about 500% by introducing
+                a .FILELIST into the package
+              - Renamed the install scriptlet from ._install to .INSTALL
+              - 新增 patch from Aurlien Foret:
+                - Better lock handling (RW and RO)
+                - Sorted package order in -Qi's dependency lists
+                - 新增 a DBPath option to pacman.conf
+                - 修正 memory leaks
+                - 新增 the --nodeps option to -S
+2.4.1         - 修正 a bug in makepkg's option parsing
+2.4           - 新增 getopt-style options to makeworld
+              - 新增 -w <destdir> to makepkg
+              - makeworld now properly handles packages with --builddeps
+              - 新增 patches from Aurelien Foret:
+                - Cascading package removals. -Rc will remove a package and
+                  all packages that require it
+                - Support for getopt-style options in makepkg
+                - the REQUIREDBY field is now updated when a package is
+                  removed with --nodeps, then re-installed.
+                - Avoids duplicate dependency checks with sync
+                - 新增 a "NoPassiveFtp" option in pacman.conf
+                - Improvements to the --query listings
+2.3.2         - 新增 patches from Aurelien Foret:
+                - FTP resume feature
+                - removed the hit-^C-and-delete-the-downloading-file safety
+                - IgnorePkg option in pacman.conf
+                - FTPAGENT setting in makepkg.conf
+                - 新增 --cleancache option to makepkg
+2.3.1         - 修正 the progress bar overflow
+              - Pacman does not ask "Are you sure" when you use --downloadonly
+              - Switched up a couple makepkg options to be more consistent
+                with pacman's options
+              - If you ^C out of a file download, the package will now be
+                removed from the cache directory
+2.3           - The beginnings of source-side dependency resolution, makepkg
+                can now either A) download/install missing deps with pacman
+                -S; or B) find missing deps in the /usr/abs tree and
+                build/install them.
+              - 新增 a --nodeps option to makepkg
+              - Improved the --search output
+2.2           - More bug 修正es
+              - 新增 --downloadonly switch to --sync
+2.1           - Lots of bug 修正es
+              - 新增 support for multiple respositories
+              - Improved the config file layout
+              - Improved dependency resolution and sorting
+2.0           - 新增 dependency functionality
+              - Completely new database format, similar to FreeBSD
+              - Better internal data structures
+              - Merged pacsync functionality into pacman
+              - Now uses libftp for all file retrieval (currently only ftp)
+              - Automatic dependency resolution, a la apt-get
+              - Moved config stuff from /etc/pacsync.conf to /etc/pacman.conf
+              - Much better backup file handling, now uses md5 hashes a la rpm
+1.23          - 新增 install/upgrade/remove scripting control
+1.22          - Some manpage typo fixes
+              - 新增 --root switch to pacsync
+              - 新增 --help and ability to specify a PKGBUILD to makepkg
+              - Switched default downloader to snarf
+1.21          - 新增 better backup control -- upgrade/add and remove
+                do different things with the -n switch
+1.2           - 新增 wildcard handling
+              - 新增 man pages for makepkg and pacsync
+              - 新增 the pacsync utility for remote file fetching/sync
+1.1           - 修正 some string-handling bugs
+              - 新增 better handling of configuration files and the like.
+                If "file" is about to be removed, but it is designated to
+                backed up, then it will be copied to "file.save"
+              - Changed db_find_conflicts() to ignore directories
+1.0           - Initial Release
+
+</destdir></pre>
+</td></tr>
+</tbody></table>
+</p><p>
+</p>
+<h2>錯誤回報 BUGS</h2>
+如果你發現任何臭蟲 (這是非常有可能的), 請將你的發現寫信傳到 <a href="mailto:jvinet@zeroflux.org">這裡給我</a>. 請註明發現臭蟲時的過程, 包含你在命令列下達的指令, 錯誤發生時的訊息, 如果有需要, 你也可以把你的套件資料庫一起傳給我.<br>
+<p>
+
+</p>
+<h2>版權宣告</h2>
+pacman is Copyright (c) 2002-2005 Judd Vinet &lt;jvinet@zeroflux.org&gt; and is
+licensed through the GNU General Public License.
+<p>
+pacman uses "libtar", a library for reading/writing tar-files. This 
+library is Copyright (c) 1998-2001 Mark D. Roth &lt;roth@uiuc.edu&gt;
+</p><p>
+pacman uses "ftplib", a library for sending/receiving files via FTP.  This
+library is copyright (c) 1996-2000 Thomas Pfau, pfau@cnj.digex.net
+<br>
+</p><p>
+
+
+</p></body></html>

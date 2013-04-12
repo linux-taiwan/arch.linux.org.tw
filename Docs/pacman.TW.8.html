@@ -1,0 +1,434 @@
+<HTML><HEAD><TITLE>Manpage of pacman</TITLE>
+</HEAD><BODY>
+<H1>pacman</H1>
+Section:  (8)<BR>Updated: September 17, 2004<BR><A HREF="#index">Index</A>
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+pacman - package manager utility
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<B>pacman  &lt;operation&gt; [options] &lt;package&gt; [package] ...</B>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<B>pacman</B> is a <I>package management</I> utility that tracks installed
+packages on a linux system.  It has simple dependency support and the ability
+to connect to a remote ftp server and automatically upgrade packages on
+the local system.  pacman package are <I>gzipped tar</I> format.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPERATIONS</H2>
+
+<DL COMPACT>
+<DT><B>-A, --add</B>
+
+<DD>
+Add a package to the system.  Package will be uncompressed
+into the installation root and the database will be updated.
+<DT><B>-F, --freshen</B>
+
+<DD>
+This is like --upgrade except that, unlike --upgrade, this will only
+upgrade packages that are already installed on your system.
+<DT><B>-Q, --query</B>
+
+<DD>
+Query the package database.  This operation allows you to
+view installed packages and their files, as well as meta-info
+about individual packages (dependencies, conflicts, install date,
+build date, size).  This can be run against the local package
+database or can be used on individual .tar.gz packages.  See
+<B>QUERY OPTIONS</B> below.
+<DT><B>-R, --remove</B>
+
+<DD>
+Remove a package from the system.  Files belonging to the
+specified package will be deleted, and the database will
+be updated.  Most configuration files will be saved with a
+<I>.pacsave</I> extension unless the <B>--nosave</B> option was
+used.
+<DT><B>-S, --sync</B>
+
+<DD>
+Synchronize packages.  With this function you can install packages
+directly from the ftp servers, complete with all dependencies required
+to run the packages.  For example, <B>pacman -S qt</B> will download
+qt and all the packages it depends on and install them. You could also use
+<B>pacman -Su</B> to upgrade all packages that are out of date (see below).
+<DT><B>-U, --upgrade</B>
+
+<DD>
+Upgrade a package.  This is essentially a &quot;remove-then-add&quot;
+process.  See <B>HANDLING CONFIG FILES</B> for an explanation
+on how pacman takes care of config files.
+<DT><B>-V, --version</B>
+
+<DD>
+Display version and exit.
+<DT><B>-h, --help</B>
+
+<DD>
+Display syntax for the given operation.  If no operation was
+supplied then the general syntax is shown.
+</DL>
+<A NAME="lbAF">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>-d, --nodeps</B>
+
+<DD>
+Skips all dependency checks.  Normally, pacman will always check
+a package's dependency fields to ensure that all dependencies are
+installed and there are no package conflicts in the system.  This
+switch disables these checks.
+<DT><B>-f, --force</B>
+
+<DD>
+Bypass file conflict checks, overwriting conflicting files.  If the
+package that is about to be installed contains files that are already
+installed, this option will cause all those files to be overwritten.
+This option should be used with care, ideally not at all.
+<DT><B>-r, --root &lt;path&gt;</B>
+
+<DD>
+Specify alternative installation root (default is &quot;/&quot;). This
+should <I>not</I> be used as a way to install software into
+e.g. /usr/local instead of /usr. Instead this should be used
+if you want to install a package on a temporary mounted partition,
+which is &quot;owned&quot; by another system. By using this option you not only
+specify where the software should be installed, but you also
+specify which package database to use.
+<DT><B>-v, --verbose</B>
+
+<DD>
+Output more status and error messages.
+<DT><B>--config &lt;path&gt;</B>
+
+<DD>
+Specify an alternate configuration file.
+<DT><B>--noconfirm</B>
+
+<DD>
+Bypass any and all &quot;Are you sure?&quot; messages.  It's not a good to do this
+unless you want to run pacman from a script.
+</DL>
+<A NAME="lbAG">&nbsp;</A>
+<H2>SYNC OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>-c, --clean</B>
+
+<DD>
+Remove old packages from the cache.  When pacman downloads packages,
+it saves them in <I>/var/cache/pacman/pkg</I>.  If you need to free up
+diskspace, you can remove these packages by using the --clean option.
+Using one --clean (or -c) switch will only remove <I>old</I> packages.
+Use it twice to remove <I>all</I> packages from the cache.
+<DT><B>-g, --groups</B>
+
+<DD>
+Display all the members for each package group specified.  If no group
+names are provided, all groups will be listed.
+<DT><B>-i, --info</B>
+
+<DD>
+Display dependency information for a given package.  This will search
+through all repositories for a matching package and display the
+dependencies, conflicts, etc.
+<DT><B>-l, --list</B>
+
+<DD>
+List all files in the specified repositories.  Multiple repositories can
+be specified on the command line.
+<DT><B>-p, --print-uris</B>
+
+<DD>
+Print out URIs for each specified package and its dependencies.  These
+can be piped to a file and downloaded at a later time, using a program
+like wget.
+<DT><B>-s, --search &lt;string&gt;</B>
+
+<DD>
+This will search each package in the package list for names or descriptions
+that contains &lt;string&gt;.
+<DT><B>-u, --sysupgrade</B>
+
+<DD>
+Upgrades all packages that are out of date.  pacman will examine every
+package installed on the system, and if a newer package exists on the
+server it will upgrade.  pacman will present a report of all packages
+it wants to upgrade and will not proceed without user confirmation.
+Dependencies are automatically resolved at this level and will be
+installed/upgraded if necessary.
+<DT><B>-w, --downloadonly</B>
+
+<DD>
+Retrieve all packages from the server, but do not install/upgrade anything.
+<DT><B>-y, --refresh</B>
+
+<DD>
+Download a fresh copy of the master package list from the ftp server
+defined in <I>/etc/pacman.conf</I>.  This should typically be used each
+time you use <B>--sysupgrade</B>.
+<DT><B>--ignore &lt;pkg&gt;</B>
+
+<DD>
+This option functions exactly the same as the <B>IgnorePkg</B> configuration
+directive.  Sometimes it can be handy to skip some package updates without
+having to edit <I>pacman.conf</I> each time.
+</DL>
+<A NAME="lbAH">&nbsp;</A>
+<H2>REMOVE OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>-c, --cascade</B>
+
+<DD>
+Remove all target packages, as well as all packages that depend on one
+or more target packages.  This operation is recursive.
+<DT><B>-k, --keep</B>
+
+<DD>
+Removes the database entry only.  Leaves all files in place.
+<DT><B>-n, --nosave</B>
+
+<DD>
+Instructs pacman to ignore file backup designations.  Normally, when
+a file is about to be <I>removed</I> from the system the database is first
+checked to see if the file should be renamed to a .pacsave extension.  If
+<B>--nosave</B> is used, these designations are ignored and the files are
+removed.
+<DT><B>-s, --recursive</B>
+
+<DD>
+For each target specified, remove it and all its dependencies, provided
+that (A) they are not required by other packages; and (B) they were not
+explicitly installed by the user.
+This option is analagous to a backwards --sync operation.
+</DL>
+<A NAME="lbAI">&nbsp;</A>
+<H2>QUERY OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>-e, --orphans</B>
+
+<DD>
+List all packages that were explicitly installed (ie, not pulled in
+as a dependency by other packages) and are not required by any other
+packages.
+<DT><B>-g, --groups</B>
+
+<DD>
+Display all groups that a specified package is part of.  If no package
+names are provided, all groups and members will be listed.
+<DT><B>-i, --info</B>
+
+<DD>
+Display information on a given package.  If it is used with the <B>-p</B>
+option then the .PKGINFO file will be printed.
+<DT><B>-l, --list</B>
+
+<DD>
+List all files owned by &lt;package&gt;.  Multiple packages can be specified on
+the command line.
+<DT><B>-o, --owns &lt;file&gt;</B>
+
+<DD>
+Search for the package that owns &lt;file&gt;.
+<DT><B>-p, --file</B>
+
+<DD>
+Tells pacman that the package supplied on the command line is a
+file, not an entry in the database.  Pacman will decompress the
+file and query it.  This is useful with <B>--info</B> and <B>--list</B>.
+<DT><B>-s, --search &lt;string&gt;</B>
+
+<DD>
+This will search each locally-installed package for names or descriptions
+that contains &lt;string&gt;.
+</DL>
+<A NAME="lbAJ">&nbsp;</A>
+<H2>HANDLING CONFIG FILES</H2>
+
+pacman uses the same logic as rpm to determine action against files
+that are designated to be backed up.  During an upgrade, it uses 3
+md5 hashes for each backup file to determine the required action:
+one for the original file installed, one for the new file that's about
+to be installed, and one for the actual file existing on the filesystem.
+After comparing these 3 hashes, the follow scenarios can result:
+<DL COMPACT>
+<DT>original=<B>X</B>, current=<B>X</B>, new=<B>X</B><DD>
+All three files are the same, so we win either way.  Install the new file.
+<DT>original=<B>X</B>, current=<B>X</B>, new=<B>Y</B><DD>
+The current file is un-altered from the original but the new one is
+different.  Since the user did not ever modify the file, and the new
+one may contain improvements/bugfixes, we install the new file.
+<DT>original=<B>X</B>, current=<B>Y</B>, new=<B>X</B><DD>
+Both package versions contain the exact same file, but the one
+on the filesystem has been modified since.  In this case, we leave
+the current file in place.
+<DT>original=<B>X</B>, current=<B>Y</B>, new=<B>Y</B><DD>
+The new one is identical to the current one.  Win win.  Install the new file.
+<DT>original=<B>X</B>, current=<B>Y</B>, new=<B>Z</B><DD>
+All three files are different.  So we install the new file, but back up the
+old one to a .pacsave extension.  This way the user can move the old configuration
+file back into place if he wishes.
+</DL>
+<A NAME="lbAK">&nbsp;</A>
+<H2>CONFIGURATION</H2>
+
+pacman will attempt to read <I>/etc/pacman.conf</I> each time it is invoked.  This
+configuration file is divided into sections or <I>repositories</I>.  Each section
+defines a package repository that pacman can use when searching for packages in
+--sync mode.  The exception to this is the <I>options</I> section, which defines
+global options.
+<DL COMPACT>
+<DT></DL>
+<A NAME="lbAL">&nbsp;</A>
+<H2>Example:</H2>
+
+<DD>
+<DL COMPACT><DT><DD>
+<PRE>
+[options]
+NoUpgrade = etc/passwd etc/group etc/shadow
+NoUpgrade = etc/fstab
+
+Include = /etc/pacman.d/current
+
+[custom]
+Server = <A HREF="file:///home/pkgs">file:///home/pkgs</A>
+
+</PRE>
+
+</DL>
+
+<A NAME="lbAM">&nbsp;</A>
+<H2>CONFIG: OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>DBPath = path/to/db/dir</B>
+
+<DD>
+Overrides the default location of the toplevel database directory.  The default is
+<I>var/lib/pacman</I>.
+<DT><B>HoldPkg = &lt;package&gt; [package] ...</B>
+
+<DD>
+If a user tries to <B>--remove</B> a package that's listed in HoldPkg, pacman
+will ask for confirmation before proceeding.
+<DT><B>IgnorePkg = &lt;package&gt; [package] ...</B>
+
+<DD>
+Instructs pacman to ignore any upgrades for this package when performing a
+<B>--sysupgrade</B>.
+<DT><B>Include = &lt;path&gt;</B>
+
+<DD>
+Include another config file.  This config file can include repositories or
+general configuration options.
+<DT><B>ProxyServer = &lt;host|ip&gt;[:port]</B>
+
+<DD>
+If set, pacman will use this proxy server for all ftp/http transfers.
+<DT><B>XferCommand = /path/to/command %u</B>
+
+<DD>
+If set, pacman will use this external program to download all remote files.
+All instances of <B>%u</B> will be replaced with the URL to be downloaded.  If
+present, instances of <B>%o</B> will be replaced with the local filename, plus a
+&quot;.part&quot; extension, which allows programs like wget to do file resumes properly.
+<P>
+This option is useful for users who experience problems with pacman's built-in http/ftp
+support, or need the more advanced proxy support that comes with utilities like
+wget.
+<DT><B>NoPassiveFtp</B>
+
+<DD>
+Disables passive ftp connections when downloading packages. (aka Active Mode)
+<DT><B>NoUpgrade = &lt;file&gt; [file] ...</B>
+
+<DD>
+All files listed with a <B>NoUpgrade</B> directive will never be touched during a package
+install/upgrade.  <I>Note:</I> do not include the leading slash when specifying files.
+<DT><B>UseSyslog</B>
+
+<DD>
+Log action messages through syslog().  This will insert pacman log entries into your
+/var/log/messages or equivalent.
+<DT><B>LogFile = /path/to/file</B>
+
+<DD>
+Log actions directly to a file, usually /var/log/pacman.log.
+<P>
+</DL>
+<A NAME="lbAN">&nbsp;</A>
+<H2>CONFIG: REPOSITORIES</H2>
+
+Each repository section defines a section name and at least one location where the packages
+can be found.  The section name is defined by the string within square brackets (eg, the two
+above are 'current' and 'custom').  Locations are defined with the <I>Server</I> directive and
+follow a URL naming structure.  Currently only ftp is supported for remote servers.  If you
+want to use a local directory, you can specify the full path with a '<A HREF="file://'">file://'</A> prefix, as
+shown above.
+<A NAME="lbAO">&nbsp;</A>
+<H2>USING YOUR OWN REPOSITORY</H2>
+
+Let's say you have a bunch of custom packages in <I>/home/pkgs</I> and their respective PKGBUILD
+files are all in <I>/var/abs/local</I>.  All you need to do is generate a compressed package database
+in the <I>/home/pkgs</I> directory so pacman can find it when run with --refresh.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+# gensync /var/abs/local /home/pkgs/custom.db.tar.gz
+</PRE>
+
+</DL>
+
+<P>
+The above command will read all PKGBUILD files in /var/abs/local and generate a compressed
+database called /home/pkgs/custom.db.tar.gz.  Note that the database must be of the form
+<I>{treename}.db.tar.gz</I>, where {treename} is the name of the section defined in the
+configuration file.
+That's it!  Now configure your <I>custom</I> section in the configuration file as shown in the
+config example above.  Pacman will now use your package repository.  If you add new packages to
+the repository, remember to re-generate the database and use pacman's --refresh option.
+<A NAME="lbAP">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+<B>makepkg</B> is the package-building tool that comes with pacman.
+<A NAME="lbAQ">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<PRE>
+Judd Vinet &lt;<A HREF="mailto:jvinet@zeroflux.org">jvinet@zeroflux.org</A>&gt;
+</PRE>
+
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPERATIONS</A><DD>
+<DT><A HREF="#lbAF">OPTIONS</A><DD>
+<DT><A HREF="#lbAG">SYNC OPTIONS</A><DD>
+<DT><A HREF="#lbAH">REMOVE OPTIONS</A><DD>
+<DT><A HREF="#lbAI">QUERY OPTIONS</A><DD>
+<DT><A HREF="#lbAJ">HANDLING CONFIG FILES</A><DD>
+<DT><A HREF="#lbAK">CONFIGURATION</A><DD>
+<DT><A HREF="#lbAL">Example:</A><DD>
+<DT><A HREF="#lbAM">CONFIG: OPTIONS</A><DD>
+<DT><A HREF="#lbAN">CONFIG: REPOSITORIES</A><DD>
+<DT><A HREF="#lbAO">USING YOUR OWN REPOSITORY</A><DD>
+<DT><A HREF="#lbAP">SEE ALSO</A><DD>
+<DT><A HREF="#lbAQ">AUTHOR</A><DD>
+</DL>
+<HR>
+</BODY>
+</HTML>

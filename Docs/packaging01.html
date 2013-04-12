@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><title>How To Create Packages - Lesson 1 - curl</title>
+		
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<link rel="stylesheet" type="text/css" href="packaging01_files/arch-styles.css"><style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style></head>
+
+
+
+	<body>
+		<h1>如何包裝套件 - 第一課 - curl</h1>
+		
+		<div class="date">May 1, 2004</div>
+		<div class="version">0.1</div>
+		
+		<address>
+			Jason Chu
+			<a class="email" href="mailto:jason@archlinux.org">jason@archlinux.org</a>
+	</address>
+		<center>中文版 by wHisKy Do</center>
+		<h2 id="summary">概論</h2>
+		<p>
+歡迎來到套件製作的第一個教學文章。在這一系列的教學文章中，我們將逐步帶領讀者依序隨著困難度的增加來包裝套件，並幫助讀者熟悉包裝套件的不同方法與這些方法的標準程序。</p>
+
+		<h2 id="toc">目錄</h2>
+		<div class="toc">
+		<ol>
+			<li><a href="#building">包裝 curl</a>
+				<ol>
+					<li><a href="#building1">Step 1: 搜尋</a></li>
+					<li><a href="#building2">Step 2: 使用  PKGBUILD.proto</a></li>
+					<li><a href="#building3">Step 3: 開始包裝</a></li>
+					<li><a href="#building4">Step 4: 包裝後的分析</a></li>
+					<li><a href="#building5">Step 5: namcap</a></li>
+		  </ol></li>
+			<li><a href="#autoconf">Autoconf</a></li>
+			<li><a href="#depends">Dependencies, Makedepends, and Fake Depends, Oh My!</a></li>
+		</ol>
+		</div>
+
+		<h2 id="building">包裝 curl</h2>
+		<p>
+在這份教學文件中，我們將解釋包裝程式 curl 成為套件的程序。curl 是個 URL 轉換應用程式 (<a href="http://curl.haxx.se/">http://curl.haxx.se</a>) 。如果您不知道這個程式是作什麼用的，這一點也不重要。我們只是拿這個程式當例子來解釋如何包裝一個套件，並不是真的要去使用這個程式。</p>
+
+		<p>
+在開始包裝套件前，我們必須先確定一些程式已經先安裝好了： pacman (這是在說廢話嗎？)， wget，
+namcap， 和 fakeroot。 pacman 提供我們用來包裝套件的 makepkg script， wget 是用來下載程式的原始碼， namcap 則可幫助我們分析包裝套件時可能會發生的問題。 Fakeroot 則是讓我們可以用一般使用者的身份假裝是 root 來包裝套件。</p>
+
+		<p>
+同時在開始前，我們假設您至少已經執行過一次 <code>abs</code> 。 </p>
+		<p>
+整個包裝的過程將分為下列幾個步驟：</p>
+
+		<h3 id="building1">Step 1: 搜尋</h3>
+		<p>
+要包裝這個套件前，我們需要知道一些基本資訊。 Namely, what might
+we need to build it (程式的依存性 - dependencies)，我們從哪可取得程式，和程式包裝和編譯的過程是如何？</p>
+
+		<p>
+在查閱了 curl 的網站後，我們可以找到一些我們需要的答案。在他們的網站上，我們可以找到程式原始碼下載的連結 (<a href="http://curl.haxx.se/download/curl-7.11.2.tar.bz2">http://curl.haxx.se/download/curl-7.11.2.tar.bz2</a>)。一般而言，這是我們唯一需要從程式官方網站知道的資訊。</p>
+
+		<h3 id="building2">Step 2: 使用 PKGBUILD.proto</h3>
+		<p>
+接著，我們將需要一個目錄來存放我們的 PKGBUILD 和要包裝的套件，所以請鍵入下列指令：<kbd>
+mkdir curl
+cd curl
+cp /var/abs/PKGBUILD.proto PKGBUILD
+</kbd>
+來建立一個目錄和取得 prototype PKGBUILD。</p>
+
+		<p>
+基本的 PKGBUILD 內容看起來如下：</p>
+<pre>pkgname=NAME
+pkgver=VERSION
+pkgrel=1
+pkgdesc=""
+url=""
+license=""
+depends=()
+makedepends=()
+conflicts=()
+replaces=()
+backup=()
+install=
+source=($pkgname-$pkgver.tar.gz)
+md5sums=()
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr
+  make || return 1
+  make prefix=$startdir/pkg/usr install
+}
+</pre>
+
+
+		<p>
+我們已經有足夠的資訊來填寫大部分的內容（pkgname -套件名稱， pkgver - 套件版本，
+  pkgdesc - 套件描述， url - 網址與  source - 原始碼）。修改後的內容看起來將會如下：</p>
+		<pre>pkgname=curl
+pkgver=7.11.2
+pkgrel=1
+pkgdesc="A URL transfer utility"
+url="http://curl.haxx.se"
+license=""
+depends=()
+makedepends=()
+conflicts=()
+replaces=()
+backup=()
+install=
+source=(http://curl.haxx.se/download/$pkgname-$pkgver.tar.bz2)
+md5sums=()
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr
+  make || return 1
+  make prefix=$startdir/pkg/usr install
+}
+</pre>
+
+	<h3 id="building3">Step 3: 開始包裝</h3>
+		<p>
+現在我們有一個 PKGBUILD 和足夠的資訊來開始包裝我們的套件，開始動手試試吧！鍵入 <code>makepkg 2&gt;&amp;1 | tee build.lst</code>。
+指令 "2&gt;&amp;1 | tee build.lst" 將會產生一個 build.lst 檔案並包含了所有鍵入上述指令後在螢幕上顯示的資訊，我們可以在稍後回來檢視這個檔案的內容。</p>
+
+		<p>
+在編譯完畢後，我們應該在螢幕上看到如下的畫面：</p>
+
+<pre>bcurl'
+make[5]: Entering directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/docs'
+make[6]: Entering directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/docs'
+make[6]: Nothing to be done for `install-exec-am'.
+test -z "/home/jchu/arch/testing/curl/pkg/usr/man/man1" || mkdir -p -- . "/home/jchu/arch/testing/curl/pkg/usr/man/man1"
+ /bin/install -c -m 644 './curl.1' '/home/jchu/arch/testing/curl/pkg/usr/man/man1/curl.1'
+ /bin/install -c -m 644 './curl-config.1' '/home/jchu/arch/testing/curl/pkg/usr/man/man1/curl-config.1'
+make[6]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/docs'
+make[5]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/docs'
+make[4]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/docs'
+make[3]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2'
+make[2]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2'
+make[1]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2'
+==&gt; Compressing man pages...
+==&gt; Stripping debugging symbols from libraries...
+==&gt; Stripping symbols from binaries...
+==&gt; Generating .PKGINFO file...
+==&gt; Generating .FILELIST file...
+==&gt; Compressing package...
+==&gt; Finished making: curl  (Tue May 25 13:17:51 PDT 2004)
+[jchu@aries curl]$ 
+</pre>
+
+	<p>
+從這個畫面我們可以得到一些有用的資訊。 There were no errors
+installing files to the wrong place or the pkg directory being empty,
+which is good. </p>
+
+	<h3 id="building4">Step 4: 包裝後的分析</h3>
+		<p>
+現在讓我們檢查一下 build.lst 這個檔案的內容來確定一下所有的組件都在正確的位置上。</p>
+		<p>在<code> ==&gt; Starting build()...</code> 這一行後面，我們可以看到正常的 ./configure 輸出。所有用
+  auto(conf/make) 這些工具包裝的套件都有著類似的 structure。您可以在 <a href="#autoconf">Autoconf</a> 這個章節找到更多相關的資訊。</p>
+		<p>
+Skimming the ./configure output we run into a few lines that aren't part of the regular checks:
+		</p>
+
+<pre>checking whether to support http... yes
+checking whether to support ftp... yes
+checking whether to support gopher... yes
+checking whether to support file... yes
+checking whether to support ldap... yes
+checking whether to support dict... yes
+checking whether to support telnet... yes
+checking whether to provide built-in manual... yes
+</pre>
+
+		<p>
+為什麼我們需要這些檢查? curl 是個 URL 轉換應用程式，所以他當然需要檢查一下有哪些 protocols 可以使用。如果 If we
+saw one of these options was "no", then we'd have to go back and figure
+out what to change to enable them. </p>
+
+		<p>
+在接下來的幾行我們可以看到 :
+		</p>
+
+<pre>checking for "/dev/urandom"... yes
+checking if argv can be written to... yes
+checking if Kerberos4 support is requested... no
+checking if SPNEGO support is requested... no
+checking if GSSAPI support is requested... no
+checking for pkg-config... /usr/bin/pkg-config
+checking for OpenSSL options using pkg-config... yes
+checking for CRYPTO_lock in -lcrypto... yes
+checking for gdi32... no
+checking for CRYPTO_add_lock in -lcrypto... yes
+checking for SSL_connect in -lssl... yes
+</pre>
+
+		<p>
+Ok, we know that Kerberos4 support won't be enabled. We also see
+mention of pkg-config, which means that pkgconfig will have to be a
+makedepends (the difference will be explained in the <a href="#depends">Dependencies, Makedepends, and Fake Depends, Oh My!</a>
+section). Just below we see that it's checking that libcrypto is
+available and that openssl is available. There's a good chance that
+openssl will be a dependency of curl. </p>
+
+		<p>
+然後我們看到這幾行，</p>
+
+<pre>configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating docs/Makefile
+config.status: creating docs/examples/Makefile
+</pre>
+
+		<p>
+we know that we're done the ./configure section and we're on to the
+building. Skimming through the next large bunch of lines, we see gcc
+building a lot of files and no errors. Things are looking good. </p>
+
+		<p>
+Next comes these lines:
+		</p>
+
+<pre>/bin/sh ../libtool --mode=link gcc  -march=i686 -O2 -pipe   -o curl  main.o huge
+help.o urlglob.o writeout.o writeenv.o getpass.o homedir.o strtoofft.o timeval.o
+ ../lib/libcurl.la -lssl -lcrypto -ldl  -lssl -lcrypto -ldl   -lz
+mkdir .libs
+gcc -march=i686 -O2 -pipe -o .libs/curl main.o hugehelp.o urlglob.o writeout.o w
+riteenv.o getpass.o homedir.o strtoofft.o timeval.o  ../lib/.libs/libcurl.so -ls
+sl -lcrypto -ldl -lz
+creating curl
+make[2]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/src'
+make[1]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/src'
+make[1]: Entering directory `/home/jchu/arch/testing/curl/src/curl-7.11.2'
+make[1]: Nothing to be done for `all-am'.
+make[1]: Leaving directory `/home/jchu/arch/testing/curl/src/curl-7.11.2'
+Making install in lib
+make[1]: Entering directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/lib'
+make  install-am
+make[2]: Entering directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/lib'
+make[3]: Entering directory `/home/jchu/arch/testing/curl/src/curl-7.11.2/lib'
+test -z "/home/jchu/arch/testing/curl/pkg/usr/lib" || mkdir -p -- . "/home/jchu/
+arch/testing/curl/pkg/usr/lib"
+ /bin/sh ../libtool --mode=install /bin/install -c  'libcurl.la' '/home/jchu/arc
+h/testing/curl/pkg/usr/lib/libcurl.la'
+</pre>
+
+		<p>
+A quick skimming tells us a few things. The last gcc line tells us that
+the curl binary was built with no problems (having a good programming
+and gcc background is an asset when building packages). After that gcc
+line we see that things are starting to be installed. A quick glance at
+the install path (<code>/home/jchu/arch/testing/curl/pkg/usr/lib/libcurl.la</code>) tells us that everything's being installed to the right place (if it wasn't, we'd see something like <code>/usr/lib/libcurl.la</code> and an error).
+		</p>
+
+		<p>
+After many more install lines we finally see this:
+		</p>
+
+<pre>==&gt; Compressing man pages...
+==&gt; Stripping debugging symbols from libraries...
+==&gt; Stripping symbols from binaries...
+==&gt; Generating .PKGINFO file...
+==&gt; Generating .FILELIST file...
+==&gt; Compressing package...
+==&gt; Finished making: curl  (Tue May 25 13:17:51 PDT 2004)
+</pre>
+
+		<p>
+Finally, we made it to the end, and learned a thing or two about how curl compiles.
+		</p>
+
+	<h3 id="building5">Step 5: namcap</h3>
+		<p>
+Now is time to do the automated analysis of the package using namcap.
+namcap can analyze both PKGBUILDs and package files, so type <code>namcap PKGBUILD curl-7.11.2-1.pkg.tar.gz</code>.  After processing time, namcap outputs this:
+		</p>
+
+<pre>PKGBUILD (curl)      E: Missing md5sums
+PKGBUILD (curl)      W: Missing Maintainer tag
+PKGBUILD (curl)      W: Missing CVS Id tag
+curl       E: Dependency detected and not included (zlib)
+curl       E: Dependency detected and not included (openssl)
+curl       E: Dependency detected and not included (bash)
+</pre>
+
+		<p>
+The Maintainer tag and CVS Id tag warnings are for package maintainers
+and should be ignored. To remedy the md5sums error, we use <code>makepkg -g &gt;&gt; PKGBUILD</code>.
+Edit the PKGBUILD file after running that and move the md5sums line to
+just below the source line (and remove the old md5sums line), to make
+it a little easier to read. Your PKGBUILD should look like this: </p>
+
+<pre>pkgname=curl
+pkgver=7.11.2
+pkgrel=1
+pkgdesc="A URL transfer utility"
+url="http://curl.haxx.se"
+license=""
+depends=()
+makedepends=()
+conflicts=()
+replaces=()
+backup=()
+install=
+source=(http://curl.haxx.se/download/$pkgname-$pkgver.tar.bz2)
+md5sums=('542fbdafd2fb051477fa544770b566de')
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr
+  make || return 1
+  make prefix=$startdir/pkg/usr install
+}
+</pre>
+
+		<p>
+Now, namcap figures that curl has three dependencies: zlib, openssl,
+and bash. We know that namcap isn't that smart, but we already know
+about openssl. zlib is understandable, because some protocols use
+compression. bash is less understandable, let's question it. How do we
+prove to ourselves that we were right and namcap was wrong? We have to
+look at the filelist file: </p>
+
+<pre>.FILELIST
+.PKGINFO
+usr/
+usr/bin/
+usr/bin/curl
+usr/bin/curl-config
+usr/include/
+usr/include/curl/
+usr/include/curl/curl.h
+usr/include/curl/curlver.h
+usr/include/curl/easy.h
+usr/include/curl/mprintf.h
+usr/include/curl/multi.h
+usr/include/curl/stdcheaders.h
+usr/include/curl/types.h
+usr/lib/
+usr/lib/libcurl.a
+usr/lib/libcurl.la
+usr/lib/libcurl.so
+usr/lib/libcurl.so.2
+usr/lib/libcurl.so.2.0.2
+usr/man/
+usr/man/man1/
+usr/man/man1/curl-config.1.gz
+usr/man/man1/curl.1.gz
+usr/man/man3/
+usr/man/man3/curl_easy_cleanup.3.gz
+usr/man/man3/curl_easy_duphandle.3.gz
+usr/man/man3/curl_easy_getinfo.3.gz
+usr/man/man3/curl_easy_init.3.gz
+usr/man/man3/curl_easy_perform.3.gz
+usr/man/man3/curl_easy_setopt.3.gz
+usr/man/man3/curl_escape.3.gz
+usr/man/man3/curl_formadd.3.gz
+usr/man/man3/curl_formfree.3.gz
+usr/man/man3/curl_formparse.3.gz
+usr/man/man3/curl_free.3.gz
+usr/man/man3/curl_getdate.3.gz
+usr/man/man3/curl_getenv.3.gz
+usr/man/man3/curl_global_cleanup.3.gz
+usr/man/man3/curl_global_init.3.gz
+usr/man/man3/curl_mprintf.3.gz
+usr/man/man3/curl_multi_add_handle.3.gz
+usr/man/man3/curl_multi_cleanup.3.gz
+usr/man/man3/curl_multi_fdset.3.gz
+usr/man/man3/curl_multi_info_read.3.gz
+usr/man/man3/curl_multi_init.3.gz
+usr/man/man3/curl_multi_perform.3.gz
+usr/man/man3/curl_multi_remove_handle.3.gz
+usr/man/man3/curl_share_cleanup.3.gz
+usr/man/man3/curl_share_init.3.gz
+usr/man/man3/curl_share_setopt.3.gz
+usr/man/man3/curl_slist_append.3.gz
+usr/man/man3/curl_slist_free_all.3.gz
+usr/man/man3/curl_strequal.3.gz
+usr/man/man3/curl_strnequal.3.gz
+usr/man/man3/curl_unescape.3.gz
+usr/man/man3/curl_version.3.gz
+usr/man/man3/curl_version_info.3.gz
+usr/man/man3/libcurl-easy.3.gz
+usr/man/man3/libcurl-errors.3.gz
+usr/man/man3/libcurl-multi.3.gz
+usr/man/man3/libcurl-share.3.gz
+usr/man/man3/libcurl.3.gz
+usr/share/
+usr/share/curl/
+usr/share/curl/curl-ca-bundle.crt
+</pre>
+
+		<p>
+Ah ha!  namcap saw the <code>usr/bin/curl-config</code>
+script and saw it was a bash script. In normal operation that script
+isn't needed, so curl doesn't strictly depend on it. After updating hte
+PKGBUILD's dependencies (and makedepends) it looks like this: </p>
+
+<pre>pkgname=curl
+pkgver=7.11.2
+pkgrel=1
+pkgdesc="A URL transfer utility"
+url="http://curl.haxx.se"
+license=""
+depends=(zlib openssl)
+makedepends=(pkgconfig)
+conflicts=()
+replaces=()
+backup=()
+install=
+source=(http://curl.haxx.se/download/$pkgname-$pkgver.tar.bz2)
+md5sums=('542fbdafd2fb051477fa544770b566de')
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr
+  make || return 1
+  make prefix=$startdir/pkg/usr install
+}
+</pre>
+
+		<p>
+Let's trim out some of the unused fields to make it look a little nicer:
+		</p>
+
+<pre>pkgname=curl
+pkgver=7.11.2
+pkgrel=1
+pkgdesc="A URL transfer utility"
+url="http://curl.haxx.se"
+license=""
+depends=(zlib openssl)
+makedepends=(pkgconfig)
+source=(http://curl.haxx.se/download/$pkgname-$pkgver.tar.bz2)
+md5sums=('542fbdafd2fb051477fa544770b566de')
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr
+  make || return 1
+  make prefix=$startdir/pkg/usr install
+}
+</pre>
+
+		<p>
+Voila!  That's it.  We now have a proper PKGBUILD (we need to run makepkg one more time to have a proper package file) for curl.
+		</p>
+
+	<h2 id="autoconf">Autoconf</h2>
+		<p>
+A package that uses autoconf and automake has a few telltale signs:
+		</p>
+
+<pre>  ./configure --prefix=/usr
+  make || return 1
+  make prefix=$startdir/pkg/usr install
+</pre>
+
+		<p>
+The build is broken up into three parts (commands, actually): configure, make, and make install.
+		</p>
+
+		<p>
+The configure part sets up and creates the Makefiles for your system.
+This is where you pass all the build-time configuration options (in
+this case, only --prefix). </p>
+
+		<p>
+The make part does the actual building.  We use <code>|| return 1</code> to tell makepkg there was an error building.
+		</p>
+
+		<p>
+The make install part does the actual installing of the built files. We
+specify the prefix variable so that the build system doesn't try to
+install to /usr later on. </p>
+
+	<h2 id="depends">Dependencies, Makedepends, and Fake Depends, Oh My!</h2>
+		<p>
+There are three types of dependencies: regular dependencies, make dependencies, and fake dependencies.
+		</p>
+
+		<p>
+Regular dependencies are those that are needed to run the program
+during regular operation. If the program doesn't run without a package
+being installed, then it's a regular dependency and needs to be listed
+in the <code>depends</code> variable.
+		</p>
+
+		<p>
+Make dependencies are packages that are needed to build. It's easy to
+tell that you're missing a make dependency, because the package won't
+build when you run makepkg. It's more difficult to tell which
+dependencies are make dependencies, usually you have to skim the
+./configure output. </p>
+
+		<p>
+Fake dependencies are those that namcap thinks are actual dependencies
+but aren't. A good example is bash in the case of curl. namcap thought
+bash was a dependency because there was a bash script in the package.
+We used our heads and realized that that bash script isn't needed to
+run curl, so it isn't a real dependency. </p>
+
+	</body></html>

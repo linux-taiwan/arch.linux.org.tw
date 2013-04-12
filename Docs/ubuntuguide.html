@@ -1,0 +1,3326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-TW" lang="zh-TW">
+
+<head>
+
+<title>非官方 Ubuntu 5.04 新手指南</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="linux, ubuntu, distribution, distributions, distro, distros, server, training, faq, guide"/>
+
+<link rel="shortcut icon" href="http://ubuntuguide.org/favicon.ico" type="image/x-icon"/>
+
+<link rel="stylesheet" type="text/css" media="screen,projection" href="http://ubuntuguide.org/5.04style.css"/> 
+<link rel="alternate stylesheet" type="text/css" title="print" media="print" href="http://ubuntuguide.org/5.04print.css"/>
+
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: 新細明體;
+}
+-->
+</style></head>
+
+<body>
+<div id="body">
+
+<h1>
+<a href="http://www.ubuntulinux.org" onclick="window.open(this.href,'_blank');return false;"><img style="border:0" src="http://ubuntuguide.org/ubuntu.png" alt=""/></a><br/>
+非官方 Ubuntu 5.04 新手指南 (繁體中文)
+</h1>
+
+<p>
+修正版 : 2.06 (最後修改日期 2005年五月二十六號) - <a href="changelog" onclick="window.open(this.href,'_blank');return false;">更新紀錄</a><br/>
+原文網站 : <a href="http://ubuntuguide.org">http://www.ubuntuguide.org</a><br/>
+  翻譯網站 : <a href="http://tw.ubuntuguide.org">http://tw.ubuntuguide.org</a> <a href="http://arch.linux.org.tw/Docs/ubuntuguide.html">鏡像站</a><br />
+  作者 : <a href="mailto:jiyuu0@gmail.com">Chua Wen Kiat</a> (吉隆坡, 馬來西亞)<br/>
+  譯者 : <a href="mailto:">whisky</a> (巴黎, 法國), <a href="shunhsiung%20(at)%20gmail%20(dot)%20com">SSH</a> (台北,台灣) <br/>
+</p>
+請捐款贊助我們讓 <a href="http://ubuntuguide.org">http://www.ubuntuguide.org</a> 有能力繼續發展與更新。謝謝您 :)<br/>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick"/>
+<input type="image" src="http://ubuntuguide.org/x-click-but21.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"/>
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIG9QYJKoZIhvcNAQcEoIIG5jCCBuICAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYADe7S+0ibQL98bannIT/ay8ZTox02uFlWcm/z0CH4/GRQwjR4ol51GHHZe2+oObnc4pvNL7jg622nt5h2XUt0Xn68YDj1Py88diPGQcyHcjthskHhi6I/TpHOEqrTNLJLjNOThyW8/RWKSf4D1LZ8K0ekQGIMTs+rsfh5tP2v0iTELMAkGBSsOAwIaBQAwcwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAieVLQJa29DSIBQylHNgOHvXA6n6WJO4M7La7ZFb19u+I6txv20JHb9dcjpEuN1h8HXioU+Xdk/j0nsKlX3g6Y3rxgElkCFEf4tPa4ruc5r6xntCBxHyxo/zr2gggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0wNTA0MDYwMjA3MTNaMCMGCSqGSIb3DQEJBDEWBBTvMEoJlaPUBhwAKJm1UvD7RdWK4DANBgkqhkiG9w0BAQEFAASBgA7dRJTx5p9EXnKnIKloHztcOUpljrRR0GI8cqJ2Dvf69bJ/1xYfG7GBk4pk320UReSF7mu53JaPnGNQTL712uuGxDzBTMmG9kgxt+jgB8aFIdOaDzh0eeUnJgxNrX+K2990Z98V3T/D58ravA8rpCY8O2h8G0NRcMqCGPNX8KDJ-----END PKCS7-----"/>
+</form>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-0029872200607235";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<!-- Search Google -->
+<form method="get" action="http://www.google.com/custom" target="google_window">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+<input type="hidden" name="client" value="pub-0029872200607235"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- Search Google -->
+
+<h2><a id="disclaimer" name="disclaimer">版權宣告</a></h2>
+
+<p>
+Copyright (C) 2004-2005 <a href="http://ubuntuguide.org">http://www.ubuntuguide.org</a>
+</p>
+
+<p>
+This program is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses/gpl.html" onclick="window.open(this.href,'_blank');return false;">GNU General Public License</a> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+</p>
+
+<p>
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <a href="http://www.gnu.org/licenses/gpl.html" onclick="window.open(this.href,'_blank');return false;">GNU General Public License</a> for more details.
+</p>
+
+<h2><a id="generalnotes" name="generalnotes">基本備註</a></h2>
+
+<ol>
+<li>這份文件是非官方 Ubuntu 5.04 新手指南. 這份文件和他的作者們和 Ubuntu 與 Canonical Ltd都沒有任何直接關係.</li>
+<li>這份指南的內容都已經在一台使用  Ubuntu 5.04 x86 安裝光碟 (Hoary Hedgehog) 完整安裝的系統上測試過 </li>
+<li>如果您看到被黑框圈著的文字, 這表示您需要開啟一個 Terminal 模式 (Applications -&gt; System Tools -&gt; Terminal) 然後執行上述的指令</li>
+<li>為了避免打字錯誤引起的問題, 請善加使用複製與貼上這兩個指令在 Terminal 模式內 (right click on the commands -&gt; "Copy" 或是 "Paste")</li>
+<li>"sudo" 代表 superuser do (超級使用者 執行). 輸入 "sudo" 後螢幕上會出現要求輸入密碼的提示號 &quot;Password:". 請輸入使用者的密碼</li>
+<li>如果您不想每次都要打 "sudo" 這個指令, 你可以使用 "sudo -s -H" 這個指令來切換到 root 的身份然後輸入密碼</li>
+<li>使用 "apt-get" 和 "wget" 這兩個指令來 安裝 / 更新 / 下載程式時, 請先確定您的系統已經連接上網路</li>
+<li>下載檔案時, 用滑鼠右鍵點擊 link -&gt; 選擇 "Save Link As..." -&gt; 請確認檔案名稱和副檔名都正確無誤</li>
+<li>關於這份指南的任何的迴響, 建議, 或是討論和給作者的錯誤回報,  請都貼在 Ubuntu 論壇的 <a href="http://ubuntuforums.org/showthread.php?p=112654" onclick="window.open(this.href,'_blank');return false;">這個主題下</a></li>
+<li>願"humanity to others" 的精神長伴你左右...</li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="topics" name="topics">主題</a></h2>
+<hr>
+
+<h3><a href="#gettingstarted">開始的第一步</a></h3>
+<ol>
+<li><a href="#whatisubuntu">什麼是 Ubuntu?</a></li>
+<li><a href="#viewubuntuscreenshots">何處可看到 Ubuntu 的畫面擷取?</a></li>
+<li><a href="#findprogramslibrarieslistubuntu">何處可找到 Ubuntu 的所有程式/函示庫的名單?</a></li>
+<li><a href="#downloadubuntu">何處可下載 Ubuntu?</a></li>
+<li><a href="#orderubuntucdsfree">何處可 *免費* 索取 Ubuntu 的光碟?</a></li>
+<li><a href="#findhelpubuntu">何處可以找到更多關於 Ubuntu 的說明與幫助?</a></li>
+</ol>
+
+<h3><a href="#gettingubuntuguide">取得 Ubuntu 新手指南 (UbuntuGuide)</a></h3>
+<ol>
+<li><a href="#downloadguide">如何下載完整版的 Ubuntu 新手指南?</a></li>
+<li><a href="#downloadubuntuadd-oncd">何處可下載非官方 Ubuntu Add-On 光碟?</a></li>
+</ol>
+
+<h3><a href="#repositories">套件庫 (Repositories)</a></h3>
+<ol>
+<li><a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><a href="#backportsrepositories">如何新增 backports 的套件庫 (Repositories) (選擇性)?</a></li>
+<li><a href="#backuprestoredownloadedrepositoriescache">如何備份/恢復已經下載的套件庫 (Repositories) 的 cache?</a></li>
+</ol>
+
+<h3><a href="#ubuntuupdates">Ubuntu 的更新與升級</a></h3>
+<ol>
+<li><a href="#manualupdate">如何手動更新 Ubuntu?</a></li>
+</ol>
+
+<h3><a href="#add-onapplications">新增其他應用程式 (Add-On Applications)</a></h3>
+<ol>
+<li><a href="#menu-editor">如何幫 GNOME 安裝一個選單編輯器?</a></li>
+<li><a href="#clipboard-daemon">如何幫 GNOME 安裝一個剪貼簿 Daemon?</a></li>
+<li><a href="#jre">如何安裝 J2SE Runtime Environment (JRE) 和 Mozilla FireFox 使用的外掛?</a></li>
+<li><a href="#flash-mozilla">如何安裝 Mozilla FireFox 的 Flash Player (Macromedia Flash) 外掛?</a></li>
+<li><a href="#acroread">如何安裝 PDF 閱讀程式 (Adobe Reader) 和 Mozilla FireFox 使用的外掛?</a></li>
+<li><a href="#d4x">如何安裝檔案下載管理程式 (X 下的下載工具)?</a></li>
+<li><a href="#gftp">如何安裝 FTP 後端程式 (gFTP)?</a></li>
+<li><a href="#azureus">如何安裝 P2P BitTorrent 後端程式 (Azureus)?</a></li>
+<li><a href="#amule">如何安裝 P2P eMule 後端程式 (aMule)?</a></li>
+<li><a href="#limewire">如何安裝 P2P Gnutella 後端程式 (LimeWire)?</a></li>
+<li><a href="#skype">如何安裝及時訊息軟體 (Skype)?</a></li>
+<li><a href="#linpopup">如何安裝 WinPopup (LinPopUp)?</a></li>
+<li><a href="#codecs">如何安裝多媒體 Codecs (解碼/編碼器)?</a></li>
+<li><a href="#dvdplayback">如何安裝 DVD 播放功能?</a></li>
+<li><a href="#xine-ui">如何安裝多媒體播放器 (xine-ui)?</a></li>
+<li><a href="#mplayer">如何安裝多媒體播放器 (MPlayer) 和 Mozilla FireFox 使用的外掛?</a></li>
+<li><a href="#xmms">如何安裝多媒體播放器 (XMMS)?</a></li>
+<li><a href="#realplayer">如何安裝多媒體播放器 (RealPlayer)?</a></li>
+<li><a href="#streamtuner">如何安裝 Stream Directory Browser (streamtuner)?</a></li>
+<li><a href="#kino">如何安裝影像編輯器 (Kino)?</a></li>
+<li><a href="#audacity">如何安裝音效編輯器 (Audacity)?</a></li>
+<li><a href="#dvdrip">如何安裝 DVD Ripper (dvd::rip)?</a></li>
+<li><a href="#goobox">如何安裝 CD Ripper (Goobox)?</a></li>
+<li><a href="#thunderbird">如何安裝 Email 後端程式 (Mozilla Thunderbird)?</a></li>
+<li><a href="#pan">如何安裝 Newsreader (Pan)?</a></li>
+<li><a href="#rssowl">如何安裝 RSS/RDF/Atom Newsreader (RSSOwl)?</a></li>
+<li><a href="#nvu">如何安裝網頁編輯軟體 (Nvu)?</a></li>
+<li><a href="#planner">如何安裝專案管理應用程式 (Planner)?</a></li>
+<li><a href="#scribus">如何安裝桌面排版系統 (Desktop Publishing) 應用程式 (Scribus)?</a></li>
+<li><a href="#dia">如何安裝 Diagram 編輯器 (Dia)?</a></li>
+<li><a href="#gnomebaker">如何安裝 CD/DVD 燒錄軟體 (GnomeBaker)?</a></li>
+<li><a href="#rp-pppoe">如何安裝 ADSL/PPPoE 撥接程式 (RP-PPPoE)?</a></li>
+<li><a href="#ubm">如何安裝系統啟動程序管理程式 BootUp Manager (UBM)?</a></li>
+<li><a href="#gparted">如何安裝硬碟分割編輯軟體 (GParted)?</a></li>
+<li><a href="#firestarter">如何安裝防火牆 (Firestarter)?</a></li>
+<li><a href="#nessus">如何安裝系統漏洞檢查測試器 (Nessus)?</a></li>
+<li><a href="#rar">如何安裝 RAR 壓縮/解壓縮程式 (rar)?</a></li>
+<li><a href="#extrafonts">如何安裝其他的字型?</a></li>
+<li><a href="#scim">如何安裝中文輸入法 (SCIM)?</a></li>
+<li><a href="#gdesklets">如何安裝桌面小程式 (Desktop Applets) (gDesklets)?</a></a></li>
+<li><a href="#frozen-bubble">如何安裝遊戲 (Frozen-Bubble)?</a></li>
+<li><a href="#build-essential">如何安裝基本的編輯工具 (build-essential)?</a></li>
+</ol>
+
+<h3><a href="#commercialapplications">商業軟體</a></h3>
+<ol>
+<li><a href="#win4lin">如何安裝 Windows 9X/ME/2000/XP (Win4Lin)?</a></li>
+<li><a href="#crossoveroffice">如何安裝 Windows 應用程式 (CrossOver Office)?</a></li>
+<li><a href="#cedega">如何安裝 Windows 遊戲 (Cedega)?</a></li>
+</ol>
+
+<h3><a href="#hardware">硬體</a></h3>
+<ol>
+<li><a href="#installnvidiadriver">如何安裝顯示卡的驅動程式 (NVIDIA)?</a></li>
+<li><a href="#disablenvidialogo">如何取消 GNOME 啟動時顯示的 NVIDIA 圖形 LOGO?</a></li>
+<li><a href="#identifymodemchipset">如何辨識 Modem 使用的晶片組?</a></li>
+<li><a href="#installsmartlinkdriver">如何安裝 Modem 的驅動程式 (SmartLink)?</a></li>
+<li><a href="#configurepalmosdevices">如何設定 PalmOS  裝置?</a></li>
+<li><a href="#listpartitiontables">如何列出硬碟分割表?</a></li>
+<li><a href="#listfilesystemdiskspaceusage">如何列出硬碟的檔案系統空間使用狀態?</a></li>
+<li><a href="#listmounteddevices">如何列出掛載中的裝置名單?</a></li>
+<li><a href="#listpcidevices">如何列出系統的 PCI 裝置名單?</a></li>
+<li><a href="#listusbdevices">如何列出系統上的 USB 裝置名單?</a></li>
+<li><a href="#speedupcddvdrom">如何提升 CD/DVD-ROM 讀取的速度?</a></li>
+<li><a href="#mountunmountcddvdromunhide">如何手動掛載/卸除 CD/DVD-ROM, 並顯示所有隱藏的和相關的檔案和檔案夾?</a></li>
+<li><a href="#unmountcddvdromforcefully">如何手動強制卸除 CD/DVD-ROM?</a></li>
+<li><a href="#remountfstabwithoutreboot">如何不重新開機就重新掛載 /etc/fstab ?</a></li>
+</ol>
+
+<h3><a href="#networking">網路相關</a></h3>
+<ol>
+<li><a href="#activatedeactivatenetworkconnections">如何 啟動/停用 網路連線?</a></li>
+<li><a href="#configurenetworkconnections">如何設定網路連線?</a></li>
+<li><a href="#changecomputername">如何更改電腦名稱?</a></li>
+<li><a href="#changecomputerdescriptions">如何更改電腦描述?</a></li>
+<li><a href="#changecomputerdomainworkgroup">如何更改電腦的 網域名稱 (Domain)/群組名稱 (Workgroup)?</a></li>
+<li><a href="#assignhostnametodynamicip">如何在使用 DynDNS 的服務和動態 IP 的情況下指定主機名稱 (Hostname)?</a></li>
+<li><a href="#sharefolderstheeasyway">如何簡單的開放檔案夾分享?</a></li>
+<li><a href="#browsenetworkcomputers">如何瀏覽網域內的其他電腦?</a></li>
+<li><a href="#accessnetworkfolderswihoutmount">如何不先掛載就讀取網路分享檔案夾?</a></li>
+<li><a href="#mountunmountnetworkfolders">如何手動掛載/卸除網路共享檔案夾, 並允許所有使用者都可讀取 ?</a></li>
+<li><a href="#mountunmountnetworkfoldersall">如何手動掛載/卸除網路共享檔案夾, 並允許所有使用者都可讀取和寫入?</a></li>
+<li><a href="#automountnetworkfolders">如何在系統啟動時, 自動掛載網路分享檔案夾, 並允許所有使用者都可讀取 ?</a></li>
+<li><a href="#automountnetworkfoldersall">如何在系統啟動時, 自動掛載網路分享檔案夾, 並允許所有使用者都可讀取和寫入?</a></li>
+</ol>
+
+<h3><a href="#windows">Windows</a></h3>
+<ol>
+<li><a href="#mountunmountntfs">如何手動掛載/卸除 Windows 的硬碟分割區 (NTFS), 並允許所有使用者只能讀取?</a></li>
+<li><a href="#mountunmountfat">如何手動掛載/卸除 Windows 的硬碟分割區 (FAT), 並允許所有使用者都可讀取和寫入?</a></li>
+<li><a href="#automountntfs">如何在系統啟動時自動掛載 Windows 的硬碟分割區 (NTFS), 並允許所有使用者只能讀取?</a></li>
+<li><a href="#automountfat">如何在系統啟動時自動掛載 Windows 的硬碟分割區 (FAT), 並允許所有使用者都可讀取和寫入?</a></li>
+</ol>
+
+<h3><a href="#usersadministration">使用者的管理</a></h3>
+<ol>
+<li><a href="#setchangeenablerootpassword">如何設定/改變/啟用 root 使用者的密碼?</a></li>
+<li><a href="#disablerootaccount">如何禁用 root 使用者這個帳號?</a></li>
+<li><a href="#allowrootlogingnome">如何允許以 root 身份登入進 GNOME?</a></li>
+<li><a href="#switchtoroot">如何在終端機模式下切換到 root 身份?</a></li>
+<li><a href="#addeditdeletesystemusers">如何 新增/編輯/宜除 系統使用者帳號?</a></li>
+<li><a href="#addeditdeletesystemgroups">如何新增/編輯/移除系統群組?</a></li>
+<li><a href="#automaticlogingnome">如何自動登入GNOME (沒有安全性)?</a></li>
+<li><a href="#allowmoresudoers">如何允許更多 sudoers?</a></li>
+<li><a href="#usesudowithoutpasswordprompt">如何使用 &quot;sudo&quot; 時不需要任何密碼提示 (沒有安全性)?</a></li>
+<li><a href="#explicitydestroysudosession">如何下指令結束目前 &quot;sudo&quot; session?</a></li>
+<li><a href="#changefilesfolderspermissions">如何更改檔案/資料夾的權限?</a></li>
+<li><a href="#changefilesfoldersownership">如何更改檔案/資料夾的擁有者?</a></li>
+<li><a href="#changefilesfoldersgroupownership">如何更改檔案和檔案夾的群組擁有權?</a></li>
+</ol>
+
+<h3><a href="#security">系統安全問題</a></h3>
+<ol>
+<li><a href="#basicsecuringubuntu">我應該知道哪些關於 Ubuntu 系統安全的基本問題 ?</a></li>
+<li><a href="#disableinteractiveeditinggrub">如何關閉所有 GRUB 選單的互動式編輯模式?</a></li>
+<li><a href="#disablehistorylistingconsole">如何在終端機模式下關閉歷史紀錄?</a></li>
+<li><a href="#disablectrlaltdelconsole">如何在終端機模式下關閉 Ctrl+Alt+Del 的系統重新啟動功能?</a></li>
+<li><a href="#promptbeforeremovaloverwrittenconsole">如何在終端機模式下進行 移除/覆蓋 檔案/資料夾 時，能有提示字串?</a></li>
+</ol>
+
+<h3><a href="#rescuemode">救援模式</a></h3>
+<ol>
+<li><a href="#gainrootwithoutlogin">如何不用登入就可取得 root 帳號權限?</a></li>
+<li><a href="#gainrootmodifykernel">如何修改 kernal 開機參數, 來取得 root 帳號權限?</a></li>
+<li><a href="#gainrootinstallcd">如何使用 Ubuntu 的安裝 CD 來取得 root 帳號權限?</a></li>
+<li><a href="#changerootpasswordforgotten">如果忘記 root 帳號/主要帳號的密碼, 要如何重新設定密碼?</a></li>
+<li><a href="#changegrubpasswordforgotten">如果忘記了 GRUB 選單的密碼, 要如何重新設定?</a></li>
+<li><a href="#restoregrubmenuafterwindowsinstallation">在安裝完 Windows 後, 要如何恢復 GRUB 選單?</a></li>
+<li><a href="#addwindowsentrygrubmenu">如何在 GRUB 的選項中新增 Windows 這個項目?</a></li>
+<li><a href="#readlinuxpartitionsinwindows">如何在 Windows 下讀取 Linux 的分割區 (ext2, ext3)?</a></li>
+</ol>
+
+<h3><a href="#tipsntricks">小技巧與密技</a></h3>
+<ol>
+<li><a href="#numlockx">如何在 GNOME 載入後就啟用鍵盤的 Num Lock (數字鍵)?</a></li>
+<li><a href="#restartgnomewithoutreboot">如何不重新開機就重新載入 GNOME?</a></li>
+<li><a href="#runprogramsstartupgnome">如何在登錄進 GNOME 後就自動執行某些程式?</a></li>
+<li><a href="#switchtoconsole">如何在 GNOME 內切換到 Console 模式?</a></li>
+<li><a href="#disablectrlaltbackspacegnome">如何禁止在 GNOME 中使用 Ctrl+Alt+Backspace 來重新啟動 X?</a></li>
+<li><a href="#refreshgnomedesktop">如何更新 GNOME 的桌面顯示?</a></li>
+<li><a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li><a href="#openeachfolderssamewindownautilus">如何在同一個 Nautilus 視窗內開啟所有的檔案夾?</a></li>
+<li><a href="#showallhiddenfilesfoldersnautilus">如何在 Nautilus 內顯示所有隱藏的檔案和檔案夾?</a></li>
+<li><a href="#browsefilesfoldersasrootnautilus">如何以 root 身份在 Nautilus 內瀏覽檔案和檔案夾?</a></li>
+<li><a href="#showdesktopicons">如何顯示桌面圖示 (我的電腦, 家目錄, 資源回收桶)?</a></li>
+<li><a href="#changedefaultfiletypeprogram">如何更改某個檔案在 &quot;Open with&quot; 中預設的程式?</a></li>
+<li><a href="#changepreferredemailthunderbird">如何改變預設的郵件程式為 Mozilla Thunderbird?</a></li>
+<li><a href="#openfilesasrootviarightclick">如何用滑鼠右按鈕直接以 Root 身份開啟檔案?</a></li>
+<li><a href="#disablebeepsoundterminalmode">如何停止 Terminal 模式下的 beep 音效?</a></li>
+<li><a href="#loadwebsitefasterfirefox">如何讓 Mozilla Firefox 能更快速的開啟網站?</a></li>
+<li><a href="#disablebeepsoundlinkfindfirefox">如何關閉當 Mozilla Firefox 找到連接時的 beep 音效?</a></li>
+<li><a href="#restoreoriginaliconsfirefox">如何恢復 Mozilla Firefox 原本的圖示?</a></li>
+<li><a href="#restoreoriginaliconsthunderbird">如何恢復 Mozilla Thunderbird 原本的圖示?</a></li>
+<li><a href="#synaptic">如何簡單的 apt-get  (Synaptic)?</a></li>
+<li><a href="#installuninstalldebfile">如何 安裝/反安裝 .deb 套件包?</a></li>
+<li><a href="#convertrpmtodebfile">如何將 .rpm 套件包轉換成 .deb 套件包?</a></li>
+<li><a href="#mvb">如何一個動作就重新命名整個目錄下的檔案?</a></li>
+<li><a href="#setsystem-wideenvironmentvariables">如何設定系統通用 (system-wide) 的環境變數?</a></li>
+<li><a href="#savemanoutputs">如何將 &quot;man&quot; 的輸出儲存到一個檔案內?</a></li>
+<li><a href="#generatemd5">如何製作 MD5 checksum 檔案?</a></li>
+<li><a href="#checkmd5">如何檢查檔案的 MD5 checksum?</a></li>
+<li><a href="#mountunmountisofileswithoutburning">如何不燒錄就掛載/卸除映象檔 (ISO)?</a></li>
+<li><a href="#hidegrub">如何在系統一開機時隱藏 GRUB 的選單顯示?</a></li>
+<li><a href="#changetimeoutgrub">如何更改 GRUB menu 內關於開機時預設的等待時間  (timeout) ?</a></li>
+<li><a href="#changedefaultosgrub">如何更改 GRUB 選單內開機系統的預設值?</a></li>
+<li><a href="#displaysplashimagegrub">如何在系統啟動時顯示 GRUB menu 的 Splash Image?</a></li>
+<li><a href="#convertwallpapertosplashimagegrub">如何將桌面布景圖轉換成 GRUB menu 可用的 Splash Image?</a></li>
+<li><a href="#temporaryskipboot-upservices">如何暫時略過開機時載入的服務 (boot-up services)?</a></li>
+<li><a href="#permanentlydisableenableboot-upservices">如何永遠禁止/啟用開機時載入的服務 (boot-up services)?</a></li>
+<li><a href="#cleantmpfoldershutdown">如何在關機時一併清除除 /tmp/ 檔案夾的內容?</a></li>
+</ol>
+
+<h3><a href="#antivirusserver">病毒防制 (AntiVirus) 伺服器</a></h3>
+<ol>
+<li><a href="#installclamav">如何安裝 ClamAV AntiVirus 病毒防制伺服器?</a></li>
+<li><a href="#manuallyupdatevirusdatabases">如何手動更新病毒資料庫?</a></li>
+<li><a href="#manuallyscanforviruses">如何手動掃瞄 檔案/檔案夾 來搜尋病毒?</a></li>
+<li><a href="#automaticallyscanforviruses">如何自動掃瞄 檔案/檔案夾 來搜尋病毒?</a></li>
+</ol>
+
+<h3><a href="#sambaserver">Samba 伺服器</a></h3>
+<ol>
+<li><a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><a href="#addeditdeletenetworkusers">如何 新增/編輯/移除 網路使用者的帳號?</a></li>
+<li><a href="#sharehomefoldersreadsecurityuser">如何分享家目錄 (home folders) 並只有讀取的權限 (Authentication=Yes - 權限認證開啟)?</a></li>
+<li><a href="#sharehomefoldersreadwritesecurityuser">如何分享家目錄 (home folders)並有讀取和寫入的權限 (Authentication=Yes - 權限認證開啟)?</a></li>
+<li><a href="#sharegroupfoldersreadsecurityuser">如何分享群組檔案夾 (group folders) 並只有讀取的權限 (Authentication=Yes - 權限認證開啟)?</a></li>
+<li><a href="#sharegroupfoldersreadwritesecurityuser">如何分享群組檔案夾 (group folders)並有讀取和寫入的權限 (Authentication=Yes - 權限認證開啟)?</a></li>
+<li><a href="#sharepublicfoldersreadsecurityuser">如何開啟公用檔案夾的分享功能並只有讀取的權限 (Authentication=Yes - 權限認證開啟)?</a></li>
+<li><a href="#sharepublicfoldersreadwritesecurityuser">如何開啟公用檔案夾的分享功能並有讀取和寫入的權限 (Authentication=Yes - 權限認證開啟)?</a></li>
+<li><a href="#sharepublicfoldersreadsecurityshare">如何開啟公用檔案夾的分享功能並只有讀取的權限 (Authentication=No - 權限認證關閉)?</a></li>
+<li><a href="#sharepublicfoldersreadwritesecurityshare">如何開啟公用檔案夾的分享功能並有讀取和寫入的權限 (Authentication=No - 權限認證關閉)?</a></li>
+</ol>
+
+<h3><a href="#sshserver">SSH 伺服器</a></h3>
+<ol>
+<li><a href="#installssh">如何安裝 SSH 伺服器來遠端遙控管理系統?</a></li>
+<li><a href="#sshintoubuntu"> 如何使用 SSH 連線到遠端的 Ubuntu 主機?</a></li>
+<li><a href="#scpfromubuntu">如何從遠端的 Ubuntu 主機複製檔案/檔案夾到本地的主機內 (scp)?</a></li>
+<li><a href="#scptoubuntu">如何從本地主機複製檔案/檔案夾到遠端的 Ubuntu 主機內 (scp)?</a></li>
+<li><a href="#rsyncfromubuntu">如何從遠端 Ubuntu 主機上複製 檔案/檔案夾 到本地主機上 (rsync)?</a></li>
+<li><a href="#rsynctoubuntu">如何從本地主機複製 檔案/檔案夾 到遠端的 Ubuntu 主機內 (rsync)?</a></li>
+<li><a href="#sshfromwindows">如何從 Windows 主機來 SSH 連線到遠端的 Ubuntu 主機?</a></li>
+<li><a href="#scpfromwindows">如何從 Windows 主機複製 檔案/檔案夾 從/到 遠端的 Ubuntu 主機內?</a></li>
+</ol>
+
+<h3><a href="#dhcpserver">DHCP 伺服器</a></h3>
+<ol>
+<li><a href="#installdhcpserver">如何安裝 DHCP 伺服器來自動指定 IP 位址?</a></li>
+</ol>
+
+<h3><a href="#databaseserver">資料庫伺服器</a></h3>
+<ol>
+<li><a href="#installmysqldatabaseserver">如何安裝 MYSQL 資料庫伺服器?</a></li>
+<li><a href="#installmysqlcontrolcenter">如何安裝 MYSQL 控制中心?</a></li>
+</ol>
+
+<h3><a href="#apachehttpserver">Apache HTTP 伺服器</a></h3>
+<ol>
+<li><a href="#installapachehttpserver">如何安裝 Apache HTTP 伺服器作為 HTTP (Web) 伺服器服務?</a></li>
+<li><a href="#installphpapache">如何安裝搭配 Apache HTTP 伺服器使用的 PHP?</a></li>
+<li><a href="#installmysqlapache">如何安裝搭配 Apache HTTP 伺服器使用的 MYSQL?</a></li>
+<li><a href="#mapURLstofoldersoutsidewww">如何映設 URLs 到 /var/www/ 以外的檔案夾?</a></li>
+<li><a href="#changeportnumberapache">如何修改 Apache HTTP 伺服器預設的埠號?</a></li>
+<li><a href="#browsechangedportnumberfirefox">如何使用 Mozilla Firefox 瀏覽被更改過埠號的 Apache HTTP 伺服器?</a></li>
+</ol>
+
+<h3><a href="#streamingmediaserver">網路影音串流伺服器 (Streaming Media)</a></h3>
+<ol>
+<li><a href="#installgnump3d">如何安裝 GNUMP3d 作為網路影音串流伺服器 (Streaming Media) 服務?</a></li>
+<li><a href="#changedirectorymultimediagnump3d">如何更改 GNUMP3d 預設存放影音檔案的目錄?</a></li>
+
+<li><a href="#changeportnumbergnump3d">如何更改 GNUMP3d 預設的埠號?</a></li>
+</ol>
+
+<h3><a href="#troubleshooting">問題與解決方法</a></h3>
+<ol>
+<li><a href="#configuringnetwoktooslow">設定網路介面... (載入時間太長)</a></li>
+<li><a href="#synchronizingclocktooslow">與 ntp.ubuntulinux.org 進行時間同步... (載入時間太長)</a></li>
+<li><a href="#disablesystemtimedateutc">如何禁止系統時間/日期被重新設置為 UTC (GMT)?</a></li>
+<li><a href="#configuresoundproperly">在 GNOME 內如何正確的設定音效?</a></li>
+<li><a href="#forcefullyemptytrash">在 GNOME 內如何強制清除 Trash?</a></li>
+<li><a href="#removeduplicatemenus">如何在 GNOME 內移除重複的選單/選單項目?</a></li>
+<li><a href="#refreshplacesmenu">如何在 GNOME 內更新 Place 選單的顯示 (如果無法顯示 /etc/fstab 內指定到 /media/ 的掛載)?</a></li>
+</ol>
+
+<h3><a href="#upgradingubuntu">升級 Ubuntu</a></h3>
+<ol>
+<li><a href="#upgradehoarytobreezy">如何從 Hoary Hedgehog (5.04) 升級到 Breezy Badger (5.10) (試驗性)?</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="gettingstarted" name="gettingstarted">開始的第一步</a></h2>
+<hr>
+
+<p class="question"><a id="whatisubuntu" name="whatisubuntu">Q: 什麼是 Ubuntu?</a></p>
+<ol class="answer">
+<li><a href="http://www.ubuntulinux.org/ubuntu" onclick="window.open(this.href,'_blank');return false;">http://www.ubuntulinux.org/ubuntu</a></li>
+</ol>
+
+<p class="question"><a id="viewubuntuscreenshots" name="viewubuntuscreenshots">Q: 何處可看到 Ubuntu 的畫面擷取?</a></p>
+<ol class="answer">
+<li><a href="http://shots.osdir.com/slideshows/slideshow.php?release=305&amp;slide=1" onclick="window.open(this.href,'_blank');return false;">http://shots.osdir.com/slideshows/slideshow.php?release=305&amp;slide=1</a></li>
+</ol>
+
+<p class="question"><a id="findprogramslibrarieslistubuntu" name="findprogramslibrarieslistubuntu">Q: 何處可找到 Ubuntu 的所有程式/函示庫的名單?</a></p>
+<ol class="answer">
+<li>Result of dpkg -l: <a href="http://ubuntuguide.org/dpkg.list" onclick="window.open(this.href,'_blank');return false;">這裡</a></li>
+<li><a href="http://packages.ubuntu.com/hoary" onclick="window.open(this.href,'_blank');return false;">http://packages.ubuntu.com/hoary</a></li>
+<li><a href="http://distrowatch.com/table.php?distribution=ubuntu" onclick="window.open(this.href,'_blank');return false;">http://distrowatch.com/table.php?distribution=ubuntu</a></li>
+</ol>
+
+<p class="question"><a id="downloadubuntu" name="downloadubuntu">Q: 何處可下載 Ubuntu?</a></p>
+<ol class="answer">
+<li><a href="http://www.ubuntulinux.org/download" onclick="window.open(this.href,'_blank');return false;">http://www.ubuntulinux.org/download</a></li>
+</ol>
+
+<p class="question"><a id="orderubuntucdsfree" name="orderubuntucdsfree">Q: 何處可 *免費* 索取 Ubuntu 的光碟?</a></p>
+<ol class="answer">
+<li><a href="http://shipit.ubuntulinux.org/" onclick="window.open(this.href,'_blank');return false;">http://shipit.ubuntulinux.org</a></li>
+</ol>
+
+<p class="question"><a id="findhelpubuntu" name="findhelpubuntu">Q: 何處可以找到更多關於 Ubuntu 的說明與幫助?</a></p>
+<ol class="answer">
+<li><a href="http://www.ubuntulinux.org/community/lists" onclick="window.open(this.href,'_blank');return false;">Mailing Lists</a></li>
+<li><a href="http://www.ubuntulinux.org/community/forums" onclick="window.open(this.href,'_blank');return false;">網站討論區</a></li>
+<li><a href="irc://irc.freenode.net/ubuntu">IRC 討論頻道</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="gettingubuntuguide" name="gettingubuntuguide">取得 Ubuntu 新手指南 (UbuntuGuide)</a></h2>
+<hr>
+
+<p class="question"><a id="downloadguide" name="downloadguide">Q: 如何下載完整版的 Ubuntu 新手指南?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://ubuntuguide.org/ubuntu5.04.tar.gz">http://ubuntuguide.org/ubuntu5.04.tar.gz</a>
+tar zxvf ubuntu5.04.tar.gz</pre></li>
+</ol>
+
+<p class="question"><a id="downloadubuntuadd-oncd" name="downloadubuntuadd-oncd">Q: 何處可下載非官方 Ubuntu Add-On 光碟?</a></p>
+<ol class="answer">
+<li><a href="http://ubuntuguide.org/add-on-cd" onclick="window.open(this.href,'_blank');return false;">http://ubuntuguide.org/add-on-cd</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="repositories" name="repositories">套件庫 (Repositories)</a></h2>
+<hr>
+
+<p class="question"><a id="extrarepositories" name="extrarepositories">Q: 如何新增其他的套件庫 (extra Repositories)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+sudo gedit /etc/apt/sources.list</pre></li>
+<li>搜尋這一段文字
+    <pre class="file">...
+## Uncomment the following two lines to fetch updated software from the network
+# deb http://us.archive.ubuntu.com/ubuntu hoary main restricted
+# deb-src http://us.archive.ubuntu.com/ubuntu hoary main restricted
+
+## Uncomment the following two lines to fetch major bug fix updates produced
+## after the final release of the distribution.
+# deb http://us.archive.ubuntu.com/ubuntu hoary-updates main restricted
+# deb-src http://us.archive.ubuntu.com/ubuntu hoary-updates main restricted
+
+## Uncomment the following two lines to add software from the 'universe'
+## repository.
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## universe WILL NOT receive any review or updates from the Ubuntu Security
+## team.
+# deb http://us.archive.ubuntu.com/ubuntu hoary universe
+# deb-src http://us.archive.ubuntu.com/ubuntu hoary universe
+
+# deb http://security.ubuntu.com/ubuntu hoary-security main restricted
+# deb-src http://security.ubuntu.com/ubuntu hoary-security main restricted
+
+# deb http://security.ubuntu.com/ubuntu hoary-security universe
+# deb-src http://security.ubuntu.com/ubuntu hoary-security universe</pre></li>
+<li>用下面這幾行取代
+    <pre class="file">## Uncomment the following two lines to fetch updated software from the network
+deb http://us.archive.ubuntu.com/ubuntu hoary main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu hoary main restricted
+
+## Uncomment the following two lines to fetch major bug fix updates produced
+## after the final release of the distribution.
+deb http://us.archive.ubuntu.com/ubuntu hoary-updates main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu hoary-updates main restricted
+
+## Uncomment the following two lines to add software from the 'universe'
+## repository.
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## universe WILL NOT receive any review or updates from the Ubuntu Security
+## team.
+deb http://us.archive.ubuntu.com/ubuntu hoary universe
+deb-src http://us.archive.ubuntu.com/ubuntu hoary universe
+
+deb http://security.ubuntu.com/ubuntu hoary-security main restricted
+deb-src http://security.ubuntu.com/ubuntu hoary-security main restricted
+
+deb http://security.ubuntu.com/ubuntu hoary-security universe
+deb-src http://security.ubuntu.com/ubuntu hoary-security universe
+
+deb http://archive.ubuntu.com/ubuntu hoary multiverse
+deb-src http://archive.ubuntu.com/ubuntu hoary multiverse
+
+deb ftp://ftp.nerim.net/debian-marillat stable main
+deb ftp://ftp.nerim.net/debian-marillat unstable main
+deb ftp://ftp.nerim.net/debian-marillat testing main</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/sources.list_extrarepositories" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">gpg --keyserver wwwkeys.eu.pgp.net --recv-keys 1F41B907
+gpg --armor --export 1F41B907 | sudo apt-key add -
+sudo apt-get update</pre></li>
+</ol>
+
+<p class="question"><a id="backportsrepositories" name="backportsrepositories">Q: 如何新增 backports 的套件庫 (Repositories) (選擇性)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+sudo gedit /etc/apt/sources.list</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">deb http://backports.ubuntuforums.org/ubp hoary-backports main universe multiverse restricted
+deb http://backports.ubuntuforums.org/ubp hoary-extras main universe multiverse restricted</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/sources.list_backportsrepositories" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo apt-get update</pre></li>
+</ol>
+
+<p class="question"><a id="backuprestoredownloadedrepositoriescache" name="backuprestoredownloadedrepositoriescache">Q: 如何備份/恢復已經下載的套件庫 (Repositories) 的 cache?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>要備份已經下載的套件庫 (Repositories) 的 cache
+    <pre class="terminal">mkdir -p $HOME/backup/var/lib/
+sudo cp -R /var/lib/apt/ $HOME/backup/var/lib/
+mkdir -p $HOME/backup/var/cache/
+sudo cp -R /var/cache/apt/ $HOME/backup/var/cache/
+mkdir -p $HOME/backup/etc/apt
+sudo cp -R /etc/apt/ $HOME/backup/etc/
+sudo chown -R $USER $HOME/backup/</pre></li>
+<li>要恢復已經下載的套件庫 (Repositories) 的 cache
+  <pre class="terminal">sudo cp -fR $HOME/backup/var/* /var/
+sudo cp -fR $HOME/backup/etc/apt/* /etc/apt/</pre></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="ubuntuupdates" name="ubuntuupdates">Ubuntu 的更新與升級</a></h2>
+<hr>
+
+<p class="question"><a id="manualupdate" name="manualupdate">Q: 如何手動更新 Ubuntu?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get update
+sudo apt-get upgrade</pre></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="add-onapplications" name="add-onapplications">新增其他應用程式 (Add-On Applications)</a></h2>
+<hr>
+
+<p class="question"><a id="menu-editor" name="menu-editor">Q: 如何幫 GNOME 安裝一個選單編輯器?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/smeg_0.5-0ubuntu1_all.deb">http://frankandjacq.com/ubuntuguide/smeg_0.5-0ubuntu1_all.deb</a>
+sudo dpkg -i smeg_0.5-0ubuntu1_all.deb</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; System Tools -&gt; Smeg</li>
+</ol>
+
+<p class="question"><a id="clipboard-daemon" name="clipboard-daemon">Q: 如何幫 GNOME 安裝一個剪貼簿 Daemon?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/gnome-clipboard-daemon-1.0.bin.tar.bz2">http://frankandjacq.com/ubuntuguide/gnome-clipboard-daemon-1.0.bin.tar.bz2</a>
+sudo tar jxvf gnome-clipboard-daemon-1.0.bin.tar.bz2 -C /usr/bin/
+sudo chown root:root /usr/bin/gnome-clipboard-daemon
+sudo chmod 755 /usr/bin/gnome-clipboard-daemon
+sudo gnome-clipboard-daemon &amp;</pre></li>
+<li>System -&gt; Preferences -&gt; Sessions</li>
+<li>Sessions
+    <pre class="program">Startup Programs 分頁 -&gt; <b>Add</b>
+
+Startup Command: <b>gnome-clipboard-daemon</b>
+Order: <b>80</b></pre></li>
+</ol>
+
+<p class="question"><a id="jre" name="jre">Q: 如何安裝 J2SE Runtime Environment (JRE) 和 Mozilla FireFox 使用的外掛?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/jre-1_5_0_03-linux-i586.bin">http://frankandjacq.com/ubuntuguide/jre-1_5_0_03-linux-i586.bin</a>
+sh jre-1_5_0_03-linux-i586.bin
+sudo mkdir /usr/java
+sudo mv jre1.5.0_03/ /usr/java/
+sudo chown -R root:root /usr/java/jre1.5.0_03/
+sudo ln -fs /usr/java/jre1.5.0_03/bin/java /usr/bin/java
+sudo ln -fs /usr/java/jre1.5.0_03/bin/java_vm /usr/bin/java_vm
+sudo ln -fs /usr/java/jre1.5.0_03/plugin/i386/ns7/libjavaplugin_oji.so /usr/lib/mozilla/plugins/
+sudo ln -fs /usr/java/jre1.5.0_03/plugin/i386/ns7/libjavaplugin_oji.so /usr/lib/mozilla-firefox/plugins/
+java -version</pre></li>
+<li>重新執行 Mozilla Firefox</li>
+</ol>
+
+<p class="question"><a id="flash-mozilla" name="flash-mozilla">Q: 如何安裝 Mozilla FireFox 的 Flash Player (Macromedia Flash) 外掛?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install flashplayer-mozilla</pre></li>
+<li>重新執行 Mozilla Firefox</li>
+</ol>
+
+<p class="question"><a id="acroread" name="acroread">Q: 如何安裝 PDF 閱讀程式 (Adobe Reader) 和 Mozilla FireFox 使用的外掛?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>
+  <pre class="terminal">sudo apt-get install acroread 
+sudo apt-get install mozilla-acroread</pre>
+</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Office -&gt; Adobe Reader</li>
+<li>重新執行 Mozilla Firefox</li>
+</ol>
+
+<p class="question"><a id="d4x" name="d4x">Q: 如何安裝檔案下載管理程式 (X 下的下載工具)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install d4x</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; Downloader for X</li>
+</ol>
+
+<p class="question"><a id="gftp" name="gftp">Q: 如何安裝 FTP 後端程式 (gFTP)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install gftp</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; gFTP</li>
+</ol>
+
+<p class="question"><a id="azureus" name="azureus">Q: 如何安裝 P2P BitTorrent 後端程式 (Azureus)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#jre">如何安裝 J2SE Runtime Environment (JRE) 和 Mozilla FireFox 使用的外掛?</a></li>
+<li><pre class="terminal">&nbsp;
+</pre>
+  <pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/Azureus_2.3.0.0_linux.GTK.tar.bz2">http://frankandjacq.com/ubuntuguide/Azureus_2.3.0.0_linux.GTK.tar.bz2</a>
+sudo apt-get install libswt-gtk3-java
+sudo tar jxvf Azureus_2.3.0.0_linux.GTK.tar.bz2 -C /opt/
+sudo chown -R root:root /opt/azureus/
+sudo gedit /usr/share/applications/Azureus.desktop</pre>
+</li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=Azureus
+Comment=Azureus
+Exec=/opt/azureus/azureus
+Icon=/opt/azureus/Azureus.png
+Terminal=false
+Type=Application
+Categories=Application;Network;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/Azureus.desktop_azureus" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; Azureus</li>
+</ol>
+
+<p class="question"><a id="amule" name="amule">Q: 如何安裝 P2P eMule 後端程式 (aMule)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install amule</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; aMule</li>
+</ol>
+
+<p class="question"><a id="limewire" name="limewire">Q: 如何安裝 P2P Gnutella 後端程式 (LimeWire)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#jre">如何安裝 J2SE Runtime Environment (JRE) 和 Mozilla FireFox 使用的外掛?</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/LimeWireSoftOther.zip">http://frankandjacq.com/ubuntuguide/LimeWireSoftOther.zip</a>
+sudo unzip -u LimeWireSoftOther.zip -d /opt/
+sudo chown -R root:root /opt/LimeWire/
+sudo gedit /usr/bin/runLime.sh</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">cd /opt/LimeWire/
+./runLime.sh</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/runLime.sh_limewire" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo chmod +x /usr/bin/runLime.sh
+sudo gedit /usr/share/applications/LimeWire.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=LimeWire
+Comment=LimeWire
+Exec=runLime.sh
+Icon=/opt/LimeWire/LimeWire.ico
+Terminal=false
+Type=Application
+Categories=Application;Network;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/LimeWire.desktop_limewire" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; LimeWire</li>
+</ol>
+
+<p class="question"><a id="skype" name="skype">Q: 如何安裝及時訊息軟體 (Skype)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install libqt3c102-mt
+wget -c <a href="http://frankandjacq.com/ubuntuguide/skype_1.1.0.3-1_i386.deb">http://frankandjacq.com/ubuntuguide/skype_1.1.0.3-1_i386.deb</a>
+sudo dpkg -i skype_1.1.0.3-1_i386.deb</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; Skype</li>
+</ol>
+
+<p class="question"><a id="linpopup" name="linpopup">Q: 如何安裝 WinPopup (LinPopUp)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo apt-get install linpopup
+sudo gedit /usr/share/applications/linpopup.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=LinPopUp
+Comment=LinPopUp
+Exec=linpopup
+Icon=/usr/share/pixmaps/linpopup.xpm
+Terminal=false
+Type=Application
+Categories=Application;Utility;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/linpopup.desktop_linpopup" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Accessories -&gt; LinPopUp</li>
+</ol>
+
+<p class="question"><a id="codecs" name="codecs">Q: 如何安裝多媒體 Codecs (解碼/編碼器)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/gstreamer0.8-lame_0.8.8-0.1_i386.deb">http://frankandjacq.com/ubuntuguide/gstreamer0.8-lame_0.8.8-0.1_i386.deb</a>
+sudo apt-get install gstreamer0.8-plugins
+sudo apt-get install w32codecs
+sudo apt-get install liblame0
+sudo dpkg -i gstreamer0.8-lame_0.8.8-0.1_i386.deb
+gst-register-0.8</pre></li>
+</ol>
+
+<p class="question"><a id="dvdplayback" name="dvdplayback">Q: 如何安裝 DVD 播放功能?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install libdvdcss2</pre></li>
+</ol>
+
+<p class="question"><a id="xine-ui" name="xine-ui">Q: 如何安裝多媒體播放器 (xine-ui)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#codecs">如何安裝多媒體 Codecs (解碼/編碼器)?</a></li>
+<li>請參閱 <a href="#dvdplayback">如何安裝 DVD 播放功能?</a></li>
+<li><pre class="terminal">sudo apt-get install xine-ui</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; xine</li>
+</ol>
+
+<p class="question"><a id="mplayer" name="mplayer">Q: 如何安裝多媒體播放器 (MPlayer) 和 Mozilla FireFox 使用的外掛?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#codecs">如何安裝多媒體 Codecs (解碼/編碼器)?</a></li>
+<li>請參閱 <a href="#dvdplayback">如何安裝 DVD 播放功能?</a></li>
+<li><pre class="terminal">sudo apt-get -t hoary install mplayer-386
+sudo apt-get -t hoary install mplayer-fonts
+sudo apt-get -t hoary install mozilla-mplayer
+sudo cp /etc/mplayer/mplayer.conf /etc/mplayer/mplayer.conf_backup
+sudo gedit /etc/mplayer/mplayer.conf</pre></li>
+<li>找出下面這一行
+  <pre class="file">...
+vo=x11,                  # To specify default video driver (see -vo help for
+...</pre></li>
+
+<li>以下面這一行取代
+  <pre class="file">vo=xv,                  # To specify default video driver (see -vo help for</pre></li>
+<li>儲存編輯過的檔案 (<a href="sample/mplayer.conf_mplayer" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; MPlayer</li>
+<li>重新執行 Mozilla Firefox</li>
+</ol>
+
+<p class="question"><a id="xmms" name="xmms">Q: 如何安裝多媒體播放器 (XMMS)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#codecs">如何安裝多媒體 Codecs (解碼/編碼器)?</a></li>
+<li><pre class="terminal">sudo apt-get install xmms
+wget -c <a href="http://frankandjacq.com/ubuntuguide/xmms-wma_1.0.4-2_i386.deb">http://frankandjacq.com/ubuntuguide/xmms-wma_1.0.4-2_i386.deb</a>
+sudo dpkg -i xmms-wma_1.0.4-2_i386.deb</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; XMMS</li>
+</ol>
+
+<p class="question"><a id="realplayer" name="realplayer">Q: 如何安裝多媒體播放器 (RealPlayer)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/realplay-10.0.4.750-linux-2.2-libc6-gcc32-i586.bin">http://frankandjacq.com/ubuntuguide/realplay-10.0.4.750-linux-2.2-libc6-gcc32-i586.bin</a>
+chmod +x realplay-10.0.4.750-linux-2.2-libc6-gcc32-i586.bin
+sudo ./realplay-10.0.4.750-linux-2.2-libc6-gcc32-i586.bin
+...
+Enter the complete path to the directory 何處 you want
+RealPlayer to be installed.  You must specify the full
+pathname of the directory and have write privileges to
+the chosen directory.
+Directory:  [/home/chua/RealPlayer]: <b>/opt/RealPlayer</b>
+
+You have selected the following RealPlayer configuration:
+Destination:            /opt/RealPlayer
+Enter [F]inish to begin copying files, or [P]revious to go
+back to the previous prompts: [F]: <b>F</b>
+
+Copying RealPlayer files...configure system-wide symbolic links? [Y/n]: <b>Y</b>
+
+enter the prefix for symbolic links [/usr]: <b>/usr</b>
+...</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; RealPlayer 10</li>
+</ol>
+
+<p class="question"><a id="streamtuner" name="streamtuner">Q: 如何安裝 Stream Directory Browser (streamtuner)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install streamtuner</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; streamtuner</li>
+</ol>
+
+<p class="question"><a id="kino" name="kino">Q: 如何安裝影像編輯器 (Kino)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install kino</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; Kino Video Editor</li>
+</ol>
+
+<p class="question"><a id="audacity" name="audacity">Q: 如何安裝音效編輯器 (Audacity)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install audacity</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; Audacity</li>
+</ol>
+
+<p class="question"><a id="dvdrip" name="dvdrip">Q: 如何安裝 DVD Ripper (dvd::rip)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#codecs">如何安裝多媒體 Codecs (解碼/編碼器)?</a></li>
+<li>請參閱 <a href="#dvdplayback">如何安裝 DVD 播放功能?</a></li>
+<li>請參閱 <a href="#mplayer">如何安裝多媒體播放器 (MPlayer) 和 Mozilla FireFox 使用的外掛?</a></li>
+<li><pre class="terminal">sudo apt-get -t testing install transcode
+sudo apt-get install dvdrip
+sudo gedit /usr/share/applications/dvdrip.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=dvd::rip
+Comment=dvd::rip
+Exec=dvdrip
+Icon=/usr/share/perl5/Video/DVDRip/icon.xpm
+Terminal=false
+Type=Application
+Categories=Application;AudioVideo;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/dvdrip.desktop_dvdrip" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; dvd::rip</li>
+</ol>
+
+<p class="question"><a id="goobox" name="goobox">Q: 如何安裝 CD Ripper (Goobox)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#codecs">如何安裝多媒體 Codecs (解碼/編碼器)?</a></li>
+<li><pre class="terminal">sudo apt-get install goobox
+sudo rm -f /usr/share/applications/goobox.desktop
+sudo gedit /usr/share/applications/goobox.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=CD Player &amp; Ripper
+Comment=Play and extract CDs
+Exec=goobox
+Icon=goobox.png
+Terminal=false
+Type=Application
+Categories=Application;AudioVideo;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/goobox.desktop_goobox" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Sound &amp; Video -&gt; CD Player &amp; Ripper</li>
+</ol>
+
+<p class="question"><a id="thunderbird" name="thunderbird">Q: 如何安裝 Email 後端程式 (Mozilla Thunderbird)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install mozilla-thunderbird</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; Thunderbird Mail 後端程式</li>
+</ol>
+
+<p class="question"><a id="pan" name="pan">Q: 如何安裝 Newsreader (Pan)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install pan</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; Pan Newsreader</li>
+</ol>
+
+<p class="question"><a id="rssowl" name="rssowl">Q: 如何安裝 RSS/RDF/Atom Newsreader (RSSOwl)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#jre">如何安裝 J2SE Runtime Environment (JRE) 和 Mozilla FireFox 使用的外掛?</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/rssowl_linux_1_1_1_bin.tar.gz">http://frankandjacq.com/ubuntuguide/rssowl_linux_1_1_1_bin.tar.gz</a>
+sudo tar zxvf rssowl_linux_1_1_1_bin.tar.gz -C /opt/
+sudo chown -R root:root /opt/rssowl_linux_1_1_1_bin/
+sudo gedit /usr/bin/runRSSOwl.sh</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">export MOZILLA_FIVE_HOME=/usr/lib/mozilla-firefox
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${MOZILLA_FIVE_HOME}:${LD_LIBRARY_PATH}
+cd /opt/rssowl_linux_1_1_1_bin/
+./run.sh</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/runRSSOwl.sh_rssowl" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo chmod +x /usr/bin/runRSSOwl.sh
+sudo gedit /usr/share/applications/RSSOwl.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=RSSOwl
+Comment=RSSOwl
+Exec=runRSSOwl.sh
+Icon=/opt/rssowl_linux_1_1_1_bin/rssowl.xpm
+Terminal=false
+Type=Application
+Categories=Application;Network;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/RSSOwl.desktop_rssowl" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Internet -&gt; RSSOwl</li>
+</ol>
+
+<p class="question"><a id="nvu" name="nvu">Q: 如何安裝網頁編輯軟體 (Nvu)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/nvu-1.0PR-pc-linux2.6.10-gnu.tar.bz2">http://frankandjacq.com/ubuntuguide/nvu-1.0PR-pc-linux2.6.10-gnu.tar.bz2</a>
+sudo tar jxvf nvu-1.0PR-pc-linux2.6.10-gnu.tar.bz2 -C /opt/
+sudo chown -R root:root /opt/nvu-1.0PR/
+sudo gedit /usr/share/applications/Nvu.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=Nvu
+Comment=Nvu
+Exec=/opt/nvu-1.0PR/nvu
+Icon=/opt/nvu-1.0PR/icons/mozicon50.xpm
+Terminal=false
+Type=Application
+Categories=Application;Office;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/Nvu.desktop_nvu" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Office -&gt; Nvu</li>
+</ol>
+
+<p class="question"><a id="planner" name="planner">Q: 如何安裝專案管理應用程式 (Planner)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install planner</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Office -&gt; Project Management</li>
+</ol>
+
+<p class="question"><a id="scribus" name="scribus">Q: 如何安裝桌面排版系統 (Desktop Publishing) 應用程式 (Scribus)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install scribus</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Office -&gt; Scribus</li>
+</ol>
+
+<p class="question"><a id="dia" name="dia">Q: 如何安裝 Diagram 編輯器 (Dia)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>
+  <pre class="terminal">sudo apt-get install dia-gnome</pre>
+</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Office -&gt; Dia</li>
+</ol>
+
+<p class="question"><a id="gnomebaker" name="gnomebaker">Q: 如何安裝 CD/DVD 燒錄軟體 (GnomeBaker)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install gnomebaker</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Accessories -&gt; GnomeBaker CD/DVD Creator</li>
+</ol>
+
+<p class="question"><a id="rp-pppoe" name="rp-pppoe">Q: 如何安裝 ADSL/PPPoE 撥接程式 (RP-PPPoE)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/rp-pppoe-3.5.tar.gz">http://frankandjacq.com/ubuntuguide/rp-pppoe-3.5.tar.gz</a>
+sudo tar zxvf rp-pppoe-3.5.tar.gz -C /opt/
+sudo chown -R root:root /opt/rp-pppoe-3.5/
+sudo gedit /usr/share/applications/RP-PPPoE.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=RP-PPPoE
+Comment=RP-PPPoE
+Exec=gksudo /opt/rp-pppoe-3.5/go-gui
+Icon=
+Terminal=false
+Type=Application
+Categories=Application;System;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/RP-PPPoE.desktop_rp-pppoe" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; System Tools -&gt; RP-PPPoE</li>
+</ol>
+
+<p class="question"><a id="ubm" name="ubm">Q: 如何安裝系統啟動程序管理程式 BootUp Manager (UBM)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/ubm_1.2.5-0ubuntu1_all.deb">http://frankandjacq.com/ubuntuguide/ubm_1.2.5-0ubuntu1_all.deb</a>
+sudo dpkg -i ubm_1.2.5-0ubuntu1_all.deb</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>System -&gt; Administration -&gt; Ubuntu BootUp Manager</li>
+</ol>
+
+<p class="question"><a id="gparted" name="gparted">Q: 如何安裝硬碟分割編輯軟體 (GParted)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install gparted</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; System Tools -&gt; GParted</li>
+</ol>
+
+<p class="question"><a id="firestarter" name="firestarter">Q: 如何安裝防火牆 (Firestarter)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install firestarter</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; System Tools -&gt; Firestarter</li>
+</ol>
+
+<p class="question"><a id="nessus" name="nessus">Q: 如何安裝系統漏洞檢查測試器 (Nessus)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install nessus
+sudo apt-get install nessusd
+sudo nessus-adduser
+sudo ln -fs /etc/init.d/nessusd /etc/rc2.d/S20nessusd
+sudo /etc/init.d/nessusd start
+sudo gedit /usr/share/applications/Nessus.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=Nessus
+Comment=Nessus
+Exec=nessus
+Icon=
+Terminal=false
+Type=Application
+Categories=Application;System;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/Nessus.desktop_nessus" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; System Tools -&gt; Nessus</li>
+</ol>
+
+<p class="question"><a id="rar" name="rar">Q: 如何安裝 RAR 壓縮/解壓縮程式 (rar)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>
+  <pre class="terminal">sudo apt-get install rar
+sudo ln -fs /usr/bin/rar /usr/bin/unrar
+</pre>
+</li>
+<li>Applications -&gt; Accessories -&gt; Archive Manager</li>
+</ol>
+
+<p class="question"><a id="extrafonts" name="extrafonts">Q: 如何安裝其他的字型?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install xfonts-intl-arabic
+sudo apt-get install xfonts-intl-asian
+sudo apt-get install xfonts-intl-chinese
+sudo apt-get install xfonts-intl-chinese-big
+sudo apt-get install xfonts-intl-european
+sudo apt-get install xfonts-intl-japanese
+sudo apt-get install xfonts-intl-japanese-big
+sudo apt-get install xfonts-intl-phonetic
+sudo apt-get install gsfonts-x11
+sudo apt-get install msttcorefonts
+sudo fc-cache -f -v</pre></li>
+</ol>
+
+<p class="question"><a id="scim" name="scim">Q: 如何安裝中文輸入法 (SCIM)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#extrafonts">如何安裝其他的字型?</a></li>
+<li><pre class="terminal">sudo apt-get install scim
+sudo apt-get install scim-chinese
+sudo apt-get install scim-config-socket
+sudo apt-get install scim-gtk2-immodule
+sudo apt-get install scim-tables-zh
+wget -c <a href="http://frankandjacq.com/ubuntuguide/fireflysung-1.3.0.tar.gz">http://frankandjacq.com/ubuntuguide/fireflysung-1.3.0.tar.gz</a>
+sudo tar zxvf fireflysung-1.3.0.tar.gz -C /usr/share/fonts/truetype/
+sudo chown -R root:root /usr/share/fonts/truetype/fireflysung-1.3.0/ 
+sudo fc-cache -f -v</pre></li>
+<li>System -&gt; Preferences -&gt; SCIM Input Method Setup</li>
+<li>要啟動 SCIM
+    <pre class="program">按下 'Ctrl + Space'</pre>
+</li>
+</ol>
+
+<p class="question"><a id="gdesklets" name="gdesklets">Q: 如何安裝桌面小程式 (Desktop Applets) (gDesklets)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install gdesklets
+sudo apt-get install gdesklets-data</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Accessories -&gt; gDesklets</li>
+</ol>
+
+<p class="question"><a id="frozen-bubble" name="frozen-bubble">Q: 如何安裝遊戲 (Frozen-Bubble)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install frozen-bubble</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; Games -&gt; Frozen-Bubble</li>
+</ol>
+
+<p class="question"><a id="build-essential" name="build-essential">Q: 如何安裝基本的編輯工具 (build-essential)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install build-essential</pre></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="commercialapplications" name="commercialapplications">商業軟體</a></h2>
+<hr>
+
+<p class="question"><a id="win4lin" name="win4lin">Q: 如何安裝 Windows 9X/ME/2000/XP (Win4Lin)?</a></p>
+<ol class="answer">
+<li><a href="http://www.win4lin.com/" onclick="window.open(this.href,'_blank');return false;">http://www.win4lin.com</a></li>
+</ol>
+
+<p class="question"><a id="crossoveroffice" name="crossoveroffice">Q: 如何安裝 Windows 的應用程式 (CrossOver Office)?</a></p>
+<ol class="answer">
+<li><a href="http://www.codeweavers.com/" onclick="window.open(this.href,'_blank');return false;">http://www.codeweavers.com</a></li>
+</ol>
+
+<p class="question"><a id="cedega" name="win4lin">Q: 如何安裝 Windows 的遊戲 (Cedega)?</a></p>
+<ol class="answer">
+<li><a href="http://www.transgaming.com/" onclick="window.open(this.href,'_blank');return false;">http://www.transgaming.com</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="hardware" name="hardware">硬體</a></h2>
+<hr>
+
+<p class="question"><a id="installnvidiadriver" name="installnvidiadriver">Q: 如何安裝顯示卡的驅動程式 (NVIDIA)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install nvidia-glx
+sudo apt-get install nvidia-settings
+sudo cp /etc/X11/xorg.conf /etc/X11/xorg.conf_backup
+sudo nvidia-glx-config enable
+sudo gedit /usr/share/applications/NVIDIA-Settings.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=NVIDIA Settings
+Comment=NVIDIA Settings
+Exec=nvidia-settings
+Icon=
+Terminal=false
+Type=Application
+Categories=Application;System;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/NVIDIA-Settings.desktop_installnvidiadriver" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#restartgnomewithoutreboot">如何不重新開機就重新載入 GNOME?</a></li>
+<li>Applications -&gt; System Tools -&gt; NVIDIA Settings</li>
+</ol>
+
+<p class="question"><a id="disablenvidialogo" name="disablenvidialogo">Q: 如何取消 GNOME 啟動時顯示的 NVIDIA 圖形 LOGO?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installnvidiadriver">如何安裝顯示卡的驅動程式 (NVIDIA)?</a></li>
+<li><pre class="terminal">sudo cp /etc/X11/xorg.conf /etc/X11/xorg.conf_backup
+sudo gedit /etc/X11/xorg.conf</pre></li>
+<li>搜尋這一段文字
+    <pre class="file">...
+Section "Device"
+	Identifier	"NVIDIA Corporation NV11 [GeForce2 MX/MX 400]"
+	Driver		"nvidia"
+	BusID		"PCI:1:0:0"
+...</pre></li>
+<li>在這下面新增下面這一行
+    <pre class="file">        Option		"NoLogo"</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/xorg.conf_disablenvidialogo" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#restartgnomewithoutreboot">如何不重新開機就重新載入 GNOME?</a></li>
+</ol>
+
+<p class="question"><a id="identifymodemchipset" name="identifymodemchipset">Q: 如何辨識 Modem 使用的晶片組?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/scanModem.gz">http://frankandjacq.com/ubuntuguide/scanModem.gz</a>
+gunzip -c scanModem.gz &gt; scanModem
+chmod +x scanModem
+sudo ./scanModem
+gedit Modem/ModemData.txt</pre></li>
+</ol>
+
+<p class="question"><a id="installsmartlinkdriver" name="installsmartlinkdriver">Q: 如何安裝 Modem 的驅動程式 (SmartLink)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">uname -r (must be 2.6.10-5-386)
+wget -c <a href="http://frankandjacq.com/ubuntuguide/sl-modem-modules-2.6.10-5-386_2.9.9a-1ubuntu2+2.6.10-34_i386.deb">http://frankandjacq.com/ubuntuguide/sl-modem-modules-2.6.10-5-386_2.9.9a-1ubuntu2+2.6.10-34_i386.deb</a>
+sudo dpkg -i sl-modem-modules-*.deb
+sudo apt-get install sl-modem-daemon</pre></li>
+</ol>
+
+<p class="question"><a id="configurepalmosdevices" name="configurepalmosdevices">Q: 如何設定 PalmOS  裝置?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo gedit /etc/udev/rules.d/10-custom.rules</pre></li>
+<li>在新建立的檔案內加入下面這一行
+    <pre class="file">BUS="usb", SYSFS{product}="Palm Handheld*", KERNEL="ttyUSB*", NAME{ignore_remove}="pilot", MODE="666"</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/10-custom.rules_configurepalmosdevices" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>System -&gt; Preferences -&gt; PalmOS Devices</li>
+<li>順著螢幕上的指示跟著作</li>
+</ol>
+
+<p class="question"><a id="listpartitiontables" name="listpartitiontables">Q: 如何列出硬碟分割表?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo fdisk -l</pre></li>
+</ol>
+
+<p class="question"><a id="listfilesystemdiskspaceusage" name="listfilesystemdiskspaceusage">Q: 如何列出硬碟的檔案系統空間使用狀態?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">df -T -h</pre></li>
+</ol>
+
+<p class="question"><a id="listmounteddevices" name="listmounteddevices">Q: 如何列出掛載中的裝置名單?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">mount</pre></li>
+</ol>
+
+<p class="question"><a id="listpcidevices" name="listpcidevices">Q: 如何列出系統的 PCI 裝置名單?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">lspci</pre></li>
+</ol>
+
+<p class="question"><a id="listusbdevices" name="listusbdevices">Q: 如何列出系統上的 USB 裝置名單?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">lsusb</pre></li>
+</ol>
+
+<p class="question"><a id="speedupcddvdrom" name="speedupcddvdrom">Q: 如何提升 CD/DVD-ROM 讀取的速度?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="description">例如 假設 /dev/cdrom 是目前 CD/DVD-ROM 所在的位置</pre>
+</li>
+<li><pre class="terminal">sudo hdparm -d1 /dev/cdrom
+sudo cp /etc/hdparm.conf /etc/hdparm.conf_backup
+sudo gedit /etc/hdparm.conf</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">/dev/cdrom {
+       dma = on
+}</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/hdparm.conf_speedupcddvdrom" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="mountunmountcddvdromunhide" name="mountunmountcddvdromunhide">Q: 如何手動掛載/卸除 CD/DVD-ROM, 並顯示所有隱藏的和相關的檔案和檔案夾?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設 /media/cdrom0/ 是目前 CD/DVD-ROM 所在的位置</pre></li>
+<li>要掛載 CD/DVD-ROM
+時  
+  <pre class="terminal">sudo mount /media/cdrom0/ -o unhide</pre>
+</li>
+<li>要卸除 CD/DVD-ROM
+時    
+  <pre class="terminal">sudo umount /media/cdrom0/</pre></li>
+</ol>
+
+<p class="question"><a id="unmountcddvdromforcefully" name="unmountcddvdromforcefully">Q: 如何手動強制卸除 CD/DVD-ROM?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設 /media/cdrom0/ 是目前 CD/DVD-ROM 所在的位置</pre></li>
+<li><pre class="terminal">sudo umount /media/cdrom0/ -l</pre></li>
+</ol>
+
+<p class="question"><a id="remountfstabwithoutreboot" name="remountfstabwithoutreboot">Q: 如何不重新開機就重新掛載 /etc/fstab ?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo mount -a</pre></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="networking" name="networking">網路相關</a></h2>
+<hr>
+
+<p class="question"><a id="activatedeactivatenetworkconnections" name="activatedeactivatenetworkconnections">Q: 如何 啟動/停用 網路連線?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>System -&gt; Administration -&gt; Networking</li>
+<li> 網路設定
+  <pre class="program">Connections 分頁 -&gt; <b>選擇 &quot;Ethernet connection"</b> -&gt; <b>Activate/Deactivate</b></pre></li>
+</ol>
+
+<p class="question"><a id="configurenetworkconnections" name="configurenetworkconnections">Q: 如何設定網路連線?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>System -&gt; Administration -&gt; Networking</li>
+<li>網路設定
+  <pre class="program">Connections 分頁 -&gt; <b>選擇 &quot;Ethernet connection"</b> -&gt; <b>Properties</b>
+
+Connection -&gt; This device is configured (<b>勾選</b>)
+Connection Settings -&gt; Configuration: <b>選擇 &quot;DHCP/Static IP address"</b>
+
+DNS 分頁 -&gt; DNS Servers -&gt; <b>Add/Delete</b></pre></li>
+</ol>
+
+<p class="question"><a id="changecomputername" name="changecomputername">Q: 如何更改電腦名稱?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>System -&gt; Administration -&gt; Networking</li>
+<li>Network settings
+    <pre class="program">General 分頁 -&gt; Host Settings -&gt; Hostname: <b>在此設定電腦名稱</b></pre></li>
+<li>儲存並結束所有執行中的程式, 系統重新開機</li>
+</ol>
+
+<p class="question"><a id="changecomputerdescriptions" name="changecomputerdescriptions">Q: 如何更改電腦描述?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+   server string = %h server (Samba, Ubuntu)
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">   server string = new_computer_descriptions</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_changecomputerdescriptions" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="changecomputerdomainworkgroup" name="changecomputerdomainworkgroup">Q: 如何更改電腦的 網域名稱 (Domain)/群組名稱 (Workgroup)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+   workgroup = MSHOME
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">   workgroup = new_domain_or_workgroup</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_changecomputerdomainworkgroup" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="assignhostnametodynamicip" name="assignhostnametodynamicip">Q: 如何在使用 DynDNS 的服務和動態 IP 的情況下指定主機名稱 (Hostname)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>
+  <pre class="description">例如 假設您的網路連線已經正確設定好
+     並在 <a href="https://www.dyndns.org/" onclick="window.open(this.href,'_blank');return false;">https://www.dyndns.org</a> 註冊好動態的DNS
+     每小時自動向 DynDNS 的資料庫/DNS 更新您的 IP 設定
+     * * * * * 分別代表 分 時 日 月 年</pre>
+</li>
+<li><pre class="terminal">sudo apt-get install ipcheck
+sudo gedit /root/dyndns_update.sh</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">USERNAME=myusername
+PASSWORD=mypassword
+HOSTNAME=myhostname.dyndns.org
+
+cd /root/
+if [ -f /root/ipcheck.dat ]; then
+  ipcheck -r checkip.dyndns.org:8245 $USERNAME $PASSWORD $HOSTNAME
+else
+  ipcheck --makedat -r checkip.dyndns.org:8245 $USERNAME $PASSWORD $HOSTNAME
+fi</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/dyndns_update.sh_assignhostnametodynamicip" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>
+  <pre class="terminal">sudo chmod 700 /root/dyndns_update.sh
+sudo sh /root/dyndns_update.sh
+export EDITOR=gedit &amp;&amp; sudo crontab -e</pre>
+</li>
+<li>將下面這一行加到檔案最後面
+    <pre class="file">00 * * * * sudo sh /root/dyndns_update.sh</pre></li>
+<li>儲存編輯過的檔案</li>
+</ol>
+
+<p class="question"><a id="sharefolderstheeasyway" name="sharefolderstheeasyway">Q: 如何簡單的開放檔案夾分享?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li>
+  <pre class="program">用滑鼠又按鈕點選檔案夾 -&gt; <b>Share folder</b>
+
+Shared folder -&gt; Share with: <b>選擇 &quot;SMB"</b>
+Share properties -&gt; Name: <b>Specify the share name</b></pre>
+</li>
+</ol>
+
+<p class="question"><a id="browsenetworkcomputers" name="browsenetworkcomputers">Q: 如何瀏覽網域內的其他電腦?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設您的網路連線已經正確設定好
+     If computers or network folders could not be found, try access them directly
+     請參閱 <a href="#accessnetworkfolderswihoutmount">如何不先掛載就讀取網路分享檔案夾?</a></pre></li>
+<li>位置 -&gt; Network Servers</li>
+</ol>
+
+<p class="question"><a id="accessnetworkfolderswihoutmount" name="accessnetworkfolderswihoutmount">Q: 如何不先掛載就讀取網路分享檔案夾?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設您的網路連線已經正確設定好
+     網路主機的 IP: 192.168.0.1
+     分享中的檔案夾名稱: linux</pre></li>
+<li>Applications -&gt; Run Application...</li>
+<li>執行程式
+  <pre class="program">smb://192.168.0.1/linux</pre></li>
+</ol>
+
+<p class="question"><a id="mountunmountnetworkfolders" name="mountunmountnetworkfolders">Q: 如何手動掛載/卸除網路共享檔案夾, 並允許所有使用者都可讀取 ?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="description">例如 假設您的網路連線已經正確設定好
+     網路主機的 IP: 192.168.0.1
+     網路主機的使用者名稱: myusername
+     網路主機的登錄密碼: mypassword
+     分享中的檔案夾名稱: linux
+     主機上要掛載的檔案夾: /media/sharename</pre></li>
+<li>要掛載網路分享檔案夾時
+  <pre class="terminal">sudo mkdir /media/sharename
+sudo mount //192.168.0.1/linux /media/sharename/ -o username=myusername,password=mypassword</pre></li>
+<li>要卸除網路分享檔案夾時
+  <pre class="terminal">sudo umount /media/sharename/</pre></li>
+</ol>
+
+<p class="question"><a id="mountunmountnetworkfoldersall" name="mountunmountnetworkfoldersall">Q: 如何手動掛載/卸除網路共享檔案夾, 並允許所有使用者都可讀取和寫入?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="description">例如 假設您的網路連線已經正確設定好
+     網路主機的 IP: 192.168.0.1
+     網路主機的使用者名稱: myusername
+     網路主機的登錄密碼: mypassword
+     分享中的檔案夾名稱: linux
+     主機上要掛載的檔案夾: /media/sharename</pre></li>
+<li>要掛載網路分享檔案夾時
+  <pre class="terminal">sudo mkdir /media/sharename
+sudo mount //192.168.0.1/linux /media/sharename/ -o username=myusername,password=mypassword,dmask=777,fmask=777</pre></li>
+<li>要卸除網路分享檔案夾時
+  <pre class="terminal">sudo umount /media/sharename/</pre></li>
+</ol>
+
+<p class="question"><a id="automountnetworkfolders" name="automountnetworkfolders">Q: 如何在系統啟動時, 自動掛載網路分享檔案夾, 並允許所有使用者都可讀取 ?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="description">例如 假設您的網路連線已經正確設定好
+     網路主機的 IP: 192.168.0.1
+     網路主機的使用者名稱: myusername
+     網路主機的登錄密碼: mypassword
+     分享中的檔案夾名稱: linux
+     主機上要掛載的檔案夾: /media/sharename</pre></li>
+<li><pre class="terminal">sudo mkdir /media/sharename
+sudo gedit /root/.smbcredentials</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">username=myusername
+password=mypassword</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smbcredentials_automountnetworkfolders" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo cp /etc/fstab /etc/fstab_backup
+sudo gedit /etc/fstab</pre></li>
+<li>將下面這一行加到檔案最後面
+    <pre class="file">//192.168.0.1/linux        /media/sharename  smbfs    credentials=/root/.smbcredentials       0       0</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/fstab_automountnetworkfolders" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#remountfstabwithoutreboot">如何不重新開機就重新掛載 /etc/fstab ?</a></li>
+</ol>
+
+<p class="question"><a id="automountnetworkfoldersall" name="automountnetworkfoldersall">Q: 如何在系統啟動時, 自動掛載網路分享檔案夾, 並允許所有使用者都可讀取和寫入?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="description">例如 假設您的網路連線已經正確設定好
+     網路主機的 IP: 192.168.0.1
+     網路主機的使用者名稱: myusername
+     網路主機的登錄密碼: mypassword
+     分享中的檔案夾名稱: linux
+     主機上要掛載的檔案夾: /media/sharename</pre></li>
+<li><pre class="terminal">sudo mkdir /media/sharename
+sudo gedit /root/.smbcredentials</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">username=myusername
+password=mypassword</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smbcredentials_automountnetworkfoldersall" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo cp /etc/fstab /etc/fstab_backup
+sudo gedit /etc/fstab</pre></li>
+<li>將下面這一行加到檔案最後面
+    <pre class="file">//192.168.0.1/linux        /media/sharename  smbfs   credentials=/root/.smbcredentials,dmask=777,fmask=777   0       0</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/fstab_automountnetworkfoldersall" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#remountfstabwithoutreboot">如何不重新開機就重新掛載 /etc/fstab ?</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="windows" name="windows">Windows</a></h2>
+<hr>
+
+<p class="question"><a id="mountunmountntfs" name="mountunmountntfs">Q: 如何手動掛載/卸除 Windows 的硬碟分割區 (NTFS), 並允許所有使用者只能讀取?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#listpartitiontables">如何列出硬碟分割表?</a></li>
+<li><pre class="description">例如 假設 /dev/hda1 是目前 Windows 所在的分割區位置 (NTFS)
+     主機上要掛載的檔案夾: /media/windows</pre></li>
+<li>要掛載 Windows 的硬碟分割區時時
+    <pre class="terminal">sudo mkdir /media/windows
+sudo mount /dev/hda1 /media/windows/ -t ntfs -o umask=0222</pre></li>
+<li>要卸除 Windows 的硬碟分割區時
+    <pre class="terminal">sudo umount /media/windows/</pre></li>
+</ol>
+
+<p class="question"><a id="mountunmountfat" name="mountunmountfat">Q: 如何手動掛載/卸除 Windows 的硬碟分割區 (FAT), 並允許所有使用者都可讀取和寫入?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#listpartitiontables">如何列出硬碟分割表?</a></li>
+<li><pre class="description">例如 假設 /dev/hda1 是目前 Windows 所在的分割區位置 (FAT)
+     主機上要掛載的檔案夾: /media/windows</pre></li>
+<li>要掛載 Windows 的硬碟分割區時
+    <pre class="terminal">sudo mkdir /media/windows
+sudo mount /dev/hda1 /media/windows/ -t vfat -o umask=000</pre></li>
+<li>要卸除 Windows 的硬碟分割區時
+    <pre class="terminal">sudo umount /media/windows/</pre></li>
+</ol>
+
+<p class="question"><a id="automountntfs" name="automountntfs">Q: 如何在系統啟動時自動掛載 Windows 的硬碟分割區 (NTFS), 並允許所有使用者只能讀取?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#listpartitiontables">如何列出硬碟分割表?</a></li>
+<li><pre class="description">例如 假設 /dev/hda1 是目前 Windows 所在的分割區位置 (NTFS)
+     主機上要掛載的檔案夾: /media/windows</pre></li>
+<li><pre class="terminal">sudo mkdir /media/windows
+sudo cp /etc/fstab /etc/fstab_backup
+sudo gedit /etc/fstab</pre></li>
+<li>將下面這一行加到檔案最後面
+    <pre class="file">/dev/hda1       /media/windows  ntfs    umask=0222      0       0</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/fstab_automountntfs" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#remountfstabwithoutreboot">如何不重新開機就重新掛載 /etc/fstab ?</a></li>
+</ol>
+
+<p class="question"><a id="automountfat" name="automountfat">Q: 如何在系統啟動時自動掛載 Windows 的硬碟分割區 (FAT), 並允許所有使用者都可讀取和寫入?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#listpartitiontables">如何列出硬碟分割表?</a></li>
+<li><pre class="description">例如 假設 /dev/hda1 是目前 Windows 所在的分割區位置 (FAT)
+     主機上要掛載的檔案夾: /media/windows</pre></li>
+<li><pre class="terminal">sudo mkdir /media/windows
+sudo cp /etc/fstab /etc/fstab_backup
+sudo gedit /etc/fstab</pre></li>
+<li>將下面這一行加到檔案最後面
+    <pre class="file">/dev/hda1       /media/windows  vfat    umask=000       0       0</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/fstab_automountfat" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#remountfstabwithoutreboot">如何不重新開機就重新掛載 /etc/fstab ?</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="usersadministration" name="usersadministration">使用者的管理</a></h2>
+<hr>
+
+<p class="question"><a id="setchangeenablerootpassword" name="setchangeenablerootpassword">Q: 如何設定/改變/啟用 root 使用者的密碼?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo passwd root</pre></li>
+</ol>
+
+<p class="question"><a id="disablerootaccount" name="disablerootaccount">Q: 如何禁用 root 使用者這個帳號?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo passwd -l root</pre></li>
+</ol>
+
+<p class="question"><a id="allowrootlogingnome" name="allowrootlogingnome">Q: 如何允許以 root 身份登入進 GNOME?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#setchangeenablerootpassword">如何設定/改變/啟用 root 使用者的密碼?</a></li>
+<li>System -&gt; Administration -&gt; Login Screen Setup</li>
+<li>Login Screen Setup
+    <pre class="program">Security 分頁 -&gt; Options -&gt; Allow root to login with GDM (<b>勾選</b>)</pre>
+</li>
+</ol>
+
+<p class="question"><a id="switchtoroot" name="switchtoroot">Q: 如何在終端機模式下切換到 root 身份?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="terminal">sudo -s -H
+Password: &lt;在這註明您的密碼&gt;</pre>
+</li>
+</ol>
+
+<p class="question"><a id="addeditdeletesystemusers" name="addeditdeletesystemusers">Q: 如何新增/編輯/移除系統使用者帳號?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>System -&gt; Administration -&gt; Users and Groups</li>
+<li>Users and Groups
+    <pre class="program">Users 分頁 -&gt; <b>Add User.../Properties/Delete</b></pre></li>
+</ol>
+
+<p class="question"><a id="addeditdeletesystemgroups" name="addeditdeletesystemgroups">Q: 如何新增/編輯/移除系統群組?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>System -&gt; Administration -&gt; Users and Groups</li>
+<li>Users and Groups
+    <pre class="program">Groups 分頁 -&gt; <b>Add Group.../Properties/Delete</b></pre></li>
+</ol>
+
+<p class="question"><a id="automaticlogingnome" name="automaticlogingnome">Q: 如何自動登入GNOME (沒有安全性)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>System -&gt; Administration -&gt; Login Screen Setup</li>
+<li>Login Screen Setup
+    <pre class="program">General 分頁 -&gt; Automatic Login -&gt;
+Login a user automatically on first bootup (<b>勾選</b>)
+Automatic login username: <b>選擇 &quot;系統_使用者名稱"</b></pre></li>
+</ol>
+
+<p class="question"><a id="allowmoresudoers" name="allowmoresudoers">Q: 如何允許更多 sudoers?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">export EDITOR=gedit &amp;&amp; sudo visudo</pre></li>
+<li>將下面這一行加到檔案最後面
+    <pre class="file">system_username	ALL=(ALL) ALL</pre>
+</li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/sudoers_allowmoresudoers" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="usesudowithoutpasswordprompt" name="usesudowithoutpasswordprompt">Q: 如何使用 &quot;sudo&quot; 時不需要任何密碼提示 (沒有安全性)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">export EDITOR=gedit &amp;&amp; sudo visudo</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+system_username	ALL=(ALL) ALL
+...</pre>
+</li>
+<li>用下面這一行取代
+    <pre class="file">system_username	ALL=(ALL) NOPASSWD: ALL</pre>
+</li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/sudoers_usesudowithoutpasswordprompt" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="explicitydestroysudosession" name="explicitydestroysudosession">Q: 如何下指令結束目前 &quot;sudo&quot; session?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo -K</pre></li>
+</ol>
+
+<p class="question"><a id="changefilesfolderspermissions" name="changefilesfolderspermissions">Q: 如何更改檔案/資料夾的權限?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="program">滑鼠右按鈕點擊檔案s/folders -&gt; <b>Properties</b>
+
+Permissions 分頁 -&gt; Read/Write/Execute (<b>勾選 the permissions for Owner/Group/Others</b>)</pre>
+</li>
+</ol>
+
+<p class="question"><a id="changefilesfoldersownership" name="changefilesfoldersownership">Q: 如何更改檔案/資料夾的擁有者?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="terminal">sudo chown system_username /location_of_files_or_folders</pre>
+</li>
+</ol>
+
+<p class="question"><a id="changefilesfoldersgroupownership" name="changefilesfoldersgroupownership">Q: 如何更改檔案和檔案夾的群組擁有權?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="terminal">sudo chgrp system_groupname /location_of_files_or_folders</pre>
+</li>
+</ol>
+
+<br>
+<hr>
+
+<h2><a id="security" name="security">系統安全問題</a></h2>
+<hr>
+
+<p class="question"><a id="basicsecuringubuntu" name="basicsecuringubuntu">Q: 我應該知道哪些關於 Ubuntu 系統安全的基本問題 ?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請確保硬碟是 BIOS 開機順序中為第一個
+    <ol class="answer">
+    <li>預防入侵者透過 Linux 安裝光碟取得 root 帳號</li>
+    <li>預防入侵者透過 Linux Live CD (例如 Ubuntu/Knoppix/Mepis) 來破壞/瀏覽/分享 整個硬碟內容</li>
+    <li>預防入侵者安裝其他作業系統</li>
+    </ol></li>
+<li>請確定有幫 BIOS 設定一個密碼
+    <ol class="answer">
+    <li>預防入侵者透過 BIOS 更改開機順序</li>
+    </ol></li>
+<li>請確保電腦放置安全地方
+    <ol class="answer">
+    <li>預防入侵者將電腦硬碟搬到其他台電腦，進行 破壞/瀏覽/分享 整個硬碟內容</li>
+    <li>預防入侵者將移除電腦主機板電池，重新設定 BIOS 密碼</li>
+    </ol></li>
+<li>請確保密碼不容易被猜到
+    <ol class="answer">
+    <li>預防入侵者使用暴力攻擊來破解密碼檔 (例如 John the Ripper)</li>
+    <li>請建立至少包含 8 個字元以上的密碼</li>
+    <li>請建立混和字元數字以及有大小寫字元的密碼</li>
+    </ol></li>
+<li>請確保關閉 GRUB 選單互動式編輯模式
+    <ol class="answer">
+    <li>預防入侵者修改開機時 kernel 的參數來取得 root 帳號的權限</li>
+    <li>請參閱 <a href="#disableinteractiveeditinggrub">如何關閉所有 GRUB 選單的互動式編輯模式?</a></li>
+    </ol></li>
+<li>請確保終端機模式下歷史紀錄是關閉的
+    <ol class="answer">
+    <li>預防入侵者可以看到其他使用者之前鍵入的指令</li>
+    <li>請參閱 <a href="#disablehistorylistingconsole">如何在終端機模式下關閉歷史紀錄?</a></li>
+    </ol></li>
+<li>請確保終端機模式下 Ctrl+Alt+Del 組合鍵的功能是關閉的
+    <ol class="answer">
+    <li>預防入侵者在終端機模式下重新啟動系統</li>
+    <li>請參閱 <a href="#disablectrlaltdelconsole">如何在終端機模式下關閉 Ctrl+Alt+Del 的系統重新啟動功能?</a></li>
+    </ol></li>
+<li>請確保在終端機模式下進行 移除，拷貝和移動 檔案/資料夾 操作
+    <ol class="answer">
+    <li>預防意外的 移除/覆蓋 檔案/資料夾</li>
+    <li>請參閱 <a href="#promptbeforeremovaloverwrittenconsole">如何在終端機模式下進行 移除/覆蓋 檔案/資料夾 時，能有提示字串?</a></li>
+    </ol></li>
+<li>每天使用時，請用一般使用者的身份登入
+    <ol class="answer">
+    <li>預防意外的 刪除/修改 系統檔案/資料夾</li>
+    <li>請參閱 <a href="#addeditdeletesystemusers">如何新增/編輯/移除 系統使用者帳號?</a></li>
+    </ol></li>
+<li>請避免使用 root 帳號，盡量使用 "sudo" 來代替操作
+    <ol class="answer">
+    <li>盡量減少直接用 root 的權限來工作的時間, 這可減少使用 root 權限執行一些可能引起危險的指令的機會</li>	
+    <li>"sudo" 能提供很多稽核追蹤 (/var/log/auth.log)</li>
+    <li>請參閱 <a href="#disablerootaccount">如何禁用 root 使用者這個帳號?</a></li>
+    </ol></li>
+<li>安裝防火牆
+    <ol class="answer">
+    <li>防火牆不能保證系統的安全，但是能在很多環境的第一線中，抵擋基本的網路攻擊</li>
+    <li>請參閱 <a href="#firestarter">如何安裝防火牆 (Firestarter)?</a></li>
+    </ol></li>
+<li>進行系統漏洞測試
+    <ol class="answer">
+    <li>Nessus 是一個強大工具，主要功能為自動測試並搜尋已知的系統安全問題</li>
+    <li>請參閱 <a href="#nessus">如何安裝系統漏洞檢查測試器 (Nessus)?</a></li>
+    </ol></li>
+</ol>
+
+<p class="question"><a id="disableinteractiveeditinggrub" name="disableinteractiveeditinggrub">Q: 如何關閉所有 GRUB 選單的互動式編輯模式?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">grub
+
+grub&gt; md5crypt
+Password: ****** (ubuntu)
+Encrypted: $1$ZWnke0$1fzDBVjUcT1Mpdd4u/T961 (encrypted password)
+grub&gt; quit
+
+sudo cp /boot/grub/menu.lst /boot/grub/menu.lst_backup
+sudo gedit /boot/grub/menu.lst</pre></li>
+<li>搜尋這一段文字
+    <pre class="file">...
+## password ['--md5'] passwd
+# If used in the first section of a menu file, disable all interactive editing
+# control (menu entry editor and command-line)  and entries protected by the
+# command 'lock'
+# 例如 password topsecret
+#      password --md5 $1$gLhU0/$aW78kHK1QfV3P2b2znUoe/
+# password topsecret
+...</pre></li>
+<li>在這下面新增下面這一行
+    <pre class="file">password --md5 $1$ZWnke0$1fzDBVjUcT1Mpdd4u/T961 (這是編碼過的密碼)</pre>
+</li>
+<li>搜尋這一段文字
+    <pre class="file">...
+title		Ubuntu, kernel 2.6.10-5-386 (recovery mode)
+root		    (hd0,1)
+kernel		/boot/vmlinuz-2.6.10-5-386 root=/dev/hda2 ro single
+initrd		/boot/initrd.img-2.6.10-5-386
+savedefault
+boot
+...</pre>
+</li>
+<li>用下面這幾行取代
+    <pre class="file">#title		Ubuntu, kernel 2.6.10-5-386 (recovery mode)
+#root		(hd0,1)
+#kernel		/boot/vmlinuz-2.6.10-5-386 root=/dev/hda2 ro single
+#initrd		/boot/initrd.img-2.6.10-5-386
+#savedefault
+#boot</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/menu.list_disableinteractiveeditinggrub" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="disablehistorylistingconsole" name="disablehistorylistingconsole">Q: 如何在終端機模式下關閉歷史紀錄?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">rm $HOME/.bash_history
+touch $HOME/.bash_history
+chmod 000 $HOME/.bash_history</pre></li>
+</ol>
+
+<p class="question"><a id="disablectrlaltdelconsole" name="disablectrlaltdelconsole">Q: 如何在終端機模式下關閉 Ctrl+Alt+Del 的系統重新啟動功能?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /etc/inittab /etc/inittab_backup
+sudo gedit /etc/inittab</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">#ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/inittab_disablectrlaltdelconsole" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo telinit q</pre></li>
+</ol>
+
+<p class="question"><a id="promptbeforeremovaloverwrittenconsole" name="promptbeforeremovaloverwrittenconsole">Q: 如何在終端機模式下進行 移除/覆蓋 檔案/資料夾 時，能有提示字串?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /etc/bash.bashrc /etc/bash.bashrc_backup
+sudo gedit /etc/bash.bashrc</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/bash.bashrc_promptbeforeremovaloverwrittenconsole" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="rescuemode" name="rescuemode">救援模式</a></h2>
+<hr>
+
+<p class="question"><a id="gainrootwithoutlogin" name="gainrootwithoutlogin">Q: 如何不用登入就可取得 root 帳號權限?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>簡易模式 (若 GRUB 選單有設定密碼則無法進行)
+    <ol class="answer">
+    <li>電腦開機</li>
+    <li>如果看不見 GRUB 選單, 按下 'Esc' 進入 GRUB 選單</li>
+    <li>選擇
+        <pre class="terminal">Ubuntu, kernel 2.6.10-5-386 (recovery mode)</pre></li>
+    <li>按下 'Enter' 開機</li>
+    </ol></li>
+<li>其他模式
+    <ol class="answer">
+    <li>請參閱 <a href="#gainrootmodifykernel">如何修改 kernal 開機參數, 來取得 root 帳號權限?</a></li>
+    <li>請參閱 <a href="#gainrootinstallcd">如何使用 Ubuntu 的安裝 CD 來取得 root 使用者權限?</a></li>
+    </ol></li>
+</ol>
+
+<p class="question"><a id="gainrootmodifykernel" name="gainrootmodifykernel">Q: 如何修改 kernal 開機參數, 來取得 root 帳號權限?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>電腦開機</li>
+<li>如果看不見 GRUB 選單, 按下 'Esc' 進入 GRUB 選單</li>
+<li>如果有設定 GRUB 密碼保護, 按下 'p' 解開 GRUB 選單的保護</li>
+<li>選擇
+    <pre class="terminal">Ubuntu, kernel 2.6.10-5-386</pre></li>
+<li>按下 'e' 在開機前進入編輯模式</li>
+<li>選擇
+    <pre class="terminal">kernel  /boot/vmlinuz-2.6.10-5-386 root=/dev/hda2 ro quiet splash</pre></li>
+<li>按下 'e' 來編輯開機程序中要修改的指令</li>
+<li>在此指令最後面加上 "rw init=/bin/bash" 這個參數
+  <pre class="terminal">grub edit&gt; kernel  /boot/vmlinuz-2.6.10-5-386 root=/dev/hda2 ro quiet splash <b>rw init=/bin/bash</b></pre></li>
+<li>按下 'b' 來重新開機</li>
+</ol>
+
+<p class="question"><a id="gainrootinstallcd" name="gainrootinstallcd">Q: 如何使用 Ubuntu 的安裝 CD 來取得 root 帳號權限?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>用 Ubuntu 安裝 CD 開機</li>
+<li>在 &quot;boot:&quot; 提示號出現時, 鍵入 &quot;rescue&quot; 當作開機參數
+    <pre class="terminal">boot: <b>rescue</b></pre></li>
+<li>順著螢幕上的指示跟著作</li>
+</ol>
+
+<p class="question"><a id="changerootpasswordforgotten" name="changerootpasswordforgotten">Q: 如果忘記 root 帳號/主要帳號的密碼, 要如何重新設定密碼?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#gainrootwithoutlogin">如何不用登入就可取得 root 帳號權限?</a></li>
+<li>更改 root 帳號密碼
+    <pre class="terminal"># passwd root</pre></li>
+<li>更改主要帳號密碼
+    <pre class="terminal"># passwd system_main_username</pre></li>
+</ol>
+
+<p class="question"><a id="changegrubpasswordforgotten" name="changegrubpasswordforgotten">Q: 如果忘記了 GRUB 選單的密碼, 要如何重新設定?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">grub
+
+grub&gt; md5crypt
+Password: ****** (ubuntu)
+Encrypted: $1$ZWnke0$1fzDBVjUcT1Mpdd4u/T961 (encrypted password)
+grub&gt; quit
+
+sudo cp /boot/grub/menu.lst /boot/grub/menu.lst_backup
+sudo gedit /boot/grub/menu.lst</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+password --md5 $1$gLhU0/$aW78kHK1QfV3P2b2znUoe/
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">password --md5 $1$ZWnke0$1fzDBVjUcT1Mpdd4u/T961 (encrypted password above)</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/menu.lst_changegrubpasswordforgotten" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="restoregrubmenuafterwindowsinstallation" name="restoregrubmenuafterwindowsinstallation">Q: 在安裝完 Windows 後, 要如何恢復 GRUB 選單?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#gainrootinstallcd">如何使用 Ubuntu 的安裝 CD 來取得 root 使用者權限?</a></li>
+<li><pre class="description">例如 假設 /boot 磁碟分割區位在 /dev/hda </pre></li>
+<li><pre class="terminal"># grub-install /dev/hda</pre></li>
+</ol>
+
+<p class="question"><a id="addwindowsentrygrubmenu" name="addwindowsentrygrubmenu">Q: 如何在 GRUB 的選項中新增 Windows 這個項目?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#listpartitiontables">如何列出硬碟分割表?</a></li>
+<li>
+  <pre class="description">例如 假設 /dev/hda1 是目前您的 Windows 所在的位置</pre>
+</li>
+<li><pre class="terminal">$ sudo cp /boot/grub/menu.lst /boot/grub/menu.lst_backup
+$ sudo gedit /boot/grub/menu.lst</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">title		Microsoft Windows
+root		    (hd0,0)
+savedefault
+makeactive
+chainloader	+1</pre>
+</li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/menu.lst_addwindowsentrygrubmenu" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="readlinuxpartitionsinwindows" name="readlinuxpartitionsinwindows">Q: 如何在 Windows 下讀取 Linux 的分割區 (ext2, ext3)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>下載 Explore2fs : <a href="http://frankandjacq.com/ubuntuguide/explore2fs-1.07.zip">這裡</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="tipsntricks" name="tipsntricks">小技巧與密技</a></h2>
+<hr>
+
+<p class="question"><a id="restartgnomewithoutreboot" name="restartgnomewithoutreboot">Q: 如何不重新開機就重新載入 GNOME?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>儲存並結束所有執行中的應用程式
+    <pre class="program">按下 'Ctrl + Alt + Backspace'</pre>
+	或著
+    <pre class="terminal">sudo /etc/init.d/gdm restart</pre></li>
+</ol>
+
+<p class="question"><a id="numlockx" name="numlockx">Q: 如何在 GNOME 載入後就啟用鍵盤的 Num Lock (數字鍵)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install numlockx
+sudo cp /etc/X11/gdm/Init/Default /etc/X11/gdm/Init/Default_backup
+sudo gedit /etc/X11/gdm/Init/Default</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+exit 0</pre></li>
+<li>在這之前新增下面幾行文字
+    <pre class="file">if [ -x /usr/bin/numlockx ]; then
+  /usr/bin/numlockx on
+fi</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/Default_numlockx" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#restartgnomewithoutreboot">如何不重新開機就重新載入 GNOME?</a></li>
+</ol>
+
+<p class="question"><a id="runprogramsstartupgnome" name="runprogramsstartupgnome">Q: 如何在登錄進 GNOME 後就自動執行某些程式?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>System -&gt; Preferences -&gt; Sessions</li>
+<li>Sessions
+    <pre class="program">Startup Programs 分頁 -&gt; <b>Add/Edit/Delete</b></pre></li>
+</ol>
+
+<p class="question"><a id="switchtoconsole" name="switchtoconsole">Q: 如何在 GNOME 內切換到 Console 模式?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>要切換到 Console 模式時
+  <pre class="program">按下 'Ctrl + Alt + F1' (F2 - F6)</pre>
+</li>
+<li>要切換回 GNOME 模式時
+  <pre class="program">按下 'Ctrl + Alt + F7'</pre>
+</li>
+</ol>
+
+<p class="question"><a id="disablectrlaltbackspacegnome" name="disablectrlaltbackspacegnome">Q: 如何禁止在 GNOME 中使用 Ctrl+Alt+Backspace 來重新啟動 X?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /etc/X11/xorg.conf /etc/X11/xorg.conf_backup
+sudo gedit /etc/X11/xorg.conf</pre></li>
+<li>將下列幾行新增到檔案最後
+  <pre class="file">Section "ServerFlags"
+	Option		"DontZap"		"yes"
+EndSection</pre></li>
+<li>儲存編輯過的檔案 (<a href="sample/xorg.conf_disablectrlaltbackspacegnome" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#restartgnomewithoutreboot">How to restart GNOME without rebooting computer?</a></li>
+</ol>
+
+<p class="question"><a id="refreshgnomedesktop" name="refreshgnomedesktop">Q: 如何更新 GNOME 的桌面顯示?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">killall nautilus</pre></li>
+</ol>
+
+<p class="question"><a id="refreshgnomepanel" name="refreshgnomepanel">Q: 如何更新 GNOME 面版的顯示?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">killall gnome-panel</pre></li>
+</ol>
+
+<p class="question"><a id="openeachfolderssamewindownautilus" name="openeachfolderssamewindownautilus">Q: 如何在同一個 Nautilus 視窗內開啟所有的檔案夾?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>Applications -&gt; System Tools -&gt; Configuration Editor</li>
+<li>Configuration Editor
+    <pre class="program">/ -&gt; apps -&gt; nautilus -&gt; preferences -&gt; always_use_browser (<b>勾選</b>)</pre></li>
+</ol>
+
+<p class="question"><a id="showallhiddenfilesfoldersnautilus" name="showallhiddenfilesfoldersnautilus">Q: 如何在 Nautilus 內顯示所有隱藏的檔案和檔案夾?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>位置 -&gt; Home Folder</li>
+<li>在 Nautilus 內暫時顯示所有隱藏的檔案和檔案夾
+    <pre class="program">按下 'Ctrl + H'</pre></li>
+<li>在 Nautilus 內永遠顯示所有隱藏的檔案和檔案夾
+    <pre class="program">Edit 選單 -&gt; <b>Preferences</b>
+
+Views 分頁 -&gt; Default View -&gt; Show hidden and backup files (<b>勾選</b>)</pre></li>
+</ol>
+
+<p class="question"><a id="browsefilesfoldersasrootnautilus" name="browsefilesfoldersasrootnautilus">Q: 如何以 root 身份在 Nautilus 內瀏覽檔案和檔案夾?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo gedit /usr/share/applications/Nautilus-root.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=File Browser (Root)
+Comment=Browse the filesystem with the file manager
+Exec=gksudo "nautilus --browser %U"
+Icon=file-manager
+Terminal=false
+Type=Application
+Categories=Application;System;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/Nautilus-root.desktop_browsefilesfoldersasrootnautilus" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; System Tools -&gt; File Browser (Root)</li>
+</ol>
+
+<p class="question"><a id="showdesktopicons" name="showdesktopicons">Q: 如何顯示桌面圖示 (我的電腦, 家目錄, 資源回收桶)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>Applications -&gt; System Tools -&gt; Configuration Editor</li>
+<li>Configuration Editor
+    <pre class="program">/ -&gt; apps -&gt; nautilus -&gt; desktop -&gt;
+computer_icon_visible (<b>勾選</b>)
+home_icon_visible (<b>勾選</b>)
+trash_icon_visible (<b>勾選</b>)</pre></li>
+</ol>
+
+<p class="question"><a id="changedefaultfiletypeprogram" name="changedefaultfiletypeprogram">Q: 如何更改某個檔案在 &quot;Open with&quot; 中預設的程式?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="program">滑鼠右按鈕點擊檔案 -&gt; <b>Properties</b>
+
+Open With 分頁 -&gt; <b>Add</b>
+
+<b>選擇 &quot;Open with" program</b>
+
+選擇 &quot;Open with" program (<b>勾選</b>)</pre></li>
+</ol>
+
+<p class="question"><a id="changepreferredemailthunderbird" name="changepreferredemailthunderbird">Q: 如何改變預設的郵件程式為 Mozilla Thunderbird?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#thunderbird">如何安裝 Email 後端程式 (Mozilla Thunderbird)?</a></li>
+<li>System -&gt; Preferences -&gt; Preferred Applications</li>
+<li>Preferred Applications
+    <pre class="program">Mail Reader 分頁 -&gt; Default Mail Reader -&gt; Command: <b>mozilla-thunderbird %s</b></pre></li>
+</ol>
+
+<p class="question"><a id="openfilesasrootviarightclick" name="openfilesasrootviarightclick">Q: 如何用滑鼠右按鈕直接以 Root 身份開啟檔案?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">gedit $HOME/.gnome2/nautilus-scripts/Open\ as\ root</pre></li>
+
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">for uri in $NAUTILUS_SCRIPT_SELECTED_URIS; do
+	gnome-sudo "gnome-open $uri" &amp;
+done</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/Open-as-root_openfilesasrootviarightclick" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">chmod +x $HOME/.gnome2/nautilus-scripts/Open\ as\ root</pre></li>
+<li><pre class="program">滑鼠右按鈕點擊檔案 -&gt; Scripts -&gt; <b>Open as root</b></pre></li>
+</ol>
+
+<p class="question"><a id="disablebeepsoundterminalmode" name="disablebeepsoundterminalmode">Q: 如何停止 Terminal 模式下的 beep 音效?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>Applications -&gt; System Tools -&gt; Terminal</li>
+<li>Terminal
+    <pre class="program">Edit 選單 -&gt; <b>Current Profile...</b>
+
+General 分頁 -&gt; General -&gt; Terminal bell (<b>不勾選</b>)</pre></li>
+</ol>
+
+<p class="question"><a id="loadwebsitefasterfirefox" name="loadwebsitefasterfirefox">Q: 如何讓 Mozilla Firefox 能更快速的開啟網站?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>Applications -&gt; Internet -&gt; Firefox Web Browser</li>
+<li>Mozilla Firefox
+    <pre class="program">在網址輸入行鍵入 -&gt; <b>about:config</b>
+
+Filter (搜尋) : -&gt;
+<b>network.dns.disableIPv6</b> -&gt; <b>true</b>
+<b>network.http.pipelining</b> -&gt; <b>true</b>
+<b>network.http.pipelining.maxrequests</b> -&gt; <b>8</b>
+<b>network.http.proxy.pipelining</b> -&gt; <b>true</b></pre></li>
+<li>重新執行 Mozilla Firefox</li>
+</ol>
+
+<p class="question"><a id="disablebeepsoundlinkfindfirefox" name="disablebeepsoundlinkfindfirefox">Q: 如何關閉當 Mozilla Firefox 找到連接時的 beep 音效?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>Applications -&gt; Internet -&gt; Firefox Web Browser</li>
+<li>Mozilla Firefox
+    <pre class="program">在網址輸入行鍵入 -&gt; <b>about:config</b>
+
+Filter (搜尋) : -&gt; <b>accessibility.typeaheadfind.enablesound</b> -&gt; <b>false</b></pre></li>
+<li>重新執行 Mozilla Firefox</li>
+</ol>
+
+<p class="question"><a id="restoreoriginaliconsfirefox" name="restoreoriginaliconsfirefox">Q: 如何恢復 Mozilla Firefox 原本的圖示?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c http://frankandjacq.com/ubuntuguide/mozilla-thunderbird.xpm
+chmod 644 mozilla-thunderbird.xpm
+sudo dpkg-divert --rename /usr/share/pixmaps/mozilla-thunderbird.xpm
+sudo dpkg-divert --rename /usr/share/pixmaps/mozilla-thunderbird-menu.xpm
+sudo dpkg-divert --rename /usr/share/pixmaps/mozilla-thunderbird-pm-menu.xpm
+sudo dpkg-divert --rename /usr/lib/mozilla-thunderbird/chrome/icons/default/mozilla-thunderbird.xpm
+sudo dpkg-divert --rename /usr/lib/mozilla-thunderbird/chrome/icons/default/messengerWindow16.xpm
+sudo dpkg-divert --rename /usr/lib/mozilla-thunderbird/chrome/icons/default/messengerWindow.xpm
+sudo dpkg-divert --rename /usr/lib/mozilla-thunderbird/chrome/icons/default/default.xpm
+sudo cp mozilla-thunderbird.xpm /usr/share/pixmaps/mozilla-thunderbird.xpm
+sudo cp mozilla-thunderbird.xpm /usr/share/pixmaps/mozilla-thunderbird-menu.xpm
+sudo cp mozilla-thunderbird.xpm /usr/share/pixmaps/mozilla-thunderbird-pm-menu.xpm
+sudo cp mozilla-thunderbird.xpm /usr/lib/mozilla-thunderbird/chrome/icons/default/mozilla-thunderbird.xpm
+sudo cp mozilla-thunderbird.xpm /usr/lib/mozilla-thunderbird/chrome/icons/default/messengerWindow16.xpm
+sudo cp mozilla-thunderbird.xpm /usr/lib/mozilla-thunderbird/chrome/icons/default/messengerWindow.xpm
+sudo cp mozilla-thunderbird.xpm /usr/lib/mozilla-thunderbird/chrome/icons/default/default.xpm</pre>
+</li>
+<li>請參閱 <a href="#restartgnomewithoutreboot">如何不重新開機就重新載入 GNOME?</a></li>
+</ol>
+
+<p class="question"><a id="restoreoriginaliconsthunderbird" name="restoreoriginaliconsthunderbird">Q: 如何恢復 Mozilla Thunderbird 原本的圖示?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/mozilla-thunderbird.xpm">http://frankandjacq.com/ubuntuguide/mozilla-thunderbird.xpm</a>
+chmod 644 mozilla-thunderbird.xpm
+sudo dpkg-divert --rename /usr/share/pixmaps/mozilla-thunderbird.xpm
+sudo dpkg-divert --rename /usr/share/pixmaps/mozilla-thunderbird-menu.xpm
+sudo dpkg-divert --rename /usr/lib/mozilla-thunderbird/chrome/icons/default/mozilla-thunderbird.xpm
+sudo dpkg-divert --rename /usr/lib/mozilla-thunderbird/chrome/icons/default/messengerWindow16.xpm
+sudo dpkg-divert --rename /usr/lib/mozilla-thunderbird/chrome/icons/default/messengerWindow.xpm
+sudo cp mozilla-thunderbird.xpm /usr/share/pixmaps/mozilla-thunderbird.xpm
+sudo cp mozilla-thunderbird.xpm /usr/share/pixmaps/mozilla-thunderbird-menu.xpm
+sudo cp mozilla-thunderbird.xpm /usr/lib/mozilla-thunderbird/chrome/icons/default/mozilla-thunderbird.xpm
+sudo cp mozilla-thunderbird.xpm /usr/lib/mozilla-thunderbird/chrome/icons/default/messengerWindow16.xpm
+sudo cp mozilla-thunderbird.xpm /usr/lib/mozilla-thunderbird/chrome/icons/default/messengerWindow.xpm</pre></li>
+<li>請參閱 <a href="#restartgnomewithoutreboot">如何不重新開機就重新載入 GNOME?</a></li>
+</ol>
+
+<p class="question"><a id="synaptic" name="synaptic">Q: 如何簡單的 apt-get  (Synaptic)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>System -&gt; Administration -&gt; Synaptic Package Manager</li>
+<li>Synaptic Package Manager
+    <ol class="answer">
+    <li>要更新已知套件的名單時 (與 apt-get update 作用相同)
+        <pre class="program">Edit 選單 -&gt; <b>Reload Package Information</b></pre></li>
+    <li>要安裝所有可用的套件升級時 (與 apt-get upgrade 作用相同)
+        <pre class="program">Edit 選單 -&gt; <b>Mark All Upgrades...</b> -&gt; <b>Default Upgrade</b>
+Edit 選單 -&gt; <b>套用被標記的變動</b></pre></li>
+    <li>要搜尋套件時 (與 apt-cache search 套件名稱 作用相同)
+        <pre class="program">Edit 選單 -&gt; Search... <b>指定要搜尋的套件名稱</b></pre></li>
+    <li>要安裝選定的套件時 (與 apt-get install 套件名稱 作用相同)
+        <pre class="program"><b>選擇 &quot;package_name"</b>
+
+Package 選單 -&gt; <b>標記要安裝的套件</b>
+Edit 選單 -&gt; <b>套用被標記的變動</b></pre></li>
+    <li>要移除已安裝的套件時 (與 apt-get remove 套件名稱 作用相同)
+        <pre class="program"><b>選擇 &quot;package_name"</b>
+
+Package 選單 -&gt; <b>標記要移除的套件</b>
+Edit 選單 -&gt; <b>套用被標記的變動</b></pre></li>
+    </ol></li>
+</ol>
+
+<p class="question"><a id="installuninstalldebfile" name="installuninstalldebfile">Q: 如何 安裝/反安裝 .deb 套件包?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>要安裝 .deb 套件包時
+    <pre class="terminal">sudo dpkg -i package_file.deb</pre></li>
+<li>要反安裝 .deb 套件包時
+  <pre class="terminal">sudo dpkg -r package_name</pre></li>
+</ol>
+
+<p class="question"><a id="convertrpmtodebfile" name="convertrpmtodebfile">Q: 如何將 .rpm 套件包轉換成 .deb 套件包?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo alien package_file.rpm</pre></li>
+</ol>
+
+<p class="question"><a id="mvb" name="mvb">Q: 如何一個動作就重新命名整個目錄下的檔案?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/mvb_1.6.tgz">http://frankandjacq.com/ubuntuguide/mvb_1.6.tgz</a>
+sudo tar zxvf mvb_1.6.tgz -C /usr/
+sudo chown -R root:root /usr/mvb_1.6/
+sudo ln -fs /usr/mvb_1.6/mvb /usr/bin/mvb
+mvb -h</pre></li>
+</ol>
+
+<p class="question"><a id="setsystem-wideenvironmentvariables" name="setsystem-wideenvironmentvariables">Q: 如何設定系統通用 (system-wide) 的環境變數?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /etc/bash.bashrc /etc/bash.bashrc_backup
+sudo gedit /etc/bash.bashrc</pre></li>
+<li>在檔案最後加上要新增的系統通用環境變數</li>
+<li>儲存編輯過的檔案</li>
+</ol>
+
+<p class="question"><a id="savemanoutputs" name="savemanoutputs">Q: 如何將 &quot;man&quot; 的輸出儲存到一個檔案內?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">man command | col -b &gt; file.txt</pre></li>
+</ol>
+
+<p class="question"><a id="generatemd5" name="generatemd5">Q: 如何製作 MD5 checksum 檔案?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">md5sum file.iso &gt; file.iso.md5</pre></li>
+</ol>
+
+<p class="question"><a id="checkmd5" name="checkmd5">Q: 如何檢查檔案的 MD5 checksum?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設 file.iso and file.iso.md5 are in the same folder</pre></li>
+<li><pre class="terminal">md5sum -c file.iso.md5</pre></li>
+</ol>
+
+<p class="question"><a id="mountunmountisofileswithoutburning" name="mountunmountisofileswithoutburning">Q: 如何不燒錄就掛載/卸除映象檔 (ISO)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>要掛載映象檔 (ISO)
+時    
+  <pre class="terminal">sudo mkdir /media/iso
+sudo modprobe loop
+sudo mount file.iso /media/iso/ -t iso9660 -o loop</pre></li>
+<li>要卸除映象檔 (ISO)
+時    
+  <pre class="terminal">sudo umount /media/iso/</pre></li>
+</ol>
+
+<p class="question"><a id="hidegrub" name="hidegrub">Q: 如何在系統一開機時隱藏 GRUB 的選單顯示?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /boot/grub/menu.lst /boot/grub/menu.lst_backup
+sudo gedit /boot/grub/menu.lst</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+#hiddenmenu
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">hiddenmenu</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/menu.list_hidegrub" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="changetimeoutgrub" name="changetimeoutgrub">Q: 如何更改 GRUB menu 內關於開機時預設的等待時間  (timeout) ?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /boot/grub/menu.lst /boot/grub/menu.lst_backup
+sudo gedit /boot/grub/menu.lst</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+timeout         3
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">timeout         X_seconds</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/menu.list_increasedecreasetimeoutgrub" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="changedefaultosgrub" name="changedefaultosgrub">Q: 如何更改 GRUB 選單內開機系統的預設值?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /boot/grub/menu.lst /boot/grub/menu.lst_backup
+sudo gedit /boot/grub/menu.lst</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+default         0
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">default         X_sequence</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/menu.list_changedefaultosgrub" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="displaysplashimagegrub" name="displaysplashimagegrub">Q: 如何在系統啟動時顯示 GRUB menu 的 Splash Image?</a></p>
+
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="description">例如 假設 hd0,1 是目前 Ubuntu 的啟動硬碟分割區</pre>
+</li>
+<li><pre class="terminal">wget -c <a href="http://frankandjacq.com/ubuntuguide/ubuntu.xpm.gz">http://frankandjacq.com/ubuntuguide/ubuntu.xpm.gz</a>
+chmod 644 ubuntu.xpm.gz
+sudo mkdir /boot/grub/images
+sudo cp ubuntu.xpm.gz /boot/grub/images/
+sudo cp /boot/grub/menu.lst /boot/grub/menu.lst_backup
+sudo gedit /boot/grub/menu.lst</pre></li>
+<li>搜尋下面這一段文字
+    <pre class="file"># menu.lst - See: grub(8), info grub, update-grub(8)
+#            grub-install(8), grub-floppy(8),
+#            grub-md5-crypt, /usr/share/doc/grub
+#            and /usr/share/doc/grub-doc/.
+...</pre></li>
+<li>將下面幾行文字加到其後
+    <pre class="file">splashimage (hd0,1)/boot/grub/images/ubuntu.xpm.gz</pre></li>
+
+<li>儲存編輯過的檔案 (<a href="sample/menu.lst_displaysplashimagegrub" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<p class="question"><a id="convertwallpapertosplashimagegrub" name="convertwallpapertosplashimagegrub">Q: 如何將桌面布景圖轉換成 GRUB menu 可用的 Splash Image?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="description">例如 假設我們要將桌面布景圖檔 wallpaper.png 轉換成 GRUB menu 中
+     可用的 Splash Image 格式檔案 splashimage.xpm.gz </pre>
+</li>
+<li><pre class="terminal">convert -resize 640x480 -colors 14 wallpaper.png splashimage.xpm &amp;&amp; gzip splashimage.xpm</pre></li>
+
+<li>請參閱 <a href="#displaysplashimagegrub">如何在系統啟動時顯示 GRUB menu 的 Splash Image?</a> (在這個例子中, 請將  ubuntu.xpm.gz 以  splashimage.xpm.gz 取代)</li>
+</ol>
+
+<p class="question"><a id="temporaryskipboot-upservices" name="temporaryskipboot-upservices">Q: 如何暫時略過開機時載入的服務 (boot-up services)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">按下 'Ctrl + C'</pre></li>
+</ol>
+
+<p class="question"><a id="permanentlydisableenableboot-upservices" name="permanentlydisableenableboot-upservices">Q: 如何永遠禁止/啟用開機時載入的服務 (boot-up services)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>永遠禁止開機時載入的服務
+    <pre class="terminal">sudo chmod -x /etc/init.d/service_name</pre></li>
+<li>永遠啟用開機時載入的服務
+    <pre class="terminal">sudo chmod +x /etc/init.d/service_name</pre></li>
+</ol>
+
+<p class="question"><a id="cleantmpfoldershutdown" name="cleantmpfoldershutdown">Q: 如何在關機時一併清除 /tmp/ 檔案夾內的內容?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /etc/init.d/sysklogd /etc/init.d/sysklogd_backup
+sudo gedit /etc/init.d/sysklogd</pre></li>
+<li>找出下面這段文字
+  <pre class="file">...
+  stop)
+    log_begin_msg "Stopping system log daemon..."
+    start-stop-daemon --stop --quiet --oknodo --exec $binpath --pidfile $pidfile
+    log_end_msg $?
+...</pre></li>
+<li>將下面這一行新增在後
+  <pre class="file">    rm -fr /tmp/* /tmp/.??*</pre></li>
+
+<li>儲存編輯過的檔案 (<a href="sample/sysklogd_cleantmpfoldershutdown" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="antivirusserver" name="antivirusserver">病毒防制 (AntiVirus) 伺服器</a></h2>
+<hr>
+
+<p class="question"><a id="installclamav" name="installclamav">Q: 如何安裝 ClamAV AntiVirus 病毒防制伺服器?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install clamav</pre></li>
+</ol>
+
+<p class="question"><a id="manuallyupdatevirusdatabases" name="manuallyupdatevirusdatabases">Q: 如何手動更新病毒資料庫?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installclamav">如何安裝 ClamAV AntiVirus 病毒防制伺服器?</a></li>
+<li><pre class="terminal">sudo freshclam</pre></li>
+</ol>
+
+<p class="question"><a id="manuallyscanforviruses" name="manuallyscanforviruses">Q: 如何手動掃瞄 檔案/檔案夾 來搜尋病毒?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installclamav">如何安裝 ClamAV AntiVirus 病毒防制伺服器?</a></li>
+<li><pre class="terminal">sudo clamscan -r /location_of_files_or_folders</pre></li>
+</ol>
+
+<p class="question"><a id="automaticallyscanforviruses" name="automaticallyscanforviruses">Q: 如何自動掃瞄 檔案/檔案夾 來搜尋病毒?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installclamav">如何安裝 ClamAV AntiVirus 病毒防制伺服器?</a></li>
+<li><pre class="description">例如每天子時自動掃瞄 檔案/檔案夾 來搜尋病毒
+     * * * * * 分別代表 分 時 日 月 年</pre></li>
+<li><pre class="terminal">export EDITOR=gedit &amp;&amp; sudo crontab -e</pre></li>
+<li>將下面這一行加到檔案最後面
+    <pre class="file">00 00 * * * sudo clamscan -r /location_of_files_or_folders</pre></li>
+<li>儲存編輯過的檔案</li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="sambaserver" name="sambaserver">Samba 伺服器</a></h2>
+<hr>
+
+<p class="question"><a id="installsamba" name="installsamba">Q: 如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install samba
+sudo apt-get install smbfs</pre></li>
+</ol>
+
+<p class="question"><a id="addeditdeletenetworkusers" name="addeditdeletenetworkusers">Q: 如何 新增/編輯/移除 網路使用者的帳號?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li>要新增網路使用者的帳號
+    <ol class="answer">
+    <li>請參閱 <a href="#addeditdeletesystemusers">如何新增/編輯/宜除 系統使用者帳號?</a></li>
+    <li><pre class="terminal">smbpasswd -a system_username
+sudo gedit /etc/samba/smbusers</pre></li>
+    <li>在新建立的檔案內加入下面這一行
+        <pre class="file">system_username = "network username"</pre></li>
+    <li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smbusers_addeditdeletenetworkusers" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+    </ol></li>
+<li>要編輯網路使用者的帳號
+    <pre class="terminal">sudo smbpasswd -a system_username</pre></li>
+<li>要移除網路使用者的帳號
+    <pre class="terminal">sudo smbpasswd -x system_username</pre></li>
+</ol>
+
+<p class="question"><a id="sharehomefoldersreadsecurityuser" name="sharehomefoldersreadsecurityuser">Q: 如何分享家目錄 (home folders) 並只有讀取的權限 (Authentication=Yes - 權限認證開啟)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+;   security = user
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file">   security = user
+   username map = /etc/samba/smbusers</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_sharehomefoldersreadsecurityuser" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#addeditdeletenetworkusers">如何 新增/編輯/移除 網路使用者的帳號?</a></li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="sharehomefoldersreadwritesecurityuser" name="sharehomefoldersreadwritesecurityuser">Q: 如何分享家目錄 (home folders)並有讀取和寫入的權限 (Authentication=Yes - 權限認證開啟)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+;   security = user
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file">   security = user
+   username map = /etc/samba/smbusers</pre></li>
+<li>搜尋這一段文字
+    <pre class="file">...
+# By default, the home directories are exported read -only. Change next
+# parameter to 'yes' if you want to be able to write to them.
+   writable = no
+...</pre>
+</li>
+<li>用下面這幾行取代
+    <pre class="file"># By default, the home directories are exported read -only. Change next
+# parameter to 'yes' if you want to be able to write to them.
+   writable = yes</pre>
+</li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_sharehomefoldersreadwritesecurityuser" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#addeditdeletenetworkusers">如何 新增/編輯/移除 網路使用者的帳號?</a></li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="sharegroupfoldersreadsecurityuser" name="sharegroupfoldersreadsecurityuser">Q: 如何分享群組檔案夾 (group folders) 並只有讀取的權限 (Authentication=Yes - 權限認證開啟)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo mkdir /home/group
+sudo chmod 777 /home/group/
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+;   security = user
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file">   security = user
+   username map = /etc/samba/smbusers</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">[Group]
+   comment = Group Folder
+   path = /home/group
+   public = yes
+   writable = no
+   valid users = system_username1 system_username2
+   create mask = 0700
+   directory mask = 0700
+   force user = nobody
+   force group = nogroup</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_sharegroupfoldersreadsecurityuser" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#addeditdeletenetworkusers">如何 新增/編輯/移除 網路使用者的帳號?</a></li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="sharegroupfoldersreadwritesecurityuser" name="sharegroupfoldersreadwritesecurityuser">Q: 如何分享群組檔案夾 (group folders)並有讀取和寫入的權限 (Authentication=Yes - 權限認證開啟)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo mkdir /home/group
+sudo chmod 777 /home/group/
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+;   security = user
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file">   security = user
+   username map = /etc/samba/smbusers</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">[Group]
+   comment = Group Folder
+   path = /home/group
+   public = yes
+   writable = yes
+   valid users = system_username1 system_username2
+   create mask = 0700
+   directory mask = 0700
+   force user = nobody
+   force group = nogroup</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_sharegroupfoldersreadwritesecurityuser" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#addeditdeletenetworkusers">如何 新增/編輯/移除 網路使用者的帳號?</a></li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="sharepublicfoldersreadsecurityuser" name="sharepublicfoldersreadsecurityuser">Q: 如何開啟公用檔案夾的分享功能並只有讀取的權限 (Authentication=Yes - 權限認證開啟)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo mkdir /home/public
+sudo chmod 777 /home/public/
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+;   security = user
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file">   security = user
+   username map = /etc/samba/smbusers</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">[public]
+   comment = Public Folder
+   path = /home/public
+   public = yes
+   writable = no
+   create mask = 0777
+   directory mask = 0777
+   force user = nobody
+   force group = nogroup</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_sharepublicfoldersreadsecurityuser" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#addeditdeletenetworkusers">如何 新增/編輯/移除 網路使用者的帳號?</a></li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="sharepublicfoldersreadwritesecurityuser" name="sharepublicfoldersreadwritesecurityuser">Q: 如何開啟公用檔案夾的分享功能並有讀取和寫入的權限 (Authentication=Yes - 權限認證開啟)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo mkdir /home/public
+sudo chmod 777 /home/public/
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+;   security = user
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file">   security = user
+   username map = /etc/samba/smbusers</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">[public]
+   comment = Public Folder
+   path = /home/public
+   public = yes
+   writable = yes
+   create mask = 0777
+   directory mask = 0777
+   force user = nobody
+   force group = nogroup</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_sharepublicfoldersreadwritesecurityuser" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#addeditdeletenetworkusers">如何 新增/編輯/移除 網路使用者的帳號?</a></li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="sharepublicfoldersreadsecurityshare" name="sharepublicfoldersreadsecurityshare">Q: 如何開啟公用檔案夾的分享功能並只有讀取的權限 (Authentication=No - 權限認證關閉)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo mkdir /home/public
+sudo chmod 777 /home/public/
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+;   security = user
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">   security = share</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">[public]
+   comment = Public Folder
+   path = /home/public
+   public = yes
+   writable = no
+   create mask = 0777
+   directory mask = 0777
+   force user = nobody
+   force group = nogroup</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_sharepublicfoldersreadsecurityshare" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<p class="question"><a id="sharepublicfoldersreadwritesecurityshare" name="sharepublicfoldersreadwritesecurityshare">Q: 如何開啟公用檔案夾的分享功能並有讀取和寫入的權限 (Authentication=No - 權限認證關閉)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installsamba">如何安裝 Samba 伺服器來提供 檔案/檔案夾 分享的服務?</a></li>
+<li><pre class="terminal">sudo mkdir /home/public
+sudo chmod 777 /home/public/
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo gedit /etc/samba/smb.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+;   security = user
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">   security = share</pre></li>
+<li>將下列幾行新增到檔案的最後面
+    <pre class="file">[public]
+   comment = Public Folder
+   path = /home/public
+   public = yes
+   writable = yes
+   create mask = 0777
+   directory mask = 0777
+   force user = nobody
+   force group = nogroup</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/smb.conf_sharepublicfoldersreadwritesecurityshare" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo testparm
+sudo /etc/init.d/samba restart</pre></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="sshserver" name="sshserver">SSH 伺服器</a></h2>
+<hr>
+
+<p class="question"><a id="installssh" name="installssh">Q: 如何安裝 SSH 伺服器來遠端遙控管理系統?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install ssh</pre></li>
+</ol>
+
+<p class="question"><a id="sshintoubuntu" name="sshintoubuntu">Q:  如何使用 SSH 連線到遠端的 Ubuntu 主機?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設遠端的 Ubuntu 主機已經安裝了 SSH 伺服器服務
+     請參閱 <a href="#installssh">如何安裝 SSH 伺服器來遠端遙控管理系統?</a>
+     遠端 Ubuntu 主機 : 192.168.0.1</pre></li>
+<li><pre class="terminal">ssh username@192.168.0.1</pre></li>
+</ol>
+
+<p class="question"><a id="scpfromubuntu" name="scpfromubuntu">Q: 如何從遠端的 Ubuntu 主機複製檔案/檔案夾到本地的主機內 (scp)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設遠端的 Ubuntu 主機已經安裝了 SSH 伺服器服務
+     請參閱 <a href="#installssh">如何安裝 SSH 伺服器來遠端遙控管理系統?</a>
+     遠端 Ubuntu 主機 : 192.168.0.1
+     遠端要複製的 檔案/檔案夾 位置 : /home/username/remotefile.txt
+     本地主機要儲存的位置 : . (目前工作目錄)</pre></li>
+<li><pre class="terminal">scp -r username@192.168.0.1:/home/username/remotefile.txt .</pre></li>
+</ol>
+
+<p class="question"><a id="scptoubuntu" name="scptoubuntu">Q: 如何從本地主機複製檔案/檔案夾到遠端的 Ubuntu 主機內 (scp)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設遠端的 Ubuntu 主機已經安裝了 SSH 伺服器服務
+     請參閱 <a href="#installssh">如何安裝 SSH 伺服器來遠端遙控管理系統?</a>
+     本地主機 檔案/檔案夾 的位置 : localfile.txt
+     遠端 Ubuntu 主機 : 192.168.0.1
+     遠端 Ubuntu 主機上要存放的位置 : /home/username/</pre></li>
+<li><pre class="terminal">scp -r localfile.txt username@192.168.0.1:/home/username/</pre></li>
+</ol>
+
+<p class="question"><a id="rsyncfromubuntu" name="rsyncfromubuntu">Q: 如何從遠端 Ubuntu 主機上複製 檔案/檔案夾 到本地主機上 (rsync)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設遠端的 Ubuntu 主機已經安裝了 SSH 伺服器服務
+     請參閱 <a href="#installssh">如何安裝 SSH 伺服器來遠端遙控管理系統?</a>
+     遠端 Ubuntu 主機 : 192.168.0.1
+     遠端要複製的 檔案/檔案夾 位置 : /home/username/remotefile.txt
+     本地主機要儲存的位置 : . (目前工作目錄)</pre></li>
+<li><pre class="terminal">rsync -v -u -a --delete --rsh=ssh --stats username@192.168.0.1:/home/username/remotefile.txt .</pre></li>
+</ol>
+
+<p class="question"><a id="rsynctoubuntu" name="rsynctoubuntu">Q: 如何從本地主機複製 檔案/檔案夾 到遠端的 Ubuntu 主機內 (rsync)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="description">例如 假設遠端的 Ubuntu 主機已經安裝了 SSH 伺服器服務
+     請參閱 <a href="#installssh">如何安裝 SSH 伺服器來遠端遙控管理系統?</a>
+     本地主機 檔案/檔案夾 的位置 : localfile.txt
+     遠端 Ubuntu 主機 : 192.168.0.1
+     遠端 Ubuntu 主機上要存放的位置 : /home/username/</pre>
+</li>
+<li><pre class="terminal">rsync -v -u -a --delete --rsh=ssh --stats localfile.txt username@192.168.0.1:/home/username/</pre></li>
+</ol>
+
+<p class="question"><a id="sshfromwindows" name="sshfromwindows">Q: 如何從 Windows 主機來 SSH 連線到遠端的 Ubuntu 主機?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設遠端的 Ubuntu 主機已經安裝了 SSH 伺服器服務
+     請參閱 <a href="#installssh">如何安裝 SSH 伺服器來遠端遙控管理系統?</a></pre></li>
+<li>下載 PuTTY: <a href="http://frankandjacq.com/ubuntuguide/putty.exe">這裡</a></li>
+</ol>
+
+<p class="question"><a id="scpfromwindows" name="scpfromwindows">Q: 如何從 Windows 主機複製 檔案/檔案夾 從/到 遠端的 Ubuntu 主機內?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="description">例如 假設遠端的 Ubuntu 主機已經安裝了 SSH 伺服器服務
+     請參閱 <a href="#installssh">如何安裝 SSH 伺服器來遠端遙控管理系統?</a></pre></li>
+<li>下載 WinSCP: <a href="http://frankandjacq.com/ubuntuguide/winscp374setupintl.exe">這裡</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="dhcpserver" name="dhcpserver">DHCP 伺服器</a></h2>
+<hr>
+
+<p class="question"><a id="installdhcpserver" name="installdhcpserver">Q: 如何安裝 DHCP 伺服器來自動指定 IP 位址?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>
+  <pre class="description">例如 假設 "eth0" 是我們的網路卡的介面
+     IP Address Range: 192.168.0.100 to 192.168.0.200
+     Subnet Mask: 255.255.255.0
+     DNS Servers: 202.188.0.133, 202.188.1.5
+     Domains: tm.net.my
+     Gateway Address: 192.168.0.1</pre>
+</li>
+<li><pre class="terminal">sudo apt-get install dhcp3-server
+sudo cp /etc/default/dhcp3-server /etc/default/dhcp3-server_backup
+sudo gedit /etc/default/dhcp3-server</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+INTERFACES=""</pre></li>
+<li>用下面這一行取代
+    <pre class="file">INTERFACES="eth0"</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/dhcp3-server_installdhcpserver" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo cp /etc/dhcp3/dhcpd.conf /etc/dhcp3/dhcpd.conf_backup
+sudo gedit /etc/dhcp3/dhcpd.conf</pre></li>
+<li>搜尋這一段文字
+    <pre class="file">...
+# option definitions common to all supported networks...
+option domain-name "example.org";
+option domain-name-servers ns1.example.org, ns2.example.org;
+
+default-lease-time 600;
+max-lease-time 7200;
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file"># option definitions common to all supported networks...
+#option domain-name "example.org";
+#option domain-name-servers ns1.example.org, ns2.example.org;
+
+#default-lease-time 600;
+#max-lease-time 7200;</pre></li>
+<li>搜尋這一段文字
+    <pre class="file">...
+# A slightly different configuration for an internal subnet.
+#subnet 10.5.5.0 netmask 255.255.255.224 {
+#  range 10.5.5.26 10.5.5.30;
+#  option domain-name-servers ns1.internal.example.org;
+#  option domain-name "internal.example.org";
+#  option routers 10.5.5.1;
+#  option broadcast-address 10.5.5.31;
+#  default-lease-time 600;
+#  max-lease-time 7200;
+#}
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file"># A slightly different configuration for an internal subnet.
+subnet 192.168.0.0 netmask 255.255.255.0 {
+  range 192.168.0.100 192.168.0.200;
+  option domain-name-servers 202.188.0.133, 202.188.1.5;
+  option domain-name "tm.net.my";
+  option routers 192.168.0.1;
+  option broadcast-address 192.168.0.255;
+  default-lease-time 600;
+  max-lease-time 7200;
+}</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/dhcpd.conf_installdhcpserver" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo /etc/init.d/dhcp3-server restart</pre></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="databaseserver" name="databaseserver">資料庫伺服器</a></h2>
+<hr>
+
+<p class="question"><a id="installmysqldatabaseserver" name="installmysqldatabaseserver">Q: 如何安裝 MYSQL 資料庫伺服器?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install mysql-server
+mysqladmin -u root password db_user_password</pre></li>
+</ol>
+
+<p class="question"><a id="installmysqlcontrolcenter" name="installmysqlcontrolcenter">Q: 如何安裝 MYSQL 控制中心?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#installmysqldatabaseserver">如何安裝 MYSQL 資料庫伺服器?</a></li>
+<li><pre class="terminal">sudo apt-get install mysqlcc
+sudo gedit /usr/share/applications/MySQLCC.desktop</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">[Desktop Entry]
+Name=MySQLCC
+Comment=MySQLCC
+Exec=mysqlcc
+Icon=/usr/share/pixmaps/mysqlcc.xpm
+Terminal=false
+Type=Application
+Categories=Application;System;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/MySQLCC.desktop_installmysqlcontrolcenter" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+<li>Applications -&gt; System Tools -&gt; MySQLCC</li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="apachehttpserver" name="apachehttpserver">Apache HTTP 伺服器</a></h2>
+<hr>
+
+<p class="question"><a id="installapachehttpserver" name="installapachehttpserver">Q: 如何安裝 Apache HTTP 伺服器作為 HTTP (Web) 伺服器服務?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo apt-get install apache2</pre></li>
+<li><a href="http://localhost/" onclick="window.open(this.href,'_blank');return false;">http://localhost</a></li>
+</ol>
+
+<p class="question"><a id="installphpapache" name="installphpapache">Q: 如何安裝搭配 Apache HTTP 伺服器使用的 PHP?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#installapachehttpserver">如何安裝 Apache HTTP 伺服器作為 HTTP (Web) 伺服器服務?</a></li>
+<li><pre class="terminal">sudo apt-get install php4
+sudo gedit /var/www/testphp.php</pre></li>
+<li>在新建立的檔案內加入下面這一行
+    <pre class="file">&lt;?php phpinfo(); ?&gt;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/testphp.php_installphpapache" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><a href="http://localhost/testphp.php" onclick="window.open(this.href,'_blank');return false;">http://localhost/testphp.php</a></li>
+</ol>
+
+<p class="question"><a id="installmysqlapache" name="installmysqlapache">Q: 如何安裝搭配 Apache HTTP 伺服器使用的 MYSQL?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#installapachehttpserver">如何安裝 Apache HTTP 伺服器作為 HTTP (Web) 伺服器服務?</a></li>
+<li>請參閱 <a href="#installmysqldatabaseserver">如何安裝 MYSQL 資料庫伺服器?</a></li>
+<li>請參閱 <a href="#installphpapache">如何安裝搭配 Apache HTTP 伺服器使用的 PHP?</a></li>
+<li><pre class="terminal">sudo apt-get install libapache2-mod-auth-mysql
+sudo apt-get install php4-mysql
+sudo /etc/init.d/apache2 restart</pre></li>
+</ol>
+
+<p class="question"><a id="mapURLstofoldersoutsidewww" name="mapURLstofoldersoutsidewww">Q: 如何映設 URLs 到 /var/www/ 以外的檔案夾?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installapachehttpserver">如何安裝 Apache HTTP 伺服器作為 HTTP (Web) 伺服器服務?</a></li>
+<li><pre class="terminal">sudo gedit /etc/apache2/conf.d/alias</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">Alias /URL-path /location_of_folder/
+
+&lt;Directory /location_of_folder/&gt;
+Order allow,deny
+Allow from all
+&lt;/Directory&gt;</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/alias_mapURLstofoldersoutsidewww" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo /etc/init.d/apache2 restart</pre></li>
+<li><a href="http://localhost/URL-path" onclick="window.open(this.href,'_blank');return false;">http://localhost/URL-path</a></li>
+</ol>
+
+<p class="question"><a id="changeportnumberapache" name="changeportnumberapache">Q: 如何修改 Apache HTTP 伺服器預設的埠號?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installapachehttpserver">如何安裝 Apache HTTP 伺服器作為 HTTP (Web) 伺服器服務?</a></li>
+<li><pre class="description">例如 假設新的埠號為 79</pre></li>
+<li><pre class="terminal">sudo cp /etc/apache2/ports.conf /etc/apache2/ports.conf_backup
+sudo gedit /etc/apache2/ports.conf</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">Listen 80</pre></li>
+<li>用下面這一行取代
+    <pre class="file">Listen 79</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/ports.conf_changeportnumberapache" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo /etc/init.d/apache2 restart</pre></li>
+<li><a href="http://localhost:79/" onclick="window.open(this.href,'_blank');return false;">http://localhost:79</a></li>
+</ol>
+
+<p class="question"><a id="browsechangedportnumberfirefox" name="browsechangedportnumberfirefox">Q: 如何使用 Mozilla Firefox 瀏覽被更改過埠號的 Apache HTTP 伺服器?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#changeportnumberapache">如何修改 Apache HTTP 伺服器預設的埠號?</a></li>
+<li><pre class="description">例如 假設新的埠號為 79</pre></li>
+<li><pre class="terminal">sudo cp /usr/lib/mozilla-firefox/greprefs/all.js /usr/lib/mozilla-firefox/greprefs/all.js_backup
+sudo gedit /usr/lib/mozilla-firefox/greprefs/all.js</pre></li>
+<li>搜尋這一段文字
+    <pre class="file">...
+// If there is ever a security firedrill that requires
+// us to block certian ports global, this is the pref
+// to use.  Is is a comma delimited list of port numbers
+// for example:
+//   pref("network.security.ports.banned", "1,2,3,4,5");
+// prevents necko connecting to ports 1-5 unless the protocol
+// overrides.
+...</pre></li>
+<li>在這下面新增下面這一行
+    <pre class="file">pref("network.security.ports.banned.override", "79");</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/all.js_browsechangedportnumberfirefox" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>重新執行 Mozilla Firefox</li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="streamingmediaserver" name="streamingmediaserver">網路影音串流伺服器 (Streaming Media)</a></h2>
+<hr>
+
+<p class="question"><a id="installgnump3d" name="installgnump3d">Q: 如何安裝 GNUMP3d 作為網路影音串流伺服器 (Streaming Media) 服務?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li>請參閱 <a href="#installapachehttpserver">如何安裝 Apache HTTP 伺服器作為 HTTP (Web) 伺服器服務?</a></li>
+<li>
+  <pre class="description">例如 /var/music/ 是存放影音檔案的目錄</pre>
+</li>
+<li><pre class="terminal">sudo apt-get install gnump3d</pre></li>
+
+<li><a href="http://localhost:8888" onclick="window.open(this.href,'_blank');return false;">http://localhost:8888</a></li>
+</ol>
+
+<p class="question"><a id="changedirectorymultimediagnump3d" name="changedirectorymultimediagnump3d">Q: 如何更改 GNUMP3d 預設存放影音檔案的目錄?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installgnump3d">如何安裝 GNUMP3d 作為網路影音串流伺服器 (Streaming Media) 服務?</a></li>
+<li>
+  <pre class="description">例如 假設存放影音檔案的新目錄為 /home/music/</pre>
+</li>
+<li><pre class="terminal">sudo cp /etc/gnump3d/gnump3d.conf /etc/gnump3d/gnump3d.conf_backup
+sudo gedit /etc/gnump3d/gnump3d.conf</pre></li>
+
+<li>找出下面這一行文字
+  <pre class="file">root = /var/music</pre></li>
+<li>以下面這一行取代
+  <pre class="file">root = /home/music</pre></li>
+<li>找出下面這一行文字
+  <pre class="file">user = gnump3d</pre></li>
+<li>以下面這一行取代
+  <pre class="file">user = root</pre></li>
+<li>儲存編輯後的檔案 (<a href="sample/gnump3d.conf_changedirectorymultimediagnump3d" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo /etc/init.d/gnump3d restart</pre></li>
+
+<li><a href="http://localhost:8888" onclick="window.open(this.href,'_blank');return false;">http://localhost:8888</a></li>
+</ol>
+
+<p class="question"><a id="changeportnumbergnump3d" name="changeportnumbergnump3d">Q: 如何更改 GNUMP3d 預設的埠號?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#installgnump3d">如何安裝 GNUMP3d 作為網路影音串流伺服器 (Streaming Media) 服務?</a></li>
+<li>
+  <pre class="description">例如 假設新的埠號為 7979</pre>
+</li>
+<li><pre class="terminal">sudo cp /etc/gnump3d/gnump3d.conf /etc/gnump3d/gnump3d.conf_backup
+sudo gedit /etc/gnump3d/gnump3d.conf</pre></li>
+
+<li>找出下面這一行文字
+  <pre class="file">port = 8888</pre></li>
+<li>以下面這一行取代
+  <pre class="file">port = 7979</pre></li>
+<li>儲存編輯過的檔案 (<a href="sample/gnump3d.conf_changeportnumbergnump3d" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo /etc/init.d/gnump3d restart</pre></li>
+<li><a href="http://localhost:7979" onclick="window.open(this.href,'_blank');return false;">http://localhost:7979</a></li>
+</ol>
+
+<br>
+<hr>
+<h2><a id="troubleshooting" name="troubleshooting">問題與解決方法</a></h2>
+<hr>
+
+<p class="question"><a id="configuringnetwoktooslow" name="configuringnetwoktooslow">Q: 設定網路介面... (載入時間太長)</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#temporaryskipboot-upservices">如何暫時略過開機時載入的服務 (boot-up services)?</a></li>
+</ol>
+
+<p class="question"><a id="synchronizingclocktooslow" name="synchronizingclocktooslow">Q: 與 ntp.ubuntulinux.org 進行時間同步... (載入時間太長)</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#temporaryskipboot-upservices">如何暫時略過開機時載入的服務 (boot-up services)?</a></li>
+<li>請參閱 <a href="#permanentlydisableenableboot-upservices">如何永遠禁止/啟用開機時載入的服務 (boot-up services)?</a>
+    <pre class="description">service_name = ntpdate</pre></li>
+</ol>
+
+<p class="question"><a id="disablesystemtimedateutc" name="disablesystemtimedateutc">Q: 如何禁止系統時間/日期被重新設置為 UTC (GMT)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo cp /etc/default/rcS /etc/default/rcS_backup
+sudo gedit /etc/default/rcS</pre></li>
+<li>搜尋這一行文字
+    <pre class="file">...
+UTC=yes
+...</pre></li>
+<li>用下面這一行取代
+    <pre class="file">UTC=no</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/rcS_disablesystemtimedateutc" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li>System -&gt; Administration -&gt; Time and Date
+    <pre class="program">Set the correct time/date</pre></li>
+<li><pre class="terminal">sudo /etc/init.d/hwclock.sh restart</pre></li>
+</ol>
+
+<p class="question"><a id="configuresoundproperly" name="configuresoundproperly">Q: 在 GNOME 內如何正確的設定音效?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>請參閱 <a href="#extrarepositories">如何新增其他的套件庫 (extra Repositories)?</a></li>
+<li><pre class="terminal">sudo killall esd
+sudo cp /etc/esound/esd.conf /etc/esound/esd.conf_backup
+sudo gedit /etc/esound/esd.conf</pre></li>
+<li>搜尋這一段文字
+    <pre class="file">...
+auto_spawn=0
+spawn_options=-terminate -nobeeps -as 5
+...</pre></li>
+<li>用下面這幾行取代
+    <pre class="file">auto_spawn=1
+spawn_options=-terminate -nobeeps -as 2 -d default</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/sample/esd.conf_configuresoundproperly" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo apt-get install libesd-alsa0
+sudo gedit /etc/asound.conf</pre></li>
+<li>在新增的檔案內加入下面這幾行
+    <pre class="file">pcm.card0 {
+type hw
+card 0
+}
+
+pcm.!default {
+type plug
+slave.pcm "dmixer"
+}
+
+pcm.dmixer {
+type dmix
+ipc_key 1025
+slave {
+pcm "hw:0,0"
+period_time 0
+period_size 2048
+buffer_size 32768
+rate 48000
+}
+bindings {
+0 0
+1 1
+}
+}</pre></li>
+<li>儲存編輯過的檔案 (<a href="http://ubuntuguide.org/&#31684;&#20363;/asound.conf_configuresoundproperly" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">sudo ln -fs /usr/lib/libesd.so.0 /usr/lib/libesd.so.1</pre></li>
+<li>System -&gt; Preferences -&gt; Sound</li>
+<li>Sound preferences
+    <pre class="program">General 分頁 -&gt; Sounds for events (<b>不勾選</b>)</pre></li>
+<li>儲存並結束所有執行中的程式, 系統重新開機</li>
+</ol>
+
+<p class="question"><a id="forcefullyemptytrash" name="forcefullyemptytrash">Q: 在 GNOME 內如何強制清除 Trash?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo rm -fr $HOME/.Trash/</pre></li>
+</ol>
+
+<p class="question"><a id="removeduplicatemenus" name="removeduplicatemenus">Q: 如何在 GNOME 內移除重複的選單/選單項目?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">rm -fr $HOME/.config/menus/applications.menu</pre></li>
+<li>請參閱 <a href="#refreshgnomepanel">如何更新 GNOME 面版的顯示?</a></li>
+</ol>
+
+<p class="question"><a id="refreshplacesmenu" name="refreshplacesmenu">Q: 如何在 GNOME 內更新 Place 選單的顯示 (如果無法顯示 /etc/fstab 內指定到 /media/ 的掛載)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li><pre class="terminal">sudo /etc/init.d/dbus-1 restart</pre></li>
+</ol>
+
+<br>
+
+<hr>
+<h2><a id="upgradingubuntu" name="upgradingubuntu">升級 Ubuntu</a></h2>
+<hr>
+
+<p class="question"><a id="upgradehoarytobreezy" name="upgradehoarytobreezy">Q: 如何從 Hoary Hedgehog (5.04) 升級到 Breezy Badger (5.10) (試驗性)?</a></p>
+<ol class="answer">
+<li>請參閱 <a href="#generalnotes">基本備註</a></li>
+<li>
+  <pre class="description">警告! 5.10 目前還在開發階段. Only use it for experimental purposes
+      升級完後, 可能會破壞您的系統的完整性</pre>
+</li>
+<li><pre class="terminal">sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+sudo gedit /etc/apt/sources.list</pre></li>
+<li>尋找下面這一段文字
+  <pre class="file">deb cdrom:[Ubuntu 5.04 _Hoary Hedgehog_ - Release i386 (20050407)]/ hoary main restricted
+
+
+## Uncomment the following two lines to fetch updated software from the network
+# deb http://us.archive.ubuntu.com/ubuntu hoary main restricted
+# deb-src http://us.archive.ubuntu.com/ubuntu hoary main restricted
+
+## Uncomment the following two lines to fetch major bug fix updates produced
+## after the final release of the distribution.
+# deb http://us.archive.ubuntu.com/ubuntu hoary-updates main restricted
+# deb-src http://us.archive.ubuntu.com/ubuntu hoary-updates main restricted
+
+## Uncomment the following two lines to add software from the 'universe'
+## repository.
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## universe WILL NOT receive any review or updates from the Ubuntu security
+## team.
+# deb http://us.archive.ubuntu.com/ubuntu hoary universe
+# deb-src http://us.archive.ubuntu.com/ubuntu hoary universe
+
+# deb http://security.ubuntu.com/ubuntu hoary-security main restricted
+# deb-src http://security.ubuntu.com/ubuntu hoary-security main restricted
+
+# deb http://security.ubuntu.com/ubuntu hoary-security universe
+# deb-src http://security.ubuntu.com/ubuntu hoary-security universe</pre></li>
+
+<li>以下面這幾行取代
+<pre class="file">#deb cdrom:[Ubuntu 5.04 _Hoary Hedgehog_ - Release i386 (20050407)]/ hoary main restricted
+
+
+## Uncomment the following two lines to fetch updated software from the network
+deb http://us.archive.ubuntu.com/ubuntu breezy main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu breezy main restricted
+
+## Uncomment the following two lines to fetch major bug fix updates produced
+## after the final release of the distribution.
+deb http://us.archive.ubuntu.com/ubuntu breezy-updates main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu breezy-updates main restricted
+
+## Uncomment the following two lines to add software from the 'universe'
+## repository.
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## universe WILL NOT receive any review or updates from the Ubuntu security
+## team.
+deb http://us.archive.ubuntu.com/ubuntu breezy universe
+deb-src http://us.archive.ubuntu.com/ubuntu breezy universe
+
+deb http://security.ubuntu.com/ubuntu breezy-security main restricted
+deb-src http://security.ubuntu.com/ubuntu breezy-security main restricted
+
+deb http://security.ubuntu.com/ubuntu breezy-security universe
+deb-src http://security.ubuntu.com/ubuntu breezy-security universe
+
+deb http://archive.ubuntu.com/ubuntu breezy multiverse
+deb-src http://archive.ubuntu.com/ubuntu breezy multiverse
+
+deb ftp://ftp.nerim.net/debian-marillat stable main
+deb ftp://ftp.nerim.net/debian-marillat unstable main
+deb ftp://ftp.nerim.net/debian-marillat testing main</pre></li>
+<li>儲存編輯過的檔案 (<a href="sample/sources.list_upgradehoarytobreezy" onclick="window.open(this.href,'_blank');return false;">範例</a>)</li>
+<li><pre class="terminal">gpg --keyserver wwwkeys.eu.pgp.net --recv-keys 1F41B907
+gpg --armor --export 1F41B907 | sudo apt-key add -
+sudo apt-get update
+sudo apt-get dist-upgrade</pre></li>
+<li>儲存並關閉所有正在使用中的程式, 然後系統重新開機</li>
+
+<p style="text-align: center">
+<a href="http://validator.w3.org/check?uri=referer" onclick="window.open(this.href,'_blank');return false;"><img style="border:0" src="http://ubuntuguide.org/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88"/></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer" onclick="window.open(this.href,'_blank');return false;"><img style="border:0;width:88px;height:31px" src="http://ubuntuguide.org/vcss.png" alt="Valid CSS!"/></a>
+</p>
+
+<p style="text-align: center">
+<a href="http://www.ubuntulinux.org" onclick="window.open(this.href,'_blank');return false;">Ubuntu Logo, Ubuntu and Canonical are trademarks of Canonical Ltd.</a><br/>
+</p>
+
+</div>
+
+<!-- Start of TheCounter.com Code -->
+<a target="_top" href="http://t.extreme-dm.com/?login=whisky99"></a>
+<script language="javascript1.2"><!--
+EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
+EXb=EXs.colorDepth:EXb=EXs.pixelDepth;//-->
+</script><script language="javascript"><!--
+EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+EXd.write("<img src=\"http://t0.extreme-dm.com",
+"/0.gif?tag=whisky99&j=y&srw="+EXw+"&srb="+EXb+"&",
+"l="+escape(EXd.referrer)+"\" height=1 width=1>");//-->
+</script><noscript><img height=1 width=1 alt=""
+src="http://t0.extreme-dm.com/0.gif?tag=whisky99&j=n"></noscript>
+
+<a href="http://t.extreme-dm.com/?login=twubuntu"
+target="_top"><img src="http://t1.extreme-dm.com/i.gif"
+name="EXim" border="0" height="38" width="41"
+alt="eXTReMe Tracker"></img></a>
+<script type="text/javascript" language="javascript1.2"><!--
+EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
+EXb=EXs.colorDepth:EXb=EXs.pixelDepth;//-->
+</script><script type="text/javascript"><!--
+var EXlogin='twubuntu' // Login
+var EXvsrv='s9' // VServer
+navigator.javaEnabled()==1?EXjv="y":EXjv="n";
+EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+EXd.write("<img src=\"http://e0.extreme-dm.com",
+"/"+EXvsrv+".g?login="+EXlogin+"&amp;",
+"jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
+"l="+escape(EXd.referrer)+"\" height=1 width=1>");//-->
+</script><noscript><img height="1" width="1" alt=""
+src="http://e0.extreme-dm.com/s9.g?login=twubuntu&amp;j=n&amp;jv=n"/>
+</noscript>
+
+</body>
+
+</html>

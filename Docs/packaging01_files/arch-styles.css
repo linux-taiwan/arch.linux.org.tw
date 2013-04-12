@@ -1,0 +1,142 @@
+body {
+	background: white;
+	color: black;
+	font-family: Verdana, Trebuchet MS, Tahoma, Luxi Sans, sans-serif;
+	font-size: small;
+	margin: 2em 2em 2em 2em;
+}
+img {
+	border: none;
+}
+h1, h2, h3, h4 {
+	color: #2f6dff;
+}
+h1 {
+	text-align: center;
+	font-size: xx-large;
+}
+h2 {
+	font-size: x-large;
+	font-style: italic;
+	margin-left: 1.5em;
+}
+h3 {
+	font-size: large;
+	margin-left: 1.75em;
+}
+h4 {
+	font-size: medium;
+	font-style: italic;
+	margin-left: 2em;
+}
+p, ol, ul {
+	padding-left: 4em;
+	padding-right: 3.5em;
+}
+ul li {
+	margin-bottom: 1em;
+}
+tr, td, th {
+	font-size: .8em
+}
+tr {
+	vertical-align: middle;
+}
+td {
+	vertical-align: top;
+}
+th {
+	color: white;
+	background: #2f6dff;
+}
+hr {
+	height:1px;
+	color: #2f6dff;
+}
+/* through underlining, the difference to the <code> tag
+ * is a little more obvious for the vision-impaired */
+a {
+	color: #2f6dff;
+	text-decoration: underline;
+}
+a:hover {
+	color: #2fbdff;
+	text-decoration: none;
+}
+/* special classes */
+/* an 'address' tag including name and email address
+ * should be included for every author of a document */
+address {
+	font-style: italic;
+	text-align: center;
+}
+/* Email addresses, no matter where they appear, should
+ * be linked with the 'email' class */
+a.email:before {
+	content: "<";
+}
+a.email:after {
+	content: ">";
+}
+a.email {
+	font-style: normal;
+}
+/* table of contents formatting block */
+div.toc {
+	padding-left: 4em;
+}
+/* document version style */
+div.version {
+	font-style: italic;
+	text-align: center;
+}
+/* document date style */
+div.date {
+	font-weight: bold;
+	text-align: center;
+}
+/* different text color for content that is supposed to
+ * contrast (nicely) with flowing text  */
+code {
+	color: #1111ee;
+}
+/* anything but inline <code> should be boxed */
+div.note, div.warning, pre, kbd {
+	border-style: dotted;
+	border-width: medium;
+	border-color: #2f6dff;
+	margin: 1em 10em 1em 10em;
+	padding: .75em;
+	display: block; /* only relevant for 'kbd' */
+}
+/* border color for informational notes and hints */
+div.note {
+	border-color: green;	
+}
+/* border color for important warnings */
+div.warning {
+	border-color: red;
+}
+/* code is for inline code, pre is for boxed sections
+ * of formatted code, and kbd is enclosing "stuff to type" */
+code, pre, kbd {
+	font-family: monospace;
+}
+/* keyboard input should preserve white space */
+kbd {
+	white-space: pre;
+}
+/* thumbnail for images */
+div.thumbnail {
+	width: 50%;
+	text-align: center;
+	padding: 0.2em;
+}
+div.thumbnail p {
+	font-size: smaller;
+	font-weight: bold;
+	text-align: center;
+}
+div.thumbnail img {
+	border: none;
+}
