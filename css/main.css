@@ -136,6 +136,10 @@ ul.posts span {
     padding: 0 0.2em;
   }
 }
+.site .header {
+  padding-top: 0.5em;
+  padding-bottom: 2em;
+}
 .site .header a {
   font-weight: bold;
   text-decoration: none;
@@ -145,19 +149,18 @@ ul.posts span {
   margin-left: 1em;
 }
 .site .header a.extra:hover {
-  color: #000;
+  color: #333;
 }
 .site .header h1.title {
   font-size: 1.1em;
   font-size: 1.1rem;
   display: inline-block;
-  margin-bottom: 2em;
 }
 .site .header h1.title a {
   color: #1793d1;
 }
 .site .header h1.title a:hover {
-  color: #000;
+  color: #333;
 }
 .site .content #home img.logo {
   max-width: 100%;

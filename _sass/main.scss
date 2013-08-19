@@ -78,6 +78,9 @@ ul.posts {
   }
 
   .header {
+    padding-top: 0.5em;
+    padding-bottom: 2em;
+
     a {
       font-weight: bold;
       text-decoration: none;
@@ -88,7 +91,7 @@ ul.posts {
       }
 
       &.extra:hover {
-        color: #000;
+        color: #333;
       }
     }
 
@@ -96,13 +99,12 @@ ul.posts {
       font-size: 1.1em;
       font-size: 1.1rem;
       display: inline-block;
-      margin-bottom: 2em;
 
       a {
         color: #1793d1;
 
         &:hover {
-          color: #000;
+          color: #333;
         }
       }
     }
