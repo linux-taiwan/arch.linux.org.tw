@@ -10,23 +10,22 @@
 }
 
 html, body {
+  width: 100%;
   height: 100%;
 }
 
 body {
+  color: #333;
   background-color: #FFF;
-  font: 13.34px 'Roboto', Helvetica, Arial, sans-serif;
+  font: 13.34px 'Roboto Condensed', Helvetica, Arial, sans-serif;
   font-size: medium;
-  text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Port Lligat Slab', serif;
-  font-size: 100%;
-}
-
-h1 {
-  margin-bottom: 1em;
+  font-family: 'Comfortaa', serif;
+  color: #4d4d4d;
+  padding: 0.2em 0;
+  line-height: 1.1em;
 }
 
 p {
@@ -54,11 +53,9 @@ ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
 }
-
 ul.posts li {
   line-height: 1.75em;
 }
-
 ul.posts span {
   color: #aaa;
   font-family: Monaco, "Courier New", monospace;
@@ -72,43 +69,53 @@ ul.posts span {
 /*****************************************************************************/
 .site {
   font-size: 115%;
+  font-size: 1.1rem;
   text-align: justify;
-  width: 42em;
-  margin: 3em auto 2em;
+  margin: 0;
+  padding: 0 2em;
   line-height: 1.5em;
 }
-
+@media all and (max-width: 360px) {
+  .site {
+    padding: 0 0.2em;
+  }
+}
 .site .header a {
   font-weight: bold;
   text-decoration: none;
 }
-
-.site .header h1.title {
-  display: inline-block;
-  margin-bottom: 2em;
-}
-
-.site .header h1.title a {
-  color: #a00;
-}
-
-.site .header h1.title a:hover {
-  color: #000;
-}
-
 .site .header a.extra {
   color: #aaa;
   margin-left: 1em;
 }
-
 .site .header a.extra:hover {
   color: #000;
 }
-
+.site .header h1.title {
+  font-size: 1em;
+  display: inline-block;
+  margin-bottom: 2em;
+}
+.site .header h1.title a {
+  color: #1793d1;
+}
+.site .header h1.title a:hover {
+  color: #000;
+}
+.site .content #home img.logo {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.site .content #home h1.slogan {
+  text-shadow: #999999 2px 2px 2px;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-top: 0.8em;
+}
 .site .meta {
   color: #aaa;
 }
-
 .site .footer {
   font-size: 80%;
   color: #666;
@@ -116,22 +123,18 @@ ul.posts span {
   margin-top: 2em;
   overflow: hidden;
 }
-
 .site .footer .contact {
   float: left;
   margin-right: 3em;
 }
-
 .site .footer .contact a {
   color: #8085C1;
 }
-
 .site .footer .rss {
   margin-top: 1.1em;
   margin-right: -.2em;
   float: right;
 }
-
 .site .footer .rss img {
   border: 0;
 }
@@ -141,34 +144,31 @@ ul.posts span {
 /* Posts
 /*
 /*****************************************************************************/
-/* standard */
+.post {
+  /* standard */
+}
 .post pre {
   border: 1px solid #ddd;
   background-color: #eef;
   padding: 0 .4em;
+  /* terminal */
 }
-
-.post ul, .post ol {
-  margin-left: 1.35em;
-}
-
-.post code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
-}
-
 .post pre code {
   border: none;
 }
-
-/* terminal */
 .post pre.terminal {
   border: 1px solid #000;
   background-color: #333;
   color: #FFF;
 }
-
 .post pre.terminal code {
   background-color: #333;
+}
+.post ul, .post ol {
+  margin-left: 1.35em;
+}
+.post code {
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .2em;
 }
