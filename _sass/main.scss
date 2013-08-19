@@ -4,7 +4,8 @@
 /*
 /*****************************************************************************/
 
-@import "compass";
+@import "compass/reset";
+@import "compass/css3";
 
 /* Global Reset */
 * {
@@ -12,13 +13,16 @@
   padding: 0;
 }
 
-html, body { width: 100%; height: 100%; }
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: medium;
+}
 
 body {
   color: #333;
   background-color: #FFF;
   font: 13.34px 'Roboto Condensed', Helvetica, Arial, sans-serif;
-  font-size: medium;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,8 +66,8 @@ ul.posts {
 /*****************************************************************************/
 
 .site {
-  font-size: 115%;
-  font-size: 1.1rem;
+  font-size: 1em;
+  font-size: 1rem;
   text-align: justify;
   margin: 0;
   padding: 0 2em;
@@ -89,7 +93,8 @@ ul.posts {
     }
 
     h1.title {
-      font-size: 1em;
+      font-size: 1.1em;
+      font-size: 1.1rem;
       display: inline-block;
       margin-bottom: 2em;
 
@@ -114,6 +119,8 @@ ul.posts {
 
       h1.slogan {
         @include text-shadow(#999 2px 2px 2px);
+        font-size: 1.8em;
+        font-size: 1.8rem;
         letter-spacing: 1px;
         text-align: center;
         padding-top: 0.8em;
@@ -127,7 +134,8 @@ ul.posts {
   }
 
   .footer {
-    font-size: 80%;
+    font-size: 0.9em;
+    font-size: 0.9rem;
     color: #666;
     border-top: 4px solid #eee;
     margin-top: 2em;
