@@ -112,6 +112,7 @@ ul.posts span {
   letter-spacing: 1px;
   text-align: center;
   padding-top: 0.8em;
+  font-weight: normal;
 }
 .site .meta {
   color: #aaa;
