@@ -1,3 +1,4 @@
 name: Arch Linux Taiwan
 markdown: redcarpet
 pygments: true
+timezone: 'Asia/Taipei'
