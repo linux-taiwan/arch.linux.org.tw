@@ -127,43 +127,31 @@ ul.posts span {
   font-size: 1em;
   font-size: 1rem;
   text-align: justify;
-  margin: 0;
-  padding: 0 2em;
+  /*margin: 0;*/
+  /*padding: 0 2em;*/
   line-height: 1.5em;
-}
-@media all and (max-width: 360px) {
-  .site {
-    padding: 0 0.2em;
-  }
+  /*@media all and (max-width: 360px) {*/
+  /*padding: 0 0.2em;*/
+  /*}*/
 }
 .site .header {
-  padding-top: 0.5em;
-  padding-bottom: 2em;
+  /*padding-top: 0.5em;*/
+  /*padding-bottom: 2em;*/
 }
 .site .header a {
   font-weight: bold;
   text-decoration: none;
 }
-.site .header a.extra {
-  color: #aaa;
-  margin-left: 1em;
-}
-.site .header a.extra:hover {
-  color: #333;
-}
-.site .header h1.title {
-  font-size: 1.1em;
-  font-size: 1.1rem;
-  display: inline-block;
-}
-.site .header h1.title a {
+.site .header a.site-title {
   color: #1793d1;
 }
-.site .header h1.title a:hover {
-  color: #333;
+.site .header a.site-title:hover {
+  color: #33ace8;
+}
+.site .content {
+  padding-top: 6em;
 }
 .site .content #home img.logo {
-  max-width: 100%;
   display: block;
   margin: 0 auto;
 }

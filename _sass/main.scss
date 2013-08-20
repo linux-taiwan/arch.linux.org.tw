@@ -69,42 +69,27 @@ ul.posts {
   font-size: 1em;
   font-size: 1rem;
   text-align: justify;
-  margin: 0;
-  padding: 0 2em;
+  /*margin: 0;*/
+  /*padding: 0 2em;*/
   line-height: 1.5em;
 
-  @media all and (max-width: 360px) {
-    padding: 0 0.2em;
-  }
+  /*@media all and (max-width: 360px) {*/
+    /*padding: 0 0.2em;*/
+  /*}*/
 
   .header {
-    padding-top: 0.5em;
-    padding-bottom: 2em;
+    /*padding-top: 0.5em;*/
+    /*padding-bottom: 2em;*/
 
     a {
       font-weight: bold;
       text-decoration: none;
 
-      &.extra {
-        color: #aaa;
-        margin-left: 1em;
-      }
-
-      &.extra:hover {
-        color: #333;
-      }
-    }
-
-    h1.title {
-      font-size: 1.1em;
-      font-size: 1.1rem;
-      display: inline-block;
-
-      a {
+      &.site-title {
         color: #1793d1;
 
         &:hover {
-          color: #333;
+          color: lighten(#1793d1, 10%);
         }
       }
     }
@@ -112,9 +97,9 @@ ul.posts {
 
 
   .content {
+    padding-top: 6em;
     #home {
       img.logo {
-        max-width: 100%;
         display: block;
         margin: 0 auto;
       }
