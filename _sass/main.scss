@@ -113,6 +113,29 @@ ul.posts {
         padding-top: 0.8em;
         font-weight: normal;
       }
+
+      h2.highlight {
+        @include text-shadow(#999 0px 2px 2px);
+        color: #666;
+        font-size: 1.4em;
+        font-size: 1.4rem;
+        background: none;
+        text-align: center;
+        line-height: 1.8em;
+        letter-spacing: 1px;
+      }
+
+      div.row.briefing {
+        margin: 1em auto;
+      }
+
+      div.row.highlights {
+        margin-top: 3em;
+
+        .glyphicon {
+          margin-right: 0.2em;
+        }
+      }
     }
   }
 
@@ -124,8 +147,9 @@ ul.posts {
     font-size: 0.9em;
     font-size: 0.9rem;
     color: #666;
-    border-top: 4px solid #eee;
+    border-top: 4px solid #7FBDDB;
     margin-top: 2em;
+    margin-bottom: 1em;
     overflow: hidden;
 
     .contact {

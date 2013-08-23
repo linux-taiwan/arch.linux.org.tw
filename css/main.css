@@ -164,6 +164,25 @@ ul.posts span {
   padding-top: 0.8em;
   font-weight: normal;
 }
+.site .content #home h2.highlight {
+  text-shadow: #999999 0px 2px 2px;
+  color: #666;
+  font-size: 1.4em;
+  font-size: 1.4rem;
+  background: none;
+  text-align: center;
+  line-height: 1.8em;
+  letter-spacing: 1px;
+}
+.site .content #home div.row.briefing {
+  margin: 1em auto;
+}
+.site .content #home div.row.highlights {
+  margin-top: 3em;
+}
+.site .content #home div.row.highlights .glyphicon {
+  margin-right: 0.2em;
+}
 .site .meta {
   color: #aaa;
 }
@@ -171,8 +190,9 @@ ul.posts span {
   font-size: 0.9em;
   font-size: 0.9rem;
   color: #666;
-  border-top: 4px solid #eee;
+  border-top: 4px solid #7FBDDB;
   margin-top: 2em;
+  margin-bottom: 1em;
   overflow: hidden;
 }
 .site .footer .contact {
