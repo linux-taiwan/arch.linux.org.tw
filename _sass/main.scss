@@ -75,20 +75,20 @@ ul.posts {
   text-align: justify;
   line-height: 1.5em;
 
-  /*@media all and (max-width: 360px) {*/
-    /*padding: 0 0.2em;*/
-  /*}*/
-
   .header {
-    a {
-      font-weight: bold;
-      text-decoration: none;
+    nav {
+      border-bottom: 4px solid #0088cc;
 
-      &.site-title {
-        color: #1793d1;
+      a {
+        font-weight: bold;
+        text-decoration: none;
 
-        &:hover {
-          color: lighten(#1793d1, 10%);
+        &.site-title {
+          color: #1793d1;
+
+          &:hover {
+            color: lighten(#1793d1, 10%);
+          }
         }
       }
     }
@@ -97,7 +97,7 @@ ul.posts {
 
   .content {
     padding-top: 6em;
-    @include background-image(linear-gradient(#f9f9f9, #ececec 90%));
+    @include background-image(linear-gradient(#f9f9f9, #ececec 95%));
 
     #home {
       img.logo {
@@ -137,7 +137,8 @@ ul.posts {
             line-height: 1.5em;
             letter-spacing: 1px;
             border-bottom: 3px solid #1793d1;
-            @include background-image(linear-gradient(#ececec 80%, #d4d4d4));
+            @include background-image(linear-gradient(#ececec 80%, #ccc));
+            @include border-radius(4px, 4px);
           }
           &:hover {
             h2 { border-bottom: 3px solid #47B6ED; }

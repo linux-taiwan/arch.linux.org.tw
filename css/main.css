@@ -130,27 +130,27 @@ ul.posts span {
   font-size: 1rem;
   text-align: justify;
   line-height: 1.5em;
-  /*@media all and (max-width: 360px) {*/
-  /*padding: 0 0.2em;*/
-  /*}*/
 }
-.site .header a {
+.site .header nav {
+  border-bottom: 4px solid #0088cc;
+}
+.site .header nav a {
   font-weight: bold;
   text-decoration: none;
 }
-.site .header a.site-title {
+.site .header nav a.site-title {
   color: #1793d1;
 }
-.site .header a.site-title:hover {
+.site .header nav a.site-title:hover {
   color: #33ace8;
 }
 .site .content {
   padding-top: 6em;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(90%, #ececec));
-  background-image: -webkit-linear-gradient(#f9f9f9, #ececec 90%);
-  background-image: -moz-linear-gradient(#f9f9f9, #ececec 90%);
-  background-image: -o-linear-gradient(#f9f9f9, #ececec 90%);
-  background-image: linear-gradient(#f9f9f9, #ececec 90%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(95%, #ececec));
+  background-image: -webkit-linear-gradient(#f9f9f9, #ececec 95%);
+  background-image: -moz-linear-gradient(#f9f9f9, #ececec 95%);
+  background-image: -o-linear-gradient(#f9f9f9, #ececec 95%);
+  background-image: linear-gradient(#f9f9f9, #ececec 95%);
 }
 .site .content #home img.logo {
   display: block;
@@ -185,11 +185,14 @@ ul.posts span {
   line-height: 1.5em;
   letter-spacing: 1px;
   border-bottom: 3px solid #1793d1;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(80%, #ececec), color-stop(100%, #d4d4d4));
-  background-image: -webkit-linear-gradient(#ececec 80%, #d4d4d4);
-  background-image: -moz-linear-gradient(#ececec 80%, #d4d4d4);
-  background-image: -o-linear-gradient(#ececec 80%, #d4d4d4);
-  background-image: linear-gradient(#ececec 80%, #d4d4d4);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(80%, #ececec), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(#ececec 80%, #cccccc);
+  background-image: -moz-linear-gradient(#ececec 80%, #cccccc);
+  background-image: -o-linear-gradient(#ececec 80%, #cccccc);
+  background-image: linear-gradient(#ececec 80%, #cccccc);
+  -webkit-border-radius: 4px 4px;
+  -moz-border-radius: 4px / 4px;
+  border-radius: 4px / 4px;
 }
 .site .content #home div.row.highlights div.character:hover h2 {
   border-bottom: 3px solid #47B6ED;
