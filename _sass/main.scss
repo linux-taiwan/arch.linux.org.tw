@@ -73,8 +73,6 @@ ul.posts {
   font-size: 1em;
   font-size: 1rem;
   text-align: justify;
-  /*margin: 0;*/
-  /*padding: 0 2em;*/
   line-height: 1.5em;
 
   /*@media all and (max-width: 360px) {*/
@@ -82,9 +80,6 @@ ul.posts {
   /*}*/
 
   .header {
-    /*padding-top: 0.5em;*/
-    /*padding-bottom: 2em;*/
-
     a {
       font-weight: bold;
       text-decoration: none;
@@ -102,7 +97,7 @@ ul.posts {
 
   .content {
     padding-top: 6em;
-    @include background-image(linear-gradient(#fff 5%, #ececec));
+    @include background-image(linear-gradient(#f9f9f9, #ececec 90%));
 
     #home {
       img.logo {
