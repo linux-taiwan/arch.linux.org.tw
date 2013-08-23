@@ -85,7 +85,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+  text-shadow: white 1px 1px 1px;
   margin: 1em 0;
+  color: #666;
 }
 
 a {
@@ -166,7 +168,7 @@ ul.posts span {
 }
 .site .content #home h2.highlight {
   text-shadow: #999999 0px 2px 2px;
-  color: #666;
+  /*color: #666;*/
   font-size: 1.4em;
   font-size: 1.4rem;
   background: none;
