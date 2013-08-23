@@ -152,6 +152,11 @@ ul.posts span {
 }
 .site .content {
   padding-top: 6em;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #ffffff), color-stop(100%, #ececec));
+  background-image: -webkit-linear-gradient(#ffffff 5%, #ececec);
+  background-image: -moz-linear-gradient(#ffffff 5%, #ececec);
+  background-image: -o-linear-gradient(#ffffff 5%, #ececec);
+  background-image: linear-gradient(#ffffff 5%, #ececec);
 }
 .site .content #home img.logo {
   display: block;
@@ -166,24 +171,34 @@ ul.posts span {
   padding-top: 0.8em;
   font-weight: normal;
 }
-.site .content #home h2.highlight {
-  text-shadow: #999999 0px 2px 2px;
-  /*color: #666;*/
-  font-size: 1.4em;
-  font-size: 1.4rem;
-  background: none;
-  text-align: center;
-  line-height: 1.8em;
-  letter-spacing: 1px;
-}
 .site .content #home div.row.briefing {
   margin: 1em auto;
 }
 .site .content #home div.row.highlights {
   margin-top: 3em;
 }
-.site .content #home div.row.highlights .glyphicon {
+.site .content #home div.row.highlights div.character {
+  background: none;
+}
+.site .content #home div.row.highlights div.character .glyphicon {
   margin-right: 0.2em;
+}
+.site .content #home div.row.highlights div.character h2 {
+  text-shadow: #999999 0px 2px 2px;
+  font-size: 1.4em;
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #1793d1;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(80%, #ececec), color-stop(100%, #d4d4d4));
+  background-image: -webkit-linear-gradient(#ececec 80%, #d4d4d4);
+  background-image: -moz-linear-gradient(#ececec 80%, #d4d4d4);
+  background-image: -o-linear-gradient(#ececec 80%, #d4d4d4);
+  background-image: linear-gradient(#ececec 80%, #d4d4d4);
+}
+.site .content #home div.row.highlights div.character:hover h2 {
+  border-bottom: 3px solid #47B6ED;
 }
 .site .meta {
   color: #aaa;

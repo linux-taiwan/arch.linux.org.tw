@@ -102,6 +102,8 @@ ul.posts {
 
   .content {
     padding-top: 6em;
+    @include background-image(linear-gradient(#fff 5%, #ececec));
+
     #home {
       img.logo {
         display: block;
@@ -118,17 +120,6 @@ ul.posts {
         font-weight: normal;
       }
 
-      h2.highlight {
-        @include text-shadow(#999 0px 2px 2px);
-        /*color: #666;*/
-        font-size: 1.4em;
-        font-size: 1.4rem;
-        background: none;
-        text-align: center;
-        line-height: 1.8em;
-        letter-spacing: 1px;
-      }
-
       div.row.briefing {
         margin: 1em auto;
       }
@@ -136,8 +127,26 @@ ul.posts {
       div.row.highlights {
         margin-top: 3em;
 
-        .glyphicon {
-          margin-right: 0.2em;
+        div.character {
+          background: none;
+
+          .glyphicon {
+            margin-right: 0.2em;
+          }
+
+          h2 {
+            @include text-shadow(#999 0px 2px 2px);
+            font-size: 1.4em;
+            font-size: 1.4rem;
+            text-align: center;
+            line-height: 1.5em;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #1793d1;
+            @include background-image(linear-gradient(#ececec 80%, #d4d4d4));
+          }
+          &:hover {
+            h2 { border-bottom: 3px solid #47B6ED; }
+          }
         }
       }
     }
