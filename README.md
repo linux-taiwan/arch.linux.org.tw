@@ -8,3 +8,11 @@
 2. 將此原始碼拉回您的本地端之後，在原始碼根目錄下執行 <code>bundle install</code> 安裝必要的元件。（目前我們使用了 Jekyll 與 Compass）
 3. 在原始碼根目錄執行 <code>jekyll serve -w</code>，在 _sass/ 目錄執行 <code>compass watch</code> 讓它們自動偵測檔案異動。
 4. 新增、修改網站內容。
+
+## 編輯原則
+
+* 我們接受 Jekyll 可處理的 HTML, Markdown, Textile 格式檔案。
+* 不同主題的內容新增、異動請分別用不同的 commit 儲存，且寫清楚 commit message，俾利追蹤管理。
+* 遇英文、阿拉伯數字夾在中文句子當中時，前後請加上空白，若遇標點符號則不用，如：Arch Linux 是一套支援 i686/x86-64 架構的通用 GNU/Linux 發行版本。
+* 遇版面調整、域名管理等問題時，請用 GitHub 內建的 [issue tracker](https://github.com/hiroshiyui/archlinux-taiwan-site/issues) 找 hiroshiyui 處理。
+* 主編保留內容潤飾、刊登與否的最終裁量權。任何違背關乎宗教、政治、性別、性傾向、種族、身心障礙等需遵循政治正確原則的爭議內容，本站不接受。
