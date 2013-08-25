@@ -132,17 +132,17 @@ body {
   line-height: 1.5em;
 }
 body header nav {
-  border-bottom: 4px solid #0088cc;
+  border-bottom: 4px solid #0088cc !important;
 }
 body header nav a {
   font-weight: bold;
   text-decoration: none;
 }
 body header nav a.site-title {
-  color: #1793d1;
+  color: #1793d1 !important;
 }
 body header nav a.site-title:hover {
-  color: #33ace8;
+  color: #33ace8 !important;
 }
 body section.content {
   padding-top: 6em;

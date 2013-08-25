@@ -77,17 +77,17 @@ body {
 
   header {
     nav {
-      border-bottom: 4px solid #0088cc;
+      border-bottom: 4px solid #0088cc !important;
 
       a {
         font-weight: bold;
         text-decoration: none;
 
         &.site-title {
-          color: #1793d1;
+          color: #1793d1 !important;
 
           &:hover {
-            color: lighten(#1793d1, 10%);
+            color: lighten(#1793d1, 10%) !important;
           }
         }
       }
