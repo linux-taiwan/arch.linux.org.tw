@@ -125,26 +125,26 @@ ul.posts span {
 /* Site
 /*
 /*****************************************************************************/
-.site {
+body {
   font-size: 1em;
   font-size: 1rem;
   text-align: justify;
   line-height: 1.5em;
 }
-.site .header nav {
+body header nav {
   border-bottom: 4px solid #0088cc;
 }
-.site .header nav a {
+body header nav a {
   font-weight: bold;
   text-decoration: none;
 }
-.site .header nav a.site-title {
+body header nav a.site-title {
   color: #1793d1;
 }
-.site .header nav a.site-title:hover {
+body header nav a.site-title:hover {
   color: #33ace8;
 }
-.site .content {
+body section.content {
   padding-top: 6em;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(95%, #ececec));
   background-image: -webkit-linear-gradient(#f9f9f9, #ececec 95%);
@@ -152,11 +152,11 @@ ul.posts span {
   background-image: -o-linear-gradient(#f9f9f9, #ececec 95%);
   background-image: linear-gradient(#f9f9f9, #ececec 95%);
 }
-.site .content #home img.logo {
+body section.content #home img.logo {
   display: block;
   margin: 0 auto;
 }
-.site .content #home h1.slogan {
+body section.content #home h1.slogan {
   text-shadow: #999999 2px 2px 2px;
   font-size: 1.8em;
   font-size: 1.8rem;
@@ -165,19 +165,19 @@ ul.posts span {
   padding-top: 0.8em;
   font-weight: normal;
 }
-.site .content #home div.row.briefing {
+body section.content #home div.row.briefing {
   margin: 1em auto;
 }
-.site .content #home div.row.highlights {
+body section.content #home div.row.highlights {
   margin-top: 3em;
 }
-.site .content #home div.row.highlights div.character {
+body section.content #home div.row.highlights div.character {
   background: none;
 }
-.site .content #home div.row.highlights div.character .glyphicon {
+body section.content #home div.row.highlights div.character .glyphicon {
   margin-right: 0.2em;
 }
-.site .content #home div.row.highlights div.character h2 {
+body section.content #home div.row.highlights div.character h2 {
   text-shadow: #999999 0px 2px 2px;
   font-size: 1.4em;
   font-size: 1.4rem;
@@ -194,13 +194,13 @@ ul.posts span {
   -moz-border-radius: 4px / 4px;
   border-radius: 4px / 4px;
 }
-.site .content #home div.row.highlights div.character:hover h2 {
+body section.content #home div.row.highlights div.character:hover h2 {
   border-bottom: 3px solid #47B6ED;
 }
-.site .meta {
+body .meta {
   color: #aaa;
 }
-.site .footer {
+body footer {
   font-size: 0.9em;
   font-size: 0.9rem;
   color: #666;
@@ -209,19 +209,19 @@ ul.posts span {
   margin-bottom: 1em;
   overflow: hidden;
 }
-.site .footer .contact {
+body footer .contact {
   float: left;
   margin-right: 3em;
 }
-.site .footer .contact a {
+body footer .contact a {
   color: #8085C1;
 }
-.site .footer .rss {
+body footer .rss {
   margin-top: 1.1em;
   margin-right: -.2em;
   float: right;
 }
-.site .footer .rss img {
+body footer .rss img {
   border: 0;
 }
 

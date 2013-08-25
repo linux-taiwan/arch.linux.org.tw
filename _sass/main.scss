@@ -69,13 +69,13 @@ ul.posts {
 /*
 /*****************************************************************************/
 
-.site {
+body {
   font-size: 1em;
   font-size: 1rem;
   text-align: justify;
   line-height: 1.5em;
 
-  .header {
+  header {
     nav {
       border-bottom: 4px solid #0088cc;
 
@@ -95,7 +95,7 @@ ul.posts {
   }
 
 
-  .content {
+  section.content {
     padding-top: 6em;
     @include background-image(linear-gradient(#f9f9f9, #ececec 95%));
 
@@ -152,7 +152,7 @@ ul.posts {
     color: #aaa;
   }
 
-  .footer {
+  footer {
     font-size: 0.9em;
     font-size: 0.9rem;
     color: #666;
