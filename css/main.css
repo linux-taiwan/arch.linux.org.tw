@@ -75,6 +75,10 @@ body {
   color: #333;
   background-color: #ececec;
   font: 13.34px 'Roboto Condensed', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -125,38 +129,33 @@ ul.posts span {
 /* Site
 /*
 /*****************************************************************************/
-body {
-  font-size: 1em;
-  font-size: 1rem;
-  text-align: justify;
-  line-height: 1.5em;
-}
-body header nav {
+header nav {
   border-bottom: 4px solid #0088cc !important;
 }
-body header nav a {
+header nav a {
   font-weight: bold;
   text-decoration: none;
 }
-body header nav a.site-title {
+header nav a.site-title {
   color: #1793d1 !important;
 }
-body header nav a.site-title:hover {
+header nav a.site-title:hover {
   color: #33ace8 !important;
 }
-body section.content {
+
+section.content {
   padding-top: 6em;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(95%, #ececec));
-  background-image: -webkit-linear-gradient(#f9f9f9, #ececec 95%);
-  background-image: -moz-linear-gradient(#f9f9f9, #ececec 95%);
-  background-image: -o-linear-gradient(#f9f9f9, #ececec 95%);
-  background-image: linear-gradient(#f9f9f9, #ececec 95%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #eeeeee), color-stop(100%, #ececec));
+  background-image: -webkit-linear-gradient(#f9f9f9, #eeeeee, #ececec);
+  background-image: -moz-linear-gradient(#f9f9f9, #eeeeee, #ececec);
+  background-image: -o-linear-gradient(#f9f9f9, #eeeeee, #ececec);
+  background-image: linear-gradient(#f9f9f9, #eeeeee, #ececec);
 }
-body section.content #home img.logo {
+section.content #home img.logo {
   display: block;
   margin: 0 auto;
 }
-body section.content #home h1.slogan {
+section.content #home h1.slogan {
   text-shadow: #999999 2px 2px 2px;
   font-size: 1.8em;
   font-size: 1.8rem;
@@ -165,19 +164,19 @@ body section.content #home h1.slogan {
   padding-top: 0.8em;
   font-weight: normal;
 }
-body section.content #home div.row.briefing {
+section.content #home div.row.briefing {
   margin: 1em auto;
 }
-body section.content #home div.row.highlights {
+section.content #home div.row.highlights {
   margin-top: 3em;
 }
-body section.content #home div.row.highlights div.character {
+section.content #home div.row.highlights div.character {
   background: none;
 }
-body section.content #home div.row.highlights div.character .glyphicon {
+section.content #home div.row.highlights div.character .glyphicon {
   margin-right: 0.2em;
 }
-body section.content #home div.row.highlights div.character h2 {
+section.content #home div.row.highlights div.character h2 {
   text-shadow: #999999 0px 2px 2px;
   font-size: 1.4em;
   font-size: 1.4rem;
@@ -194,13 +193,15 @@ body section.content #home div.row.highlights div.character h2 {
   -moz-border-radius: 4px / 4px;
   border-radius: 4px / 4px;
 }
-body section.content #home div.row.highlights div.character:hover h2 {
+section.content #home div.row.highlights div.character:hover h2 {
   border-bottom: 3px solid #47B6ED;
 }
-body .meta {
+
+.meta {
   color: #aaa;
 }
-body footer {
+
+footer {
   font-size: 0.9em;
   font-size: 0.9rem;
   color: #666;
@@ -209,19 +210,19 @@ body footer {
   margin-bottom: 1em;
   overflow: hidden;
 }
-body footer .contact {
+footer .contact {
   float: left;
   margin-right: 3em;
 }
-body footer .contact a {
+footer .contact a {
   color: #8085C1;
 }
-body footer .rss {
+footer .rss {
   margin-top: 1.1em;
   margin-right: -.2em;
   float: right;
 }
-body footer .rss img {
+footer .rss img {
   border: 0;
 }
 

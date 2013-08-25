@@ -23,6 +23,11 @@ body {
   color: #333;
   background-color: #ececec;
   font: 13.34px 'Roboto Condensed', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.5em;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,115 +74,108 @@ ul.posts {
 /*
 /*****************************************************************************/
 
-body {
-  font-size: 1em;
-  font-size: 1rem;
-  text-align: justify;
-  line-height: 1.5em;
+header {
+  nav {
+    border-bottom: 4px solid #0088cc !important;
 
-  header {
-    nav {
-      border-bottom: 4px solid #0088cc !important;
+    a {
+      font-weight: bold;
+      text-decoration: none;
 
-      a {
-        font-weight: bold;
-        text-decoration: none;
+      &.site-title {
+        color: #1793d1 !important;
 
-        &.site-title {
-          color: #1793d1 !important;
-
-          &:hover {
-            color: lighten(#1793d1, 10%) !important;
-          }
+        &:hover {
+          color: lighten(#1793d1, 10%) !important;
         }
       }
     }
   }
+}
 
 
-  section.content {
-    padding-top: 6em;
-    @include background-image(linear-gradient(#f9f9f9, #ececec 95%));
+section.content {
+  padding-top: 6em;
+  @include background-image(linear-gradient(#f9f9f9, #eeeeee, #ececec));
 
-    #home {
-      img.logo {
-        display: block;
-        margin: 0 auto;
-      }
+  #home {
+    img.logo {
+      display: block;
+      margin: 0 auto;
+    }
 
-      h1.slogan {
-        @include text-shadow(#999 2px 2px 2px);
-        font-size: 1.8em;
-        font-size: 1.8rem;
-        letter-spacing: 1px;
-        text-align: center;
-        padding-top: 0.8em;
-        font-weight: normal;
-      }
+    h1.slogan {
+      @include text-shadow(#999 2px 2px 2px);
+      font-size: 1.8em;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      text-align: center;
+      padding-top: 0.8em;
+      font-weight: normal;
+    }
 
-      div.row.briefing {
-        margin: 1em auto;
-      }
+    div.row.briefing {
+      margin: 1em auto;
+    }
 
-      div.row.highlights {
-        margin-top: 3em;
+    div.row.highlights {
+      margin-top: 3em;
 
-        div.character {
-          background: none;
+      div.character {
+        background: none;
 
-          .glyphicon {
-            margin-right: 0.2em;
-          }
+        .glyphicon {
+          margin-right: 0.2em;
+        }
 
-          h2 {
-            @include text-shadow(#999 0px 2px 2px);
-            font-size: 1.4em;
-            font-size: 1.4rem;
-            text-align: center;
-            line-height: 1.5em;
-            letter-spacing: 1px;
-            border-bottom: 3px solid #1793d1;
-            @include background-image(linear-gradient(#ececec 80%, #ccc));
-            @include border-radius(4px, 4px);
-          }
-          &:hover {
-            h2 { border-bottom: 3px solid #47B6ED; }
-          }
+        h2 {
+          @include text-shadow(#999 0px 2px 2px);
+          font-size: 1.4em;
+          font-size: 1.4rem;
+          text-align: center;
+          line-height: 1.5em;
+          letter-spacing: 1px;
+          border-bottom: 3px solid #1793d1;
+          @include background-image(linear-gradient(#ececec 80%, #ccc));
+          @include border-radius(4px, 4px);
+        }
+        &:hover {
+          h2 { border-bottom: 3px solid #47B6ED; }
         }
       }
     }
   }
+}
 
-  .meta {
-    color: #aaa;
+.meta {
+  color: #aaa;
+}
+
+footer {
+  font-size: 0.9em;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 4px solid #7FBDDB;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  overflow: hidden;
+
+  .contact {
+    float: left;
+    margin-right: 3em;
+
+    a {
+      color: #8085C1;
+    }
   }
 
-  footer {
-    font-size: 0.9em;
-    font-size: 0.9rem;
-    color: #666;
-    border-top: 4px solid #7FBDDB;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    overflow: hidden;
+  .rss {
+    margin-top: 1.1em;
+    margin-right: -.2em;
+    float: right;
 
-    .contact {
-      float: left;
-      margin-right: 3em;
-
-      a {
-        color: #8085C1;
-      }
-    }
-
-    .rss {
-      margin-top: 1.1em;
-      margin-right: -.2em;
-      float: right;
-
-      img {
-        border: 0;
-      }
+    img {
+      border: 0;
     }
   }
 }
