@@ -11,6 +11,7 @@
 
 ## 編輯原則
 
+* 您貢獻的內容需同意以 [CC BY-SA 3.0 TW 授權條款](http://creativecommons.org/licenses/by-sa/3.0/tw/) 或更新版本授權公眾使用。
 * 我們接受 Jekyll 可處理的 HTML, Markdown, Textile 格式檔案。
 * 不同主題的內容新增、異動請分別用不同的 commit 儲存，且寫清楚 commit message，俾利追蹤管理。
 * 遇英文、阿拉伯數字夾在中文句子當中時，前後請加上空白，若遇標點符號則不用，如：Arch Linux 是一套支援 i686/x86-64 架構的通用 GNU/Linux 發行版本。
