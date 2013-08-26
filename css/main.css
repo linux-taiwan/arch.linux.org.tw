@@ -145,11 +145,11 @@ header nav a.site-title:hover {
 
 section.content {
   padding-top: 6em;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #eeeeee), color-stop(100%, #ececec));
-  background-image: -webkit-linear-gradient(#f9f9f9, #eeeeee, #ececec);
-  background-image: -moz-linear-gradient(#f9f9f9, #eeeeee, #ececec);
-  background-image: -o-linear-gradient(#f9f9f9, #eeeeee, #ececec);
-  background-image: linear-gradient(#f9f9f9, #eeeeee, #ececec);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d8e7f0), color-stop(50%, #eeeeee), color-stop(100%, #ececec));
+  background-image: -webkit-linear-gradient(#d8e7f0, #eeeeee, #ececec);
+  background-image: -moz-linear-gradient(#d8e7f0, #eeeeee, #ececec);
+  background-image: -o-linear-gradient(#d8e7f0, #eeeeee, #ececec);
+  background-image: linear-gradient(#d8e7f0, #eeeeee, #ececec);
 }
 section.content #home img.logo {
   display: block;
