@@ -155,7 +155,7 @@ section.content #home img.logo {
   display: block;
   margin: 0 auto;
 }
-section.content #home h1.slogan {
+section.content #home h2.slogan {
   text-shadow: #999999 2px 2px 2px;
   font-size: 1.8em;
   font-size: 1.8rem;
