@@ -27,7 +27,6 @@ body {
   font-size: 1rem;
   text-align: justify;
   line-height: 1.5em;
-
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,6 +59,9 @@ a:visited { color: #a0a; }
 
 ul {
   margin-left: 1.2em;
+  li {
+    color: #666;
+  }
 }
 
 
