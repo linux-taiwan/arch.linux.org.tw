@@ -32,11 +32,15 @@ title: 新手上路 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community
 
 ## 台北
 
-* Huei-Horng Yo <hiroshi@ghostsinthelab.org> 週五可能會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 臺北場
+* Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org> 
+
+  週五可能會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 臺北場。
 
 ## 宜蘭
 
-* Huei-Horng Yo <hiroshi@ghostsinthelab.org> 週六可能會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 宜蘭場、或在宜蘭市區遊蕩。
+* Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
+  
+  週六可能會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 宜蘭場、或在宜蘭市區遊蕩。
 
 # 如果您最後仍然覺得 Arch 入門曲線還是太陡峭了些…
 
