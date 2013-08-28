@@ -4,7 +4,7 @@
 /*
 /*****************************************************************************/
 
-@import "compass/reset";
+/*@import "compass/reset";*/
 @import "compass/css3";
 
 /* Global Reset */
@@ -37,6 +37,16 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1em;
 }
 
+h1 {
+  font-size: 1.8em;
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.4em;
+  font-size: 1.4rem;
+}
+
 p {
   @include text-shadow(#fff 1px 1px 1px);
   margin: 1em 0;
@@ -46,6 +56,11 @@ p {
 a         { color: #00a; }
 a:hover   { color: #000; }
 a:visited { color: #a0a; }
+
+ul {
+  margin-left: 1.2em;
+}
+
 
 /*****************************************************************************/
 /*
