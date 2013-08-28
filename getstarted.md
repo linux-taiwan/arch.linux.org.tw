@@ -7,7 +7,7 @@ title: 新手上路 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community
 雖然這頁是寫給新手的入門文件，但是我們猜想身為老手的您，在推廣的場合可能會回頭來找這頁，關於推廣 Arch 的態度，且讓我們建議您：
 
 * 多幫新手製作安裝光碟、隨身碟吧！這真的是個門檻。
-* 論述「Arch 可以**做好**哪些事」而不是「某某系統有夠爛，快來 Arch 吧！」這類貶抑他人的言論，無助於推廣，徒惹他人反感而已。
+* 論述「Arch 可以**做好**哪些事」而不是「某某系統有夠爛，快來改用 Arch 吧！」這類貶抑他人的言論，無助於推廣，徒惹他人反感而已。
 * 論述「Arch 可以**做到**哪些事」而不是將 Arch 誇飾成無所不能的系統。陳述事實，並坦然承認短處，才能讓 Arch 藉由社群力量不斷進步。
 
 # 寫給新手
@@ -19,7 +19,7 @@ title: 新手上路 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community
 
 ## 何妨先在沙盤推演
 
-無論是想要學習哪一種 Linux 發行版本，新手遇到最大的障礙恐怕就是：「我的電腦裡已經有一套我用慣的系統，我的硬碟也不可能清掉或再挪出新的分割區」這個時候我們推薦您使用 [VirtualBox](https://www.virtualbox.org/) 虛擬機軟體，在現有的電腦上再虛擬出一台電腦，試著在這個虛擬電腦上安裝 Arch。
+無論是想要學習哪一種 Linux 發行版本，新手遇到最大的障礙恐怕就是：「我的電腦裡已經有一套我用慣的系統，我的硬碟也不可能清掉或再挪出新的分割區」這個時候我們推薦您使用 [VirtualBox](https://www.virtualbox.org/) 虛擬機軟體，在現有的電腦上再虛擬出一台電腦，試著在這台虛擬電腦上安裝 Arch。
 
 VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網路設定，在網路上就如同一台真實的機器一樣可當成伺服器使用。這也就是所謂的 VPS (Virtual Private Server)。
 
@@ -41,13 +41,13 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org> 
 
-  週五可能會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 臺北場。
+  週五偶爾會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 臺北場。
 
 ## 宜蘭
 
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
   
-  週六可能會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 宜蘭場、或在宜蘭市區遊蕩。
+  週六經常會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 宜蘭場、或在宜蘭市區出沒。
 
 # 如果您最後仍然覺得 Arch 入門曲線還是太陡峭了些…
 
