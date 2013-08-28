@@ -15,7 +15,7 @@ title: 新手上路 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community
 
 **「根本就沒有新手，又或者在 Arch 社群裡人人遇到安裝都是新手」**這句話絕非搞笑、亦不是安慰的場面話。Arch 日新又新的特性，使得系統安裝過程經常有些微幅甚至顛覆性的異動，但是系統裝好之後，因為漸進式升級 (rolling upgrade) 的設計，便極少需要「重灌」、「砍掉重練」。老鳥憑兩年前裝好系統的經驗拿到當下想要現學現賣，或多或少都會碰壁。
 
-所幸 Arch 社群維護的 ArchWiki 有相當新穎、正確的安裝指引文件，可供大家邊看邊做。不管新手老手，用 Arch 絕對免不了要到 ArchWiki 上找文件資源。
+所幸 Arch 社群維護的 [ArchWiki](https://wiki.archlinux.org/) 有相當新穎、正確的安裝指引文件，可供大家邊看邊做。不管新手老手，用 Arch 絕對免不了要到 ArchWiki 上找文件資源。
 
 ## 何妨先在沙盤推演
 
@@ -25,6 +25,9 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 # 取得 Arch Linux
 ## 下載
+
+請至 Arch Linux 官方網站的 [Download](https://www.archlinux.org/download/) 頁取得光碟映像檔 (ISO file)。（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的已知[問題](https://bugs.archlinux.org/task/30444)）
+
 ## 製作安裝光碟、隨身碟
 
 # 開始安裝
