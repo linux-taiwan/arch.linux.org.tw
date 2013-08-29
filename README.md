@@ -7,7 +7,7 @@
 1. 請架設好基本的 Ruby 執行環境，我們推薦您使用 [RVM](https://rvm.io/) 簡化這一步驟。
 2. 將此原始碼拉回您的本地端之後，在原始碼根目錄下執行 <code>bundle install</code> 安裝必要的元件。（目前我們使用了 Jekyll 與 Compass）
 3. 在原始碼根目錄執行 <code>jekyll serve -w</code>，在 _sass/ 目錄執行 <code>compass watch</code> 讓它們自動偵測檔案異動。
-4. 新增、修改網站內容。
+4. 新增、修改網站內容。您可以在 http://127.0.0.1:4000 看到目前編修的網站樣貌。
 
 ## 編輯原則
 
