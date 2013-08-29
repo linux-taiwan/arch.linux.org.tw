@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 新手上路 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community
+itemid: getting-started
 ---
 # 寫給老鳥
 

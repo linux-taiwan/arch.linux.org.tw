@@ -67,15 +67,6 @@ a:visited {
   color: #a0a;
 }
 
-ul {
-  margin-left: 1.2em;
-}
-ul li {
-  margin-left: 0.5em;
-  color: #666;
-  margin-bottom: 0.3em;
-}
-
 /*****************************************************************************/
 /*
 /* Home
@@ -120,6 +111,14 @@ section.content {
   background-image: -moz-linear-gradient(#d8e7f0, #eeeeee, #ececec);
   background-image: -o-linear-gradient(#d8e7f0, #eeeeee, #ececec);
   background-image: linear-gradient(#d8e7f0, #eeeeee, #ececec);
+}
+section.content ul {
+  margin-left: 1.2em;
+}
+section.content ul li {
+  margin-left: 0.5em;
+  color: #666;
+  margin-bottom: 0.3em;
 }
 section.content #home img.logo {
   display: block;

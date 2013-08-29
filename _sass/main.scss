@@ -60,14 +60,6 @@ a         { color: #00a; }
 a:hover   { color: #000; }
 a:visited { color: #a0a; }
 
-ul {
-  margin-left: 1.2em;
-  li {
-    margin-left: 0.5em;
-    color: #666;
-    margin-bottom: 0.3em;
-  }
-}
 
 
 /*****************************************************************************/
@@ -120,6 +112,15 @@ header {
 section.content {
   padding-top: 6em;
   @include background-image(linear-gradient(#D8E7F0, #eeeeee, #ececec));
+
+  ul {
+    margin-left: 1.2em;
+    li {
+      margin-left: 0.5em;
+      color: #666;
+      margin-bottom: 0.3em;
+    }
+  }
 
   #home {
     img.logo {
