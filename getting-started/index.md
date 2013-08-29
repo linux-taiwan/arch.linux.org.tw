@@ -27,9 +27,13 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 # 取得 Arch Linux
 ## 下載
 
-請至 Arch Linux 官方網站的 [Download](https://www.archlinux.org/download/) 頁取得光碟映像檔 (ISO file)。（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的已知[問題](https://bugs.archlinux.org/task/30444)）
+請至 Arch Linux 官方網站的 [Download](https://www.archlinux.org/download/) 頁取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的已知[問題](https://bugs.archlinux.org/task/30444)）。如果您有使用 BitTorrent (BT)，也推薦您使用 BT 方式下載、同時協助分流。
 
 ## 製作安裝光碟、隨身碟
+
+幾乎任一款光碟燒錄軟體都支援燒錄 .iso 格式的光碟映像檔，但步驟各有不同，請參考您的光碟燒錄軟體指引。如果您想要安裝 Arch 的電腦沒有光碟機，除了使用外接式光碟機、並確定您的電腦支援由外接式光碟機開機，您也可以[使用隨身碟來製作安裝碟](https://wiki.archlinux.org/index.php/USB_Installation_Media_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29)，這種方式較複雜些。
+
+如果您打算照前面所說的，使用 VirtualBox 體驗 Arch，VirtualBox 亦支援模擬光碟機，直接拿 .iso 檔模擬成開機片。
 
 # 開始安裝
 ## 安裝作業系統的基本知識
