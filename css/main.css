@@ -105,7 +105,7 @@ header nav a.site-title:hover {
 }
 
 section.content {
-  padding-top: 6em;
+  padding-top: 4.5em;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d8e7f0), color-stop(50%, #eeeeee), color-stop(100%, #ececec));
   background-image: -webkit-linear-gradient(#d8e7f0, #eeeeee, #ececec);
   background-image: -moz-linear-gradient(#d8e7f0, #eeeeee, #ececec);
