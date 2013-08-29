@@ -31,6 +31,8 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 如果您有使用 BitTorrent (BT)，也推薦您使用 BT 方式下載、同時協助分流。
 
+我們建議您能驗證下載回來的 .iso 檔內容是否正確，避免下載到損壞或經過惡意竄改的檔案。在分流載點的檔案列表，您會看到除了 .iso 檔以外還有很多檔案，其中 md5sums.txt, sha1sums.txt 分別記載了 .iso 檔的 MD5, SHA1 驗證碼 (checksum)，可使用 md5sum, sha1sum 工具計算出 .iso 檔的 checksum 值，再予以比對是否相符。
+
 ## 製作安裝光碟、隨身碟
 
 幾乎任一款光碟燒錄軟體都支援燒錄 .iso 格式的光碟映像檔，但步驟各有不同，請參考您的光碟燒錄軟體指引。如果您想要安裝 Arch 的電腦沒有光碟機，除了使用外接式光碟機、並確定您的電腦支援由外接式光碟機開機，您也可以[使用隨身碟來製作安裝碟](https://wiki.archlinux.org/index.php/USB_Installation_Media_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29)，這種方式較複雜些。
