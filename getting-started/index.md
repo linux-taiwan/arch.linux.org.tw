@@ -27,7 +27,9 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 # 取得 Arch Linux
 ## 下載
 
-請至 Arch Linux 官方網站的 [Download](https://www.archlinux.org/download/) 頁取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的已知[問題](https://bugs.archlinux.org/task/30444)）。如果您有使用 BitTorrent (BT)，也推薦您使用 BT 方式下載、同時協助分流。
+請至 Arch Linux 官方網站的 [Download](https://www.archlinux.org/download/) 頁取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的已知[問題](https://bugs.archlinux.org/task/30444)）。
+
+如果您有使用 BitTorrent (BT)，也推薦您使用 BT 方式下載、同時協助分流。
 
 ## 製作安裝光碟、隨身碟
 
@@ -54,6 +56,6 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
   
   週六經常會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 宜蘭場、或在宜蘭市區出沒。
 
-# 如果您最後仍然覺得 Arch 入門曲線還是太陡峭了些…
+# 如果您仍然覺得 Arch 的門檻還是太高了些…
 
 [Chakra](http://www.chakra-project.org/) 是個以 Arch 為基礎打造的、預先整合 [KDE](http://kde.org/) 桌面環境的 Linux 發行版本，您或許可以嘗試看看！
