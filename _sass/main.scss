@@ -22,7 +22,7 @@ html, body {
 body {
   color: #333;
   background-color: #ececec;
-  font: 13.34px 'Roboto Condensed', 'Microsoft JhengHei', Helvetica, Arial, sans-serif;
+  font: 13.34px 'Roboto', 'Microsoft JhengHei', Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-size: 1rem;
   /*text-align: justify;*/
@@ -92,6 +92,7 @@ ul.posts {
 header {
   nav {
     border-bottom: 4px solid #0088cc !important;
+    font-family: 'Roboto Condensed', sans-serif;
 
     a {
       font-weight: bold;
