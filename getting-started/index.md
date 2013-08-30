@@ -60,6 +60,16 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org> 
 
   週五偶爾會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 台北場。
+  
+* 元兒～ <http://yuan817.twbbs.org>
+  
+  有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab](http://moztw.org/events/moztw-lab/) 台北場。
+
+## 新竹
+
+* 元兒～ <http://yuan817.twbbs.org>
+  
+  目前就讀於中華大學，常出沒在 [新竹碼農](http://www.facebook.com/groups/hsinchu.coders/) 社群聚會。
 
 ## 宜蘭
 
