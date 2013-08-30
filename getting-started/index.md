@@ -16,7 +16,9 @@ itemid: getting-started
 
 **「根本就沒有新手，又或者在 Arch 社群裡人人遇到安裝都是新手」**這句話絕非搞笑、亦不是安慰的場面話。Arch 日新又新的特性，使得系統安裝過程經常有些微幅甚至顛覆性的異動，但是系統裝好之後，因為漸進式升級 (rolling upgrade) 的設計，便極少需要「重灌」、「砍掉重練」。老鳥憑兩年前裝好系統的經驗拿到當下想要現學現賣，或多或少都會碰壁。
 
-所幸 Arch 社群維護的 [ArchWiki](https://wiki.archlinux.org/) 有相當新穎、正確的安裝指引文件，可供大家邊看邊做。不管新手老手，用 Arch 絕對免不了要到 ArchWiki 上找文件資源。
+所幸 Arch 社群維護的 [ArchWiki](https://wiki.archlinux.org/) 有相當新穎、正確的安裝指引文件，可供大家邊看邊做。
+
+不管新手老手，用 Arch 絕對免不了要到 ArchWiki 上找文件資源。我們推薦您先讀 [Arch Linux](https://wiki.archlinux.org/index.php/Arch_Linux_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29) 與 [The Arch Way](https://wiki.archlinux.org/index.php/The_Arch_Way_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29) 這兩篇，以瞭解 Arch 的設計哲學。
 
 ## 何妨先在沙盤推演
 
@@ -40,7 +42,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 如果您打算照前面所說的，使用 VirtualBox 體驗 Arch，VirtualBox 亦支援模擬光碟機，直接拿 .iso 檔模擬成開機片。
 
 # 開始安裝
-## 安裝作業系統的基本知識
+
+請用您的安裝光碟、隨身碟開機，準備開始安裝 Arch。如果您之前的作業系統安裝經驗，有圖形介面的輔助，頭一次看到 Arch 的純文字、命令列介面，也許會當場傻眼，甚至心生恐懼、排斥。但是 Arch 安裝介面為求耗用最少資源、達成最大彈性，是刻意設計成這樣的。無論純文字介面還是圖形介面的目的都一樣，就是要輔助您完成系統安裝。
+
+我們建議您照著 [Installation Guide](https://wiki.archlinux.org/index.php/Installation_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29) 或 [Beginners' Guide](https://wiki.archlinux.org/index.php/Beginners%27_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29) 的說明指引，來安裝 Arch。事實上，這兩份文件也就是我們在本文前頭提過的，不管是老手還是新手，至少都有一次機會需要邊讀邊做的必讀文件。
 
 # 在世界中心呼喊我需要幫忙
 
@@ -50,7 +55,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org> 
 
-  週五偶爾會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 臺北場。
+  週五偶爾會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 台北場。
 
 ## 宜蘭
 
