@@ -57,6 +57,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 ## 台北
 
+* Carl X. Su (carl_tw) <http://gplus.to/carl>
+
+  通常會出現在 [H4](http://www.hackingthursday.org/) 或 [MozTW Lab](http://moztw.org/events/moztw-lab/) 台北場。
+
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
 
   週五偶爾會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 台北場。
