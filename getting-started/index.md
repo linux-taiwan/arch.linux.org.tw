@@ -18,9 +18,13 @@ itemid: getting-started
 
 **「根本就沒有新手，又或者在 Arch 社群裡人人遇到安裝都是新手」**這句話絕非搞笑、亦不是安慰的場面話。Arch 日新又新的特性，使得系統安裝過程經常有些微幅甚至顛覆性的異動，但是系統裝好之後，因為漸進式升級 (rolling upgrade) 的設計，便極少需要「重灌」、「砍掉重練」。老鳥憑兩年前裝好系統的經驗拿到當下想要現學現賣，或多或少都會碰壁。
 
-所幸 Arch 社群維護的 [ArchWiki](https://wiki.archlinux.org/) 有相當新穎、正確的安裝指引文件，可供大家邊看邊做。
+所幸 Arch 社群維護的 [ArchWiki] 有相當新穎、正確的安裝指引文件，可供大家邊看邊做。
 
-不管新手老手，用 Arch 絕對免不了要到 ArchWiki 上找文件資源。我們推薦您先讀 [Arch Linux](https://wiki.archlinux.org/index.php/Arch_Linux_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29) 與 [The Arch Way](https://wiki.archlinux.org/index.php/The_Arch_Way_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29) 這兩篇，以瞭解 Arch 的設計哲學。
+不管新手老手，用 Arch 絕對免不了要到 ArchWiki 上找文件資源。我們推薦您先讀 [Arch Linux] 與 [The Arch Way] 這兩篇，以瞭解 Arch 的設計哲學。
+
+[ArchWiki]: https://wiki.archlinux.org/
+[Arch Linux]: https://wiki.archlinux.org/index.php/Arch_Linux_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
+[The Arch Way]: https://wiki.archlinux.org/index.php/The_Arch_Way_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
 
 ## 何妨先在沙盤推演
 
@@ -31,17 +35,22 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 # 取得 Arch Linux
 ## 下載
 
-請至 Arch Linux 官方網站的 [Download](https://www.archlinux.org/download/) 頁取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的已知[問題](https://bugs.archlinux.org/task/30444)）。
+請至 Arch Linux 官方網站[下載頁面]取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的[已知問題]）。
 
 如果您有使用 BitTorrent (BT)，也推薦您使用 BT 方式下載、同時協助分流。
 
 我們建議您能驗證下載回來的 .iso 檔內容是否正確，避免下載到損壞或經過惡意竄改的檔案。在分流載點的檔案列表，您會看到除了 .iso 檔以外還有很多檔案，其中 md5sums.txt, sha1sums.txt 分別記載了 .iso 檔的 MD5, SHA1 驗證碼 (checksum)，可使用 md5sum, sha1sum 工具計算出 .iso 檔的 checksum 值，再予以比對是否相符。
 
+[下載頁面]: https://www.archlinux.org/download/
+[已知問題]: https://bugs.archlinux.org/task/30444
+
 ## 製作安裝光碟、隨身碟
 
-幾乎任一款光碟燒錄軟體都支援燒錄 .iso 格式的光碟映像檔，但步驟各有不同，請參考您的光碟燒錄軟體指引。如果您想要安裝 Arch 的電腦沒有光碟機，除了使用外接式光碟機、並確定您的電腦支援由外接式光碟機開機，您也可以[使用隨身碟來製作安裝碟](https://wiki.archlinux.org/index.php/USB_Installation_Media_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29)，這種方式較複雜些。
+幾乎任一款光碟燒錄軟體都支援燒錄 .iso 格式的光碟映像檔，但步驟各有不同，請參考您的光碟燒錄軟體指引。如果您想要安裝 Arch 的電腦沒有光碟機，除了使用外接式光碟機、並確定您的電腦支援由外接式光碟機開機，您也可以[使用隨身碟來製作安裝碟]，這種方式較複雜些。
 
 如果您打算照前面所說的，使用 VirtualBox 體驗 Arch，VirtualBox 亦支援模擬光碟機，直接拿 .iso 檔模擬成開機片。
+
+[使用隨身碟來製作安裝碟]: https://wiki.archlinux.org/index.php/USB_Installation_Media_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
 
 # 開始安裝
 
@@ -49,7 +58,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 請用您的安裝光碟、隨身碟開機，準備開始安裝 Arch。如果您之前的作業系統安裝經驗，有圖形介面的輔助，頭一次看到 Arch 的純文字、命令列介面，也許會當場傻眼，甚至心生恐懼、排斥。但是 Arch 安裝介面為求耗用最少資源、達成最大彈性，是刻意設計成這樣的。無論純文字介面還是圖形介面的目的都一樣，就是要輔助您完成系統安裝。
 
-請您照著 [Installation Guide](https://wiki.archlinux.org/index.php/Installation_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29) 或 [Beginners' Guide](https://wiki.archlinux.org/index.php/Beginners%27_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29) 的說明指引，來安裝 Arch。事實上，這兩份文件也就是我們在本文前頭提過的，不管是老手還是新手，至少都有一次機會需要邊讀邊做的必讀文件。
+請您照著 [Installation Guide] 或 [Beginners' Guide] 的說明指引，來安裝 Arch。事實上，這兩份文件也就是我們在本文前頭提過的，不管是老手還是新手，至少都有一次機會需要邊讀邊做的必讀文件。
+
+[Installation Guide]: https://wiki.archlinux.org/index.php/Installation_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
+[Beginners' Guide]: https://wiki.archlinux.org/index.php/Beginners%27_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
 
 # 在世界中心呼喊我需要幫忙
 
@@ -59,28 +71,35 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 * Carl X. Su (carl_tw) <http://gplus.to/carl>
 
-  通常會出現在 [H4](http://www.hackingthursday.org/) 或 [MozTW Lab](http://moztw.org/events/moztw-lab/) 台北場。
+  通常會出現在 [H4] 或 [MozTW Lab] 台北場。
 
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
 
-  週五偶爾會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 台北場。
+  週五偶爾會出現在 [MozTW Lab] 台北場。
 
 * 元兒～ <http://yuan817.twbbs.org>
 
-  有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab](http://moztw.org/events/moztw-lab/) 台北場。
+  有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab] 台北場。
 
 ## 新竹
 
 * 元兒～ <http://yuan817.twbbs.org>
 
-  目前就讀於中華大學，常出沒在 [新竹碼農](http://www.facebook.com/groups/hsinchu.coders/) 社群聚會。
+  目前就讀於中華大學，常出沒在[新竹碼農]社群聚會。
 
 ## 宜蘭
 
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
 
-  週六經常會出現在 [MozTW Lab](http://moztw.org/events/moztw-lab/) 宜蘭場、或在宜蘭市區出沒。
+  週六經常會出現在 [MozTW Lab] 宜蘭場、或在宜蘭市區出沒。
 
-# 如果您仍然覺得 Arch 的門檻還是太高了些…
+[H4]: http://www.hackingthursday.org/
+[MozTW Lab]: http://moztw.org/events/moztw-lab/
+[新竹碼農]: http://www.facebook.com/groups/hsinchu.coders/
 
-[Chakra](http://www.chakra-project.org/) 是個以 Arch 為基礎打造的、預先整合 [KDE](http://kde.org/) 桌面環境的 Linux 發行版本，您或許可以嘗試看看！
+# 如果您仍然覺得 Arch 的門檻還是太高了些……
+
+[Chakra] 是個以 Arch 為基礎打造的、預先整合 [KDE] 桌面環境的 GNU/Linux 發行版本，您或許可以嘗試看看！
+
+[Chakra]: http://www.chakra-project.org/
+[KDE]: http://kde.org/
