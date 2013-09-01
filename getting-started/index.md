@@ -93,6 +93,12 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
   週六經常會出現在 [MozTW Lab] 宜蘭場、或在宜蘭市區出沒。
 
+## 台中
+
+* Yushin Huang (hyslion) ✉<hyslion@gmail.com> ✎[Google+](https://plus.google.com/communities/101238863048851764297)
+  
+    就讀於東海大學，出沒在東海商圈周遭。
+
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
 [新竹碼農]: http://www.facebook.com/groups/hsinchu.coders/
