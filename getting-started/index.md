@@ -105,7 +105,21 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 # 如果您仍然覺得 Arch 的門檻還是太高了些……
 
-[Chakra] 是個以 Arch 為基礎打造的、預先整合 [KDE] 桌面環境的 GNU/Linux 發行版本，您或許可以嘗試看看！
+這裡介紹了一些預載了桌面系統並以 Arch Linux 為基礎的特製發行版，讓您免除安裝麻煩也能享有到 Arch Linux 原有的優點：
 
+* [Chakra] 是個以 Arch 為基礎打造的、預先整合 [KDE] 桌面環境的 GNU/Linux 發行版本，您或許可以嘗試看看！
+* [Manjaro Linux] 是一個預載了 [Xfce] 桌面系統並以 Arch 為基礎的發行版。
+* [ArchBang] 提供了輕量化的預載環境，使用 [Openbox] 作為視窗管理員。
+
+[ArchBang]: http://www.archbang.org/
 [Chakra]: http://www.chakra-project.org/
 [KDE]: http://kde.org/
+[Manjaro Linux]: http://manjaro.org/
+[Openbox]: http://openbox.org/
+[Xfce]: http://www.xfce.org/
+
+# 如果這些都還是不夠滿足您……
+
+請參考[以 Arch 為基礎的發行版][Arch-based Distro]取得來自官方的清單。
+
+[Arch-based Distro]: https://wiki.archlinux.org/index.php/Arch_Based_Distributions
