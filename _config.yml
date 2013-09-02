@@ -2,4 +2,4 @@ name: Arch Linux 臺灣社群
 markdown: redcarpet
 pygments: true
 timezone: 'Asia/Taipei'
-exclude: ['Gemfile', 'Gemfile.lock', 'LICENSE', 'README.md', 'CHRONICLES.md']
+exclude: ['Gemfile', 'Gemfile.lock', 'LICENSE', 'README.md', 'CHRONICLES.md', 'config.rb']
