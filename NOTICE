@@ -12,7 +12,7 @@ Third Party Software Notices:
 =============================
 
  - Bootstrap v3.0.0
-   http://getbootstrap.com
+   http://getbootstrap.com/
 
    Copyright 2013 Twitter, Inc
    Licensed under the Apache License v2.0
@@ -20,6 +20,7 @@ Third Party Software Notices:
 
  - Compass
    http://compass-style.org/
+
    Copyright (c) 2008-2009 Christopher M. Eppstein
    Released under a slightly modified MIT license
    https://github.com/chriseppstein/compass/blob/stable/LICENSE.markdown
