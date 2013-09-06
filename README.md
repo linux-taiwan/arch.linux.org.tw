@@ -31,8 +31,18 @@
 
 ## 專案授權
 
-* 本專案程式部分以 [MIT License] 釋出，圖文內容採用 [CC BY-SA 3.0 TW 授權條款]。
-* 本專案用了一些第三方工具和函式庫，各自授權皆詳列於 [NOTICE] 一檔。
+* 程式部分以 [MIT License] 釋出，圖文內容採用 [CC BY-SA 3.0 TW 授權條款]。
+* 本專案使用下列第三方軟體，授權條款全文詳見根目錄底下的 [NOTICE] 檔：
+  * [Bootstrap]：The Apache 2.0 License
+  * [Compass]：修改過的 MIT License（禁止背書或促銷）
+  * [Jekyll]：The MIT License
+  * [jQuery]：The MIT License
+  * [jQuery UI]：The MIT License
 
 [MIT License]: LICENSE
 [NOTICE]: NOTICE
+[Bootstrap]: http://getbootstrap.com/
+[Compass]: http://compass-style.org/
+[Jekyll]: http://jekyllrb.com/
+[jQuery]: http://jquery.com/
+[jQuery UI]: http://jqueryui.com/
