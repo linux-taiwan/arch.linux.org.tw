@@ -31,9 +31,11 @@ itemid: getting-started
 
 無論是想要學習哪一種 Linux 發行版本，新手遇到最大的障礙恐怕就是：「我的電腦裡已經有一套我用慣的系統，我的硬碟也不可能清掉或再挪出新的分割區」這個時候我們推薦您使用 [VirtualBox] 虛擬機軟體，在現有的電腦上再虛擬出一台電腦，試著在這台虛擬電腦上安裝 Arch。
 
-VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網路設定，在網路上就如同一台真實的機器一樣可當成伺服器使用。這也就是所謂的 VPS (Virtual Private Server)。
+VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網路設定，在網路上就如同一台真實的機器一樣可當成伺服器使用。這也就是所謂的 VPS (Virtual Private Server)。您可參考 [VirtualBox 使用手冊][vbox-manual]或是 [ArchWiki 上的介紹][vbox-archwiki]取得更多安裝指示和操作說明。
 
-[VirtualBox]: https://wiki.archlinux.org/index.php/VirtualBox
+[VirtualBox]: https://www.virtualbox.org/
+[vbox-manual]: https://www.virtualbox.org/manual/UserManual.html
+[vbox-archwiki]: https://wiki.archlinux.org/index.php/VirtualBox
 
 
 # 取得 Arch Linux
