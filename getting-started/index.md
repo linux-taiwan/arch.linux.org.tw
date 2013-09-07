@@ -12,6 +12,7 @@ itemid: getting-started
 * 論述「Arch 可以**做好**哪些事」而不是「某某系統有夠爛，快來改用 Arch 吧！」這類貶抑他人的言論，無助於推廣，徒惹他人反感而已。
 * 論述「Arch 可以**做到**哪些事」而不是將 Arch 誇飾成無所不能的系統。陳述事實，並坦然承認短處，才能讓 Arch 藉由社群力量不斷進步。
 
+
 # 寫給新手
 
 ## 心理建設
@@ -34,7 +35,9 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 [VirtualBox]: https://wiki.archlinux.org/index.php/VirtualBox
 
+
 # 取得 Arch Linux
+
 ## 下載
 
 請至 Arch Linux 官方網站[下載頁面]取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的[已知問題]）。
@@ -65,9 +68,12 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 [Installation Guide]: https://wiki.archlinux.org/index.php/Installation_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
 [Beginners' Guide]: https://wiki.archlinux.org/index.php/Beginners%27_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
 
+
 # 在世界中心呼喊我需要幫忙
 
-如果您真的搞不定 Arch 的安裝過程，我們有社群朋友可以當面幫忙您。
+若在認真摸索和研究過後，依然無法完成安裝手續，可以前往[線上資源]所列的網路社群，或者尋求在地夥伴出手相助。
+
+[線上資源]: /resources/
 
 ## 台北
 
@@ -83,45 +89,43 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
   有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab] 台北場。
 
-## 新竹
-
-* 元兒～ <http://yuan817.twbbs.org>
-
-  目前就讀於中華大學，常出沒在[新竹碼農]社群聚會。
-
 ## 宜蘭
 
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
 
   週六經常會出現在 [MozTW Lab] 宜蘭場、或在宜蘭市區出沒。
 
+## 新竹
+
+* 元兒～ <http://yuan817.twbbs.org>
+
+  目前就讀於中華大學，常出沒在[新竹碼農]社群聚會。
+
 ## 台中
 
-* Yushin Huang (hyslion) ✉<hyslion@gmail.com> ✎[Google+](https://plus.google.com/communities/101238863048851764297)
-  
-    就讀於東海大學，出沒在東海商圈周遭。
+* Yushin Huang (hyslion) ✉ <hyslion@gmail.com> ✎ [Google+](https://plus.google.com/communities/101238863048851764297)
+
+  就讀於東海大學，出沒在東海商圈周遭。
 
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
 [新竹碼農]: http://www.facebook.com/groups/hsinchu.coders/
 
-# 如果您仍然覺得 Arch 的門檻還是太高了些……
 
-這裡介紹了一些預載了桌面系統並以 Arch Linux 為基礎的特製發行版，讓您免除安裝麻煩也能享有到 Arch Linux 原有的優點：
+# 基於 Arch Linux 的發行版本
 
-* [Chakra] 是個以 Arch 為基礎打造的、預先整合 [KDE] 桌面環境的 GNU/Linux 發行版本，您或許可以嘗試看看！
-* [Manjaro Linux] 是一個預載了 [Xfce] 桌面系統並以 Arch 為基礎的發行版。
-* [ArchBang] 提供了輕量化的預載環境，使用 [Openbox] 作為視窗管理員。
+這裡有些常見 GNU/Linux 發行版本，以 Arch Linux 為基礎，預載圖形桌面環境，同時傳承 Arch 的優點。
 
-[ArchBang]: http://www.archbang.org/
+* [Chakra]：以 Arch 為基礎精心打造，預先整合 [KDE] 桌面環境，提供極其完善的安裝介面，值得一試。
+* [ArchBang]：基於 [Openbox] 視窗管理員的輕量級系統，免於繁雜的設定，Openbox 粉絲千萬不要錯過。
+* [Manjaro Linux]：採用輕量 [Xfce] 桌面環境，官方同時支援 [Openbox]，為新手提供 [KDE] 以外的選擇。
+
+若是上述都不喜歡，想要知道還有哪些選項，可以參考 [Arch Based Distributions (Active)] 取得完整清單。
+
 [Chakra]: http://www.chakra-project.org/
-[KDE]: http://kde.org/
+[ArchBang]: http://www.archbang.org/
 [Manjaro Linux]: http://manjaro.org/
+[KDE]: http://kde.org/
 [Openbox]: http://openbox.org/
 [Xfce]: http://www.xfce.org/
-
-# 如果這些都還是不夠滿足您……
-
-請參考[以 Arch 為基礎的發行版][Arch-based Distro]取得來自官方的清單。
-
-[Arch-based Distro]: https://wiki.archlinux.org/index.php/Arch_Based_Distributions
+[Arch Based Distributions (Active)]: https://wiki.archlinux.org/index.php/Arch_Based_Distributions
