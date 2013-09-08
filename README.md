@@ -26,7 +26,7 @@
 * 主編保留內容潤飾、刊登與否的最終裁量權。任何違背關乎宗教、政治、性別、性傾向、種族、身心障礙等需遵循政治正確原則的爭議內容，本站恕不接受。
 
 [CC BY-SA 3.0 TW 授權條款]: http://creativecommons.org/licenses/by-sa/3.0/tw/
-[GitHub 追蹤系統]: https://github.com/hiroshiyui/archlinux-taiwan-site/issues
+[GitHub 追蹤系統]: https://github.com/linux-taiwan/arch.linux.org.tw/issues
 
 
 ## 專案授權
