@@ -118,16 +118,19 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 這裡有些常見 GNU/Linux 發行版本，以 Arch Linux 為基礎，預載圖形桌面環境，同時傳承 Arch 的優點。
 
-* [Chakra]：以 Arch 為基礎精心打造，預先整合 [KDE] 桌面環境，提供極其完善的安裝介面，值得一試。
-* [ArchBang]：基於 [Openbox] 視窗管理員的輕量級系統，免於繁雜的設定，Openbox 粉絲千萬不要錯過。
+* [Antergos]：透過 [Gnome] 環境重生的現代化作業系統，簡單易用，前身為知名的 Cinnarch 系統。
+* [ArchBang]：基於 [Openbox] 視窗管理員的輕量級系統，免於繁雜的設定，Openbox 粉絲不要錯過。
+* [Chakra]: 以 [KDE] 桌面環境精心打造，提供極其完善的安裝及操作介面，成熟度很高，值得您一試。
 * [Manjaro Linux]：採用輕量 [Xfce] 桌面環境，官方同時支援 [Openbox]，為新手提供 [KDE] 以外的選擇。
 
 若是上述都不喜歡，想要知道還有哪些選項，可以參考 [Arch Based Distributions (Active)] 取得完整清單。
 
-[Chakra]: http://www.chakra-project.org/
+[Antergos]: http://antergos.com/
 [ArchBang]: http://www.archbang.org/
+[Chakra]: http://www.chakra-project.org/
 [Manjaro Linux]: http://manjaro.org/
-[KDE]: http://kde.org/
+[Gnome]: http://www.gnome.org/
 [Openbox]: http://openbox.org/
+[KDE]: http://kde.org/
 [Xfce]: http://www.xfce.org/
 [Arch Based Distributions (Active)]: https://wiki.archlinux.org/index.php/Arch_Based_Distributions
