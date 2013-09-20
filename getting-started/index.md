@@ -114,16 +114,21 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 [新竹碼農]: http://www.facebook.com/groups/hsinchu.coders/
 
 
+# Archboot
+
+[Archboot](https://wiki.archlinux.org/index.php/Archboot) 是一套非正式的 Arch 安裝媒介，提供類似 Arch 較早先版本採用的文字介面選單，並已提供在 UEFI 開機模式下的相關支援。如果您在使用 UEFI 的主機板上安裝 Arch 遭遇到困難，我們也建議您能嘗試使用 Archboot。
+
+
 # 基於 Arch Linux 的發行版本
 
-這裡有些常見 GNU/Linux 發行版本，以 Arch Linux 為基礎，預載圖形桌面環境，同時傳承 Arch 的優點。
+這裡有些常見 GNU/Linux 發行版本，以 Arch Linux 為基礎，預載圖形桌面環境，同時保有 Arch 的優點：
 
-* [Antergos]：透過 [Gnome] 環境重生的現代化作業系統，簡單易用，前身為知名的 Cinnarch 系統。
-* [ArchBang]：基於 [Openbox] 視窗管理員的輕量級系統，免於繁雜的設定，Openbox 粉絲不要錯過。
-* [Chakra]: 以 [KDE] 桌面環境精心打造，提供極其完善的安裝及操作介面，成熟度很高，值得您一試。
+* [Antergos]：透過 [Gnome] 環境重生的現代化作業系統，前身為知名的 Cinnarch 系統。
+* [ArchBang]：基於 [Openbox] 視窗管理員的輕量級系統，免於繁雜的設定。
+* [Chakra]: 以 [KDE] 桌面環境精心打造，提供極其完善的安裝及操作介面。
 * [Manjaro Linux]：採用輕量 [Xfce] 桌面環境，官方同時支援 [Openbox]，為新手提供 [KDE] 以外的選擇。
 
-若是上述都不喜歡，想要知道還有哪些選項，可以參考 [Arch Based Distributions (Active)] 取得完整清單。
+想要知道還有哪些選項，可以參考 [Arch Based Distributions (Active)] 取得完整清單。
 
 [Antergos]: http://antergos.com/
 [ArchBang]: http://www.archbang.org/
