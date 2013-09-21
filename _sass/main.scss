@@ -56,31 +56,9 @@ p {
   color: #666;
 }
 
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
-
-
-
-/*****************************************************************************/
-/*
-/* Home
-/*
-/*****************************************************************************/
-ul.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
-
-  li {
-    line-height: 1.75em;
-  }
-
-  span {
-    color: #aaa;
-    font-family: Monaco, "Courier New", monospace;
-    font-size: 80%;
-  }
-}
+a         { color: #1794D1; }
+a:hover   { color: darken(#1794D1, 10%); }
+a:visited { color: darken(#1794D1, 20%); }
 
 
 /*****************************************************************************/
@@ -129,43 +107,57 @@ section.content {
       margin: 0 auto;
     }
 
-    h2.slogan {
-      @include text-shadow(#999 2px 2px 2px);
-      font-size: 1.8em;
-      font-size: 1.8rem;
+    .glyphicon {
+      margin-right: 0.2em;
+    }
+
+    h2 {
+      @include text-shadow(#999 0px 2px 2px);
+      font-size: 1.4em;
+      font-size: 1.4rem;
+      /*text-align: center;*/
+      line-height: 1.5em;
       letter-spacing: 1px;
-      text-align: center;
-      padding-top: 0.8em;
-      font-weight: normal;
+
+      &.slogan {
+        @include text-shadow(#999 2px 2px 2px);
+        font-size: 1.8em;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        text-align: center;
+        padding-top: 0.8em;
+        font-weight: normal;
+      }
     }
 
     div.row.briefing {
       margin: 1em auto;
     }
 
-    div.row.highlights {
-      margin-top: 3em;
-
+    div.highlights {
       div.character {
         background: none;
+      }
+    }
 
-        .glyphicon {
-          margin-right: 0.2em;
-        }
+    div.posts {
+      ul {
+        margin: 0;
+        li {
+          margin: 0;
+          margin-bottom: 0.3em;
+          padding: 0;
+          /*list-style-type: round;*/
+          list-style: none;
 
-        h2 {
-          @include text-shadow(#999 0px 2px 2px);
-          font-size: 1.4em;
-          font-size: 1.4rem;
-          text-align: center;
-          line-height: 1.5em;
-          letter-spacing: 1px;
-          border-bottom: 3px solid #1793d1;
-          @include background-image(linear-gradient(#ececec 80%, #ccc));
-          @include border-radius(4px, 4px);
-        }
-        &:hover {
-          h2 { border-bottom: 3px solid #47B6ED; }
+          span.post__date {
+            font-family: 'Roboto Condensed';
+            margin-right: 0.1em;
+            /*background-color: #1794d1;*/
+            /*color: #eee;*/
+            padding: 0.1em 0.3em;
+            @include border-radius(4px);
+          }
         }
       }
     }
@@ -183,15 +175,12 @@ footer {
   border-top: 4px solid #7FBDDB;
   margin-top: 2em;
   margin-bottom: 1em;
+  padding-top: 0.6em;
   overflow: hidden;
 
   .contact {
     float: left;
     margin-right: 3em;
-
-    a {
-      color: #8085C1;
-    }
   }
 
   .rss {
