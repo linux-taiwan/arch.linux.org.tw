@@ -114,11 +114,6 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 [新竹碼農]: http://www.facebook.com/groups/hsinchu.coders/
 
 
-# Archboot
-
-[Archboot](https://wiki.archlinux.org/index.php/Archboot) 是一套非正式的 Arch 安裝媒介，提供類似 Arch 較早先版本採用的文字介面選單，並已提供在 UEFI 開機模式下的相關支援。如果您在使用 UEFI 的主機板上安裝 Arch 遭遇到困難，我們也建議您能嘗試使用 Archboot。
-
-
 # 基於 Arch Linux 的發行版本
 
 這裡有些常見 GNU/Linux 發行版本，以 Arch Linux 為基礎，預載圖形桌面環境，同時保有 Arch 的優點：
