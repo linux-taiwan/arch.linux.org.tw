@@ -32,6 +32,13 @@ Third Party Software Notices:
    Released under the MIT license
    https://github.com/mojombo/jekyll/blob/master/LICENSE
 
+ - Jekyll Plugin: RSS Feed Generator
+   https://github.com/agelber/jekyll-rss/
+
+   Copyright 2013 Assaf Gelber
+   This plugin is released under the MIT license.
+   https://github.com/agelber/jekyll-rss/blob/master/LICENSE-MIT.txt
+
  - jQuery v1.10.2
    http://jquery.com/
 

@@ -13,28 +13,36 @@ itemid: home
       <p>Arch 臺灣社群秉持著精簡至上的哲學，提供自由、開放的環境，希望能夠集結臺灣各地的 Archer 分享您的意見和作品。我們的社群非常活躍，Arch 相關問題都可以提出來討論。喜愛 GNU/Linux 的朋友，不分版本，沒有國界，歡迎加入我們的行列。</p></div>
   </div>
 
-  <div class="row highlights">
-    <div class="col-md-3 character">
-      <h2><span class="glyphicon glyphicon-leaf"></span>輕量</h2>
-      <p>在最精簡的系統基礎上，由您決定您的 Arch 該安裝哪些軟體、函式庫，不預載任何您用不到的元件。</p>
+  <div class="row">
+    <div class="col-md-8 highlights">
+      <div class="col-md-6 character">
+        <h2><span class="glyphicon glyphicon-leaf"></span>輕量</h2>
+        <p>在最精簡的系統基礎上，由您決定您的 Arch 該安裝哪些軟體、函式庫，不預載任何您用不到的元件。</p>
+      </div>
+      <div class="col-md-6 character">
+        <h2><span class="glyphicon glyphicon-ok-circle"></span>簡潔</h2>
+        <p>嚴格規範執行檔、函式庫、文件、設定檔的路徑。系統設定檔也集中管理，想做系統調整時都有跡可循，您不會迷失在眾多紛亂的設定檔之中。</p>
+      </div>
+      <div class="col-md-6 character">
+        <h2><span class="glyphicon glyphicon-refresh"></span>漸進式升級</h2>
+        <p>從 Linux 核心到成千上萬的應用軟體，Arch 套件維護者皆致力跟上軟體最新版本，採用 rolling upgrade，您的 Arch 每天都是最新版。</p>
+      </div>
+      <div class="col-md-6 character">
+        <h2><span class="glyphicon glyphicon-globe"></span>活躍的社群</h2>
+        <p>無論是<a href="https://bbs.archlinux.org/">論壇</a>或是 <a href="https://wiki.archlinux.org/">ArchWiki</a>，都有大量熱心的使用者分享心得、解答疑難。Arch 或許名氣還不夠響亮，但是社群後援火力絕對充裕！</p>
+      </div>
     </div>
-    <div class="col-md-3 character">
-      <h2><span class="glyphicon glyphicon-ok-circle"></span>簡潔</h2>
-      <p>嚴格規範執行檔、函式庫、文件、設定檔的路徑。系統設定檔也集中管理，想做系統調整時都有跡可循，您不會迷失在眾多紛亂的設定檔之中。</p>
-    </div>
-    <div class="col-md-3 character">
-      <h2><span class="glyphicon glyphicon-refresh"></span>漸進式升級</h2>
-      <p>從 Linux 核心到成千上萬的應用軟體，Arch 套件維護者皆致力跟上軟體最新版本，採用 rolling upgrade，您的 Arch 每天都是最新版。</p>
-    </div>
-    <div class="col-md-3 character">
-      <h2><span class="glyphicon glyphicon-globe"></span>活躍的社群</h2>
-      <p>無論是<a href="https://bbs.archlinux.org/">論壇</a>或是 <a href="https://wiki.archlinux.org/">ArchWiki</a>，都有大量熱心的使用者分享心得、解答疑難。Arch 或許名氣還不夠響亮，但是社群後援火力絕對充裕！</p>
+    <div class="col-md-4 posts">
+      <h2><span class="glyphicon glyphicon-bell"></span>最新消息</h2>
+      <ul class="posts">
+        {% for post in site.posts limit:5 %}
+          <li class="post"><span class="post__date">{{ post.date | date: "%Y-%m-%d" }}</span> <span class="post__title"><a href="{{ post.url }}">{{ post.title }}</a></span></li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
-  <!--<h1>Blog Posts</h1>-->
-  <!--<ul class="posts">-->
-    <!--{% for post in site.posts %}-->
-      <!--<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>-->
-    <!--{% endfor %}-->
-  <!--</ul>-->
+
+  <div class="row">
+  </div>
+
 </div>
