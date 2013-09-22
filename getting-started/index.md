@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 新手上路 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community
+title: 新手上路
 itemid: getting-started
 ---
 
