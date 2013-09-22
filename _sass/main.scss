@@ -142,6 +142,7 @@ section.content {
 
     div.posts {
       ul {
+        display: table;
         margin: 0;
         li {
           margin: 0;
@@ -151,12 +152,20 @@ section.content {
           list-style: none;
 
           span.post__date {
+            display: table-cell;
             font-family: 'Roboto Condensed';
-            margin-right: 0.1em;
-            /*background-color: #1794d1;*/
-            /*color: #eee;*/
-            padding: 0.1em 0.3em;
+            background-color: #1794d1;
+            border-top: 1px solid darken(#1794d1, 10%);
+            border-left: 1px solid darken(#1794d1, 10%);
+            color: #eee;
+            padding: 0 0.4em;
             @include border-radius(4px);
+            @include text-shadow(#555 1px 1px 1px);
+          }
+
+          span.post__title {
+            display: table-cell;
+            padding: 0.1em 0.5em;
           }
         }
       }
