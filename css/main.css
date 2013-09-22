@@ -134,6 +134,7 @@ section.content #home div.highlights div.character {
   background: none;
 }
 section.content #home div.posts ul {
+  display: table;
   margin: 0;
 }
 section.content #home div.posts ul li {
@@ -144,16 +145,23 @@ section.content #home div.posts ul li {
   list-style: none;
 }
 section.content #home div.posts ul li span.post__date {
+  display: table-cell;
   font-family: 'Roboto Condensed';
-  margin-right: 0.1em;
-  /*background-color: #1794d1;*/
-  /*color: #eee;*/
-  padding: 0.1em 0.3em;
+  background-color: #1794d1;
+  border-top: 1px solid #1273a3;
+  border-left: 1px solid #1273a3;
+  color: #eee;
+  padding: 0 0.4em;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
+  text-shadow: #555555 1px 1px 1px;
+}
+section.content #home div.posts ul li span.post__title {
+  display: table-cell;
+  padding: 0.1em 0.5em;
 }
 
 .meta {
