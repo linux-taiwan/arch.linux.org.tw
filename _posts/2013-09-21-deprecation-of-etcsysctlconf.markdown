@@ -5,7 +5,7 @@ date:   2013-09-21 23:19:00 +0800
 author: "Huei-Horng Yo"
 ---
 
-**原始文章：**[Deprecation of /etc/sysctl.conf](https://www.archlinux.org/news/deprecation-of-etcsysctlconf/)
+**原文：**[Deprecation of /etc/sysctl.conf](https://www.archlinux.org/news/deprecation-of-etcsysctlconf/)
 
 從 `systemd` 207 版開始，將不再採用 `/etc/sysctl.conf` 當中的設定，改成只採用 `/etc/sysctl.d/*` 裡頭的內容。因為我們在 `procps-ng` 套件中提供的原始 `/etc/sysctl.conf` 設定已經成為系統核心的預設值，所以我們決定要棄用這個檔案。
 
