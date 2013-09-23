@@ -150,16 +150,29 @@ section.content {
           display: table-row;
           list-style: none;
 
-          span.post__date {
-            display: block;
+          div.post__date {
+            display: table-cell;
             font-family: 'Roboto Condensed';
             text-align: center;
-            margin-bottom: 0.3em;
+            span {
+              display: block;
+              padding-left: 0.4em;
+              padding-right: 0.4em;
+              color: #fff;
+              background-color: #1793d1;
+              border-top: 1px solid #666;
+              border-left: 1px solid #666;
+              @include border-radius(4px);
+              @include text-shadow(#666 1px 1px 0px);
+            }
           }
 
-          span.post__title {
+          div.post__title {
             display: table-cell;
             padding-left: 0.5em;
+            padding-bottom: 0.5em;
+            span {
+            }
           }
         }
       }
