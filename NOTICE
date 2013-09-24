@@ -39,6 +39,12 @@ Third Party Software Notices:
    This plugin is released under the MIT license.
    https://github.com/agelber/jekyll-rss/blob/master/LICENSE-MIT.txt
 
+ - Jekyll Plugin: Sitemap.xml Generator
+   https://github.com/kinnetica/jekyll-plugins
+
+   Author: Michael Levin (http://www.kinnetica.com)
+   Distributed Under A [Creative Commons](http://creativecommons.org/licenses/by/3.0/) License
+
  - jQuery v1.10.2
    http://jquery.com/
 
