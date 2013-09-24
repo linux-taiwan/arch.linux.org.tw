@@ -4,5 +4,5 @@ url: http://archlinux.tw
 markdown: redcarpet
 pygments: true
 timezone: 'Asia/Taipei'
-exclude: ['Gemfile', 'Gemfile.lock', 'AUTHORS', 'LICENSE', 'NOTICE', 'README.md', 'CHRONICLES.md', 'config.rb']
+exclude: ['Gemfile', 'Gemfile.lock', 'AUTHORS', 'LICENSE', 'NOTICE', 'README.md', 'CHRONICLES.md', 'config.rb', 'build.sh']
 rss_post_limit: 10
