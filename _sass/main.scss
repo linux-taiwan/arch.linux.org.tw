@@ -158,12 +158,12 @@ section.content {
               display: block;
               padding-left: 0.4em;
               padding-right: 0.4em;
-              color: #fff;
+              color: #ececec;
               background-color: #1793d1;
-              border-top: 1px solid #666;
-              border-left: 1px solid #666;
+              border-top: 1px solid darken(#1793d1, 20%);
+              border-left: 1px solid darken(#1793d1, 20%);
               @include border-radius(4px);
-              @include text-shadow(#666 1px 1px 0px);
+              @include text-shadow(darken(#1793d1, 20%) 1px 1px 0px);
             }
           }
 
