@@ -1,9 +1,11 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<span class="meta">{{ page.author }} 發表於 {{ page.date | date_to_rfc822 }}</span>
 
-<article class="post">
+<article itemscope itemtype="http://schema.org/Article" class="post">
+<h2 itemprop="name">{{ page.title }}</h2>
+<div class="meta"><span itemprop="author">{{ page.author }}</span> 發表於 <span itemprop="datePublished">{{ page.date | date_to_rfc822 }}</span></div>
+<div itemprop="articleBody">
 {{ content }}
+</div>
 </article>
