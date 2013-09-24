@@ -144,28 +144,35 @@ section.content {
       ul {
         display: table;
         margin: 0;
+        border-collapse: separate;
+
         li {
-          margin: 0;
-          margin-bottom: 0.6em;
-          padding: 0;
-          /*list-style-type: round;*/
+          display: table-row;
           list-style: none;
 
-          span.post__date {
+          div.post__date {
             display: table-cell;
             font-family: 'Roboto Condensed';
-            background-color: #1794d1;
-            border-top: 1px solid darken(#1794d1, 10%);
-            border-left: 1px solid darken(#1794d1, 10%);
-            color: #eee;
-            padding: 0 0.4em;
-            @include border-radius(4px);
-            @include text-shadow(#555 1px 1px 1px);
+            text-align: center;
+            span {
+              display: block;
+              padding-left: 0.4em;
+              padding-right: 0.4em;
+              color: #ececec;
+              background-color: #1793d1;
+              border-top: 1px solid darken(#1793d1, 20%);
+              border-left: 1px solid darken(#1793d1, 20%);
+              @include border-radius(4px);
+              @include text-shadow(darken(#1793d1, 20%) 1px 1px 0px);
+            }
           }
 
-          span.post__title {
+          div.post__title {
             display: table-cell;
-            padding: 0.1em 0.5em;
+            padding-left: 0.5em;
+            padding-bottom: 0.5em;
+            span {
+            }
           }
         }
       }

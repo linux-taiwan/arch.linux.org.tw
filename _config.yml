@@ -5,3 +5,4 @@ markdown: redcarpet
 pygments: true
 timezone: 'Asia/Taipei'
 exclude: ['Gemfile', 'Gemfile.lock', 'AUTHORS', 'LICENSE', 'NOTICE', 'README.md', 'CHRONICLES.md', 'config.rb']
+rss_post_limit: 10
