@@ -6,3 +6,5 @@ pygments: true
 timezone: 'Asia/Taipei'
 exclude: ['Gemfile', 'Gemfile.lock', 'AUTHORS', 'LICENSE', 'NOTICE', 'README.md', 'CHRONICLES.md', 'config.rb', 'build.sh']
 rss_post_limit: 10
+paginate: 5
+paginate_path: "news/page:num"
