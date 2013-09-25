@@ -1,0 +1,35 @@
+---
+layout: default
+title: 最新消息與公告
+itemid: news
+---
+
+{% for post in paginator.posts %}
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+  </h1>
+  <div class="meta"><span itemprop="author">{{ post.author }}</span> 發表於 <span itemprop="datePublished">{{ post.date | date_to_rfc822 }}</span></div>
+  <div itemprop="articleBody">
+  {{ post.content }}
+  </div>
+  </article>
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  <!-- Don't build paginator if we have only one page -->
+  {% unless paginator.total_pages == 1 %}
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">前頁</a>
+    {% else %}
+      <span class="previous">前頁</span>
+    {% endif %}
+    <span class="page_number ">第 {{ paginator.page }} 頁，共 {{ paginator.total_pages }} 頁</span>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">次頁</a>
+    {% else %}
+      <span class="next ">次頁</span>
+    {% endif %}
+  {% endunless %}
+</div>
