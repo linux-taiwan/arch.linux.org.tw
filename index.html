@@ -32,20 +32,18 @@ itemid: home
         <p>無論是<a href="https://bbs.archlinux.org/">論壇</a>或是 <a href="https://wiki.archlinux.org/">ArchWiki</a>，都有大量熱心的使用者分享心得、解答疑難。Arch 或許名氣還不夠響亮，但是社群後援火力絕對充裕！</p>
       </div>
     </div>
+
     <div class="col-md-4 posts">
       <h2><span class="glyphicon glyphicon-bell"></span>最新消息</h2>
       <ul class="posts">
         {% for post in site.posts limit:5 %}
           <li class="post">
             <div class="post__date"><span>{{ post.date | date: "%Y-%m-%d" }}</span></div>
-            <div class="post__title"><span><a href="{{ post.url }}">{{ post.title }}</a></span></div>
+            <div class="post__title"><span><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span></div>
           </li>
         {% endfor %}
       </ul>
     </div>
-  </div>
 
-  <div class="row">
   </div>
-
 </div>
