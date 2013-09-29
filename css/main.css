@@ -145,11 +145,12 @@ section.content #home div.posts ul li div.post__date {
   display: table-cell;
   font-family: 'Roboto Condensed';
   text-align: center;
+  white-space: nowrap;
 }
 section.content #home div.posts ul li div.post__date span {
   display: block;
-  padding-left: 0.4em;
-  padding-right: 0.4em;
+  padding: 0 0.2em;
+  line-height: 1em;
   color: #ececec;
   background-color: #1793d1;
   border-top: 1px solid #0d5275;
@@ -163,7 +164,7 @@ section.content #home div.posts ul li div.post__date span {
 }
 section.content #home div.posts ul li div.post__title {
   display: table-cell;
-  padding-left: 0.5em;
+  padding-left: 0.3em;
   padding-bottom: 0.5em;
 }
 
