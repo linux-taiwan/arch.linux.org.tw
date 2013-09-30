@@ -157,9 +157,7 @@ section.content {
 
             span {
               display: block;
-              /*padding-left: 0.4em;*/
-              /*padding-right: 0.4em;*/
-              padding: 0.2em;
+              padding: 0 0.2em;
               line-height: 1em;
               color: #ececec;
               background-color: #1793d1;
@@ -172,7 +170,7 @@ section.content {
 
           div.post__title {
             display: table-cell;
-            padding-left: 0.5em;
+            padding-left: 0.3em;
             padding-bottom: 0.5em;
             span {
             }
