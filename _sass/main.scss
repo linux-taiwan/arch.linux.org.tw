@@ -153,10 +153,14 @@ section.content {
             display: table-cell;
             font-family: 'Roboto Condensed';
             text-align: center;
+            white-space: nowrap;
+
             span {
               display: block;
-              padding-left: 0.4em;
-              padding-right: 0.4em;
+              /*padding-left: 0.4em;*/
+              /*padding-right: 0.4em;*/
+              padding: 0.2em;
+              line-height: 1em;
               color: #ececec;
               background-color: #1793d1;
               border-top: 1px solid darken(#1793d1, 20%);
