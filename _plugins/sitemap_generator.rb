@@ -79,7 +79,8 @@ module Jekyll
     end
 
     def location_on_server(my_url)
-      location = "#{my_url}#{@dir}#{url}"
+      #location = "#{my_url}#{@dir}#{url}"
+      location = "#{my_url}#{url}"
       location.gsub(/index.html$/, "")
     end
   end
