@@ -103,6 +103,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
   目前就讀於中華大學，常出沒在[新竹碼農]社群聚會。
 
+* xatier <xatierlike@gmail.com> / @xatierlikeLee on [Twitter](https://twitter.com/xatierlikeLee)
+
+  台中人，目前就讀於交通大學，出沒於 [PyHUG 社群](http://www.meetup.com/pythonhug/) 和各社群研討會
+
 ## 台中
 
 * Yushin Huang (hyslion) ✉ <hyslion@gmail.com> ✎ [Google+](https://plus.google.com/communities/101238863048851764297)
