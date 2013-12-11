@@ -9,7 +9,7 @@
 ## 環境配置
 
 1. 請架設好基本的 Ruby 執行環境，我們推薦您使用 [RVM] 簡化這一步驟。
-2. 將此原始碼拉回您的本地端之後，在原始碼根目錄下執行 `bundle install` 安裝必要的元件。（目前我們使用了 Jekyll 與 Compass）
+2. 將此原始碼 <code>git clone --recursive</code> 到您的本地端之後，在原始碼根目錄下執行 `bundle install` 安裝必要的元件。（目前我們使用了 Jekyll 與 Compass）
 3. 在原始碼根目錄分別執行 `jekyll serve --watch` 以及 `compass watch` 讓它們自動偵測檔案異動。
 4. 新增、修改網站內容。您可以在 http://127.0.0.1:4000/ 看到目前編修的網站樣貌。
 
