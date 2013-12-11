@@ -112,6 +112,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 * Yushin Huang (hyslion) ✉ <hyslion@gmail.com> ✎ [Google+](https://plus.google.com/communities/101238863048851764297)
 
   就讀於東海大學，出沒在東海商圈周遭。
+  
+* Harold Wu (haroldwu) <wennynnewenny@gmail.com>
+  
+  目前就讀中國醫藥大學，北區的朋友可以就地支援，或參加雙周週一的 [臺中自由軟體聚會](https://plus.google.com/u/0/communities/103994353345517742722)，也有一些使用 Arch Linux 的朋友。
 
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
