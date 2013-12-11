@@ -115,7 +115,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
   
 * Harold Wu (haroldwu) <wennynnewenny@gmail.com>
   
-  目前就讀中國醫藥大學，北區的朋友可以就地支援，或參加雙周週一的[臺中自由軟體聚會](https://plus.google.com/u/0/communities/103994353345517742722)，以及 IRC 頻道 \#tcffm 一起探索 Linux 的世界。
+  目前就讀中國醫藥大學，北區的朋友可以就地支援，或參加雙周週一的 [臺中自由軟體聚會](https://plus.google.com/u/0/communities/103994353345517742722)，也有一些使用 Arch Linux 的朋友。
 
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
