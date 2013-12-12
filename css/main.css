@@ -182,6 +182,15 @@ footer {
   padding-top: 0.6em;
   overflow: hidden;
 }
+footer h1 {
+  color: #666;
+  font-size: 1.2em;
+  margin: 0;
+}
+footer p {
+  margin: 0;
+  color: gray;
+}
 footer .contact {
   float: left;
   margin-right: 3em;
