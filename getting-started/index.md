@@ -42,7 +42,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 ## 下載
 
-請至 Arch Linux 官方網站[下載頁面]取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的[已知問題]）。
+請至 Arch Linux 官方網站[下載頁面]取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的[已知問題]）。台灣使用者建議使用 [交大機房] 的 mirror site。
 
 如果您有使用 BitTorrent (BT)，也推薦您使用 BT 方式下載、同時協助分流。
 
@@ -50,6 +50,9 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 [下載頁面]: https://www.archlinux.org/download/
 [已知問題]: https://bugs.archlinux.org/task/30444
+[交大機房]: http://linux.cs.nctu.edu.tw/archlinux/iso/
+
+
 
 ## 製作安裝光碟、隨身碟
 
