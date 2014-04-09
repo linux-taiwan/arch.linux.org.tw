@@ -138,7 +138,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 [Antergos]: http://antergos.com/
 [ArchBang]: http://www.archbang.org/
-[Chakra]: http://www.chakra-project.org/
+[Chakra]: http://www.chakraos.org/
 [Manjaro Linux]: http://manjaro.org/
 [Gnome]: http://www.gnome.org/
 [Openbox]: http://openbox.org/
