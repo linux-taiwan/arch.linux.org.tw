@@ -52,6 +52,7 @@ GEM
     jekyll-watch (1.2.1)
       listen (~> 2.7)
     kramdown (1.5.0)
+    libv8 (3.16.14.7)
     liquid (2.6.2)
     listen (2.8.5)
       celluloid (>= 0.15.2)
@@ -69,8 +70,12 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.2.2)
+    ref (1.0.5)
     safe_yaml (1.0.4)
     sass (3.4.10)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     timers (4.0.1)
       hitimes
     toml (0.1.2)
@@ -83,3 +88,4 @@ PLATFORMS
 DEPENDENCIES
   compass
   jekyll
+  therubyracer
