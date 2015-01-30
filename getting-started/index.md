@@ -12,7 +12,6 @@ itemid: getting-started
 * 論述「Arch 可以**做好**哪些事」而不是「某某系統有夠爛，快來改用 Arch 吧！」這類貶抑他人的言論，無助於推廣，徒惹他人反感而已。
 * 論述「Arch 可以**做到**哪些事」而不是將 Arch 誇飾成無所不能的系統。陳述事實，並坦然承認短處，才能讓 Arch 藉由社群力量不斷進步。
 
-
 # 寫給新手
 
 ## 心理建設
@@ -37,7 +36,6 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 [vbox-manual]: https://www.virtualbox.org/manual/UserManual.html
 [vbox-archwiki]: https://wiki.archlinux.org/index.php/VirtualBox
 
-
 # 取得 Arch Linux
 
 ## 下載
@@ -51,8 +49,6 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 [下載頁面]: https://www.archlinux.org/download/
 [已知問題]: https://bugs.archlinux.org/task/30444
 [交大機房]: http://linux.cs.nctu.edu.tw/archlinux/iso/
-
-
 
 ## 製作安裝光碟、隨身碟
 
@@ -123,25 +119,3 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
 [新竹碼農]: http://www.facebook.com/groups/hsinchu.coders/
-
-
-# 基於 Arch Linux 的發行版本
-
-這裡有些常見 GNU/Linux 發行版本，以 Arch Linux 為基礎，預載圖形桌面環境，同時保有 Arch 的優點：
-
-* [Antergos]：透過 [Gnome] 環境重生的現代化作業系統，前身為知名的 Cinnarch 系統。
-* [ArchBang]：基於 [Openbox] 視窗管理員的輕量級系統，免於繁雜的設定。
-* [Chakra]: 以 [KDE] 桌面環境精心打造，提供極其完善的安裝及操作介面。
-* [Manjaro Linux]：採用輕量 [Xfce] 桌面環境，官方同時支援 [Openbox]，為新手提供 [KDE] 以外的選擇。
-
-想要知道還有哪些選項，可以參考 [Arch Based Distributions (Active)] 取得完整清單。
-
-[Antergos]: http://antergos.com/
-[ArchBang]: http://www.archbang.org/
-[Chakra]: http://www.chakraos.org/
-[Manjaro Linux]: http://manjaro.org/
-[Gnome]: http://www.gnome.org/
-[Openbox]: http://openbox.org/
-[KDE]: http://kde.org/
-[Xfce]: http://www.xfce.org/
-[Arch Based Distributions (Active)]: https://wiki.archlinux.org/index.php/Arch_Based_Distributions
