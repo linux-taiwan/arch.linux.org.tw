@@ -2,7 +2,7 @@ name: Arch Linux 臺灣社群
 name_en: Arch Linux Taiwan Community
 url: http://archlinux.tw
 markdown: redcarpet
-pygments: true
+highlighter: 'pygments'
 timezone: 'Asia/Taipei'
 exclude: ['Gemfile', 'Gemfile.lock', 'AUTHORS', 'LICENSE', 'NOTICE', 'README.md', 'CHRONICLES.md', 'config.rb', 'build.sh']
 rss_post_limit: 10
