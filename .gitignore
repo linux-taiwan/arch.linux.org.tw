@@ -1,4 +1,5 @@
-*.swp
 _site
+!_site/bootstrap
+*.swp
 .sass-cache
 Gemfile.lock
