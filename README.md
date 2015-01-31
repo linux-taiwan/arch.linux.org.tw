@@ -1,16 +1,17 @@
 # Arch Linux Taiwan Community Website
 
-這是 [Arch Linux 臺灣社群]網站原始碼，我們使用 [Jekyll] 做內容管理。
+這是 [Arch Linux 臺灣社群]網站原始碼，我們使用 [Jekyll] 做內容管理、[Git-flow] 做流程管理。
 
 [Arch Linux 臺灣社群]: http://archlinux.tw/
 [Jekyll]: http://jekyllrb.com/
+[Git-flow]: https://github.com/nvie/gitflow
 
 
 ## 環境配置
 
 1. 請架設好基本的 Ruby 執行環境，我們推薦您使用 [RVM] 簡化這一步驟。
 2. 將此原始碼 <code>git clone --recursive</code> 到您的本地端之後，在原始碼根目錄下執行 `bundle install` 安裝必要的元件。（目前我們使用了 Jekyll 與 Compass）
-3. 在原始碼根目錄分別執行 `jekyll serve --watch` 以及 `compass watch` 讓它們自動偵測檔案異動。
+3. 在原始碼根目錄分別執行 `jekyll server` 以及 `compass watch` 讓它們自動偵測檔案異動。
 4. 新增、修改網站內容。您可以在 http://127.0.0.1:4000/ 看到目前編修的網站樣貌。
 
 [RVM]: https://rvm.io/
@@ -18,6 +19,7 @@
 
 ## 編輯原則
 
+* 可利用 GitHub 的 Pull Request 機制貢獻內容，或使用 git format-patch, git send-email 至 <hiroshi@ghostsinthelab.org>。
 * 您貢獻的內容需同意以 [CC BY-SA 4.0 授權條款]或更新版本授權公眾使用。
 * 我們接受 Jekyll 可處理的 HTML, Markdown, Textile 格式檔案。
 * 不同主題的內容新增、異動請分別用不同的 commit 儲存，且寫清楚 commit message，俾利追蹤管理。
