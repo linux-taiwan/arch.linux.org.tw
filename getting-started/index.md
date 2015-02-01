@@ -40,14 +40,13 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 ## 下載
 
-請至 Arch Linux 官方網站[下載頁面]取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快（您可能會在 Taiwan 這邊看到令您不悅的加註，這是一個陳年待解的[已知問題]）。台灣使用者建議使用 [交大機房] 的 mirror site。
+請至 Arch Linux 官方網站[下載頁面]取得光碟映像檔 (ISO file)。網頁當中列出的 **HTTP Direct Downloads** 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快。台灣使用者建議使用 [交大機房] 的 mirror site。
 
 如果您有使用 BitTorrent (BT)，也推薦您使用 BT 方式下載、同時協助分流。
 
 我們建議您能驗證下載回來的 .iso 檔內容是否正確，避免下載到損壞或經過惡意竄改的檔案。在分流載點的檔案列表，您會看到除了 .iso 檔以外還有很多檔案，其中 md5sums.txt, sha1sums.txt 分別記載了 .iso 檔的 MD5, SHA1 驗證碼 (checksum)，可使用 md5sum, sha1sum 工具計算出 .iso 檔的 checksum 值，再予以比對是否相符。
 
 [下載頁面]: https://www.archlinux.org/download/
-[已知問題]: https://bugs.archlinux.org/task/30444
 [交大機房]: http://linux.cs.nctu.edu.tw/archlinux/iso/
 
 ## 製作安裝光碟、隨身碟
@@ -70,7 +69,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 [Beginners' Guide]: https://wiki.archlinux.org/index.php/Beginners%27_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
 
 
-# 在世界中心呼喊我需要幫忙
+# 我需要幫忙！
 
 若在認真摸索和研究過後，依然無法完成安裝手續，可以前往[線上資源]所列的網路社群，或者尋求在地夥伴出手相助。
 
@@ -84,8 +83,6 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
 
-  週五偶爾會出現在 [MozTW Lab] 台北場。
-
 * 元兒～ <me@yuaner.tw>
 
   有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab] 台北場。
@@ -93,8 +90,6 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 ## 宜蘭
 
 * Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
-
-  週六經常會出現在 [MozTW Lab] 宜蘭場、或在宜蘭市區出沒。
 
 ## 新竹
 
