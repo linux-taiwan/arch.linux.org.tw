@@ -70,7 +70,7 @@ a:visited { color: darken(#1794D1, 20%); }
 header {
   nav {
     background-color: #333;
-    border-bottom: 4px solid #0088cc !important;
+    border-bottom: 5px solid #08c !important;
     font-family: 'Roboto Condensed', sans-serif;
 
     a {
@@ -84,6 +84,10 @@ header {
           color: lighten(#1793d1, 10%) !important;
         }
       }
+    }
+
+    li.active a {
+      background-color: #363636 !important;
     }
   }
 }
