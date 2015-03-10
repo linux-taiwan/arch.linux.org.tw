@@ -81,15 +81,9 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
   通常會出現在 [H4] 或 [MozTW Lab] 台北場。
 
-* Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
-
 * 元兒～ <me@yuaner.tw>
 
   有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab] 台北場。
-
-## 宜蘭
-
-* Huei-Horng Yo (hiroshiyui) <hiroshi@ghostsinthelab.org>
 
 ## 新竹
 
