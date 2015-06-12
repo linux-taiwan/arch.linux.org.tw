@@ -1,6 +1,6 @@
 name: Arch Linux 臺灣社群
 name_en: Arch Linux Taiwan Community
-url: http://archlinux.tw
+url: https://archlinux.tw
 markdown: redcarpet
 highlighter: 'pygments'
 timezone: 'Asia/Taipei'
