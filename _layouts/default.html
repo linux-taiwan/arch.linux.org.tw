@@ -21,6 +21,7 @@
     <!-- RSS Feeds -->
     <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Arch Linux Taiwan Community">
     <script src="/javascripts/set-active-menu-item.js"></script>
+    <script src="/javascripts/redirect-https.js"></script>
   </head>
   <body data-itemid="{{ page.itemid }}">
     <header>
@@ -31,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="/" class="site-title navbar-brand">{{ site.name }}</a>
+          <a href="{{ site.url }}" class="site-title navbar-brand">{{ site.name }}</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
