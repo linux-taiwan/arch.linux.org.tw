@@ -11,4 +11,4 @@ author: "Huei-Horng Yo"
 
 本問題已經在 `linux 4.0.4-2` 與 `linux-lts 3.14.43-2` 修正。但是由於這個問題的發生原理使然，很可能系統資料已經在前述有問題的核心版本上發生毀損情況了。強烈建議您在受到影響的檔案系統上做資料完整性檢查，可使用 `fsck` 工具，並（或）從現存的完整備份那邊還原資料。
 
-若需要進一步的資訊，請參考 LKML 上由 Holger Kiehl 發表的[貼文](https://lkml.org/lkml/2015/5/21/167)、Phoronix 上的[相關文章](http://www.phoronix.com/scan.php?page=news_item&px=Linux-4-EXT4-RAID-Issue-Found)以及被 backport 到 Arch 核心的[修正](http://git.neil.brown.name/?p=md.git;a=commitdiff;h=a81157768a00e8cf8a7b43b5ea5cac931262374f)。
+若需要進一步的資訊，請參考 Holger Kiehl 在 LKML 發表的[貼文](https://lkml.org/lkml/2015/5/21/167)、Phoronix 上的[相關文章](http://www.phoronix.com/scan.php?page=news_item&px=Linux-4-EXT4-RAID-Issue-Found)以及被 backport 到 Arch 核心的[修正](http://git.neil.brown.name/?p=md.git;a=commitdiff;h=a81157768a00e8cf8a7b43b5ea5cac931262374f)。
