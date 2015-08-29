@@ -11,7 +11,7 @@ author: "Huei-Horng Yo"
 
 在更新與重新啟動遠端的 sshd 之前，請確認您沒有使用此類的金鑰來連接這台機器。要檢查機器上個別用戶是否採用了 DSA 型金鑰來獲取存取權限，可使用：
 
-    `grep ssh-dss ~/.ssh/authorized_keys`
+    grep ssh-dss ~/.ssh/authorized_keys
 
 如果您發現有使用此類金鑰，務必確認您有替代的登入方法，像是使用不同類型的金鑰，或是密碼驗證。
 
