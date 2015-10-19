@@ -91,10 +91,6 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
   目前就讀於中華大學，也會參加每個禮拜一的"MozTW + Arch Linux Lab in Hsinchu"聚會。
 
-* xatier <xatierlike@gmail.com> / @xatierlikeLee on [Twitter](https://twitter.com/xatierlikeLee)
-
-  台中人，目前就讀於交通大學，出沒於 [PyHUG 社群](http://www.meetup.com/pythonhug/) 和各社群研討會
-
 ## 台中
 
 * Yushin Huang (hyslion) ✉ <hyslion@gmail.com> ✎ [Google+](https://plus.google.com/communities/101238863048851764297)
@@ -104,6 +100,11 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 * Harold Wu (haroldwu) <wennynnewenny@gmail.com>
   
   目前就讀中國醫藥大學，北區的朋友可以就地支援，或參加雙周週一的 [臺中自由軟體聚會](https://plus.google.com/u/0/communities/103994353345517742722)，也有一些使用 Arch Linux 的朋友。
+
+* xatier <xatierlike@gmail.com> / @xatierlikeLee on [Twitter](https://twitter.com/xatierlikeLee)
+
+  台中人，出沒於台中 [CTLUG 社群](http://ct.lug.tw) 和各社群研討會
+
 
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
