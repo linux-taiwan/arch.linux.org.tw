@@ -93,7 +93,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 * PN Wu (小平) <PingNote.Wu@gmail.com> / @PingNote on [LinkedIn](https://tw.linkedin.com/in/PingNote) , [Telegram](https://telegram.me/PingNote)
 
-  澎湖人，就讀於新竹交通大學， [NBA](http://nba.nctu.edu.tw) 社員，出沒於 [SITCON](http://sitcon.org) 、 [YSITD](https://ysitd.io) 、各社群和研討會，全台跑透透。使用 Arch Linux 及其衍生發行版 [Manjro linux](https://manjaro.org) 。
+  澎湖人，就讀於新竹交通大學， [NBA](http://nba.nctu.edu.tw) 社員，出沒於 [SITCON](http://sitcon.org) 、 [YSITD](https://ysitd.io) 、各社群和研討會，全台跑透透。使用 Arch Linux 及其衍生發行版 [Manjaro linux](https://manjaro.org) 。
   
 ## 台中
 
