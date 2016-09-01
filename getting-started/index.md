@@ -77,37 +77,37 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 ## 台北
 
-* Carl X. Su (carl_tw) <http://gplus.to/carl>
+###Carl X. Su (carl_tw) <http://gplus.to/carl>
 
-  通常會出現在 [H4] 或 [MozTW Lab] 台北場。
+通常會出現在 [H4] 或 [MozTW Lab] 台北場。
 
-* 元兒～ <me@yuaner.tw>
+###元兒～ <me@yuaner.tw>
 
-  有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab] 台北場。
+有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab] 台北場。
 
 ## 新竹
 
-* 元兒～ <me@yuaner.tw>
+###元兒～ <me@yuaner.tw>
 
-  目前就讀於中華大學，也會參加每個禮拜一的"MozTW + Arch Linux Lab in Hsinchu"聚會。
+目前就讀於中華大學，也會參加每個禮拜一的"MozTW + Arch Linux Lab in Hsinchu"聚會。
 
-* PN Wu (小平) <PingNote.Wu@gmail.com> / @PingNote on [LinkedIn](https://tw.linkedin.com/in/PingNote) , [Telegram](https://telegram.me/PingNote)
+###PN Wu (小平) <PingNote.Wu@gmail.com> / @PingNote on [LinkedIn](https://tw.linkedin.com/in/PingNote) , [Telegram](https://telegram.me/PingNote)
 
-  澎湖人，就讀於新竹交通大學， [NBA](http://nba.nctu.edu.tw) 社員，出沒於 [SITCON](http://sitcon.org) 、 [YSITD](https://ysitd.io) 、各社群和研討會，全台跑透透。使用 Arch Linux 及其衍生發行版 [Manjaro linux](https://manjaro.org) 。
+澎湖人，就讀於新竹交通大學， [NBA](http://nba.nctu.edu.tw) 社員，出沒於 [SITCON](http://sitcon.org) 、 [YSITD](https://ysitd.io) 、各社群和研討會，全台跑透透。使用 Arch Linux 及其衍生發行版 [Manjaro Linux](https://manjaro.org) 。
   
 ## 台中
 
-* Yushin Huang (hyslion) ✉ <hyslion@gmail.com> ✎ [Google+](https://plus.google.com/communities/101238863048851764297)
+###Yushin Huang (hyslion) ✉ <hyslion@gmail.com> ✎ [Google+](https://plus.google.com/communities/101238863048851764297)
 
-  就讀於東海大學，出沒在東海商圈周遭。
+就讀於東海大學，出沒在東海商圈周遭。
   
-* Harold Wu (haroldwu) <wennynnewenny@gmail.com>
+###Harold Wu (haroldwu) <wennynnewenny@gmail.com>
   
-  目前就讀中國醫藥大學，北區的朋友可以就地支援，或參加雙周週一的 [臺中自由軟體聚會](https://plus.google.com/u/0/communities/103994353345517742722)，也有一些使用 Arch Linux 的朋友。
+目前就讀中國醫藥大學，北區的朋友可以就地支援，或參加雙周週一的 [臺中自由軟體聚會](https://plus.google.com/u/0/communities/103994353345517742722)，也有一些使用 Arch Linux 的朋友。
 
-* xatier <xatierlike@gmail.com> / @xatierlikeLee on [Twitter](https://twitter.com/xatierlikeLee)
+###xatier <xatierlike@gmail.com> / @xatierlikeLee on [Twitter](https://twitter.com/xatierlikeLee)
 
-  台中人，出沒於台中 [CTLUG 社群](http://ct.lug.tw) 和各社群研討會
+台中人，出沒於台中 [CTLUG 社群](http://ct.lug.tw) 和各社群研討會
 
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
