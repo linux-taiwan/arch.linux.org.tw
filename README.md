@@ -20,10 +20,9 @@
 
 ### 方法 B：使用 Docker
 
-1. 將此原始碼 <code>git clone --recursive</code> 到您的本地端之後，在原始碼根目錄下執行 `make submodule` 安裝必要的 Git submodules。
-2. 執行 `make build` 建立 Docker image。
-3. 執行 `make start` 把網站編修過程所需的 Docker container 跑起來。
-4. 新增、修改網站內容，再執行 `make update` 將變動更新至 Docker container 裡。您可以在 http://127.0.0.1:4000/ 看到目前編修的網站樣貌。
+1. 將此原始碼 <code>git clone --recursive</code> 到您的本地端之後，執行 `make build` 建立 Docker image。
+2. 執行 `make start` 把網站編修過程所需的 Docker container 跑起來。
+3. 新增、修改網站內容，再執行 `make update` 將變動更新至 Docker container 裡。您可以在 http://127.0.0.1:4000/ 看到目前編修的網站樣貌。
 
 
 ## 編輯原則
