@@ -16,6 +16,15 @@ relative_assets = true
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = false
 
+require 'listen'
+listener = Listen.to("#{File.dirname(__FILE__)}/css") do |modified, added, removed|
+  puts "modified absolute path: #{modified}"
+  puts "added absolute path: #{added}"
+  puts "removed absolute path: #{removed}"
+end
+puts "Compass is watching for changes. Press Ctrl-C to Stop."
+listener.start
+sleep
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:
