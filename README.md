@@ -9,12 +9,21 @@
 
 ## 環境配置
 
-1. 請架設好基本的 Ruby 執行環境，我們推薦您使用 [RVM] 簡化這一步驟。
-2. 將此原始碼 <code>git clone --recursive</code> 到您的本地端之後，在原始碼根目錄下執行 `bundle install` 安裝必要的元件。（目前我們使用了 Jekyll 與 Compass）
-3. 在原始碼根目錄分別執行 `jekyll server` 以及 `compass watch` 讓它們自動偵測檔案異動。
-4. 新增、修改網站內容。您可以在 http://127.0.0.1:4000/ 看到目前編修的網站樣貌。
+1. 請架設好基本的 Ruby 執行環境，我們推薦您使用 [RVM] 或 [rbenv] 簡化這一步驟。
+2. 將此原始碼 <code>git clone --recursive</code> 到您的本地端。
+3. 在原始碼根目錄下執行 `bundle install` 安裝必要的元件。（目前我們使用了 Jekyll 與 Compass）
+4. 在原始碼根目錄分別執行 `jekyll serve` 以及 `compass watch` 讓它們自動偵測檔案異動。
+5. 您也可以使用 Docker 開發，簡化安裝步驟：
+
+  ```bash
+  cd arch.linux.org.tw
+  docker build -t archtw .
+  docker run -p 4000:4000 -v $PWD:/arch-tw archtw
+  ```
+6. 新增、修改網站內容。您可以在 http://127.0.0.1:4000/ 看到目前編修的網站樣貌。
 
 [RVM]: https://rvm.io/
+[rbenv]: https://github.com/rbenv/rbenv
 
 
 ## 編輯原則
