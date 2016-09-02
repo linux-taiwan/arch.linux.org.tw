@@ -1,5 +1,7 @@
 # Arch Linux Taiwan Community Website
 
+[![Join the chat at https://gitter.im/linux-taiwan/arch.linux.org.tw](https://badges.gitter.im/linux-taiwan/arch.linux.org.tw.svg)](https://gitter.im/linux-taiwan/arch.linux.org.tw?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 這是 [Arch Linux 臺灣社群]網站原始碼，我們使用 [Jekyll] 做內容管理、[GitHub Flow] 做流程管理。
 
 [Arch Linux 臺灣社群]: http://archlinux.tw/
