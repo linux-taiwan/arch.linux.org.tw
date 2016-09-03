@@ -6,7 +6,7 @@ itemid: contribute
 
 # 加入我們
 
-與許多網路、科技社群一樣，Arch Linux 臺灣社群是一個鬆散結合組織 (loosely coupled system)，我們希望透過網路或實體聚會組成臨時任務編組 (task force) 來達成各種有益於 Arch Linux 臺灣使用者的工作。我們誠摯邀請您[參與](https://docs.google.com/forms/d/1FBk56uHun-RoPAflt4jZn2gr2r8q3qDXSH_AN0OLuE4/viewform)下列各種主題小組：
+與許多網路、科技社群一樣，Arch Linux 臺灣社群是一個鬆散結合組織 (loosely coupled system)，我們希望透過網路或實體聚會組成臨時任務編組 (task force) 來達成各種有益於 Arch Linux 臺灣使用者的工作。我們誠摯邀請您參加下列各種主題活動：
 
 ## 新手入門引路人
 
@@ -18,11 +18,6 @@ ArchWiki 是 Arch Linux 社群最仰賴的文件庫，所以維持 ArchWiki 內�
 
 這項工作需要註冊 ArchWiki 帳號。
 
-## Arch Linux 臺灣社群網站養護工程處
+## Arch Linux 臺灣社群網站維護
 
-維護您現在看到的這個網站。
-
-## 機動支援
-
-您對 Arch 社群很有興趣，但是上列工作不知道該專精哪一項？又或者只是新手，卻大膽不怕羞，願意作為我們入門教材取材的活範例？歡迎加入機動支援小隊。
-
+維護您現在看到的這個網站，主要工作是 Arch Linux 官方公告翻譯。
