@@ -13,19 +13,15 @@ itemid: links
 * [Arch Linux 官網新聞頁](https://www.archlinux.org/news/) 可訂閱 RSS Feeds。
 * [Arch Linux 官方 Twitter 帳號](https://twitter.com/archlinux)
 
-## 即時討論
-
-我們在 Gitter 上開設了線上聊天室，歡迎加入 [linux-taiwan/arch.linux.org.tw](https://gitter.im/linux-taiwan/arch.linux.org.tw) 暢談與 Arch Linux 相關的話題。
-
-## 問問題
-
-歡迎逕自利用我們的 [GitHub Issues](https://github.com/linux-taiwan/arch.linux.org.tw/issues) 詢問與 Arch Linux 相關的問題，**與網站本身無關的問題，請記得打上 `question` 標籤 (label)**。
-
 ## 參考文件
 
 * [ArchWiki](https://wiki.archlinux.org/) Arch 最豐富的文件資源所在
 
+## 即時討論
+
+我們在 Gitter 上開設了線上聊天室，歡迎加入 [linux-taiwan/arch.linux.org.tw](https://gitter.im/linux-taiwan/arch.linux.org.tw) 暢談與 Arch Linux 相關的話題。
+
 ## 網路社群
 
-* [Google+ Arch Linux 中文社群](https://plus.google.com/u/0/communities/101238863048851764297)
 * [Arch Linux TW 討論群組 - Google 網上論壇](https://groups.google.com/forum/#!forum/archlinux-tw-general)
+* [Google+ Arch Linux 中文社群](https://plus.google.com/u/0/communities/101238863048851764297)
