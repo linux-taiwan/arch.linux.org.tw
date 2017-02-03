@@ -7,7 +7,7 @@ WORKDIR /srv/www/archlinux.tw
 COPY . /srv/www/archlinux.tw
 
 # build project
-RUN /bin/bash -l -c 'gem install bundler'
-RUN /bin/bash -l -c 'bundle install'
+RUN gem install bundler
+RUN bundle install
 
-CMD /bin/bash -l -c 'jekyll server -H 0.0.0.0'
+CMD jekyll server -H 0.0.0.0
