@@ -72,6 +72,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "ansible/playbook.yml"
     ansible.inventory_path = "ansible/inventory"
-    ansible.limit = "all"
+    ansible.limit = "vagrant_archlinux_vm"
   end
 end

@@ -1,5 +1,5 @@
 ---
-- hosts: wordpress_servers
+- hosts: vagrant_archlinux_vm,wordpress_servers
   remote_user: root
   become: true
   vars:
