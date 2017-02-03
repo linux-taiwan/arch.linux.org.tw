@@ -1,7 +1,31 @@
 ---
 - hosts: wordpress_servers
   remote_user: root
+  become: true
+  vars:
+    wordpress_version: 4.7.2
+    wordpress_checksum: 7b687f1af589c337124e6247229af209ec1d52c3
   tasks:
     - name: test connection
       ping:
       remote_user: vagrant
+    - name: install essential packages
+      pacman: name={{ item }} state=latest update_cache=yes
+      with_items:
+        - nginx
+        - php-fpm
+        - mariadb
+        - mariadb-clients
+    - name: initializing mysql (mariadb here)
+      command: mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql creates=/var/lib/mysql/*
+    - name: grab wordpress package
+      get_url:
+        url: https://wordpress.org/wordpress-{{ wordpress_version }}.tar.gz
+        dest: /tmp/wordpress-{{ wordpress_version }}.tar.gz
+        checksum: sha1:{{ wordpress_checksum }}
+    - name: start services
+      systemd: name={{ item }} state=started
+      with_items:
+        - nginx
+        - mariadb
+        - php-fpm
