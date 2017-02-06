@@ -8,7 +8,8 @@ help:
 	echo ' make build:        建立 Docker image' && \
 	echo ' make start:        執行 Docker container' && \
 	echo ' make stop:         停止 Docker container' && \
-	echo ' make update:       把網站資料更新到 Docker container'
+	echo ' make update:       把網站資料更新到 Docker container' && \
+	echo ' make play_vagrant: 套用 Ansible 到 Vagrant VM'
 
 submodule:
 	git submodule init && git submodule update
@@ -29,3 +30,6 @@ update:
 clean:
 	docker ps -aqf status=exited | xargs docker rm || true && \
 	docker images | awk '$$1 ~ /archlinux_taiwan/ { print $$3   }' | xargs docker rmi -f || true
+
+play_vagrant:
+	ansible-playbook --inventory-file=ansible/inventory --limit=vagrant_archlinux_vm ansible/playbook.yml

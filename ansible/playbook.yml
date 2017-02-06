@@ -3,12 +3,15 @@
   remote_user: root
   become: true
   vars:
-    wordpress_version: 4.7.2
-    wordpress_checksum: 7b687f1af589c337124e6247229af209ec1d52c3
+    drupal_version: 8.2.6
+    drupal_checksum: ea9b38046615c2989bc260e6ffd80b7c58b8f4ad
+  vars_files:
+    - vars/mysql_vars.yml
   tasks:
     - name: test connection
       ping:
       remote_user: vagrant
+
     - name: install essential packages
       pacman: name={{ item }} state=latest update_cache=yes
       with_items:
@@ -16,16 +19,88 @@
         - php-fpm
         - mariadb
         - mariadb-clients
+        - mysql-python
+        - vim
+
+    - name: safer configuration value of cgi.fix_pathinfo
+      lineinfile:
+        dest: /etc/php/php.ini
+        regexp: '^;cgi.fix_pathinfo=1'
+        insertafter: '^;cgi.fix_pathinfo=1'
+        line: 'cgi.fix_pathinfo=0'
+        backrefs: yes
+      register: php_config
+
     - name: initializing mysql (mariadb here)
       command: mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql creates=/var/lib/mysql/*
-    - name: grab wordpress package
+
+    - name: setup mysql root user
+      mysql_user:
+        name: root
+        password: "{{ mysql_root_password }}"
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        host_all: yes
+        check_implicit_admin: yes
+
+    - name: grab drupal package
       get_url:
-        url: https://wordpress.org/wordpress-{{ wordpress_version }}.tar.gz
-        dest: /tmp/wordpress-{{ wordpress_version }}.tar.gz
-        checksum: sha1:{{ wordpress_checksum }}
+        url: https://ftp.drupal.org/files/projects/drupal-{{ drupal_version }}.tar.gz
+        dest: /tmp/drupal-{{ drupal_version }}.tar.gz
+        checksum: sha1:{{ drupal_checksum }}
+
+    - name: extract drupal package
+      unarchive:
+        src: /tmp/drupal-{{ drupal_version }}.tar.gz
+        dest: /srv/http
+        owner: http
+        group: http
+        remote_src: yes
+        creates: /src/http/drupal-{{ drupal_version }}
+
+    - name: symbolic linking drupal
+      file:
+        src: /srv/http/drupal-{{ drupal_version }}
+        dest: /srv/http/drupal
+        owner: http
+        group: http
+        state: link
+
+    - name: setup mysql drupal database
+      mysql_db:
+        name: drupal
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        state: present
+
+    - name: setup mysql drupal user
+      mysql_user:
+        name: drupal
+        host: localhost
+        password: "{{ mysql_drupal_password }}"
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+
+    - name: allow mysql drupal user to access drupal db
+      mysql_user:
+        name: drupal
+        host: localhost
+        password: "{{ mysql_drupal_password }}"
+        append_privs: true
+        priv: "{{ item }}"
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+      with_items:
+        - '*.*:USAGE'
+        - 'drupal.*:ALL'
+
     - name: start services
-      systemd: name={{ item }} state=started
+      systemd: name={{ item }} enabled=yes state=started
       with_items:
         - nginx
         - mariadb
         - php-fpm
+
+    - name: restart php after configuration(s) changed
+      systemd: name=php-fpm state=restarted
+      when: php_config.changed

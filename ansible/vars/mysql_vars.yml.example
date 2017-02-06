@@ -1,0 +1,2 @@
+mysql_root_password: YOUR_MYSQL_ROOT_PASSWORD_HERE
+mysql_drupal_password: YOUR_MYSQL_DRUPAL_PASSWORD_HERE

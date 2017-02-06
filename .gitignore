@@ -5,3 +5,4 @@ _site
 Gemfile.lock
 .vagrant
 ansible/playbook.retry
+ansible/vars/mysql_vars.yml
