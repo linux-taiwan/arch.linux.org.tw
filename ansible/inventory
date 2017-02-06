@@ -1,4 +1,4 @@
 [vagrant_archlinux_vm]
 192.168.33.10 ansible_connection=ssh  ansible_user=vagrant  ansible_ssh_pass=vagrant
 
-[wordpress_servers]
+[production_servers]
