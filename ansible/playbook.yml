@@ -26,16 +26,20 @@
         - vim
         - unzip
 
-    - name: safer configuration value of cgi.fix_pathinfo
+    - name: adjust settings in php.ini
       lineinfile:
         dest: /etc/php/php.ini
-        regexp: '^;cgi.fix_pathinfo=1'
-        insertafter: '^;cgi.fix_pathinfo=1'
-        line: 'cgi.fix_pathinfo=0'
+        regexp: "{{ item.regexp }}"
+        insertafter: "{{ item.regexp }}"
+        line: "{{ item.line }}"
         backrefs: yes
+      with_items:
+        - { regexp: '^;cgi.fix_pathinfo=1', line: 'cgi.fix_pathinfo=0' }
+        - { regexp: '^;extension=pdo_mysql.so', line: 'extension=pdo_mysql.so' }
+        - { regexp: '^;extension=gd.so', line: 'extension=gd.so' }
       register: php_config
 
-    - name: initializing mysql (mariadb here)
+    - name: initializing mysql (actually mariadb here)
       command: mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
       args:
         creates: /var/lib/mysql/*
