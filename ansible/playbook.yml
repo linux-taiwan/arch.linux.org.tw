@@ -6,6 +6,7 @@
     drupal_checksum: ea9b38046615c2989bc260e6ffd80b7c58b8f4ad
   vars_files:
     - vars/mysql_vars.yml
+    - vars/nginx_vars.yml
   tasks:
     - name: test connection
       ping:
@@ -25,6 +26,7 @@
         - mysql-python
         - vim
         - unzip
+        - net-tools
 
     - name: adjust settings in php.ini
       lineinfile:
@@ -37,7 +39,14 @@
         - { regexp: '^;cgi.fix_pathinfo=1', line: 'cgi.fix_pathinfo=0' }
         - { regexp: '^;extension=pdo_mysql.so', line: 'extension=pdo_mysql.so' }
         - { regexp: '^;extension=gd.so', line: 'extension=gd.so' }
+        - { regexp: '^;zend_extension=opcache.so', line: 'zend_extension=opcache.so' }
       register: php_config
+
+    - name: adjust settings in nginx.config
+      template:
+        src: templates/nginx/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      register: nginx_config
 
     - name: initializing mysql (actually mariadb here)
       command: mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
@@ -113,6 +122,12 @@
         - nginx
         - mariadb
         - php-fpm
+
+    - name: restart nginx after configuration(s) changed
+      systemd:
+        name: nginx
+        state: restarted
+      when: nginx_config.changed
 
     - name: restart php after configuration(s) changed
       systemd:
