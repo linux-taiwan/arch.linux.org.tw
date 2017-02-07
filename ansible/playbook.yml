@@ -1,6 +1,5 @@
 ---
 - hosts: vagrant_archlinux_vm,production_servers
-  remote_user: root
   become: true
   vars:
     drupal_version: 8.2.6
@@ -10,17 +9,19 @@
   tasks:
     - name: test connection
       ping:
-      remote_user: vagrant
 
     - name: install essential packages
       pacman: name={{ item }} state=latest update_cache=yes
       with_items:
         - nginx
         - php-fpm
+        - php-gd
+        - composer
         - mariadb
         - mariadb-clients
         - mysql-python
         - vim
+        - unzip
 
     - name: safer configuration value of cgi.fix_pathinfo
       lineinfile:
