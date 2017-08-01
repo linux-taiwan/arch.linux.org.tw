@@ -12,9 +12,9 @@ itemid: contribute
 
 在[新手上路](/getting-started/)頁面裡提供您的聯絡資訊，讓 Arch 新手可以就近找到人求助。
 
-## ArchWiki 中文條目巡守隊
+## 協助編修 ArchWiki 中文條目
 
-ArchWiki 是 Arch Linux 社群最仰賴的文件庫，所以維持 ArchWiki 內容的新穎、正確性，是相當重要的一項工作。Arch Linux 臺灣社群特別著眼於 [ArchWiki 的中文條目](https://wiki.archlinux.org/index.php/Main_Page_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29)，我們的理想目標是 **0 day sync**，也就是英文原始條目內容一有異動，就盡力在 24 小時內達成中文版對應條目的同步更新。
+ArchWiki 是 Arch Linux 社群最仰賴的文件庫，所以維持 ArchWiki 內容的新穎、正確性，是相當重要的一項工作。Arch Linux 臺灣社群特別著眼於 [ArchWiki 的中文條目](https://wiki.archlinux.org/index.php/Main_Page_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29)。
 
 這項工作需要註冊 ArchWiki 帳號。
 
