@@ -55,7 +55,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 如果您打算照前面所說的，使用 VirtualBox 體驗 Arch，VirtualBox 亦支援模擬光碟機，直接拿 .iso 檔模擬成開機片。
 
-[使用隨身碟來製作安裝碟]: https://wiki.archlinux.org/index.php/USB_Installation_Media_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
+[使用隨身碟來製作安裝碟]: https://wiki.archlinux.org/index.php/USB_flash_installation_media_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)
 
 # 開始安裝
 
@@ -63,10 +63,9 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 請用您的安裝光碟、隨身碟開機，準備開始安裝 Arch。如果您之前的作業系統安裝經驗，有圖形介面的輔助，頭一次看到 Arch 的純文字、命令列介面，也許會當場傻眼，甚至心生恐懼、排斥。但是 Arch 安裝介面為求耗用最少資源、達成最大彈性，是刻意設計成這樣的。無論純文字介面還是圖形介面的目的都一樣，就是要輔助您完成系統安裝。
 
-請您照著 [Installation Guide] 或 [Beginners' Guide] 的說明指引，來安裝 Arch。事實上，這兩份文件也就是我們在本文前頭提過的，不管是老手還是新手，至少都有一次機會需要邊讀邊做的必讀文件。
+請您照著 [Installation Guide] 的說明指引，來安裝 Arch。事實上，這一份文件也就是我們在本文前頭提過的，不管是老手還是新手，至少都有一次機會需要邊讀邊做的必讀文件。
 
-[Installation Guide]: https://wiki.archlinux.org/index.php/Installation_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
-[Beginners' Guide]: https://wiki.archlinux.org/index.php/Beginners%27_Guide_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29
+[Installation Guide]: https://wiki.archlinux.org/index.php/Installation_guide_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)
 
 
 # 我需要幫忙！
