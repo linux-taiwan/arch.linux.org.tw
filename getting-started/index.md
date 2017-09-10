@@ -108,6 +108,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 台中人，出沒於台中 [CTLUG 社群](http://ct.lug.tw) 和各社群研討會
 
+### Kerwin Tsai (kerwin) <kerwen374@gmail.com> 
+
+台中二中學生 在安裝上有問題的朋友可以提問
+
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
 [新竹碼農]: http://www.facebook.com/groups/hsinchu.coders/
