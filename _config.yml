@@ -1,8 +1,7 @@
 name: Arch Linux 臺灣社群
 name_en: Arch Linux Taiwan Community
 url: https://archlinux.tw
-gems:
-  - jekyll-compass
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed

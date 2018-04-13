@@ -1,3 +1,0 @@
-[submodule "twitter-bootstrap"]
-	path = _site/bootstrap
-	url = https://github.com/twbs/bootstrap.git

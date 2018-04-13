@@ -1,11 +1,10 @@
+---
+---
 /*****************************************************************************/
 /*
 /* Common
 /*
 /*****************************************************************************/
-
-/*@import "compass/reset";*/
-@import "compass/css3";
 
 /* Global Reset */
 * {
@@ -25,10 +24,7 @@ body {
   font: 13.34px 'Roboto', 'Microsoft JhengHei', Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-size: 1rem;
-  /*text-align: justify;*/
-  /*text-justify: inter-ideograph;*/
-  /*@include hyphenation;*/
-  @include hyphens(auto);
+  hyphens: auto;
   line-height: 1.5em;
 }
 
@@ -56,7 +52,7 @@ h3 {
 }
 
 p {
-  @include text-shadow(#fff 1px 1px 1px);
+  text-shadow: #fff 1px 1px 1px;
   margin: 1em 0;
   color: #666;
 }
@@ -74,7 +70,7 @@ a:visited { color: darken(#1794D1, 20%); }
 
 header {
   nav {
-    background-color: #333;
+    background-color: #000000;
     border-bottom: 5px solid #08c !important;
     font-family: 'Roboto Condensed', sans-serif;
 
@@ -91,16 +87,21 @@ header {
       }
     }
 
-    li.active a {
-      background-color: #363636 !important;
+    a.nav-link {
+      padding-left: 0.5em !important;
+      padding-right: 0.5em !important;
+    }
+    li.active a.nav-link {
+      background-color: #555 !important;
+      border-radius: 8px;
     }
   }
 }
 
 
 section.content {
-  padding-top: 4.5em;
-  @include background-image(linear-gradient(#D8E7F0, #eeeeee, #ececec));
+  padding-top: 2.5em;
+  background: linear-gradient(#D8E7F0, #eeeeee, #ececec);
 
   ul {
     margin-left: 1.2em;
@@ -117,19 +118,19 @@ section.content {
       margin: 0 auto;
     }
 
-    .glyphicon {
+    i.fas {
       margin-right: 0.2em;
     }
 
     h2 {
-      @include text-shadow(#999 0px 2px 2px);
+      text-shadow: #999 0px 2px 2px;
       font-size: 1.4em;
       font-size: 1.4rem;
       line-height: 1.5em;
       letter-spacing: 1px;
 
       &.slogan {
-        @include text-shadow(#999 2px 2px 2px);
+        text-shadow: #999 2px 2px 2px;
         font-size: 1.8em;
         font-size: 1.8rem;
         letter-spacing: 1px;
@@ -173,8 +174,8 @@ section.content {
               background-color: #1793d1;
               border-top: 1px solid darken(#1793d1, 20%);
               border-left: 1px solid darken(#1793d1, 20%);
-              @include border-radius(4px);
-              @include text-shadow(darken(#1793d1, 20%) 1px 1px 0px);
+              border-radius: 4px;
+              text-shadow: darken(#1793d1, 20%) 1px 1px 0px;
             }
           }
 
