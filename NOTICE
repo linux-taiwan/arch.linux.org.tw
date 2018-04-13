@@ -1,5 +1,5 @@
 Arch Linux Taiwan Community Website
-Copyright (c) 2013 Huei-Horng Yo and other contributors
+Copyright (c) 2013-2018 Huei-Horng Yo and other contributors
 
 This software is released under the MIT license.
 
@@ -11,93 +11,31 @@ libraries and their respective licenses below.
 Third Party Software Notices:
 =============================
 
- - Bootstrap v3.0.0
-   http://getbootstrap.com/
+  - Jekyll
+    http://jekyllrb.com/
 
-   Copyright 2013 Twitter, Inc
-   Licensed under the Apache License v2.0
-   http://www.apache.org/licenses/LICENSE-2.0
+    Copyright (c) 2008-2018 Tom Preston-Werner and Jekyll contributors
+    Released under the MIT license
+    https://github.com/jekyll/jekyll/blob/master/LICENSE
 
- - Compass
-   http://compass-style.org/
+  - Jekyll Feed plugin
+    https://github.com/jekyll/jekyll-feed
 
-   Copyright (c) 2008-2009 Christopher M. Eppstein
-   Released under a slightly modified MIT license
-   https://github.com/chriseppstein/compass/blob/stable/LICENSE.markdown
+    Copyright (c) 2015-present Ben Balter and jekyll-feed contributors
+    This plugin is released under the MIT license.
+    https://github.com/jekyll/jekyll-feed/blob/master/LICENSE.txt
 
- - Jekyll
-   http://jekyllrb.com/
+  - Jekyll::Paginate
+    https://github.com/jekyll/jekyll-paginate
 
-   Copyright (c) 2008 Tom Preston-Werner
-   Released under the MIT license
-   https://github.com/mojombo/jekyll/blob/master/LICENSE
+    Copyright (c) 2014 Parker Moore
+    This plugin is released under the MIT license.
+    https://github.com/jekyll/jekyll-paginate/blob/master/LICENSE.txt
 
- - Jekyll Plugin: RSS Feed Generator
-   https://github.com/agelber/jekyll-rss/
+  - Jekyll Sitemap Generator Plugin
+    https://github.com/jekyll/jekyll-sitemap
 
-   Copyright 2013 Assaf Gelber
-   This plugin is released under the MIT license.
-   https://github.com/agelber/jekyll-rss/blob/master/LICENSE-MIT.txt
+    Copyright (c) 2014-present, GitHub, inc. and the jekyll-sitemap contributors
+    This plugin is released under the MIT license.
+    https://github.com/jekyll/jekyll-sitemap/blob/master/LICENSE.md
 
- - Jekyll Plugin: Sitemap.xml Generator
-   https://github.com/kinnetica/jekyll-plugins
-
-   Author: Michael Levin (http://www.kinnetica.com)
-   Distributed Under A [Creative Commons](http://creativecommons.org/licenses/by/3.0/) License
-
- - jQuery v1.10.2
-   http://jquery.com/
-
-   Copyright 2013 jQuery Foundation and other contributors
-   Released under the MIT license
-   https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt
-
-   Permission is hereby granted, free of charge, to any person obtaining
-   a copy of this software and associated documentation files (the
-   "Software"), to deal in the Software without restriction, including
-   without limitation the rights to use, copy, modify, merge, publish,
-   distribute, sublicense, and/or sell copies of the Software, and to
-   permit persons to whom the Software is furnished to do so, subject to
-   the following conditions:
-
-   The above copyright notice and this permission notice shall be
-   included in all copies or substantial portions of the Software.
-
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-   LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-   OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
- - jQuery UI v1.10.3
-   http://jqueryui.com/
-
-   Copyright 2013 jQuery Foundation and other contributors,
-   Released under the MIT license.
-   https://github.com/jquery/jquery-ui/blob/master/MIT-LICENSE.txt
-
-   This software consists of voluntary contributions made by many
-   individuals (AUTHORS.txt, http://jqueryui.com/about) For exact
-   contribution history, see the revision history and logs, available
-   at http://jquery-ui.googlecode.com/svn/
-
-   Permission is hereby granted, free of charge, to any person obtaining
-   a copy of this software and associated documentation files (the
-   "Software"), to deal in the Software without restriction, including
-   without limitation the rights to use, copy, modify, merge, publish,
-   distribute, sublicense, and/or sell copies of the Software, and to
-   permit persons to whom the Software is furnished to do so, subject to
-   the following conditions:
-
-   The above copyright notice and this permission notice shall be
-   included in all copies or substantial portions of the Software.
-
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-   LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-   OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
