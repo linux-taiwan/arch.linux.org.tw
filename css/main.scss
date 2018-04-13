@@ -73,8 +73,6 @@ header {
     background-color: #000000;
     border-bottom: 5px solid #08c !important;
     font-family: 'Roboto Condensed', sans-serif;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
 
     a {
       font-weight: bold;
@@ -89,12 +87,13 @@ header {
       }
     }
 
-    li {
-      line-height: 2em;
+    a.nav-link {
+      padding-left: 0.5em !important;
+      padding-right: 0.5em !important;
     }
-
-    li.active a {
-      background-color: #444444 !important;
+    li.active a.nav-link {
+      background-color: #555 !important;
+      border-radius: 8px;
     }
   }
 }
