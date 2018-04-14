@@ -37,24 +37,14 @@
 * 網站相關錯誤，例如版面錯置或內容有誤，請前往 [GitHub 追蹤系統]回報問題，我們會盡快處理。
 * 主編保留內容潤飾、刊登與否的最終裁量權。任何違背關乎宗教、政治、性別、性傾向、種族、身心障礙等需遵循政治正確原則的爭議內容，本站恕不接受。
 
-[CC BY-SA 4.0 授權條款]: http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW 
+[CC BY-SA 4.0 授權條款]: http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW
 [GitHub 追蹤系統]: https://github.com/linux-taiwan/arch.linux.org.tw/issues
 
 
 ## 專案授權
 
 * 程式部分以 [MIT License] 釋出，圖文內容採用 [CC BY-SA 4.0 授權條款]。
-* 本專案使用下列第三方軟體，授權條款全文詳見根目錄底下的 [NOTICE] 檔：
-  * [Bootstrap]：The Apache 2.0 License
-  * [Compass]：修改過的 MIT License（禁止背書或促銷）
-  * [Jekyll]：The MIT License
-  * [jQuery]：The MIT License
-  * [jQuery UI]：The MIT License
+* 本專案使用了某些第三方軟體，授權條款全文詳見根目錄底下的 [NOTICE] 檔。
 
 [MIT License]: LICENSE
 [NOTICE]: NOTICE
-[Bootstrap]: http://getbootstrap.com/
-[Compass]: http://compass-style.org/
-[Jekyll]: http://jekyllrb.com/
-[jQuery]: http://jquery.com/
-[jQuery UI]: http://jqueryui.com/
