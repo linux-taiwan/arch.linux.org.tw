@@ -1,5 +1,3 @@
-_site
-!_site/bootstrap
 *.swp
 .sass-cache
 Gemfile.lock

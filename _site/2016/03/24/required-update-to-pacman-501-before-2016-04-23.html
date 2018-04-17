@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>請務必在 2016-04-23 前升級到 pacman-5.0.1 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <!-- Twitter Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Web fonts -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:400,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43529018-1', 'archlinux.tw');
+  ga('send', 'pageview');
+</script>
+
+  <!-- RSS Feeds -->
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
+</head>
+
+<body data-itemid="">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" id="nav-home">
+            <a class="nav-link" href="/">首頁</a>
+          </li>
+          <li class="nav-item" id="nav-news">
+            <a class="nav-link" href="/news/">最新消息</a>
+          </li>
+          <li class="nav-item" id="nav-getting-started">
+            <a class="nav-link" href="/getting-started/">新手上路</a>
+          </li>
+          <li class="nav-item" id="nav-links">
+            <a class="nav-link" href="/resources/">線上資源</a>
+          </li>
+          <li class="nav-item" id="nav-contribute">
+            <a class="nav-link" href="/contribute/">加入我們</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="content container">
+    <article itemscope itemtype="http://schema.org/Article" class="post">
+<h1 itemprop="name" class="post__title">請務必在 2016-04-23 前升級到 pacman-5.0.1</h1>
+<div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Thu, 24 Mar 2016 12:00:00 +0800</span></div>
+<div itemprop="articleBody">
+<p><strong>原文：</strong><a href="https://www.archlinux.org/news/required-update-to-pacman-501-before-2016-04-23/">Required update to pacman-5.0.1 before 2016-04-23</a></p>
+
+<p>從 <code class="highlighter-rouge">pacman-5.0</code> 版開始，新增了 “transactional hooks” 的支援。這項功能可以讓我們做到像是「在某次升級時，若有多組字型套件，以往每升級一組字型套件就要重建一次字型快取，現在則只需統一重建一次就好」如此的改進，無論在升級流程的速度提升，以及減少開發者與被信賴用戶 (Trusted Users) 的套件打包負擔都有所助益。</p>
+
+<p>為了讓 “transactional hooks” 可以啟用，我們需要所有用戶配合，請在 2016-04-23 前將 <code class="highlighter-rouge">pacman</code> 至少升級 5.0.1 版。Pacman-5.0.1 已於 2016-02-23 釋出，所以各位有兩個月的時間可以升級您們的系統。</p>
+
+</div>
+</article>
+
+  </section>
+  <!-- /content -->
+
+  <footer class="container">
+    <h1>Arch Linux 臺灣社群</h1>
+    <p>除另有註明外，本站內容皆採
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW">Creative Commons — 姓名標示-相同方式分享 4.0 國際 — CC BY-SA 4.0</a> 或更新版本授權大眾使用。本站原始碼可自
+      <a href="https://github.com/linux-taiwan/arch.linux.org.tw">GitHub</a> 取得，歡迎貢獻、改進內容。</p>
+    <p>本站使用
+      <a href="https://fontawesome.com/">Font Awesome</a> 提供之圖示字型服務，特此謝忱。</p>
+  </footer>
+  <!-- Twitter Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <!-- some tweaks -->
+  <script src="/javascripts/set-active-menu-item.js"></script>
+  <script src="/javascripts/redirect-https.js"></script>
+</body>
+
+</html>

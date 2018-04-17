@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>zita-resampler 升級到 1.6.0-2 需要手動處理 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <!-- Twitter Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Web fonts -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:400,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43529018-1', 'archlinux.tw');
+  ga('send', 'pageview');
+</script>
+
+  <!-- RSS Feeds -->
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
+</head>
+
+<body data-itemid="">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" id="nav-home">
+            <a class="nav-link" href="/">首頁</a>
+          </li>
+          <li class="nav-item" id="nav-news">
+            <a class="nav-link" href="/news/">最新消息</a>
+          </li>
+          <li class="nav-item" id="nav-getting-started">
+            <a class="nav-link" href="/getting-started/">新手上路</a>
+          </li>
+          <li class="nav-item" id="nav-links">
+            <a class="nav-link" href="/resources/">線上資源</a>
+          </li>
+          <li class="nav-item" id="nav-contribute">
+            <a class="nav-link" href="/contribute/">加入我們</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="content container">
+    <article itemscope itemtype="http://schema.org/Article" class="post">
+<h1 itemprop="name" class="post__title">zita-resampler 升級到 1.6.0-2 需要手動處理</h1>
+<div class="meta"><span itemprop="author">Nightfeather</span> 發表於 <span itemprop="datePublished">Thu, 22 Feb 2018 15:57:11 +0800</span></div>
+<div itemprop="articleBody">
+<p><strong>原文：</strong><a href="https://www.archlinux.org/news/zita-resampler-160-1-2-update-requires-manual-intervention/">zita-resampler 1.6.0-1 -&gt; 2 update requires manual intervention</a></p>
+
+<p>
+zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫鏈結。
+如果你已經安裝了 1.6.0-1 版，因為 ldconfig 會在安裝時期產生這個鏈結，進而造成與新版本中擁有的鏈結衝突。
+所以在升級前請先手動刪除 `/usr/lib/libzita-resampler.so.1` 以避免衝突發生。
+</p>
+
+
+</div>
+</article>
+
+  </section>
+  <!-- /content -->
+
+  <footer class="container">
+    <h1>Arch Linux 臺灣社群</h1>
+    <p>除另有註明外，本站內容皆採
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW">Creative Commons — 姓名標示-相同方式分享 4.0 國際 — CC BY-SA 4.0</a> 或更新版本授權大眾使用。本站原始碼可自
+      <a href="https://github.com/linux-taiwan/arch.linux.org.tw">GitHub</a> 取得，歡迎貢獻、改進內容。</p>
+    <p>本站使用
+      <a href="https://fontawesome.com/">Font Awesome</a> 提供之圖示字型服務，特此謝忱。</p>
+  </footer>
+  <!-- Twitter Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <!-- some tweaks -->
+  <script src="/javascripts/set-active-menu-item.js"></script>
+  <script src="/javascripts/redirect-https.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>最新消息 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <!-- Twitter Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Web fonts -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:400,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43529018-1', 'archlinux.tw');
+  ga('send', 'pageview');
+</script>
+
+  <!-- RSS Feeds -->
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
+</head>
+
+<body data-itemid="news">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" id="nav-home">
+            <a class="nav-link" href="/">首頁</a>
+          </li>
+          <li class="nav-item" id="nav-news">
+            <a class="nav-link" href="/news/">最新消息</a>
+          </li>
+          <li class="nav-item" id="nav-getting-started">
+            <a class="nav-link" href="/getting-started/">新手上路</a>
+          </li>
+          <li class="nav-item" id="nav-links">
+            <a class="nav-link" href="/resources/">線上資源</a>
+          </li>
+          <li class="nav-item" id="nav-contribute">
+            <a class="nav-link" href="/contribute/">加入我們</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="content container">
+    
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2017/02/28/mesa-with-libglvnd-support-is-now-in-testing.html" title="啟用 libglvnd 支援的 mesa 已在 testing 套件庫">啟用 libglvnd 支援的 mesa 已在 testing 套件庫</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Tue, 28 Feb 2017 04:15:02 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/mesa-with-libglvnd-support-is-now-in-testing/">mesa with libglvnd support is now in testing</a></p>
+
+<p>由於 Fedora 團隊的協助，以及 xorg-server 上游貢獻的修補，<code class="highlighter-rouge">mesa</code>-17.0.0-3 現在可與 <code class="highlighter-rouge">nvidia</code>-378.13 驅動程式併存，無須再使用各種 libgl/libglx 的 hacks 了。</p>
+
+<ul>
+  <li>
+    <p>首先要做的是透過解除安裝某些 <code class="highlighter-rouge">libgl</code> 的相關套件，來移除 <code class="highlighter-rouge">libglx</code> 與 <code class="highlighter-rouge">xorg-server</code>-1.19.1-3 的符號連結，以及相關的 mesa/nvidia 驅動程式。這項工作非常艱難，因為會導致 optimus 系統失效，也需要手動更新 <code class="highlighter-rouge">xorg-server</code> 的設定。</p>
+  </li>
+  <li>
+    <p>接下來這步驟是藉由更新過的 <a href="https://git.archlinux.org/svntogit/packages.git/tree/trunk/nvidia-drm-outputclass.conf?h=packages/nvidia-utils">10-nvidia-drm-outputclass.conf</a> 設定檔的輔助，可以提供您的 <code class="highlighter-rouge">xorg-server</code> 在搭配 optimus 系統的環境下一個基本可用的體驗。</p>
+  </li>
+</ul>
+
+<p>敬請多加測試，並將您的意見反饋發表到<a href="https://bbs.archlinux.org/viewtopic.php?id=223603">論壇討論串</a>或是 <a href="https://bugs.archlinux.org/">bugtracker</a> 上。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2017/01/25/phasing-out-i686-support.html" title="分階段取消對 i686 處理器家族的支援">分階段取消對 i686 處理器家族的支援</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Wed, 25 Jan 2017 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/phasing-out-i686-support/">Phasing out i686 support</a></p>
+
+<p>因為 i686 處理器家族在我們的開發者與社群用戶裡的能見度愈來愈低，我們決定要逐步取消這個平台的支援。</p>
+
+<p>這項決策意謂著今年二月份的 ISO 映像檔會是最後一份可供安裝 32 位元版本 Arch Linux 的安裝媒體。接下來的為期九個月是不建議使用期，在這期間的 i686 處理器版本仍會收到更新的套件。自 2017 年 11 月開始，套件與套件庫相關工具的維護者將不再需要去特別標註他們維護的項目不支援 i686 處理器。</p>
+
+<p>然而，還是有人對繼續維持 i686 版本感興趣，我們鼓勵社群在我們的指引下來從事這項工作。透過 <code class="highlighter-rouge">arch-ports</code> 郵遞列表以及在 Freenode 上的 <code class="highlighter-rouge">#archlinux-ports</code> IRC 頻道這些媒體，我們會有進一步的協調討論。</p>
+
+<p><code class="highlighter-rouge">[multilib]</code> 套件庫不受此變動的影響。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2016/03/24/required-update-to-pacman-501-before-2016-04-23.html" title="請務必在 2016-04-23 前升級到 pacman-5.0.1">請務必在 2016-04-23 前升級到 pacman-5.0.1</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Thu, 24 Mar 2016 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/required-update-to-pacman-501-before-2016-04-23/">Required update to pacman-5.0.1 before 2016-04-23</a></p>
+
+<p>從 <code class="highlighter-rouge">pacman-5.0</code> 版開始，新增了 “transactional hooks” 的支援。這項功能可以讓我們做到像是「在某次升級時，若有多組字型套件，以往每升級一組字型套件就要重建一次字型快取，現在則只需統一重建一次就好」如此的改進，無論在升級流程的速度提升，以及減少開發者與被信賴用戶 (Trusted Users) 的套件打包負擔都有所助益。</p>
+
+<p>為了讓 “transactional hooks” 可以啟用，我們需要所有用戶配合，請在 2016-04-23 前將 <code class="highlighter-rouge">pacman</code> 至少升級 5.0.1 版。Pacman-5.0.1 已於 2016-02-23 釋出，所以各位有兩個月的時間可以升級您們的系統。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2015/08/15/openssh-70p1-deprecates-ssh-dss-keys.html" title="openssh-7.0p1 棄用 ssh-dss 類金鑰">openssh-7.0p1 棄用 ssh-dss 類金鑰</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sat, 15 Aug 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/openssh-70p1-deprecates-ssh-dss-keys/">openssh-7.0p1 deprecates ssh-dss keys</a></p>
+
+<p>因為近期揭露的安全弱點，新推出的 openssh-7.0p1 棄用了 ssh-dss 類型、亦即所謂的 DSA 型金鑰。詳情請參見<a href="http://lists.mindrot.org/pipermail/openssh-unix-announce/2015-August/000122.html">官方公告</a>。</p>
+
+<p>在更新與重新啟動遠端的 sshd 之前，請確認您沒有使用此類的金鑰來連接這台機器。要檢查機器上個別用戶是否採用了 DSA 型金鑰來獲取存取權限，可使用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep ssh-dss ~/.ssh/authorized_keys
+</code></pre></div></div>
+
+<p>如果您發現有使用此類金鑰，務必確認您有替代的登入方法，像是使用不同類型的金鑰，或是密碼驗證。</p>
+
+<p>最後，ssh-dss 型的機器用金鑰 (host keys) 同樣也被棄用了，當您連上更新後的機器時，也需要重新確認新產生的金鑰指紋（針對不同金鑰類型的 host key）。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2015/05/22/data-corruption-on-software-raid-0-when-discard-is-used.html" title="若使用了 discard 參數，軟體型 RAID 0 會發生資料毀損">若使用了 discard 參數，軟體型 RAID 0 會發生資料毀損</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Fri, 22 May 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/data-corruption-on-software-raid-0-when-discard-is-used/">Data corruption on software RAID 0 when discard is used</a></p>
+
+<p>幾週前送進 [core] 套件庫的 Linux 核心 (4.0.2+, LTS 3.14.41+) 有一個錯誤，檔案系統若以 <code class="highlighter-rouge">discard</code> 參數掛載、且配置在軟體型 RAID 0 陣列內就會引發資料毀損。然而即使未指定使用 <code class="highlighter-rouge">discard</code> 參數，當使用 <code class="highlighter-rouge">fstrim</code> 命令也同樣會觸發這個錯誤。 <strong>（如果您並未使用軟體型 RAID 0 搭配 <code class="highlighter-rouge">discard</code> 參數，那麼本問題並不會對您造成影響。）</strong></p>
+
+<p>本問題已經在 <code class="highlighter-rouge">linux 4.0.4-2</code> 與 <code class="highlighter-rouge">linux-lts 3.14.43-2</code> 修正。但是由於這個問題的發生原理使然，很可能系統資料已經在前述有問題的核心版本上發生毀損情況了。強烈建議您在受到影響的檔案系統上做資料完整性檢查，可使用 <code class="highlighter-rouge">fsck</code> 工具，並（或）從現存的完整備份那邊還原資料。</p>
+
+<p>若需要進一步的資訊，請參考 Holger Kiehl 在 LKML 發表的<a href="https://lkml.org/lkml/2015/5/21/167">貼文</a>、Phoronix 上的<a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=Linux-4-EXT4-RAID-Issue-Found">相關文章</a>以及被 backport 到 Arch 核心的<a href="http://git.neil.brown.name/?p=md.git;a=commitdiff;h=a81157768a00e8cf8a7b43b5ea5cac931262374f">修正</a>。</p>
+
+  </div>
+  </article>
+
+
+<!-- Pagination links -->
+<div class="pagination">
+  <!-- Don't build paginator if we have only one page -->
+  
+    
+      <a href="/news/" class="previous">前頁</a>
+    
+    <span class="page_number ">第 2 頁，共 4 頁</span>
+    
+      <a href="/news/page3" class="next">次頁</a>
+    
+  
+</div>
+
+  </section>
+  <!-- /content -->
+
+  <footer class="container">
+    <h1>Arch Linux 臺灣社群</h1>
+    <p>除另有註明外，本站內容皆採
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW">Creative Commons — 姓名標示-相同方式分享 4.0 國際 — CC BY-SA 4.0</a> 或更新版本授權大眾使用。本站原始碼可自
+      <a href="https://github.com/linux-taiwan/arch.linux.org.tw">GitHub</a> 取得，歡迎貢獻、改進內容。</p>
+    <p>本站使用
+      <a href="https://fontawesome.com/">Font Awesome</a> 提供之圖示字型服務，特此謝忱。</p>
+  </footer>
+  <!-- Twitter Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <!-- some tweaks -->
+  <script src="/javascripts/set-active-menu-item.js"></script>
+  <script src="/javascripts/redirect-https.js"></script>
+</body>
+
+</html>
