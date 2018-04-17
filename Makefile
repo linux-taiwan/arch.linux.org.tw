@@ -10,7 +10,6 @@ help:
 	echo ' make update:                  把網站資料更新到 Docker container' && \
 	echo ' make clean:                   清除 Docker image(s)' && \
 	echo ' make generate_site:           產生網站內容' && \
-	echo ' make generate_github_pages:   產生給 GitHub Pages 掛載的網站內容' && \
 	echo -e '\n\nThanks for your contribution!\n\n'
 
 build:
@@ -32,6 +31,3 @@ clean:
 
 generate_site:
 	jekyll build
-
-generate_github_pages:
-	jekyll build -d docs
