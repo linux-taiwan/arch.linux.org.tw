@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>最新消息 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <!-- Twitter Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Web fonts -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:400,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43529018-1', 'archlinux.tw');
+  ga('send', 'pageview');
+</script>
+
+  <!-- RSS Feeds -->
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
+</head>
+
+<body data-itemid="news">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" id="nav-home">
+            <a class="nav-link" href="/">首頁</a>
+          </li>
+          <li class="nav-item" id="nav-news">
+            <a class="nav-link" href="/news/">最新消息</a>
+          </li>
+          <li class="nav-item" id="nav-getting-started">
+            <a class="nav-link" href="/getting-started/">新手上路</a>
+          </li>
+          <li class="nav-item" id="nav-links">
+            <a class="nav-link" href="/resources/">線上資源</a>
+          </li>
+          <li class="nav-item" id="nav-contribute">
+            <a class="nav-link" href="/contribute/">加入我們</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="content container">
+    
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2015/05/17/puppet-40-enters-community.html" title="Puppet 4.0 已納入 [community] 套件庫">Puppet 4.0 已納入 [community] 套件庫</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 17 May 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/puppet-40-enters-community/">Puppet 4.0 enters [community]</a></p>
+
+<p>Puppet 4 已經發布，但與第 3 版不相容。所以用戶必須在升級客戶端前，先將伺服器端升級至 Puppet 4。請注意如果伺服器端是 Puppet 4，那麼 Puppet 3 的客戶端是無法與它共同正常運作的。且有不少的異動處，像是設定檔 (config)、宣告檔 (manifest) 與模組檔 (module) 等。您需要依照以下步驟說明文件來處理此次升版：</p>
+
+<ul>
+  <li><a href="https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_server.html">https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_server.html</a></li>
+  <li><a href="https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html">https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html</a></li>
+</ul>
+
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2015/05/16/pulseaudio-split.html" title="PulseAudio 拆分出數個模組子套件">PulseAudio 拆分出數個模組子套件</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sat, 16 May 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/pulseaudio-split/">PulseAudio split</a></p>
+
+<p>因為要避免模組找不到動態函式庫的問題，某些模組已經從 <code class="highlighter-rouge">pulseaudio</code> 套件中拆分出來。請檢查您需要的模組，並重新安裝它們。</p>
+
+<p>這些拆分出來的模組如下：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">pulseaudio-bluetooth</code>: Bluetooth (Bluez) support</li>
+  <li><code class="highlighter-rouge">pulseaudio-equalizer</code>: Equalizer sink (qpaeq)</li>
+  <li><code class="highlighter-rouge">pulseaudio-gconf</code>: GConf support (paprefs)</li>
+  <li><code class="highlighter-rouge">pulseaudio-jack</code>: JACK sink, source and jackdbus detection</li>
+  <li><code class="highlighter-rouge">pulseaudio-lirc</code>: Infrared (LIRC) volume control</li>
+  <li><code class="highlighter-rouge">pulseaudio-xen</code>: Xen paravirtual sink</li>
+  <li><code class="highlighter-rouge">pulseaudio-zeroconf</code>: Zeroconf (Avahi/DNS-SD) support</li>
+</ul>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2015/02/17/networkmanager-1.0-release.html" title="NetworkManager 1.0 發布">NetworkManager 1.0 發布</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Tue, 17 Feb 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p>廣為人知的網路連線管理軟體 NetworkManager 日前釋出 1.0 版，請見 <a href="https://mail.gnome.org/archives/networkmanager-list/2014-December/msg00030.html">ANN: NetworkManager 1.0.0 released!</a>。</p>
+
+<p>Arch Linux 業已提供 1.0 版套件，其中由於 DHCP 終端程式的已知相容問題，如果您原先使用的是 <code class="highlighter-rouge">dhcpcd</code> 有可能無法正常使用無線網路，請將您的 <code class="highlighter-rouge">/etc/NetworkManager/NetworkManager.conf</code> 當中 <code class="highlighter-rouge">dhcp=</code> 設定項目改成 <code class="highlighter-rouge">internal</code>，或 <code class="highlighter-rouge">dhclient</code>（需配合安裝 <code class="highlighter-rouge">dhclient</code> 方可使用）。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2015/02/15/xorg-server-1171-is-now-available.html" title="xorg-server 1.17.1 已可取得">xorg-server 1.17.1 已可取得</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 15 Feb 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/xorg-server-1171-is-now-available/">xorg-server 1.17.1 is now available</a></p>
+
+<p>新版本有以下變動：</p>
+
+<ul>
+  <li>依循 upstream 規劃，<code class="highlighter-rouge">xf86-video-modesetting</code> 工具現在改由 <code class="highlighter-rouge">xorg-server</code> 套件提供。</li>
+  <li>以下套件已經棄用，並移到 AUR 內，當中某些被 modesetting 驅動程式取代：<code class="highlighter-rouge">xf86-video-ast</code>, <code class="highlighter-rouge">xf86-video-cirrus</code>, <code class="highlighter-rouge">xf86-video-geode</code>, <code class="highlighter-rouge">xf86-video-mga</code>, <code class="highlighter-rouge">xf86-video-sisimedia</code>, <code class="highlighter-rouge">xf86-video-v4l</code></li>
+</ul>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2015/01/26/transition-of-kde-software-to-the-kde-framework-and-qt-5.html" title="KDE 軟體將逐漸轉移至 KDE Framework 與 Qt 5">KDE 軟體將逐漸轉移至 KDE Framework 與 Qt 5</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Mon, 26 Jan 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/transition-of-kde-software-to-the-kde-framework-and-qt-5/">Transition of KDE software to the KDE Framework and Qt 5</a></p>
+
+<p>KDE Software Collection 已經更新到 KDE Applications 14.12 版。</p>
+
+<p>KDE 開發者開始著手將他們的軟體移植到 KDE Frameworks 與 Qt 5。已經完成移植工作的軟體列表請參見<a href="https://www.kde.org/announcements/announce-applications-14.12.0.php">公告</a>。</p>
+
+<p>倘若某個 KDE 應用程式的 KDE Frameworks 移植版本夠穩定了，它往後會改在 KDE Applications 釋出，而不繼續在 Qt4/KDE4 底下開發與修正問題。這表示說如果某個移植版本釋出了，我們就會切換到這個新版本。同時我們也會把此軟體的 KDE 模組前綴名稱去除（例如：<code class="highlighter-rouge">kdebase-konsole</code> -&gt; <code class="highlighter-rouge">konsole</code>）。</p>
+
+<p>在此轉移工程過程中，會導致有些套件使用 Qt5，而有些還是使用 Qt4。我們會盡可能讓 KDE4 的使用者能順利度過這項轉移工程，但是事情有時會因為您的自訂設定導致難以盡如人意。請視需要為這兩版 toolkit 調整佈景主題與配色。您可參見 <a href="https://wiki.archlinux.org/index.php/KDE#Personalization">wiki</a> 來獲取協助資訊。我們也建議您切換到本週即將釋出的 Plasma 5.2 版。</p>
+
+<p>請將上游的錯誤回報至 KDE bugzilla，同時歡迎寄送副本給我（譯註：此處指原文作者 Andrea Scarpino）。</p>
+
+  </div>
+  </article>
+
+
+<!-- Pagination links -->
+<div class="pagination">
+  <!-- Don't build paginator if we have only one page -->
+  
+    
+      <a href="/news/page2" class="previous">前頁</a>
+    
+    <span class="page_number ">第 3 頁，共 4 頁</span>
+    
+      <a href="/news/page4" class="next">次頁</a>
+    
+  
+</div>
+
+  </section>
+  <!-- /content -->
+
+  <footer class="container">
+    <h1>Arch Linux 臺灣社群</h1>
+    <p>除另有註明外，本站內容皆採
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW">Creative Commons — 姓名標示-相同方式分享 4.0 國際 — CC BY-SA 4.0</a> 或更新版本授權大眾使用。本站原始碼可自
+      <a href="https://github.com/linux-taiwan/arch.linux.org.tw">GitHub</a> 取得，歡迎貢獻、改進內容。</p>
+    <p>本站使用
+      <a href="https://fontawesome.com/">Font Awesome</a> 提供之圖示字型服務，特此謝忱。</p>
+  </footer>
+  <!-- Twitter Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <!-- some tweaks -->
+  <script src="/javascripts/set-active-menu-item.js"></script>
+  <script src="/javascripts/redirect-https.js"></script>
+</body>
+
+</html>

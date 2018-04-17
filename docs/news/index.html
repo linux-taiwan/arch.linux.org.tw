@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>最新消息 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <!-- Twitter Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Web fonts -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:400,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43529018-1', 'archlinux.tw');
+  ga('send', 'pageview');
+</script>
+
+  <!-- RSS Feeds -->
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
+</head>
+
+<body data-itemid="news">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" id="nav-home">
+            <a class="nav-link" href="/">首頁</a>
+          </li>
+          <li class="nav-item" id="nav-news">
+            <a class="nav-link" href="/news/">最新消息</a>
+          </li>
+          <li class="nav-item" id="nav-getting-started">
+            <a class="nav-link" href="/getting-started/">新手上路</a>
+          </li>
+          <li class="nav-item" id="nav-links">
+            <a class="nav-link" href="/resources/">線上資源</a>
+          </li>
+          <li class="nav-item" id="nav-contribute">
+            <a class="nav-link" href="/contribute/">加入我們</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="content container">
+    
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html" title="zita-resampler 升級到 1.6.0-2 需要手動處理">zita-resampler 升級到 1.6.0-2 需要手動處理</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Nightfeather</span> 發表於 <span itemprop="datePublished">Thu, 22 Feb 2018 15:57:11 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/zita-resampler-160-1-2-update-requires-manual-intervention/">zita-resampler 1.6.0-1 -&gt; 2 update requires manual intervention</a></p>
+
+<p>
+zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫鏈結。
+如果你已經安裝了 1.6.0-1 版，因為 ldconfig 會在安裝時期產生這個鏈結，進而造成與新版本中擁有的鏈結衝突。
+所以在升級前請先手動刪除 `/usr/lib/libzita-resampler.so.1` 以避免衝突發生。
+</p>
+
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2017/11/08/the-end-of-i686-support.html" title="我們結束支援 i686 處理器家族了">我們結束支援 i686 處理器家族了</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Wed, 08 Nov 2017 21:39:10 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/the-end-of-i686-support/"> The end of i686 support</a></p>
+
+<p>在為期九個月的<a href="https://archlinux.tw/2017/01/25/phasing-out-i686-support.html">不建議使用期</a>屆滿後，我們對 i686 處理器家族的支援到今天就結束了。在 11 月底，i686 的套件就會從我們的鏡像站移除，之後則會從套件庫 (packages archive) 移除。但是 <code class="highlighter-rouge">[multilib]</code> 套件庫則不受影響。</p>
+
+<p>如果用戶無法將硬體轉換到 x86_64 處理器架構，有個替代方案是社群維護的、稱為 <a href="https://archlinux32.org/">Arch Linux 32</a> 的分支。有關如何轉換既有已安裝的系統到 Arch Linux 32 的詳情，敬請參見他們的網站。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2017/09/02/perl-library-path-change.html" title="Perl 程式庫路徑變更">Perl 程式庫路徑變更</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Louie Lu</span> 發表於 <span itemprop="datePublished">Sat, 02 Sep 2017 19:44:22 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/perl-library-path-change/">Perl library path change</a></p>
+
+<p>從現在開始 perl 套件將會對編譯模組使用版號路徑。這表示不合於 perl 版號的模組將
+不會被載入，並且需要重新編譯。</p>
+
+<p>一個 pacman 鉤子將會在升級受影響的模組時，以下面的方式顯示出警告內容：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: '/usr/lib/perl5/vendor_perl' contains data from at least 143 pacages which will NOT be used by the installed perl interpreter.
+ -&gt; Run the following command to get a list of affected packages: pacman -Qqo '/usr/lib/perl5/vendor_perl'
+</code></pre></div></div>
+
+<p>你必須要重新編譯所有受影響的套件以及新的 perl 套件才能再次使用它們。這個變更
+也將會影響從 CPAN 安裝的模組。重編譯的動作在 perl 主要版號變更時 (如 <code class="highlighter-rouge">5.28</code>
+變成 <code class="highlighter-rouge">5.30</code>) 也會需要重新動作。</p>
+
+<p>請注意到，在此之前主要版號變更時就需要重新編譯了。只是這次的變更將讓 perl 不會
+再以奇怪的方式讀取套件然後失敗。</p>
+
+<p>如果編譯系統或是某些軟體沒有自動偵測到這樣的變更，你可以在你的 PKGBUILD 使用
+<code class="highlighter-rouge">perl -V:vendorarch</code> 來讓 perl 使用正確的路徑。同時也有 <code class="highlighter-rouge">sitearch</code> 來讓非
+pacman 打包的軟體來使用。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint.html" title="棄用 ABS 工具與 rsync 端點">棄用 ABS 工具與 rsync 端點</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Mon, 15 May 2017 18:55:50 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/deprecation-of-abs/">Deprecation of ABS tool and rsync endpoint</a></p>
+
+<p>因為維護與 Arch Build System 相關腳本程式 (scripts) 的成本過高，我們決定棄用 <code class="highlighter-rouge">abs</code> 工具，以及不再提供 rsync 此一管道來獲取 PKGBUILDs。</p>
+
+<p>在 [extra] 套件庫裡的 <code class="highlighter-rouge">asp</code> 工具提供了近似 <code class="highlighter-rouge">abs</code> 的功能。使用 <code class="highlighter-rouge">asp export pkgname</code> 指令即可直接替代；更多有關 <code class="highlighter-rouge">asp</code> 的用法資訊可以在<a href="https://github.com/falconindy/asp/blob/master/man/asp.1.txt">文件</a>處找到。除此之外，使用 Subversion 個別提取（<a href="https://www.archlinux.org/svn/">參見這裡</a>）也可達到相似的作用。如果要獲取全部的 PKGBUILDs，最好的方法是複製 <a href="https://git.archlinux.org/svntogit/">svntogit</a> 的鏡像來源。</p>
+
+<p>目前 <code class="highlighter-rouge">extra/abs</code> 套件已被下架，而 rsync 端點 (rsync://rsync.archlinux.org/abs) 亦將於本月底關閉。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
+    <a href="/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html" title="升級到 ca-certificates-utils 20170307-1 版需要手動處理">升級到 ca-certificates-utils 20170307-1 版需要手動處理</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Thu, 16 Mar 2017 05:27:54 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention/">ca-certificates-utils 20170307-1 upgrade requires manual intervention</a></p>
+
+<p>由於在 <code class="highlighter-rouge">ca-certificates-utils</code> 裡頭有個符號連結檔案之前是在 post-install 階段生成的，但是現在已經直接移入套件內，所以升級到 <code class="highlighter-rouge">20170307-1</code> 版時，需要您手動處理。</p>
+
+<p>如果直接把這個符號連結檔案刪除，可能會導致無法正常下載套件，所以請依照以下三個步驟操作此項升級：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -Syuw                           # download packages
+# rm /etc/ssl/certs/ca-certificates.crt  # remove conflicting file
+# pacman -Su                             # perform upgrade
+</code></pre></div></div>
+
+
+  </div>
+  </article>
+
+
+<!-- Pagination links -->
+<div class="pagination">
+  <!-- Don't build paginator if we have only one page -->
+  
+    
+      <span class="previous">前頁</span>
+    
+    <span class="page_number ">第 1 頁，共 4 頁</span>
+    
+      <a href="/news/page2" class="next">次頁</a>
+    
+  
+</div>
+
+  </section>
+  <!-- /content -->
+
+  <footer class="container">
+    <h1>Arch Linux 臺灣社群</h1>
+    <p>除另有註明外，本站內容皆採
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW">Creative Commons — 姓名標示-相同方式分享 4.0 國際 — CC BY-SA 4.0</a> 或更新版本授權大眾使用。本站原始碼可自
+      <a href="https://github.com/linux-taiwan/arch.linux.org.tw">GitHub</a> 取得，歡迎貢獻、改進內容。</p>
+    <p>本站使用
+      <a href="https://fontawesome.com/">Font Awesome</a> 提供之圖示字型服務，特此謝忱。</p>
+  </footer>
+  <!-- Twitter Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <!-- some tweaks -->
+  <script src="/javascripts/set-active-menu-item.js"></script>
+  <script src="/javascripts/redirect-https.js"></script>
+</body>
+
+</html>
