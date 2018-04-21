@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理"
+date:   2018-04-20T07:45:46+00:00
+author: "Nightfeather"
+---
+
+**原文：**[glibc 2.27-2 and pam 1.3.0-2 may require manual intervention](https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/)
+
+新版 glibc 移除了對 NIS 和 NIS+ 的支援。
+由套件 `filesystem` 提供的預設設定檔 `/etc/nsswitch.conf` 已經反應這個變動。
+請在更新前合併這個檔案的 .pacnew 。
+
+NIS 的功能仍能透過安裝 `libnss_nis` 這個套件取得。
+而 NIS+ 目前在官方套件庫尚未有對應的套件。
+
+`pam 1.3.0-2` 不再提供 `pam_unix2` 模組以及 `pam_unix_*.so` 的相容性符號鏈結。
+請在更新前檢閱 `/etc/pam.d` 下的設定檔，並將已移除的模組替換為 `pam_unix.so`。
+而 `pam_unix2` 的使用者也應於該設定變更後重設密碼。
+至於由 `pambase` 套件提供的預設值不用做任何更動。
+
