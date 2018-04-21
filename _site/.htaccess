@@ -1,5 +1,0 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{HTTP_HOST} arch\.linux\.org\.tw [NC]
-  RewriteRule ^(.*)$ https://archlinux.tw/$1 [L,R=301]
-</IfModule>
