@@ -3,9 +3,35 @@
 <generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator>
 <link href="https://archlinux.tw/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://archlinux.tw/" rel="alternate" type="text/html" />
-<updated>2018-04-17T15:03:39+08:00</updated>
+<updated>2018-04-22T00:42:14+08:00</updated>
 <id>https://archlinux.tw/</id>
 <title>Arch Linux 臺灣社群</title>
+<entry>
+<title>glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理</title>
+<link href="https://archlinux.tw/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html" rel="alternate" type="text/html" title="glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理" />
+<published>2018-04-20T15:45:46+08:00</published>
+<updated>2018-04-20T15:45:46+08:00</updated>
+<id>https://archlinux.tw/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention</id>
+<content type="html" xml:base="https://archlinux.tw/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/&quot;&gt;glibc 2.27-2 and pam 1.3.0-2 may require manual intervention&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;新版 glibc 移除了對 NIS 和 NIS+ 的支援。
+由套件 &lt;code class=&quot;highlighter-rouge&quot;&gt;filesystem&lt;/code&gt; 提供的預設設定檔 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/nsswitch.conf&lt;/code&gt; 已經反應這個變動。
+請在更新前合併這個檔案的 .pacnew 。&lt;/p&gt;
+
+&lt;p&gt;NIS 的功能仍能透過安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;libnss_nis&lt;/code&gt; 這個套件取得。
+而 NIS+ 目前在官方套件庫尚未有對應的套件。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pam 1.3.0-2&lt;/code&gt; 不再提供 &lt;code class=&quot;highlighter-rouge&quot;&gt;pam_unix2&lt;/code&gt; 模組以及 &lt;code class=&quot;highlighter-rouge&quot;&gt;pam_unix_*.so&lt;/code&gt; 的相容性符號鏈結。
+請在更新前檢閱 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/pam.d&lt;/code&gt; 下的設定檔，並將已移除的模組替換為 &lt;code class=&quot;highlighter-rouge&quot;&gt;pam_unix.so&lt;/code&gt;。
+而 &lt;code class=&quot;highlighter-rouge&quot;&gt;pam_unix2&lt;/code&gt; 的使用者也應於該設定變更後重設密碼。
+至於由 &lt;code class=&quot;highlighter-rouge&quot;&gt;pambase&lt;/code&gt; 套件提供的預設值不用做任何更動。&lt;/p&gt;
+
+</content>
+<author>
+<name>Nightfeather</name>
+</author>
+<summary>原文：glibc 2.27-2 and pam 1.3.0-2 may require manual intervention</summary>
+</entry>
 <entry>
 <title>zita-resampler 升級到 1.6.0-2 需要手動處理</title>
 <link href="https://archlinux.tw/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html" rel="alternate" type="text/html" title="zita-resampler 升級到 1.6.0-2 需要手動處理" />
@@ -205,24 +231,5 @@ pacman 打包的軟體來使用。&lt;/p&gt;
 <name>Huei-Horng Yo</name>
 </author>
 <summary>原文：openssh-7.0p1 deprecates ssh-dss keys</summary>
-</entry>
-<entry>
-<title>若使用了 discard 參數，軟體型 RAID 0 會發生資料毀損</title>
-<link href="https://archlinux.tw/2015/05/22/data-corruption-on-software-raid-0-when-discard-is-used.html" rel="alternate" type="text/html" title="若使用了 discard 參數，軟體型 RAID 0 會發生資料毀損" />
-<published>2015-05-22T12:00:00+08:00</published>
-<updated>2015-05-22T12:00:00+08:00</updated>
-<id>https://archlinux.tw/2015/05/22/data-corruption-on-software-raid-0-when-discard-is-used</id>
-<content type="html" xml:base="https://archlinux.tw/2015/05/22/data-corruption-on-software-raid-0-when-discard-is-used.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/data-corruption-on-software-raid-0-when-discard-is-used/&quot;&gt;Data corruption on software RAID 0 when discard is used&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;幾週前送進 [core] 套件庫的 Linux 核心 (4.0.2+, LTS 3.14.41+) 有一個錯誤，檔案系統若以 &lt;code class=&quot;highlighter-rouge&quot;&gt;discard&lt;/code&gt; 參數掛載、且配置在軟體型 RAID 0 陣列內就會引發資料毀損。然而即使未指定使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;discard&lt;/code&gt; 參數，當使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;fstrim&lt;/code&gt; 命令也同樣會觸發這個錯誤。 &lt;strong&gt;（如果您並未使用軟體型 RAID 0 搭配 &lt;code class=&quot;highlighter-rouge&quot;&gt;discard&lt;/code&gt; 參數，那麼本問題並不會對您造成影響。）&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;本問題已經在 &lt;code class=&quot;highlighter-rouge&quot;&gt;linux 4.0.4-2&lt;/code&gt; 與 &lt;code class=&quot;highlighter-rouge&quot;&gt;linux-lts 3.14.43-2&lt;/code&gt; 修正。但是由於這個問題的發生原理使然，很可能系統資料已經在前述有問題的核心版本上發生毀損情況了。強烈建議您在受到影響的檔案系統上做資料完整性檢查，可使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;fsck&lt;/code&gt; 工具，並（或）從現存的完整備份那邊還原資料。&lt;/p&gt;
-
-&lt;p&gt;若需要進一步的資訊，請參考 Holger Kiehl 在 LKML 發表的&lt;a href=&quot;https://lkml.org/lkml/2015/5/21/167&quot;&gt;貼文&lt;/a&gt;、Phoronix 上的&lt;a href=&quot;http://www.phoronix.com/scan.php?page=news_item&amp;amp;px=Linux-4-EXT4-RAID-Issue-Found&quot;&gt;相關文章&lt;/a&gt;以及被 backport 到 Arch 核心的&lt;a href=&quot;http://git.neil.brown.name/?p=md.git;a=commitdiff;h=a81157768a00e8cf8a7b43b5ea5cac931262374f&quot;&gt;修正&lt;/a&gt;。&lt;/p&gt;
-</content>
-<author>
-<name>Huei-Horng Yo</name>
-</author>
-<summary>原文：Data corruption on software RAID 0 when discard is used</summary>
 </entry>
 </feed>

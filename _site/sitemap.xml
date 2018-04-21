@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://archlinux.tw/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html</loc>
+<lastmod>2018-04-20T15:45:46+08:00</lastmod>
+</url>
+<url>
 <loc>https://archlinux.tw/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html</loc>
 <lastmod>2018-02-22T15:57:11+08:00</lastmod>
 </url>

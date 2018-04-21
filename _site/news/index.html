@@ -65,6 +65,30 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html" title="glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理">glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Nightfeather</span> 發表於 <span itemprop="datePublished">Fri, 20 Apr 2018 15:45:46 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/">glibc 2.27-2 and pam 1.3.0-2 may require manual intervention</a></p>
+
+<p>新版 glibc 移除了對 NIS 和 NIS+ 的支援。
+由套件 <code class="highlighter-rouge">filesystem</code> 提供的預設設定檔 <code class="highlighter-rouge">/etc/nsswitch.conf</code> 已經反應這個變動。
+請在更新前合併這個檔案的 .pacnew 。</p>
+
+<p>NIS 的功能仍能透過安裝 <code class="highlighter-rouge">libnss_nis</code> 這個套件取得。
+而 NIS+ 目前在官方套件庫尚未有對應的套件。</p>
+
+<p><code class="highlighter-rouge">pam 1.3.0-2</code> 不再提供 <code class="highlighter-rouge">pam_unix2</code> 模組以及 <code class="highlighter-rouge">pam_unix_*.so</code> 的相容性符號鏈結。
+請在更新前檢閱 <code class="highlighter-rouge">/etc/pam.d</code> 下的設定檔，並將已移除的模組替換為 <code class="highlighter-rouge">pam_unix.so</code>。
+而 <code class="highlighter-rouge">pam_unix2</code> 的使用者也應於該設定變更後重設密碼。
+至於由 <code class="highlighter-rouge">pambase</code> 套件提供的預設值不用做任何更動。</p>
+
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html" title="zita-resampler 升級到 1.6.0-2 需要手動處理">zita-resampler 升級到 1.6.0-2 需要手動處理</a>
   </h1>
   <div class="meta"><span itemprop="author">Nightfeather</span> 發表於 <span itemprop="datePublished">Thu, 22 Feb 2018 15:57:11 +0800</span></div>
@@ -140,27 +164,6 @@ pacman 打包的軟體來使用。</p>
 <p>在 [extra] 套件庫裡的 <code class="highlighter-rouge">asp</code> 工具提供了近似 <code class="highlighter-rouge">abs</code> 的功能。使用 <code class="highlighter-rouge">asp export pkgname</code> 指令即可直接替代；更多有關 <code class="highlighter-rouge">asp</code> 的用法資訊可以在<a href="https://github.com/falconindy/asp/blob/master/man/asp.1.txt">文件</a>處找到。除此之外，使用 Subversion 個別提取（<a href="https://www.archlinux.org/svn/">參見這裡</a>）也可達到相似的作用。如果要獲取全部的 PKGBUILDs，最好的方法是複製 <a href="https://git.archlinux.org/svntogit/">svntogit</a> 的鏡像來源。</p>
 
 <p>目前 <code class="highlighter-rouge">extra/abs</code> 套件已被下架，而 rsync 端點 (rsync://rsync.archlinux.org/abs) 亦將於本月底關閉。</p>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html" title="升級到 ca-certificates-utils 20170307-1 版需要手動處理">升級到 ca-certificates-utils 20170307-1 版需要手動處理</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Thu, 16 Mar 2017 05:27:54 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention/">ca-certificates-utils 20170307-1 upgrade requires manual intervention</a></p>
-
-<p>由於在 <code class="highlighter-rouge">ca-certificates-utils</code> 裡頭有個符號連結檔案之前是在 post-install 階段生成的，但是現在已經直接移入套件內，所以升級到 <code class="highlighter-rouge">20170307-1</code> 版時，需要您手動處理。</p>
-
-<p>如果直接把這個符號連結檔案刪除，可能會導致無法正常下載套件，所以請依照以下三個步驟操作此項升級：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -Syuw                           # download packages
-# rm /etc/ssl/certs/ca-certificates.crt  # remove conflicting file
-# pacman -Su                             # perform upgrade
-</code></pre></div></div>
-
 
   </div>
   </article>
