@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "TRANSLATE_THIS_TITLE: glibc 2.27-2 and pam 1.3.0-2 may require manual intervention"
+date:   2018-04-20T07:45:46+00:00
+author: "TRANSLATOR_NAME_HERE"
+---
+
+**原文：**[glibc 2.27-2 and pam 1.3.0-2 may require manual intervention](https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/)
+
+<p>The new version of glibc removes support for NIS and NIS+. The default
+<code>/etc/nsswitch.conf</code> file provided by <code>filesystem</code> package already
+reflects this change. Please make sure to merge pacnew file if it exists
+prior to upgrade.</p>
+<p>NIS functionality can still be enabled by installing <code>libnss_nis</code>
+package. There is no replacement for NIS+ in the official repositories.</p>
+<p><code>pam 1.3.0-2</code> no longer ships pam_unix2 module and <code>pam_unix_*.so</code>
+compatibility symlinks. Before upgrading, review PAM configuration files
+in the <code>/etc/pam.d</code> directory and replace removed modules with
+<code>pam_unix.so</code>. Users of pam_unix2 should also reset their passwords
+after such change. Defaults provided by <code>pambase</code> package do not need
+any modifications.</p>
