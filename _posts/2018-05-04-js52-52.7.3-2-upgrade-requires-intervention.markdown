@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "TRANSLATE_THIS_TITLE: js52 52.7.3-2 upgrade requires intervention"
+date:   2018-05-04T20:27:33+00:00
+author: "TRANSLATOR_NAME_HERE"
+---
+
+**原文：**[js52 52.7.3-2 upgrade requires intervention](https://www.archlinux.org/news/js52-5273-2-upgrade-requires-intervention/)
+
+<p>Due to the SONAME of <code>/usr/lib/libmozjs-52.so</code> not matching its file name, ldconfig created an untracked file <code>/usr/lib/libmozjs-52.so.0</code>. This is now fixed and both files are present in the package.</p>
+<p>To pass the upgrade, remove <code>/usr/lib/libmozjs-52.so.0</code> prior to upgrading.</p>
