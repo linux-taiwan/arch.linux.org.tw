@@ -112,6 +112,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 台中二中學生 在安裝上有問題的朋友可以提問
 
+### Kolei Chen (Neo_Chen) <chenkolei@gmail.com> <neo_chen@thunix.org>
+
+也是臺中人，非常閒，有什麼問題都可以問，在大雅出沒
+
 [H4]: http://www.hackingthursday.org/
 [MozTW Lab]: http://moztw.org/events/moztw-lab/
 [新竹碼農]: http://www.facebook.com/groups/hsinchu.coders/
