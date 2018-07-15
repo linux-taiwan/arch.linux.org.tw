@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "升級 libutf8proc>=2.1.1-3 時需要手動處理"
+date:   2018-07-14T16:55:19+00:00
+author: "Huei-Horng Yo"
+---
+
+**原文：**[libutf8proc>=2.1.1-3 update requires manual intervention](https://www.archlinux.org/news/libutf8proc211-3-update-requires-manual-intervention/)
+
+`libutf8proc` 套件在 `2.1.1-3` 版本之前含有一個錯誤的 soname 連結 (soname link)，在 `2.1.1-3` 版本已經修復了，所以升級到這個版本時需要覆寫先前未能由 `ldconfig` 正確產生的 soname 連結。如果您在升級過程中遇到這樣的錯誤：
+
+`libutf8proc: /usr/lib/libutf8proc.so.2 exists in filesystem`
+
+請使用以下指令來完成升級作業：
+
+`pacman -Suy --overwrite usr/lib/libutf8proc.so.2`
