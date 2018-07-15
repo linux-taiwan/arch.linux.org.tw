@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "TRANSLATE_THIS_TITLE: libutf8proc>=2.1.1-3 update requires manual intervention"
+date:   2018-07-14T16:55:19+00:00
+author: "TRANSLATOR_NAME_HERE"
+---
+
+**原文：**[libutf8proc>=2.1.1-3 update requires manual intervention](https://www.archlinux.org/news/libutf8proc211-3-update-requires-manual-intervention/)
+
+<p>The libutf8proc package prior to version 2.1.1-3 had an incorrect soname link. This has been fixed in 2.1.1-3, so the upgrade will need to overwrite the untracked soname link created by ldconfig. If you get an error</p>
+<p><code>libutf8proc: /usr/lib/libutf8proc.so.2 exists in filesystem</code></p>
+<p>when updating, use</p>
+<p><code>pacman -Suy --overwrite usr/lib/libutf8proc.so.2</code></p>
+<p>to perform the upgrade.</p>
