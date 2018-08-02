@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！
-"
+title:  "Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！"
 date:   2018-08-02T20:00:00+08:00
 author: "PN Wu (小平)"
 ---
