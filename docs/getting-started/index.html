@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>新手上路 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <!-- Twitter Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Web fonts -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:400,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- RSS Feeds -->
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
+</head>
+
+<body data-itemid="getting-started">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" id="nav-home">
+            <a class="nav-link" href="/">首頁</a>
+          </li>
+          <li class="nav-item" id="nav-news">
+            <a class="nav-link" href="/news/">最新消息</a>
+          </li>
+          <li class="nav-item" id="nav-getting-started">
+            <a class="nav-link" href="/getting-started/">新手上路</a>
+          </li>
+          <li class="nav-item" id="nav-links">
+            <a class="nav-link" href="/resources/">線上資源</a>
+          </li>
+          <li class="nav-item" id="nav-contribute">
+            <a class="nav-link" href="/contribute/">加入我們</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="content container">
+    <h1 id="寫給老鳥">寫給老鳥</h1>
+
+<p>雖然這頁是寫給新手的入門文件，但是我們猜想身為老手的您，在推廣的場合可能會回頭來找這頁，關於推廣 Arch 的態度，且讓我們建議您：</p>
+
+<ul>
+  <li>多幫新手製作安裝光碟、隨身碟吧！這真的是個門檻。</li>
+  <li>論述「Arch 可以<strong>做好</strong>哪些事」而不是「某某系統有夠爛，快來改用 Arch 吧！」這類貶抑他人的言論，無助於推廣，徒惹他人反感而已。</li>
+  <li>論述「Arch 可以<strong>做到</strong>哪些事」而不是將 Arch 誇飾成無所不能的系統。陳述事實，並坦然承認短處，才能讓 Arch 藉由社群力量不斷進步。</li>
+</ul>
+
+<h1 id="寫給新手">寫給新手</h1>
+
+<h2 id="心理建設">心理建設</h2>
+
+<p><strong>「根本就沒有新手，又或者在 Arch 社群裡人人遇到安裝都是新手」</strong>這句話絕非搞笑、亦不是安慰的場面話。Arch 日新又新的特性，使得系統安裝過程經常有些微幅甚至顛覆性的異動，但是系統裝好之後，因為漸進式升級 (rolling upgrade) 的設計，便極少需要「重灌」、「砍掉重練」。老鳥憑兩年前裝好系統的經驗拿到當下想要現學現賣，或多或少都會碰壁。</p>
+
+<p>所幸 Arch 社群維護的 <a href="https://wiki.archlinux.org/">ArchWiki</a> 有相當新穎、正確的安裝指引文件，可供大家邊看邊做。</p>
+
+<p>不管新手老手，用 Arch 絕對免不了要到 ArchWiki 上找文件資源。我們推薦您先讀 <a href="https://wiki.archlinux.org/index.php/Arch_Linux_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29">Arch Linux</a> 與 <a href="https://wiki.archlinux.org/index.php/The_Arch_Way_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29">The Arch Way</a> 這兩篇，以瞭解 Arch 的設計哲學。</p>
+
+<h2 id="何妨先在沙盤推演">何妨先在沙盤推演</h2>
+
+<p>無論是想要學習哪一種 Linux 發行版本，新手遇到最大的障礙恐怕就是：「我的電腦裡已經有一套我用慣的系統，我的硬碟也不可能清掉或再挪出新的分割區」這個時候我們推薦您使用 <a href="https://www.virtualbox.org/">VirtualBox</a> 虛擬機軟體，在現有的電腦上再虛擬出一台電腦，試著在這台虛擬電腦上安裝 Arch。</p>
+
+<p>VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網路設定，在網路上就如同一台真實的機器一樣可當成伺服器使用。這也就是所謂的 VPS (Virtual Private Server)。您可參考 <a href="https://www.virtualbox.org/manual/UserManual.html">VirtualBox 使用手冊</a>或是 <a href="https://wiki.archlinux.org/index.php/VirtualBox">ArchWiki 上的介紹</a>取得更多安裝指示和操作說明。</p>
+
+<h1 id="取得-arch-linux">取得 Arch Linux</h1>
+
+<h2 id="下載">下載</h2>
+
+<p>請至 Arch Linux 官方網站<a href="https://www.archlinux.org/download/">下載頁面</a>取得光碟映像檔 (ISO file)。網頁當中列出的 <strong>HTTP Direct Downloads</strong> 是較常用的下載方式，如果您使用臺灣的 ISP 上網服務，我們比較推薦您使用臺灣、日本的分流載點，下載速度可能會較其他地區的載點快。台灣使用者建議使用 <a href="http://linux.cs.nctu.edu.tw/archlinux/iso/">交大機房</a> 的 mirror site。</p>
+
+<p>如果您有使用 BitTorrent (BT)，也推薦您使用 BT 方式下載、同時協助分流。</p>
+
+<p>我們建議您能驗證下載回來的 .iso 檔內容是否正確，避免下載到損壞或經過惡意竄改的檔案。在分流載點的檔案列表，您會看到除了 .iso 檔以外還有很多檔案，其中 md5sums.txt, sha1sums.txt 分別記載了 .iso 檔的 MD5, SHA1 驗證碼 (checksum)，可使用 md5sum, sha1sum 工具計算出 .iso 檔的 checksum 值，再予以比對是否相符。</p>
+
+<h2 id="製作安裝光碟隨身碟">製作安裝光碟、隨身碟</h2>
+
+<p>幾乎任一款光碟燒錄軟體都支援燒錄 .iso 格式的光碟映像檔，但步驟各有不同，請參考您的光碟燒錄軟體指引。如果您想要安裝 Arch 的電腦沒有光碟機，除了使用外接式光碟機、並確定您的電腦支援由外接式光碟機開機，您也可以<a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)">使用隨身碟來製作安裝碟</a>，這種方式較複雜些。</p>
+
+<p>如果您打算照前面所說的，使用 VirtualBox 體驗 Arch，VirtualBox 亦支援模擬光碟機，直接拿 .iso 檔模擬成開機片。</p>
+
+<h1 id="開始安裝">開始安裝</h1>
+
+<div class="alert alert-warning">在已有作業系統的電腦上，再安裝包括 Arch 在內的作業系統，通常會需要更動到硬碟的配置，這代表您有可能因為操作錯誤而造成既有的作業系統無法正常啟動。提醒您請務必在動手安裝前，做好硬碟現有資料的完整備份。</div>
+
+<p>請用您的安裝光碟、隨身碟開機，準備開始安裝 Arch。如果您之前的作業系統安裝經驗，有圖形介面的輔助，頭一次看到 Arch 的純文字、命令列介面，也許會當場傻眼，甚至心生恐懼、排斥。但是 Arch 安裝介面為求耗用最少資源、達成最大彈性，是刻意設計成這樣的。無論純文字介面還是圖形介面的目的都一樣，就是要輔助您完成系統安裝。</p>
+
+<p>請您照著 <a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)">Installation Guide</a> 的說明指引，來安裝 Arch。事實上，這一份文件也就是我們在本文前頭提過的，不管是老手還是新手，至少都有一次機會需要邊讀邊做的必讀文件。</p>
+
+<h1 id="我需要幫忙">我需要幫忙！</h1>
+
+<p>若在認真摸索和研究過後，依然無法完成安裝手續，可以前往<a href="/resources/">線上資源</a>所列的網路社群，或者尋求在地夥伴出手相助。</p>
+
+<h2 id="台北">台北</h2>
+
+<h3 id="carl-x-su-carl_tw-httpgplustocarl">Carl X. Su (carl_tw) <a href="http://gplus.to/carl">http://gplus.to/carl</a></h3>
+
+<p>通常會出現在 <a href="http://www.hackingthursday.org/">H4</a> 或 <a href="http://moztw.org/events/moztw-lab/">MozTW Lab</a> 台北場。</p>
+
+<h3 id="元兒-meyuanertw">元兒～ <a href="mailto:me@yuaner.tw">me@yuaner.tw</a></h3>
+
+<p>有可能在週末、寒暑假會待在台北，常會在週五晚上去 <a href="http://moztw.org/events/moztw-lab/">MozTW Lab</a> 台北場。</p>
+
+<h2 id="新竹">新竹</h2>
+
+<h3 id="元兒-meyuanertw-1">元兒～ <a href="mailto:me@yuaner.tw">me@yuaner.tw</a></h3>
+
+<p>目前就讀於中華大學，也會參加每個禮拜一的”MozTW + Arch Linux Lab in Hsinchu”聚會。</p>
+
+<h3 id="pn-wu-小平-pingnotewugmailcom--pingnote-on-linkedin--telegram">PN Wu (小平) <a href="mailto:PingNote.Wu@gmail.com">PingNote.Wu@gmail.com</a> / @PingNote on <a href="https://tw.linkedin.com/in/PingNote">LinkedIn</a> , <a href="https://telegram.me/PingNote">Telegram</a></h3>
+
+<p>澎湖人，就讀於新竹交通大學， <a href="http://nba.nctu.edu.tw">NBA</a> 社員，出沒於 <a href="http://sitcon.org">SITCON</a> 、 <a href="https://ysitd.io">YSITD</a> 、各社群和研討會，全台跑透透。使用 Arch Linux 及其衍生發行版 <a href="https://manjaro.org">Manjaro Linux</a> 。</p>
+
+<h2 id="台中">台中</h2>
+
+<h3 id="yushin-huang-hyslion--hysliongmailcom--google">Yushin Huang (hyslion) ✉ <a href="mailto:hyslion@gmail.com">hyslion@gmail.com</a> ✎ <a href="https://plus.google.com/communities/101238863048851764297">Google+</a></h3>
+
+<p>就讀於東海大學，出沒在東海商圈周遭。</p>
+
+<h3 id="harold-wu-haroldwu-wennynnewennygmailcom">Harold Wu (haroldwu) <a href="mailto:wennynnewenny@gmail.com">wennynnewenny@gmail.com</a></h3>
+
+<p>目前就讀中國醫藥大學，北區的朋友可以就地支援，或參加雙周週一的 <a href="https://plus.google.com/u/0/communities/103994353345517742722">臺中自由軟體聚會</a>，也有一些使用 Arch Linux 的朋友。</p>
+
+<h3 id="xatier-xatierlikegmailcom--xatierlikelee-on-twitter">xatier <a href="mailto:xatierlike@gmail.com">xatierlike@gmail.com</a> / @xatierlikeLee on <a href="https://twitter.com/xatierlikeLee">Twitter</a></h3>
+
+<p>台中人，出沒於台中 <a href="http://ct.lug.tw">CTLUG 社群</a> 和各社群研討會</p>
+
+<h3 id="kerwin-tsai-kerwin-kerwen374gmailcom">Kerwin Tsai (kerwin) <a href="mailto:kerwen374@gmail.com">kerwen374@gmail.com</a></h3>
+
+<p>台中二中學生 在安裝上有問題的朋友可以提問</p>
+
+<h3 id="kolei-chen-neo_chen-chenkoleigmailcom-neo_chenthunixorg">Kolei Chen (Neo_Chen) <a href="mailto:chenkolei@gmail.com">chenkolei@gmail.com</a> <a href="mailto:neo_chen@thunix.org">neo_chen@thunix.org</a></h3>
+
+<p>也是臺中人，非常閒，有什麼問題都可以問，在大雅出沒</p>
+
+
+  </section>
+  <!-- /content -->
+
+  <footer class="container">
+    <h1>Arch Linux 臺灣社群</h1>
+    <p>除另有註明外，本站內容皆採
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW">Creative Commons — 姓名標示-相同方式分享 4.0 國際 — CC BY-SA 4.0</a> 或更新版本授權大眾使用。本站原始碼可自
+      <a href="https://github.com/linux-taiwan/arch.linux.org.tw">GitHub</a> 取得，歡迎貢獻、改進內容。</p>
+    <p>本站使用
+      <a href="https://fontawesome.com/">Font Awesome</a> 提供之圖示字型服務，特此謝忱。</p>
+  </footer>
+  <!-- Twitter Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <!-- some tweaks -->
+  <script src="/javascripts/set-active-menu-item.js"></script>
+  <script src="/javascripts/redirect-https.js"></script>
+</body>
+
+</html>

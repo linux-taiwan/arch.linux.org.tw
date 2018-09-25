@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator>
+<link href="https://archlinux.tw/feed.xml" rel="self" type="application/atom+xml" />
+<link href="https://archlinux.tw/" rel="alternate" type="text/html" />
+<updated>2018-09-25T21:25:37+08:00</updated>
+<id>https://archlinux.tw/</id>
+<title>Arch Linux 臺灣社群</title>
+<entry>
+<title>升級 libutf8proc&amp;gt;=2.1.1-3 時需要手動處理</title>
+<link href="https://archlinux.tw/2018/07/15/libutf8proc-=2.1.1-3-update-requires-manual-intervention.html" rel="alternate" type="text/html" title="升級 libutf8proc&gt;=2.1.1-3 時需要手動處理" />
+<published>2018-07-15T00:55:19+08:00</published>
+<updated>2018-07-15T00:55:19+08:00</updated>
+<id>https://archlinux.tw/2018/07/15/libutf8proc&gt;=2.1.1-3-update-requires-manual-intervention</id>
+<content type="html" xml:base="https://archlinux.tw/2018/07/15/libutf8proc-=2.1.1-3-update-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/libutf8proc211-3-update-requires-manual-intervention/&quot;&gt;libutf8proc&amp;gt;=2.1.1-3 update requires manual intervention&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libutf8proc&lt;/code&gt; 套件在 &lt;code class=&quot;highlighter-rouge&quot;&gt;2.1.1-3&lt;/code&gt; 版本之前含有一個錯誤的 soname 連結 (soname link)，在 &lt;code class=&quot;highlighter-rouge&quot;&gt;2.1.1-3&lt;/code&gt; 版本已經修復了，所以升級到這個版本時需要覆寫先前未能由 &lt;code class=&quot;highlighter-rouge&quot;&gt;ldconfig&lt;/code&gt; 正確產生的 soname 連結。如果您在升級過程中遇到這樣的錯誤：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libutf8proc: /usr/lib/libutf8proc.so.2 exists in filesystem&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;請使用以下指令來完成升級作業：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pacman -Suy --overwrite usr/lib/libutf8proc.so.2&lt;/code&gt;&lt;/p&gt;
+</content>
+<author>
+<name>Huei-Horng Yo</name>
+</author>
+<summary>原文：libutf8proc&amp;gt;=2.1.1-3 update requires manual intervention</summary>
+</entry>
+<entry>
+<title>js52 52.7.3-2 升級時需要手動處理</title>
+<link href="https://archlinux.tw/2018/05/05/js52-52.7.3-2-upgrade-requires-intervention.html" rel="alternate" type="text/html" title="js52 52.7.3-2 升級時需要手動處理" />
+<published>2018-05-05T04:27:33+08:00</published>
+<updated>2018-05-05T04:27:33+08:00</updated>
+<id>https://archlinux.tw/2018/05/05/js52-52.7.3-2-upgrade-requires-intervention</id>
+<content type="html" xml:base="https://archlinux.tw/2018/05/05/js52-52.7.3-2-upgrade-requires-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/js52-5273-2-upgrade-requires-intervention/&quot;&gt;js52 52.7.3-2 upgrade requires intervention&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因為 &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/libmozjs-52.so&lt;/code&gt; 的 SONAME 與它真正所屬的檔名不一致，ldconfig 會建立一個未能正常追溯的 &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/libmozjs-52.so.0&lt;/code&gt; 檔案。這個問題目前已經修正，兩個檔名也都在套件中了。&lt;/p&gt;
+
+&lt;p&gt;要能通過升級檢查，請在升級前先手動刪除 &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/libmozjs-52.so.0&lt;/code&gt;。&lt;/p&gt;
+</content>
+<author>
+<name>Huei-Horng Yo</name>
+</author>
+<summary>原文：js52 52.7.3-2 upgrade requires intervention</summary>
+</entry>
+<entry>
+<title>COSCUP 2018 社群議程，Arch Linux Taiwan 熱烈徵稿中！</title>
+<link href="https://archlinux.tw/2018/04/26/coscup-2018-community-room-cfp.html" rel="alternate" type="text/html" title="COSCUP 2018 社群議程，Arch Linux Taiwan 熱烈徵稿中！" />
+<published>2018-04-26T10:00:00+08:00</published>
+<updated>2018-04-26T10:00:00+08:00</updated>
+<id>https://archlinux.tw/2018/04/26/coscup-2018-community-room-cfp</id>
+<content type="html" xml:base="https://archlinux.tw/2018/04/26/coscup-2018-community-room-cfp.html">&lt;p&gt;今年的 &lt;a href=&quot;https://2018.coscup.org/&quot;&gt;COSCUP&lt;/a&gt; (2018)，Arch Linux 臺灣社群申請社群議程，大會已經審核通過了！即刻起至 5 月 25 日熱烈徵稿，歡迎您來投稿，一起把今年我們的 Arch 社群議程軌辦得豐富又精彩吧！&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.coscup.org/2018/04/coscup-2018-cfp-is-open.html&quot;&gt;COSCUP 官方公告&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.google.com/forms/d/e/1FAIpQLSfKnffsc_Ke2ZEP3fInJkAwEzXFUM24HZ7dYYluoGLmHMQjZw/viewform&quot;&gt;投稿直通門&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+<author>
+<name>Huei-Horng Yo</name>
+</author>
+<summary>今年的 COSCUP (2018)，Arch Linux 臺灣社群申請社群議程，大會已經審核通過了！即刻起至 5 月 25 日熱烈徵稿，歡迎您來投稿，一起把今年我們的 Arch 社群議程軌辦得豐富又精彩吧！</summary>
+</entry>
+<entry>
+<title>glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理</title>
+<link href="https://archlinux.tw/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html" rel="alternate" type="text/html" title="glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理" />
+<published>2018-04-20T15:45:46+08:00</published>
+<updated>2018-04-20T15:45:46+08:00</updated>
+<id>https://archlinux.tw/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention</id>
+<content type="html" xml:base="https://archlinux.tw/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/&quot;&gt;glibc 2.27-2 and pam 1.3.0-2 may require manual intervention&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;新版 glibc 移除了對 NIS 和 NIS+ 的支援。
+由套件 &lt;code class=&quot;highlighter-rouge&quot;&gt;filesystem&lt;/code&gt; 提供的預設設定檔 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/nsswitch.conf&lt;/code&gt; 已經反應這個變動。
+請在更新前合併這個檔案的 .pacnew 。&lt;/p&gt;
+
+&lt;p&gt;NIS 的功能仍能透過安裝 &lt;code class=&quot;highlighter-rouge&quot;&gt;libnss_nis&lt;/code&gt; 這個套件取得。
+而 NIS+ 目前在官方套件庫尚未有對應的套件。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pam 1.3.0-2&lt;/code&gt; 不再提供 &lt;code class=&quot;highlighter-rouge&quot;&gt;pam_unix2&lt;/code&gt; 模組以及 &lt;code class=&quot;highlighter-rouge&quot;&gt;pam_unix_*.so&lt;/code&gt; 的相容性符號鏈結。
+請在更新前檢閱 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/pam.d&lt;/code&gt; 下的設定檔，並將已移除的模組替換為 &lt;code class=&quot;highlighter-rouge&quot;&gt;pam_unix.so&lt;/code&gt;。
+而 &lt;code class=&quot;highlighter-rouge&quot;&gt;pam_unix2&lt;/code&gt; 的使用者也應於該設定變更後重設密碼。
+至於由 &lt;code class=&quot;highlighter-rouge&quot;&gt;pambase&lt;/code&gt; 套件提供的預設值不用做任何更動。&lt;/p&gt;
+
+</content>
+<author>
+<name>Nightfeather</name>
+</author>
+<summary>原文：glibc 2.27-2 and pam 1.3.0-2 may require manual intervention</summary>
+</entry>
+<entry>
+<title>zita-resampler 升級到 1.6.0-2 需要手動處理</title>
+<link href="https://archlinux.tw/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html" rel="alternate" type="text/html" title="zita-resampler 升級到 1.6.0-2 需要手動處理" />
+<published>2018-02-22T15:57:11+08:00</published>
+<updated>2018-02-22T15:57:11+08:00</updated>
+<id>https://archlinux.tw/2018/02/22/zita-resampler-1.6.0-1--&gt;-2-update-requires-manual-intervention</id>
+<content type="html" xml:base="https://archlinux.tw/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/zita-resampler-160-1-2-update-requires-manual-intervention/&quot;&gt;zita-resampler 1.6.0-1 -&amp;gt; 2 update requires manual intervention&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;
+zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫鏈結。
+如果你已經安裝了 1.6.0-1 版，因為 ldconfig 會在安裝時期產生這個鏈結，進而造成與新版本中擁有的鏈結衝突。
+所以在升級前請先手動刪除 `/usr/lib/libzita-resampler.so.1` 以避免衝突發生。
+&lt;/p&gt;
+
+</content>
+<author>
+<name>Nightfeather</name>
+</author>
+<summary>原文：zita-resampler 1.6.0-1 -&amp;gt; 2 update requires manual intervention</summary>
+</entry>
+<entry>
+<title>我們結束支援 i686 處理器家族了</title>
+<link href="https://archlinux.tw/2017/11/08/the-end-of-i686-support.html" rel="alternate" type="text/html" title="我們結束支援 i686 處理器家族了" />
+<published>2017-11-08T21:39:10+08:00</published>
+<updated>2017-11-08T21:39:10+08:00</updated>
+<id>https://archlinux.tw/2017/11/08/-the-end-of-i686-support</id>
+<content type="html" xml:base="https://archlinux.tw/2017/11/08/the-end-of-i686-support.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/the-end-of-i686-support/&quot;&gt; The end of i686 support&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在為期九個月的&lt;a href=&quot;https://archlinux.tw/2017/01/25/phasing-out-i686-support.html&quot;&gt;不建議使用期&lt;/a&gt;屆滿後，我們對 i686 處理器家族的支援到今天就結束了。在 11 月底，i686 的套件就會從我們的鏡像站移除，之後則會從套件庫 (packages archive) 移除。但是 &lt;code class=&quot;highlighter-rouge&quot;&gt;[multilib]&lt;/code&gt; 套件庫則不受影響。&lt;/p&gt;
+
+&lt;p&gt;如果用戶無法將硬體轉換到 x86_64 處理器架構，有個替代方案是社群維護的、稱為 &lt;a href=&quot;https://archlinux32.org/&quot;&gt;Arch Linux 32&lt;/a&gt; 的分支。有關如何轉換既有已安裝的系統到 Arch Linux 32 的詳情，敬請參見他們的網站。&lt;/p&gt;
+</content>
+<author>
+<name>Huei-Horng Yo</name>
+</author>
+<summary>原文： The end of i686 support</summary>
+</entry>
+<entry>
+<title>Perl 程式庫路徑變更</title>
+<link href="https://archlinux.tw/2017/09/02/perl-library-path-change.html" rel="alternate" type="text/html" title="Perl 程式庫路徑變更" />
+<published>2017-09-02T19:44:22+08:00</published>
+<updated>2017-09-02T19:44:22+08:00</updated>
+<id>https://archlinux.tw/2017/09/02/perl-library-path-change</id>
+<content type="html" xml:base="https://archlinux.tw/2017/09/02/perl-library-path-change.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/perl-library-path-change/&quot;&gt;Perl library path change&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;從現在開始 perl 套件將會對編譯模組使用版號路徑。這表示不合於 perl 版號的模組將
+不會被載入，並且需要重新編譯。&lt;/p&gt;
+
+&lt;p&gt;一個 pacman 鉤子將會在升級受影響的模組時，以下面的方式顯示出警告內容：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WARNING: '/usr/lib/perl5/vendor_perl' contains data from at least 143 pacages which will NOT be used by the installed perl interpreter.
+ -&amp;gt; Run the following command to get a list of affected packages: pacman -Qqo '/usr/lib/perl5/vendor_perl'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;你必須要重新編譯所有受影響的套件以及新的 perl 套件才能再次使用它們。這個變更
+也將會影響從 CPAN 安裝的模組。重編譯的動作在 perl 主要版號變更時 (如 &lt;code class=&quot;highlighter-rouge&quot;&gt;5.28&lt;/code&gt;
+變成 &lt;code class=&quot;highlighter-rouge&quot;&gt;5.30&lt;/code&gt;) 也會需要重新動作。&lt;/p&gt;
+
+&lt;p&gt;請注意到，在此之前主要版號變更時就需要重新編譯了。只是這次的變更將讓 perl 不會
+再以奇怪的方式讀取套件然後失敗。&lt;/p&gt;
+
+&lt;p&gt;如果編譯系統或是某些軟體沒有自動偵測到這樣的變更，你可以在你的 PKGBUILD 使用
+&lt;code class=&quot;highlighter-rouge&quot;&gt;perl -V:vendorarch&lt;/code&gt; 來讓 perl 使用正確的路徑。同時也有 &lt;code class=&quot;highlighter-rouge&quot;&gt;sitearch&lt;/code&gt; 來讓非
+pacman 打包的軟體來使用。&lt;/p&gt;
+</content>
+<author>
+<name>Louie Lu</name>
+</author>
+<summary>原文：Perl library path change</summary>
+</entry>
+<entry>
+<title>棄用 ABS 工具與 rsync 端點</title>
+<link href="https://archlinux.tw/2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint.html" rel="alternate" type="text/html" title="棄用 ABS 工具與 rsync 端點" />
+<published>2017-05-15T18:55:50+08:00</published>
+<updated>2017-05-15T18:55:50+08:00</updated>
+<id>https://archlinux.tw/2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint</id>
+<content type="html" xml:base="https://archlinux.tw/2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/deprecation-of-abs/&quot;&gt;Deprecation of ABS tool and rsync endpoint&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因為維護與 Arch Build System 相關腳本程式 (scripts) 的成本過高，我們決定棄用 &lt;code class=&quot;highlighter-rouge&quot;&gt;abs&lt;/code&gt; 工具，以及不再提供 rsync 此一管道來獲取 PKGBUILDs。&lt;/p&gt;
+
+&lt;p&gt;在 [extra] 套件庫裡的 &lt;code class=&quot;highlighter-rouge&quot;&gt;asp&lt;/code&gt; 工具提供了近似 &lt;code class=&quot;highlighter-rouge&quot;&gt;abs&lt;/code&gt; 的功能。使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;asp export pkgname&lt;/code&gt; 指令即可直接替代；更多有關 &lt;code class=&quot;highlighter-rouge&quot;&gt;asp&lt;/code&gt; 的用法資訊可以在&lt;a href=&quot;https://github.com/falconindy/asp/blob/master/man/asp.1.txt&quot;&gt;文件&lt;/a&gt;處找到。除此之外，使用 Subversion 個別提取（&lt;a href=&quot;https://www.archlinux.org/svn/&quot;&gt;參見這裡&lt;/a&gt;）也可達到相似的作用。如果要獲取全部的 PKGBUILDs，最好的方法是複製 &lt;a href=&quot;https://git.archlinux.org/svntogit/&quot;&gt;svntogit&lt;/a&gt; 的鏡像來源。&lt;/p&gt;
+
+&lt;p&gt;目前 &lt;code class=&quot;highlighter-rouge&quot;&gt;extra/abs&lt;/code&gt; 套件已被下架，而 rsync 端點 (rsync://rsync.archlinux.org/abs) 亦將於本月底關閉。&lt;/p&gt;
+</content>
+<author>
+<name>Huei-Horng Yo</name>
+</author>
+<summary>原文：Deprecation of ABS tool and rsync endpoint</summary>
+</entry>
+<entry>
+<title>升級到 ca-certificates-utils 20170307-1 版需要手動處理</title>
+<link href="https://archlinux.tw/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html" rel="alternate" type="text/html" title="升級到 ca-certificates-utils 20170307-1 版需要手動處理" />
+<published>2017-03-16T05:27:54+08:00</published>
+<updated>2017-03-16T05:27:54+08:00</updated>
+<id>https://archlinux.tw/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention</id>
+<content type="html" xml:base="https://archlinux.tw/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention/&quot;&gt;ca-certificates-utils 20170307-1 upgrade requires manual intervention&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;由於在 &lt;code class=&quot;highlighter-rouge&quot;&gt;ca-certificates-utils&lt;/code&gt; 裡頭有個符號連結檔案之前是在 post-install 階段生成的，但是現在已經直接移入套件內，所以升級到 &lt;code class=&quot;highlighter-rouge&quot;&gt;20170307-1&lt;/code&gt; 版時，需要您手動處理。&lt;/p&gt;
+
+&lt;p&gt;如果直接把這個符號連結檔案刪除，可能會導致無法正常下載套件，所以請依照以下三個步驟操作此項升級：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# pacman -Syuw                           # download packages
+# rm /etc/ssl/certs/ca-certificates.crt  # remove conflicting file
+# pacman -Su                             # perform upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</content>
+<author>
+<name>Huei-Horng Yo</name>
+</author>
+<summary>原文：ca-certificates-utils 20170307-1 upgrade requires manual intervention</summary>
+</entry>
+<entry>
+<title>啟用 libglvnd 支援的 mesa 已在 testing 套件庫</title>
+<link href="https://archlinux.tw/2017/02/28/mesa-with-libglvnd-support-is-now-in-testing.html" rel="alternate" type="text/html" title="啟用 libglvnd 支援的 mesa 已在 testing 套件庫" />
+<published>2017-02-28T04:15:02+08:00</published>
+<updated>2017-02-28T04:15:02+08:00</updated>
+<id>https://archlinux.tw/2017/02/28/mesa-with-libglvnd-support-is-now-in-testing</id>
+<content type="html" xml:base="https://archlinux.tw/2017/02/28/mesa-with-libglvnd-support-is-now-in-testing.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/mesa-with-libglvnd-support-is-now-in-testing/&quot;&gt;mesa with libglvnd support is now in testing&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;由於 Fedora 團隊的協助，以及 xorg-server 上游貢獻的修補，&lt;code class=&quot;highlighter-rouge&quot;&gt;mesa&lt;/code&gt;-17.0.0-3 現在可與 &lt;code class=&quot;highlighter-rouge&quot;&gt;nvidia&lt;/code&gt;-378.13 驅動程式併存，無須再使用各種 libgl/libglx 的 hacks 了。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先要做的是透過解除安裝某些 &lt;code class=&quot;highlighter-rouge&quot;&gt;libgl&lt;/code&gt; 的相關套件，來移除 &lt;code class=&quot;highlighter-rouge&quot;&gt;libglx&lt;/code&gt; 與 &lt;code class=&quot;highlighter-rouge&quot;&gt;xorg-server&lt;/code&gt;-1.19.1-3 的符號連結，以及相關的 mesa/nvidia 驅動程式。這項工作非常艱難，因為會導致 optimus 系統失效，也需要手動更新 &lt;code class=&quot;highlighter-rouge&quot;&gt;xorg-server&lt;/code&gt; 的設定。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;接下來這步驟是藉由更新過的 &lt;a href=&quot;https://git.archlinux.org/svntogit/packages.git/tree/trunk/nvidia-drm-outputclass.conf?h=packages/nvidia-utils&quot;&gt;10-nvidia-drm-outputclass.conf&lt;/a&gt; 設定檔的輔助，可以提供您的 &lt;code class=&quot;highlighter-rouge&quot;&gt;xorg-server&lt;/code&gt; 在搭配 optimus 系統的環境下一個基本可用的體驗。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;敬請多加測試，並將您的意見反饋發表到&lt;a href=&quot;https://bbs.archlinux.org/viewtopic.php?id=223603&quot;&gt;論壇討論串&lt;/a&gt;或是 &lt;a href=&quot;https://bugs.archlinux.org/&quot;&gt;bugtracker&lt;/a&gt; 上。&lt;/p&gt;
+</content>
+<author>
+<name>Huei-Horng Yo</name>
+</author>
+<summary>原文：mesa with libglvnd support is now in testing</summary>
+</entry>
+</feed>
