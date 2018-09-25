@@ -80,6 +80,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 通常會出現在 [H4] 或 [MozTW Lab] 台北場。
 
+### PN Wu (小平) <PingNote.Wu@gmail.com> / @PingNote on [LinkedIn](https://www.linkedin.com/in/PingNote) , [Telegram](https://t.me/PingNote)
+
+澎湖人，NCTU CCCA 社員，出沒於 [SITCON](http://sitcon.org) 、 [YSITD](http://ysitd.io) 、各社群和研討會，全台跑透透。使用 Arch Linux 及其衍生發行版 [Manjaro Linux](https://manjaro.org) 。
+
 ### 元兒～ <me@yuaner.tw>
 
 有可能在週末、寒暑假會待在台北，常會在週五晚上去 [MozTW Lab] 台北場。
@@ -89,10 +93,6 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 ### 元兒～ <me@yuaner.tw>
 
 目前就讀於中華大學，也會參加每個禮拜一的"MozTW + Arch Linux Lab in Hsinchu"聚會。
-
-### PN Wu (小平) <PingNote.Wu@gmail.com> / @PingNote on [LinkedIn](https://tw.linkedin.com/in/PingNote) , [Telegram](https://telegram.me/PingNote)
-
-澎湖人，就讀於新竹交通大學， [NBA](http://nba.nctu.edu.tw) 社員，出沒於 [SITCON](http://sitcon.org) 、 [YSITD](https://ysitd.io) 、各社群和研討會，全台跑透透。使用 Arch Linux 及其衍生發行版 [Manjaro Linux](https://manjaro.org) 。
   
 ## 台中
 
