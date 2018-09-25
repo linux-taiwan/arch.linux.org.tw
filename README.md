@@ -29,7 +29,7 @@
 
 ## 編輯原則
 
-* 可利用 GitHub 的 Pull Request 機制貢獻內容，或使用 git format-patch, git send-email 至 <hiroshi@ghostsinthelab.org>。
+* 可利用 GitHub 的 Pull Request 機制貢獻內容，或使用 git format-patch, git send-email 至 <PingNote.Wu@gmail.com>。
 * 您貢獻的內容需同意以 [CC BY-SA 4.0 授權條款]或更新版本授權公眾使用。
 * 我們接受 Jekyll 可處理的 HTML, Markdown, Textile 格式檔案。
 * 不同主題的內容新增、異動請分別用不同的 commit 儲存，且寫清楚 commit message，俾利追蹤管理。
