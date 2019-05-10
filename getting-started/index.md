@@ -93,6 +93,10 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 ### 元兒～ <me@yuaner.tw>
 
 目前就讀於中華大學，也會參加每個禮拜一的"MozTW + Arch Linux Lab in Hsinchu"聚會。
+
+### Yale Liang (HybridGlucose) <HybridGluicose@freedomwolf.cc> <HybridGlucose@gmail.com> 
+
+新竹人，住在新竹，大致上都可以問，比較熟悉小型網路架構及伺服器架設。
   
 ## 台中
 
