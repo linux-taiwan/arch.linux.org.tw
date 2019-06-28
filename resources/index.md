@@ -16,7 +16,8 @@ itemid: links
 
 ## 即時討論
 
-我們在 Gitter 上開設了線上聊天室，歡迎加入 [linux-taiwan/arch.linux.org.tw](https://gitter.im/linux-taiwan/arch.linux.org.tw) 暢談與 Arch Linux 相關的話題。
+- Gitter: 我們在 Gitter 上開設了線上聊天室，歡迎加入 [linux-taiwan/arch.linux.org.tw](https://gitter.im/linux-taiwan/arch.linux.org.tw) 暢談與 Arch Linux 相關的話題。
+- Telegram: 我們也有在 Telegram 開設群組，歡迎加入 [ArchLinuxTaiwan](https://t.me/ArchLinuxTaiwan) 一起分享 Arch Linux 相關的話題。
 
 ## 網路社群
 
