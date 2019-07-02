@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="http://jekyllrb.com" version="3.8.5">Jekyll</generator>
-<link href="//feed.xml" rel="self" type="application/atom+xml" />
-<link href="//" rel="alternate" type="text/html" />
-<updated>2019-06-28T18:29:07+08:00</updated>
-<id>//</id>
+<link href="/feed.xml" rel="self" type="application/atom+xml" />
+<link href="/" rel="alternate" type="text/html" />
+<updated>2019-07-02T18:16:52+08:00</updated>
+<id>/</id>
 <title>Arch Linux 臺灣社群</title>
 <entry>
 <title>Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！</title>
-<link href="//2018/08/02/coscup-2018-events-outline.html" rel="alternate" type="text/html" title="Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！" />
+<link href="/2018/08/02/coscup-2018-events-outline.html" rel="alternate" type="text/html" title="Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！" />
 <published>2018-08-02T20:00:00+08:00</published>
 <updated>2018-08-02T20:00:00+08:00</updated>
-<id>//2018/08/02/coscup-2018-events-outline</id>
-<content type="html" xml:base="//2018/08/02/coscup-2018-events-outline.html">&lt;p&gt;COSCUP 2018 從 Day0 到 Day2 (08/10 ~ 08/12) 各有不同的活動，Archers 皆有可能現身其中！&lt;/p&gt;
+<id>/2018/08/02/coscup-2018-events-outline</id>
+<content type="html" xml:base="/2018/08/02/coscup-2018-events-outline.html">&lt;p&gt;COSCUP 2018 從 Day0 到 Day2 (08/10 ~ 08/12) 各有不同的活動，Archers 皆有可能現身其中！&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -35,11 +35,11 @@
 </entry>
 <entry>
 <title>升級 libutf8proc&amp;gt;=2.1.1-3 時需要手動處理</title>
-<link href="//2018/07/15/libutf8proc-=2.1.1-3-update-requires-manual-intervention.html" rel="alternate" type="text/html" title="升級 libutf8proc&gt;=2.1.1-3 時需要手動處理" />
+<link href="/2018/07/15/libutf8proc-=2.1.1-3-update-requires-manual-intervention.html" rel="alternate" type="text/html" title="升級 libutf8proc&gt;=2.1.1-3 時需要手動處理" />
 <published>2018-07-15T00:55:19+08:00</published>
 <updated>2018-07-15T00:55:19+08:00</updated>
-<id>//2018/07/15/libutf8proc&gt;=2.1.1-3-update-requires-manual-intervention</id>
-<content type="html" xml:base="//2018/07/15/libutf8proc-=2.1.1-3-update-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/libutf8proc211-3-update-requires-manual-intervention/&quot;&gt;libutf8proc&amp;gt;=2.1.1-3 update requires manual intervention&lt;/a&gt;&lt;/p&gt;
+<id>/2018/07/15/libutf8proc&gt;=2.1.1-3-update-requires-manual-intervention</id>
+<content type="html" xml:base="/2018/07/15/libutf8proc-=2.1.1-3-update-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/libutf8proc211-3-update-requires-manual-intervention/&quot;&gt;libutf8proc&amp;gt;=2.1.1-3 update requires manual intervention&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libutf8proc&lt;/code&gt; 套件在 &lt;code class=&quot;highlighter-rouge&quot;&gt;2.1.1-3&lt;/code&gt; 版本之前含有一個錯誤的 soname 連結 (soname link)，在 &lt;code class=&quot;highlighter-rouge&quot;&gt;2.1.1-3&lt;/code&gt; 版本已經修復了，所以升級到這個版本時需要覆寫先前未能由 &lt;code class=&quot;highlighter-rouge&quot;&gt;ldconfig&lt;/code&gt; 正確產生的 soname 連結。如果您在升級過程中遇到這樣的錯誤：&lt;/p&gt;
 
@@ -56,11 +56,11 @@
 </entry>
 <entry>
 <title>js52 52.7.3-2 升級時需要手動處理</title>
-<link href="//2018/05/05/js52-52.7.3-2-upgrade-requires-intervention.html" rel="alternate" type="text/html" title="js52 52.7.3-2 升級時需要手動處理" />
+<link href="/2018/05/05/js52-52.7.3-2-upgrade-requires-intervention.html" rel="alternate" type="text/html" title="js52 52.7.3-2 升級時需要手動處理" />
 <published>2018-05-05T04:27:33+08:00</published>
 <updated>2018-05-05T04:27:33+08:00</updated>
-<id>//2018/05/05/js52-52.7.3-2-upgrade-requires-intervention</id>
-<content type="html" xml:base="//2018/05/05/js52-52.7.3-2-upgrade-requires-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/js52-5273-2-upgrade-requires-intervention/&quot;&gt;js52 52.7.3-2 upgrade requires intervention&lt;/a&gt;&lt;/p&gt;
+<id>/2018/05/05/js52-52.7.3-2-upgrade-requires-intervention</id>
+<content type="html" xml:base="/2018/05/05/js52-52.7.3-2-upgrade-requires-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/js52-5273-2-upgrade-requires-intervention/&quot;&gt;js52 52.7.3-2 upgrade requires intervention&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;因為 &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/libmozjs-52.so&lt;/code&gt; 的 SONAME 與它真正所屬的檔名不一致，ldconfig 會建立一個未能正常追溯的 &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/libmozjs-52.so.0&lt;/code&gt; 檔案。這個問題目前已經修正，兩個檔名也都在套件中了。&lt;/p&gt;
 
@@ -73,11 +73,11 @@
 </entry>
 <entry>
 <title>COSCUP 2018 社群議程，Arch Linux Taiwan 熱烈徵稿中！</title>
-<link href="//2018/04/26/coscup-2018-community-room-cfp.html" rel="alternate" type="text/html" title="COSCUP 2018 社群議程，Arch Linux Taiwan 熱烈徵稿中！" />
+<link href="/2018/04/26/coscup-2018-community-room-cfp.html" rel="alternate" type="text/html" title="COSCUP 2018 社群議程，Arch Linux Taiwan 熱烈徵稿中！" />
 <published>2018-04-26T10:00:00+08:00</published>
 <updated>2018-04-26T10:00:00+08:00</updated>
-<id>//2018/04/26/coscup-2018-community-room-cfp</id>
-<content type="html" xml:base="//2018/04/26/coscup-2018-community-room-cfp.html">&lt;p&gt;今年的 &lt;a href=&quot;https://2018.coscup.org/&quot;&gt;COSCUP&lt;/a&gt; (2018)，Arch Linux 臺灣社群申請社群議程，大會已經審核通過了！即刻起至 5 月 25 日熱烈徵稿，歡迎您來投稿，一起把今年我們的 Arch 社群議程軌辦得豐富又精彩吧！&lt;/p&gt;
+<id>/2018/04/26/coscup-2018-community-room-cfp</id>
+<content type="html" xml:base="/2018/04/26/coscup-2018-community-room-cfp.html">&lt;p&gt;今年的 &lt;a href=&quot;https://2018.coscup.org/&quot;&gt;COSCUP&lt;/a&gt; (2018)，Arch Linux 臺灣社群申請社群議程，大會已經審核通過了！即刻起至 5 月 25 日熱烈徵稿，歡迎您來投稿，一起把今年我們的 Arch 社群議程軌辦得豐富又精彩吧！&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://blog.coscup.org/2018/04/coscup-2018-cfp-is-open.html&quot;&gt;COSCUP 官方公告&lt;/a&gt;&lt;/li&gt;
@@ -91,11 +91,11 @@
 </entry>
 <entry>
 <title>glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理</title>
-<link href="//2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html" rel="alternate" type="text/html" title="glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理" />
+<link href="/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html" rel="alternate" type="text/html" title="glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理" />
 <published>2018-04-20T15:45:46+08:00</published>
 <updated>2018-04-20T15:45:46+08:00</updated>
-<id>//2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention</id>
-<content type="html" xml:base="//2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/&quot;&gt;glibc 2.27-2 and pam 1.3.0-2 may require manual intervention&lt;/a&gt;&lt;/p&gt;
+<id>/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention</id>
+<content type="html" xml:base="/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/&quot;&gt;glibc 2.27-2 and pam 1.3.0-2 may require manual intervention&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;新版 glibc 移除了對 NIS 和 NIS+ 的支援。
 由套件 &lt;code class=&quot;highlighter-rouge&quot;&gt;filesystem&lt;/code&gt; 提供的預設設定檔 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/nsswitch.conf&lt;/code&gt; 已經反應這個變動。
@@ -117,11 +117,11 @@
 </entry>
 <entry>
 <title>zita-resampler 升級到 1.6.0-2 需要手動處理</title>
-<link href="//2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html" rel="alternate" type="text/html" title="zita-resampler 升級到 1.6.0-2 需要手動處理" />
+<link href="/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html" rel="alternate" type="text/html" title="zita-resampler 升級到 1.6.0-2 需要手動處理" />
 <published>2018-02-22T15:57:11+08:00</published>
 <updated>2018-02-22T15:57:11+08:00</updated>
-<id>//2018/02/22/zita-resampler-1.6.0-1--&gt;-2-update-requires-manual-intervention</id>
-<content type="html" xml:base="//2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/zita-resampler-160-1-2-update-requires-manual-intervention/&quot;&gt;zita-resampler 1.6.0-1 -&amp;gt; 2 update requires manual intervention&lt;/a&gt;&lt;/p&gt;
+<id>/2018/02/22/zita-resampler-1.6.0-1--&gt;-2-update-requires-manual-intervention</id>
+<content type="html" xml:base="/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/zita-resampler-160-1-2-update-requires-manual-intervention/&quot;&gt;zita-resampler 1.6.0-1 -&amp;gt; 2 update requires manual intervention&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;
 zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫鏈結。
@@ -137,11 +137,11 @@ zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫�
 </entry>
 <entry>
 <title>我們結束支援 i686 處理器家族了</title>
-<link href="//2017/11/08/the-end-of-i686-support.html" rel="alternate" type="text/html" title="我們結束支援 i686 處理器家族了" />
+<link href="/2017/11/08/the-end-of-i686-support.html" rel="alternate" type="text/html" title="我們結束支援 i686 處理器家族了" />
 <published>2017-11-08T21:39:10+08:00</published>
 <updated>2017-11-08T21:39:10+08:00</updated>
-<id>//2017/11/08/-the-end-of-i686-support</id>
-<content type="html" xml:base="//2017/11/08/the-end-of-i686-support.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/the-end-of-i686-support/&quot;&gt; The end of i686 support&lt;/a&gt;&lt;/p&gt;
+<id>/2017/11/08/-the-end-of-i686-support</id>
+<content type="html" xml:base="/2017/11/08/the-end-of-i686-support.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/the-end-of-i686-support/&quot;&gt; The end of i686 support&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;在為期九個月的&lt;a href=&quot;https://archlinux.tw/2017/01/25/phasing-out-i686-support.html&quot;&gt;不建議使用期&lt;/a&gt;屆滿後，我們對 i686 處理器家族的支援到今天就結束了。在 11 月底，i686 的套件就會從我們的鏡像站移除，之後則會從套件庫 (packages archive) 移除。但是 &lt;code class=&quot;highlighter-rouge&quot;&gt;[multilib]&lt;/code&gt; 套件庫則不受影響。&lt;/p&gt;
 
@@ -154,11 +154,11 @@ zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫�
 </entry>
 <entry>
 <title>Perl 程式庫路徑變更</title>
-<link href="//2017/09/02/perl-library-path-change.html" rel="alternate" type="text/html" title="Perl 程式庫路徑變更" />
+<link href="/2017/09/02/perl-library-path-change.html" rel="alternate" type="text/html" title="Perl 程式庫路徑變更" />
 <published>2017-09-02T19:44:22+08:00</published>
 <updated>2017-09-02T19:44:22+08:00</updated>
-<id>//2017/09/02/perl-library-path-change</id>
-<content type="html" xml:base="//2017/09/02/perl-library-path-change.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/perl-library-path-change/&quot;&gt;Perl library path change&lt;/a&gt;&lt;/p&gt;
+<id>/2017/09/02/perl-library-path-change</id>
+<content type="html" xml:base="/2017/09/02/perl-library-path-change.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/perl-library-path-change/&quot;&gt;Perl library path change&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;從現在開始 perl 套件將會對編譯模組使用版號路徑。這表示不合於 perl 版號的模組將
 不會被載入，並且需要重新編譯。&lt;/p&gt;
@@ -187,11 +187,11 @@ pacman 打包的軟體來使用。&lt;/p&gt;
 </entry>
 <entry>
 <title>棄用 ABS 工具與 rsync 端點</title>
-<link href="//2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint.html" rel="alternate" type="text/html" title="棄用 ABS 工具與 rsync 端點" />
+<link href="/2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint.html" rel="alternate" type="text/html" title="棄用 ABS 工具與 rsync 端點" />
 <published>2017-05-15T18:55:50+08:00</published>
 <updated>2017-05-15T18:55:50+08:00</updated>
-<id>//2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint</id>
-<content type="html" xml:base="//2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/deprecation-of-abs/&quot;&gt;Deprecation of ABS tool and rsync endpoint&lt;/a&gt;&lt;/p&gt;
+<id>/2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint</id>
+<content type="html" xml:base="/2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/deprecation-of-abs/&quot;&gt;Deprecation of ABS tool and rsync endpoint&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;因為維護與 Arch Build System 相關腳本程式 (scripts) 的成本過高，我們決定棄用 &lt;code class=&quot;highlighter-rouge&quot;&gt;abs&lt;/code&gt; 工具，以及不再提供 rsync 此一管道來獲取 PKGBUILDs。&lt;/p&gt;
 
@@ -206,11 +206,11 @@ pacman 打包的軟體來使用。&lt;/p&gt;
 </entry>
 <entry>
 <title>升級到 ca-certificates-utils 20170307-1 版需要手動處理</title>
-<link href="//2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html" rel="alternate" type="text/html" title="升級到 ca-certificates-utils 20170307-1 版需要手動處理" />
+<link href="/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html" rel="alternate" type="text/html" title="升級到 ca-certificates-utils 20170307-1 版需要手動處理" />
 <published>2017-03-16T05:27:54+08:00</published>
 <updated>2017-03-16T05:27:54+08:00</updated>
-<id>//2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention</id>
-<content type="html" xml:base="//2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention/&quot;&gt;ca-certificates-utils 20170307-1 upgrade requires manual intervention&lt;/a&gt;&lt;/p&gt;
+<id>/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention</id>
+<content type="html" xml:base="/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html">&lt;p&gt;&lt;strong&gt;原文：&lt;/strong&gt;&lt;a href=&quot;https://www.archlinux.org/news/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention/&quot;&gt;ca-certificates-utils 20170307-1 upgrade requires manual intervention&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;由於在 &lt;code class=&quot;highlighter-rouge&quot;&gt;ca-certificates-utils&lt;/code&gt; 裡頭有個符號連結檔案之前是在 post-install 階段生成的，但是現在已經直接移入套件內，所以升級到 &lt;code class=&quot;highlighter-rouge&quot;&gt;20170307-1&lt;/code&gt; 版時，需要您手動處理。&lt;/p&gt;
 
