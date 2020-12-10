@@ -36,6 +36,9 @@
   * 設定客製化網域 `archlinux.tw` 於 `docs/CNAME`。
     * [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site)
   * 細節請參考 `.github/workflows/build.yaml`。
+* 由於 GitHub Action 會自動產生 `git commit`，可於自己的 fork 內關閉該功能。
+
+  ![img](/images/disable-actions.png)
 
 ## 編輯原則
 
