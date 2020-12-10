@@ -1,14 +1,21 @@
 name: Arch Linux 臺灣社群
 name_en: Arch Linux Taiwan Community
 url: https://archlinux.tw
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-feed
 timezone: 'Asia/Taipei'
-exclude: ['Gemfile', 'Gemfile.lock', 'AUTHORS', 'LICENSE', 'NOTICE', 'README.md', 'CHRONICLES.md', 'config.rb', 'build.sh', 'Dockerfile', 'Makefile']
+exclude: [
+  'Gemfile', 'Gemfile.lock', 'AUTHORS', 'LICENSE', 'NOTICE', 'README.md',
+  'CHRONICLES.md', 'config.rb', 'build.sh', 'Dockerfile', 'Makefile'
+]
 keep_files: ['bootstrap']
-rss_post_limit: 10
-paginate: 5
-paginate_path: "news/page:num"
 destination: ./docs/
+plugins:
+  - jekyll-feed
+  - jekyll-paginate-v2
+  - jekyll-sitemap
+
+# jekyll-paginate-v2
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/news/page:num/'
+  sort_reverse: true

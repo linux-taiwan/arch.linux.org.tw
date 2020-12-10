@@ -1,13 +1,13 @@
-FROM ruby:2.4.0
-MAINTAINER Hiroshi Yui <hiroshi@ghostsinthelab.org>
+FROM ruby:2.7.2
+LABEL maintainer="xatier <xatierlike@gmail.com>"
 
 # prepare WORKDIR for our project
-RUN mkdir -p /srv/www/archlinux.tw
-WORKDIR /srv/www/archlinux.tw
-COPY . /srv/www/archlinux.tw
+ARG dir=/srv/www/archlinux.tw
+RUN mkdir -p $dir
+WORKDIR $dir
+COPY . $dir
 
 # build project
-RUN gem install bundler
-RUN bundle install
+RUN gem install bundler && bundle install
 
-CMD jekyll server -H 0.0.0.0
+CMD ["/usr/local/bundle/bin/jekyll", "server", "-H", "0.0.0.0"]
