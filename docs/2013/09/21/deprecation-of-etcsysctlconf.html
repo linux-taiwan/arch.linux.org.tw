@@ -18,13 +18,13 @@
 <link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- RSS Feeds -->
-  <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Arch Linux 臺灣社群" />
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
 </head>
 
 <body data-itemid="">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
-      <a class="site-title navbar-brand" href="/">Arch Linux 臺灣社群</a>
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -57,16 +57,16 @@
 <div itemprop="articleBody">
 <p><strong>原文：</strong><a href="https://www.archlinux.org/news/deprecation-of-etcsysctlconf/">Deprecation of /etc/sysctl.conf</a></p>
 
-<p>從 <code class="highlighter-rouge">systemd</code> 207 版開始，將不再採用 <code class="highlighter-rouge">/etc/sysctl.conf</code> 當中的設定，改成只採用 <code class="highlighter-rouge">/etc/sysctl.d/*</code> 裡頭的內容。因為我們在 <code class="highlighter-rouge">procps-ng</code> 套件中提供的原始 <code class="highlighter-rouge">/etc/sysctl.conf</code> 設定已經成為系統核心的預設值，所以我們決定要棄用這個檔案。</p>
+<p>從 <code class="language-plaintext highlighter-rouge">systemd</code> 207 版開始，將不再採用 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 當中的設定，改成只採用 <code class="language-plaintext highlighter-rouge">/etc/sysctl.d/*</code> 裡頭的內容。因為我們在 <code class="language-plaintext highlighter-rouge">procps-ng</code> 套件中提供的原始 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 設定已經成為系統核心的預設值，所以我們決定要棄用這個檔案。</p>
 
-<p>當升級 <code class="highlighter-rouge">procps-ng</code> 到 3.3.8-3 版時，系統會提醒您將自訂的 <code class="highlighter-rouge">/etc/sysctl.conf</code> 設定改放在 <code class="highlighter-rouge">/etc/sysctl.d</code> 底下。最簡單的解法是這樣：</p>
+<p>當升級 <code class="language-plaintext highlighter-rouge">procps-ng</code> 到 3.3.8-3 版時，系統會提醒您將自訂的 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 設定改放在 <code class="language-plaintext highlighter-rouge">/etc/sysctl.d</code> 底下。最簡單的解法是這樣：</p>
 
 <pre>
 pacman -Syu
 mv /etc/sysctl.conf.pacsave /etc/sysctl.d/99-sysctl.conf
 </pre>
 
-<p>如果您不曾自訂 <code class="highlighter-rouge">/etc/sysctl.conf</code>，則無須配合做任何調整。</p>
+<p>如果您不曾自訂 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code>，則無須配合做任何調整。</p>
 
 </div>
 </article>

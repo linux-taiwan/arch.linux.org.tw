@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>最新消息 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <title>最新消息 - page 5 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
   <link rel="shortcut icon" href="/images/favicon.ico" />
   <!-- Twitter Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -18,13 +18,13 @@
 <link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- RSS Feeds -->
-  <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Arch Linux 臺灣社群" />
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
 </head>
 
 <body data-itemid="news">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
-      <a class="site-title navbar-brand" href="/">Arch Linux 臺灣社群</a>
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -79,7 +79,7 @@
 
 <p>我們收到要求支援 i8042 鍵盤、滑鼠控制器核心模組的請求。部份使用者看到怪異的錯誤訊息，因為他們沒有此一模組，且手動偵測又會拖慢開機速度。Tom 處理了這個核心問題（感謝 Tom！）而終於在 3.13 版解決了。</p>
 
-<p>為了能在 init 早期階段就獲取鍵盤輸入，如果您還沒有這麼做，請將 <code class="highlighter-rouge">keyboard</code> hook 加進 <code class="highlighter-rouge">/etc/mkinitcpio.conf</code> 的 <code class="highlighter-rouge">HOOK=</code> 這行，之後請執行 <code class="highlighter-rouge">mkinitcpio -P</code>。這項設定也有可能早就已經在您的預設配置裡了。</p>
+<p>為了能在 init 早期階段就獲取鍵盤輸入，如果您還沒有這麼做，請將 <code class="language-plaintext highlighter-rouge">keyboard</code> hook 加進 <code class="language-plaintext highlighter-rouge">/etc/mkinitcpio.conf</code> 的 <code class="language-plaintext highlighter-rouge">HOOK=</code> 這行，之後請執行 <code class="language-plaintext highlighter-rouge">mkinitcpio -P</code>。這項設定也有可能早就已經在您的預設配置裡了。</p>
 
 <p><em>注意：</em> 這項設定有個負面影響：在有些主機板（大部分是較舊款，但是新款的也會有）裡頭 i8042 控制器是無法被自動偵測的。這雖然很罕見，但是只要不巧遇上了就會有無法使用鍵盤的現象。您可以用下列指令先行偵測：</p>
 
@@ -88,9 +88,9 @@ $ dmesg -t | grep '^i8042'
 i8042: PNP: No PS/2 controller found. Probing ports directly.
 </pre>
 
-<p>倘若您有個 PS/2 連接埠且看到這樣的輸出訊息，請將 <code class="highlighter-rouge">atkbd</code> 加進 ‘mkinitcpio.conf’ 的 <code class="highlighter-rouge">MODULES=</code> 這行，之後也請執行 <code class="highlighter-rouge">mkinitcpio -P</code>。如果您發現重開機後沒有鍵盤可用，別擔心！只要將</p>
+<p>倘若您有個 PS/2 連接埠且看到這樣的輸出訊息，請將 <code class="language-plaintext highlighter-rouge">atkbd</code> 加進 ‘mkinitcpio.conf’ 的 <code class="language-plaintext highlighter-rouge">MODULES=</code> 這行，之後也請執行 <code class="language-plaintext highlighter-rouge">mkinitcpio -P</code>。如果您發現重開機後沒有鍵盤可用，別擔心！只要將</p>
 
-<p><code class="highlighter-rouge">earlymodules=atkbd modules-load=atkbd</code></p>
+<p><code class="language-plaintext highlighter-rouge">earlymodules=atkbd modules-load=atkbd</code></p>
 
 <p>加進您啟動程式 (bootloader) 的 kernel 命令列即可解決。</p>
 
@@ -126,16 +126,16 @@ i8042: PNP: No PS/2 controller found. Probing ports directly.
   <div itemprop="articleBody">
   <p><strong>原文：</strong><a href="https://www.archlinux.org/news/deprecation-of-etcsysctlconf/">Deprecation of /etc/sysctl.conf</a></p>
 
-<p>從 <code class="highlighter-rouge">systemd</code> 207 版開始，將不再採用 <code class="highlighter-rouge">/etc/sysctl.conf</code> 當中的設定，改成只採用 <code class="highlighter-rouge">/etc/sysctl.d/*</code> 裡頭的內容。因為我們在 <code class="highlighter-rouge">procps-ng</code> 套件中提供的原始 <code class="highlighter-rouge">/etc/sysctl.conf</code> 設定已經成為系統核心的預設值，所以我們決定要棄用這個檔案。</p>
+<p>從 <code class="language-plaintext highlighter-rouge">systemd</code> 207 版開始，將不再採用 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 當中的設定，改成只採用 <code class="language-plaintext highlighter-rouge">/etc/sysctl.d/*</code> 裡頭的內容。因為我們在 <code class="language-plaintext highlighter-rouge">procps-ng</code> 套件中提供的原始 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 設定已經成為系統核心的預設值，所以我們決定要棄用這個檔案。</p>
 
-<p>當升級 <code class="highlighter-rouge">procps-ng</code> 到 3.3.8-3 版時，系統會提醒您將自訂的 <code class="highlighter-rouge">/etc/sysctl.conf</code> 設定改放在 <code class="highlighter-rouge">/etc/sysctl.d</code> 底下。最簡單的解法是這樣：</p>
+<p>當升級 <code class="language-plaintext highlighter-rouge">procps-ng</code> 到 3.3.8-3 版時，系統會提醒您將自訂的 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 設定改放在 <code class="language-plaintext highlighter-rouge">/etc/sysctl.d</code> 底下。最簡單的解法是這樣：</p>
 
 <pre>
 pacman -Syu
 mv /etc/sysctl.conf.pacsave /etc/sysctl.d/99-sysctl.conf
 </pre>
 
-<p>如果您不曾自訂 <code class="highlighter-rouge">/etc/sysctl.conf</code>，則無須配合做任何調整。</p>
+<p>如果您不曾自訂 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code>，則無須配合做任何調整。</p>
 
   </div>
   </article>
@@ -146,7 +146,7 @@ mv /etc/sysctl.conf.pacsave /etc/sysctl.d/99-sysctl.conf
   <!-- Don't build paginator if we have only one page -->
   
     
-      <a href="/news/page4" class="previous">前頁</a>
+      <a href="/news/news/page4/" class="previous">前頁</a>
     
     <span class="page_number ">第 5 頁，共 5 頁</span>
     

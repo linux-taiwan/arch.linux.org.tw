@@ -18,13 +18,13 @@
 <link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- RSS Feeds -->
-  <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Arch Linux 臺灣社群" />
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
 </head>
 
 <body data-itemid="news">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
-      <a class="site-title navbar-brand" href="/">Arch Linux 臺灣社群</a>
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -85,13 +85,13 @@
   <div itemprop="articleBody">
   <p><strong>原文：</strong><a href="https://www.archlinux.org/news/libutf8proc211-3-update-requires-manual-intervention/">libutf8proc&gt;=2.1.1-3 update requires manual intervention</a></p>
 
-<p><code class="highlighter-rouge">libutf8proc</code> 套件在 <code class="highlighter-rouge">2.1.1-3</code> 版本之前含有一個錯誤的 soname 連結 (soname link)，在 <code class="highlighter-rouge">2.1.1-3</code> 版本已經修復了，所以升級到這個版本時需要覆寫先前未能由 <code class="highlighter-rouge">ldconfig</code> 正確產生的 soname 連結。如果您在升級過程中遇到這樣的錯誤：</p>
+<p><code class="language-plaintext highlighter-rouge">libutf8proc</code> 套件在 <code class="language-plaintext highlighter-rouge">2.1.1-3</code> 版本之前含有一個錯誤的 soname 連結 (soname link)，在 <code class="language-plaintext highlighter-rouge">2.1.1-3</code> 版本已經修復了，所以升級到這個版本時需要覆寫先前未能由 <code class="language-plaintext highlighter-rouge">ldconfig</code> 正確產生的 soname 連結。如果您在升級過程中遇到這樣的錯誤：</p>
 
-<p><code class="highlighter-rouge">libutf8proc: /usr/lib/libutf8proc.so.2 exists in filesystem</code></p>
+<p><code class="language-plaintext highlighter-rouge">libutf8proc: /usr/lib/libutf8proc.so.2 exists in filesystem</code></p>
 
 <p>請使用以下指令來完成升級作業：</p>
 
-<p><code class="highlighter-rouge">pacman -Suy --overwrite usr/lib/libutf8proc.so.2</code></p>
+<p><code class="language-plaintext highlighter-rouge">pacman -Suy --overwrite usr/lib/libutf8proc.so.2</code></p>
 
   </div>
   </article>
@@ -104,9 +104,9 @@
   <div itemprop="articleBody">
   <p><strong>原文：</strong><a href="https://www.archlinux.org/news/js52-5273-2-upgrade-requires-intervention/">js52 52.7.3-2 upgrade requires intervention</a></p>
 
-<p>因為 <code class="highlighter-rouge">/usr/lib/libmozjs-52.so</code> 的 SONAME 與它真正所屬的檔名不一致，ldconfig 會建立一個未能正常追溯的 <code class="highlighter-rouge">/usr/lib/libmozjs-52.so.0</code> 檔案。這個問題目前已經修正，兩個檔名也都在套件中了。</p>
+<p>因為 <code class="language-plaintext highlighter-rouge">/usr/lib/libmozjs-52.so</code> 的 SONAME 與它真正所屬的檔名不一致，ldconfig 會建立一個未能正常追溯的 <code class="language-plaintext highlighter-rouge">/usr/lib/libmozjs-52.so.0</code> 檔案。這個問題目前已經修正，兩個檔名也都在套件中了。</p>
 
-<p>要能通過升級檢查，請在升級前先手動刪除 <code class="highlighter-rouge">/usr/lib/libmozjs-52.so.0</code>。</p>
+<p>要能通過升級檢查，請在升級前先手動刪除 <code class="language-plaintext highlighter-rouge">/usr/lib/libmozjs-52.so.0</code>。</p>
 
   </div>
   </article>
@@ -136,16 +136,16 @@
   <p><strong>原文：</strong><a href="https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/">glibc 2.27-2 and pam 1.3.0-2 may require manual intervention</a></p>
 
 <p>新版 glibc 移除了對 NIS 和 NIS+ 的支援。
-由套件 <code class="highlighter-rouge">filesystem</code> 提供的預設設定檔 <code class="highlighter-rouge">/etc/nsswitch.conf</code> 已經反應這個變動。
+由套件 <code class="language-plaintext highlighter-rouge">filesystem</code> 提供的預設設定檔 <code class="language-plaintext highlighter-rouge">/etc/nsswitch.conf</code> 已經反應這個變動。
 請在更新前合併這個檔案的 .pacnew 。</p>
 
-<p>NIS 的功能仍能透過安裝 <code class="highlighter-rouge">libnss_nis</code> 這個套件取得。
+<p>NIS 的功能仍能透過安裝 <code class="language-plaintext highlighter-rouge">libnss_nis</code> 這個套件取得。
 而 NIS+ 目前在官方套件庫尚未有對應的套件。</p>
 
-<p><code class="highlighter-rouge">pam 1.3.0-2</code> 不再提供 <code class="highlighter-rouge">pam_unix2</code> 模組以及 <code class="highlighter-rouge">pam_unix_*.so</code> 的相容性符號鏈結。
-請在更新前檢閱 <code class="highlighter-rouge">/etc/pam.d</code> 下的設定檔，並將已移除的模組替換為 <code class="highlighter-rouge">pam_unix.so</code>。
-而 <code class="highlighter-rouge">pam_unix2</code> 的使用者也應於該設定變更後重設密碼。
-至於由 <code class="highlighter-rouge">pambase</code> 套件提供的預設值不用做任何更動。</p>
+<p><code class="language-plaintext highlighter-rouge">pam 1.3.0-2</code> 不再提供 <code class="language-plaintext highlighter-rouge">pam_unix2</code> 模組以及 <code class="language-plaintext highlighter-rouge">pam_unix_*.so</code> 的相容性符號鏈結。
+請在更新前檢閱 <code class="language-plaintext highlighter-rouge">/etc/pam.d</code> 下的設定檔，並將已移除的模組替換為 <code class="language-plaintext highlighter-rouge">pam_unix.so</code>。
+而 <code class="language-plaintext highlighter-rouge">pam_unix2</code> 的使用者也應於該設定變更後重設密碼。
+至於由 <code class="language-plaintext highlighter-rouge">pambase</code> 套件提供的預設值不用做任何更動。</p>
 
 
   </div>
@@ -161,7 +161,7 @@
     
     <span class="page_number ">第 1 頁，共 5 頁</span>
     
-      <a href="/news/page2" class="next">次頁</a>
+      <a href="/news/news/page2/" class="next">次頁</a>
     
   
 </div>

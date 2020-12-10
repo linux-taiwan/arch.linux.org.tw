@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "ie.css",
+	"sources": [
+		"ie.scss"
+	],
+	"sourcesContent": [
+		"/* Welcome to Compass. Use this file to write IE specific override styles.\n * Import this file using the following HTML or equivalent:\n * <!--[if IE]>\n *   <link href=\"/stylesheets/ie.css\" media=\"screen, projection\" rel=\"stylesheet\" type=\"text/css\" />\n * <![endif]--> */\n"
+	],
+	"names": [],
+	"mappings": "AAAA,gQAIkB"
+}

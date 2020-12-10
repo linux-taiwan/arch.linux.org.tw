@@ -18,13 +18,13 @@
 <link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- RSS Feeds -->
-  <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Arch Linux 臺灣社群" />
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
 </head>
 
 <body data-itemid="">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
-      <a class="site-title navbar-brand" href="/">Arch Linux 臺灣社群</a>
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -57,9 +57,9 @@
 <div itemprop="articleBody">
 <p><strong>原文：</strong><a href="https://www.archlinux.org/news/data-corruption-on-software-raid-0-when-discard-is-used/">Data corruption on software RAID 0 when discard is used</a></p>
 
-<p>幾週前送進 [core] 套件庫的 Linux 核心 (4.0.2+, LTS 3.14.41+) 有一個錯誤，檔案系統若以 <code class="highlighter-rouge">discard</code> 參數掛載、且配置在軟體型 RAID 0 陣列內就會引發資料毀損。然而即使未指定使用 <code class="highlighter-rouge">discard</code> 參數，當使用 <code class="highlighter-rouge">fstrim</code> 命令也同樣會觸發這個錯誤。 <strong>（如果您並未使用軟體型 RAID 0 搭配 <code class="highlighter-rouge">discard</code> 參數，那麼本問題並不會對您造成影響。）</strong></p>
+<p>幾週前送進 [core] 套件庫的 Linux 核心 (4.0.2+, LTS 3.14.41+) 有一個錯誤，檔案系統若以 <code class="language-plaintext highlighter-rouge">discard</code> 參數掛載、且配置在軟體型 RAID 0 陣列內就會引發資料毀損。然而即使未指定使用 <code class="language-plaintext highlighter-rouge">discard</code> 參數，當使用 <code class="language-plaintext highlighter-rouge">fstrim</code> 命令也同樣會觸發這個錯誤。 <strong>（如果您並未使用軟體型 RAID 0 搭配 <code class="language-plaintext highlighter-rouge">discard</code> 參數，那麼本問題並不會對您造成影響。）</strong></p>
 
-<p>本問題已經在 <code class="highlighter-rouge">linux 4.0.4-2</code> 與 <code class="highlighter-rouge">linux-lts 3.14.43-2</code> 修正。但是由於這個問題的發生原理使然，很可能系統資料已經在前述有問題的核心版本上發生毀損情況了。強烈建議您在受到影響的檔案系統上做資料完整性檢查，可使用 <code class="highlighter-rouge">fsck</code> 工具，並（或）從現存的完整備份那邊還原資料。</p>
+<p>本問題已經在 <code class="language-plaintext highlighter-rouge">linux 4.0.4-2</code> 與 <code class="language-plaintext highlighter-rouge">linux-lts 3.14.43-2</code> 修正。但是由於這個問題的發生原理使然，很可能系統資料已經在前述有問題的核心版本上發生毀損情況了。強烈建議您在受到影響的檔案系統上做資料完整性檢查，可使用 <code class="language-plaintext highlighter-rouge">fsck</code> 工具，並（或）從現存的完整備份那邊還原資料。</p>
 
 <p>若需要進一步的資訊，請參考 Holger Kiehl 在 LKML 發表的<a href="https://lkml.org/lkml/2015/5/21/167">貼文</a>、Phoronix 上的<a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=Linux-4-EXT4-RAID-Issue-Found">相關文章</a>以及被 backport 到 Arch 核心的<a href="http://git.neil.brown.name/?p=md.git;a=commitdiff;h=a81157768a00e8cf8a7b43b5ea5cac931262374f">修正</a>。</p>
 

@@ -18,13 +18,13 @@
 <link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- RSS Feeds -->
-  <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Arch Linux 臺灣社群" />
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
 </head>
 
 <body data-itemid="">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
-      <a class="site-title navbar-brand" href="/">Arch Linux 臺灣社群</a>
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -62,19 +62,19 @@
 
 <p>一個 pacman 鉤子將會在升級受影響的模組時，以下面的方式顯示出警告內容：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: '/usr/lib/perl5/vendor_perl' contains data from at least 143 pacages which will NOT be used by the installed perl interpreter.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: '/usr/lib/perl5/vendor_perl' contains data from at least 143 pacages which will NOT be used by the installed perl interpreter.
  -&gt; Run the following command to get a list of affected packages: pacman -Qqo '/usr/lib/perl5/vendor_perl'
 </code></pre></div></div>
 
 <p>你必須要重新編譯所有受影響的套件以及新的 perl 套件才能再次使用它們。這個變更
-也將會影響從 CPAN 安裝的模組。重編譯的動作在 perl 主要版號變更時 (如 <code class="highlighter-rouge">5.28</code>
-變成 <code class="highlighter-rouge">5.30</code>) 也會需要重新動作。</p>
+也將會影響從 CPAN 安裝的模組。重編譯的動作在 perl 主要版號變更時 (如 <code class="language-plaintext highlighter-rouge">5.28</code>
+變成 <code class="language-plaintext highlighter-rouge">5.30</code>) 也會需要重新動作。</p>
 
 <p>請注意到，在此之前主要版號變更時就需要重新編譯了。只是這次的變更將讓 perl 不會
 再以奇怪的方式讀取套件然後失敗。</p>
 
 <p>如果編譯系統或是某些軟體沒有自動偵測到這樣的變更，你可以在你的 PKGBUILD 使用
-<code class="highlighter-rouge">perl -V:vendorarch</code> 來讓 perl 使用正確的路徑。同時也有 <code class="highlighter-rouge">sitearch</code> 來讓非
+<code class="language-plaintext highlighter-rouge">perl -V:vendorarch</code> 來讓 perl 使用正確的路徑。同時也有 <code class="language-plaintext highlighter-rouge">sitearch</code> 來讓非
 pacman 打包的軟體來使用。</p>
 
 </div>

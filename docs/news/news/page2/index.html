@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>最新消息 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <title>最新消息 - page 2 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
   <link rel="shortcut icon" href="/images/favicon.ico" />
   <!-- Twitter Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -18,13 +18,13 @@
 <link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- RSS Feeds -->
-  <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Arch Linux 臺灣社群" />
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
 </head>
 
 <body data-itemid="news">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
-      <a class="site-title navbar-brand" href="/">Arch Linux 臺灣社群</a>
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -78,7 +78,7 @@ zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫�
   <div itemprop="articleBody">
   <p><strong>原文：</strong><a href="https://www.archlinux.org/news/the-end-of-i686-support/"> The end of i686 support</a></p>
 
-<p>在為期九個月的<a href="https://archlinux.tw/2017/01/25/phasing-out-i686-support.html">不建議使用期</a>屆滿後，我們對 i686 處理器家族的支援到今天就結束了。在 11 月底，i686 的套件就會從我們的鏡像站移除，之後則會從套件庫 (packages archive) 移除。但是 <code class="highlighter-rouge">[multilib]</code> 套件庫則不受影響。</p>
+<p>在為期九個月的<a href="https://archlinux.tw/2017/01/25/phasing-out-i686-support.html">不建議使用期</a>屆滿後，我們對 i686 處理器家族的支援到今天就結束了。在 11 月底，i686 的套件就會從我們的鏡像站移除，之後則會從套件庫 (packages archive) 移除。但是 <code class="language-plaintext highlighter-rouge">[multilib]</code> 套件庫則不受影響。</p>
 
 <p>如果用戶無法將硬體轉換到 x86_64 處理器架構，有個替代方案是社群維護的、稱為 <a href="https://archlinux32.org/">Arch Linux 32</a> 的分支。有關如何轉換既有已安裝的系統到 Arch Linux 32 的詳情，敬請參見他們的網站。</p>
 
@@ -98,19 +98,19 @@ zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫�
 
 <p>一個 pacman 鉤子將會在升級受影響的模組時，以下面的方式顯示出警告內容：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: '/usr/lib/perl5/vendor_perl' contains data from at least 143 pacages which will NOT be used by the installed perl interpreter.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: '/usr/lib/perl5/vendor_perl' contains data from at least 143 pacages which will NOT be used by the installed perl interpreter.
  -&gt; Run the following command to get a list of affected packages: pacman -Qqo '/usr/lib/perl5/vendor_perl'
 </code></pre></div></div>
 
 <p>你必須要重新編譯所有受影響的套件以及新的 perl 套件才能再次使用它們。這個變更
-也將會影響從 CPAN 安裝的模組。重編譯的動作在 perl 主要版號變更時 (如 <code class="highlighter-rouge">5.28</code>
-變成 <code class="highlighter-rouge">5.30</code>) 也會需要重新動作。</p>
+也將會影響從 CPAN 安裝的模組。重編譯的動作在 perl 主要版號變更時 (如 <code class="language-plaintext highlighter-rouge">5.28</code>
+變成 <code class="language-plaintext highlighter-rouge">5.30</code>) 也會需要重新動作。</p>
 
 <p>請注意到，在此之前主要版號變更時就需要重新編譯了。只是這次的變更將讓 perl 不會
 再以奇怪的方式讀取套件然後失敗。</p>
 
 <p>如果編譯系統或是某些軟體沒有自動偵測到這樣的變更，你可以在你的 PKGBUILD 使用
-<code class="highlighter-rouge">perl -V:vendorarch</code> 來讓 perl 使用正確的路徑。同時也有 <code class="highlighter-rouge">sitearch</code> 來讓非
+<code class="language-plaintext highlighter-rouge">perl -V:vendorarch</code> 來讓 perl 使用正確的路徑。同時也有 <code class="language-plaintext highlighter-rouge">sitearch</code> 來讓非
 pacman 打包的軟體來使用。</p>
 
   </div>
@@ -124,11 +124,11 @@ pacman 打包的軟體來使用。</p>
   <div itemprop="articleBody">
   <p><strong>原文：</strong><a href="https://www.archlinux.org/news/deprecation-of-abs/">Deprecation of ABS tool and rsync endpoint</a></p>
 
-<p>因為維護與 Arch Build System 相關腳本程式 (scripts) 的成本過高，我們決定棄用 <code class="highlighter-rouge">abs</code> 工具，以及不再提供 rsync 此一管道來獲取 PKGBUILDs。</p>
+<p>因為維護與 Arch Build System 相關腳本程式 (scripts) 的成本過高，我們決定棄用 <code class="language-plaintext highlighter-rouge">abs</code> 工具，以及不再提供 rsync 此一管道來獲取 PKGBUILDs。</p>
 
-<p>在 [extra] 套件庫裡的 <code class="highlighter-rouge">asp</code> 工具提供了近似 <code class="highlighter-rouge">abs</code> 的功能。使用 <code class="highlighter-rouge">asp export pkgname</code> 指令即可直接替代；更多有關 <code class="highlighter-rouge">asp</code> 的用法資訊可以在<a href="https://github.com/falconindy/asp/blob/master/man/asp.1.txt">文件</a>處找到。除此之外，使用 Subversion 個別提取（<a href="https://www.archlinux.org/svn/">參見這裡</a>）也可達到相似的作用。如果要獲取全部的 PKGBUILDs，最好的方法是複製 <a href="https://git.archlinux.org/svntogit/">svntogit</a> 的鏡像來源。</p>
+<p>在 [extra] 套件庫裡的 <code class="language-plaintext highlighter-rouge">asp</code> 工具提供了近似 <code class="language-plaintext highlighter-rouge">abs</code> 的功能。使用 <code class="language-plaintext highlighter-rouge">asp export pkgname</code> 指令即可直接替代；更多有關 <code class="language-plaintext highlighter-rouge">asp</code> 的用法資訊可以在<a href="https://github.com/falconindy/asp/blob/master/man/asp.1.txt">文件</a>處找到。除此之外，使用 Subversion 個別提取（<a href="https://www.archlinux.org/svn/">參見這裡</a>）也可達到相似的作用。如果要獲取全部的 PKGBUILDs，最好的方法是複製 <a href="https://git.archlinux.org/svntogit/">svntogit</a> 的鏡像來源。</p>
 
-<p>目前 <code class="highlighter-rouge">extra/abs</code> 套件已被下架，而 rsync 端點 (rsync://rsync.archlinux.org/abs) 亦將於本月底關閉。</p>
+<p>目前 <code class="language-plaintext highlighter-rouge">extra/abs</code> 套件已被下架，而 rsync 端點 (rsync://rsync.archlinux.org/abs) 亦將於本月底關閉。</p>
 
   </div>
   </article>
@@ -141,11 +141,11 @@ pacman 打包的軟體來使用。</p>
   <div itemprop="articleBody">
   <p><strong>原文：</strong><a href="https://www.archlinux.org/news/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention/">ca-certificates-utils 20170307-1 upgrade requires manual intervention</a></p>
 
-<p>由於在 <code class="highlighter-rouge">ca-certificates-utils</code> 裡頭有個符號連結檔案之前是在 post-install 階段生成的，但是現在已經直接移入套件內，所以升級到 <code class="highlighter-rouge">20170307-1</code> 版時，需要您手動處理。</p>
+<p>由於在 <code class="language-plaintext highlighter-rouge">ca-certificates-utils</code> 裡頭有個符號連結檔案之前是在 post-install 階段生成的，但是現在已經直接移入套件內，所以升級到 <code class="language-plaintext highlighter-rouge">20170307-1</code> 版時，需要您手動處理。</p>
 
 <p>如果直接把這個符號連結檔案刪除，可能會導致無法正常下載套件，所以請依照以下三個步驟操作此項升級：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -Syuw                           # download packages
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -Syuw                           # download packages
 # rm /etc/ssl/certs/ca-certificates.crt  # remove conflicting file
 # pacman -Su                             # perform upgrade
 </code></pre></div></div>
@@ -164,7 +164,7 @@ pacman 打包的軟體來使用。</p>
     
     <span class="page_number ">第 2 頁，共 5 頁</span>
     
-      <a href="/news/page3" class="next">次頁</a>
+      <a href="/news/news/page3/" class="next">次頁</a>
     
   
 </div>

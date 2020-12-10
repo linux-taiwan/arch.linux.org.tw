@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>最新消息 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
+  <title>最新消息 - page 4 | Arch Linux 臺灣社群 / Arch Linux Taiwan Community</title>
   <link rel="shortcut icon" href="/images/favicon.ico" />
   <!-- Twitter Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -18,13 +18,13 @@
 <link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- RSS Feeds -->
-  <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Arch Linux 臺灣社群" />
+  <link type="application/atom+xml" rel="alternate" href="https://archlinux.tw/feed.xml" title="Arch Linux 臺灣社群" />
 </head>
 
 <body data-itemid="news">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
-      <a class="site-title navbar-brand" href="/">Arch Linux 臺灣社群</a>
+      <a class="site-title navbar-brand" href="https://archlinux.tw">Arch Linux 臺灣社群</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -79,18 +79,18 @@
   <div itemprop="articleBody">
   <p><strong>原文：</strong><a href="https://www.archlinux.org/news/pulseaudio-split/">PulseAudio split</a></p>
 
-<p>因為要避免模組找不到動態函式庫的問題，某些模組已經從 <code class="highlighter-rouge">pulseaudio</code> 套件中拆分出來。請檢查您需要的模組，並重新安裝它們。</p>
+<p>因為要避免模組找不到動態函式庫的問題，某些模組已經從 <code class="language-plaintext highlighter-rouge">pulseaudio</code> 套件中拆分出來。請檢查您需要的模組，並重新安裝它們。</p>
 
 <p>這些拆分出來的模組如下：</p>
 
 <ul>
-  <li><code class="highlighter-rouge">pulseaudio-bluetooth</code>: Bluetooth (Bluez) support</li>
-  <li><code class="highlighter-rouge">pulseaudio-equalizer</code>: Equalizer sink (qpaeq)</li>
-  <li><code class="highlighter-rouge">pulseaudio-gconf</code>: GConf support (paprefs)</li>
-  <li><code class="highlighter-rouge">pulseaudio-jack</code>: JACK sink, source and jackdbus detection</li>
-  <li><code class="highlighter-rouge">pulseaudio-lirc</code>: Infrared (LIRC) volume control</li>
-  <li><code class="highlighter-rouge">pulseaudio-xen</code>: Xen paravirtual sink</li>
-  <li><code class="highlighter-rouge">pulseaudio-zeroconf</code>: Zeroconf (Avahi/DNS-SD) support</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-bluetooth</code>: Bluetooth (Bluez) support</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-equalizer</code>: Equalizer sink (qpaeq)</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-gconf</code>: GConf support (paprefs)</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-jack</code>: JACK sink, source and jackdbus detection</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-lirc</code>: Infrared (LIRC) volume control</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-xen</code>: Xen paravirtual sink</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-zeroconf</code>: Zeroconf (Avahi/DNS-SD) support</li>
 </ul>
 
   </div>
@@ -104,7 +104,7 @@
   <div itemprop="articleBody">
   <p>廣為人知的網路連線管理軟體 NetworkManager 日前釋出 1.0 版，請見 <a href="https://mail.gnome.org/archives/networkmanager-list/2014-December/msg00030.html">ANN: NetworkManager 1.0.0 released!</a>。</p>
 
-<p>Arch Linux 業已提供 1.0 版套件，其中由於 DHCP 終端程式的已知相容問題，如果您原先使用的是 <code class="highlighter-rouge">dhcpcd</code> 有可能無法正常使用無線網路，請將您的 <code class="highlighter-rouge">/etc/NetworkManager/NetworkManager.conf</code> 當中 <code class="highlighter-rouge">dhcp=</code> 設定項目改成 <code class="highlighter-rouge">internal</code>，或 <code class="highlighter-rouge">dhclient</code>（需配合安裝 <code class="highlighter-rouge">dhclient</code> 方可使用）。</p>
+<p>Arch Linux 業已提供 1.0 版套件，其中由於 DHCP 終端程式的已知相容問題，如果您原先使用的是 <code class="language-plaintext highlighter-rouge">dhcpcd</code> 有可能無法正常使用無線網路，請將您的 <code class="language-plaintext highlighter-rouge">/etc/NetworkManager/NetworkManager.conf</code> 當中 <code class="language-plaintext highlighter-rouge">dhcp=</code> 設定項目改成 <code class="language-plaintext highlighter-rouge">internal</code>，或 <code class="language-plaintext highlighter-rouge">dhclient</code>（需配合安裝 <code class="language-plaintext highlighter-rouge">dhclient</code> 方可使用）。</p>
 
   </div>
   </article>
@@ -120,8 +120,8 @@
 <p>新版本有以下變動：</p>
 
 <ul>
-  <li>依循 upstream 規劃，<code class="highlighter-rouge">xf86-video-modesetting</code> 工具現在改由 <code class="highlighter-rouge">xorg-server</code> 套件提供。</li>
-  <li>以下套件已經棄用，並移到 AUR 內，當中某些被 modesetting 驅動程式取代：<code class="highlighter-rouge">xf86-video-ast</code>, <code class="highlighter-rouge">xf86-video-cirrus</code>, <code class="highlighter-rouge">xf86-video-geode</code>, <code class="highlighter-rouge">xf86-video-mga</code>, <code class="highlighter-rouge">xf86-video-sisimedia</code>, <code class="highlighter-rouge">xf86-video-v4l</code></li>
+  <li>依循 upstream 規劃，<code class="language-plaintext highlighter-rouge">xf86-video-modesetting</code> 工具現在改由 <code class="language-plaintext highlighter-rouge">xorg-server</code> 套件提供。</li>
+  <li>以下套件已經棄用，並移到 AUR 內，當中某些被 modesetting 驅動程式取代：<code class="language-plaintext highlighter-rouge">xf86-video-ast</code>, <code class="language-plaintext highlighter-rouge">xf86-video-cirrus</code>, <code class="language-plaintext highlighter-rouge">xf86-video-geode</code>, <code class="language-plaintext highlighter-rouge">xf86-video-mga</code>, <code class="language-plaintext highlighter-rouge">xf86-video-sisimedia</code>, <code class="language-plaintext highlighter-rouge">xf86-video-v4l</code></li>
 </ul>
 
   </div>
@@ -139,7 +139,7 @@
 
 <p>KDE 開發者開始著手將他們的軟體移植到 KDE Frameworks 與 Qt 5。已經完成移植工作的軟體列表請參見<a href="https://www.kde.org/announcements/announce-applications-14.12.0.php">公告</a>。</p>
 
-<p>倘若某個 KDE 應用程式的 KDE Frameworks 移植版本夠穩定了，它往後會改在 KDE Applications 釋出，而不繼續在 Qt4/KDE4 底下開發與修正問題。這表示說如果某個移植版本釋出了，我們就會切換到這個新版本。同時我們也會把此軟體的 KDE 模組前綴名稱去除（例如：<code class="highlighter-rouge">kdebase-konsole</code> -&gt; <code class="highlighter-rouge">konsole</code>）。</p>
+<p>倘若某個 KDE 應用程式的 KDE Frameworks 移植版本夠穩定了，它往後會改在 KDE Applications 釋出，而不繼續在 Qt4/KDE4 底下開發與修正問題。這表示說如果某個移植版本釋出了，我們就會切換到這個新版本。同時我們也會把此軟體的 KDE 模組前綴名稱去除（例如：<code class="language-plaintext highlighter-rouge">kdebase-konsole</code> -&gt; <code class="language-plaintext highlighter-rouge">konsole</code>）。</p>
 
 <p>在此轉移工程過程中，會導致有些套件使用 Qt5，而有些還是使用 Qt4。我們會盡可能讓 KDE4 的使用者能順利度過這項轉移工程，但是事情有時會因為您的自訂設定導致難以盡如人意。請視需要為這兩版 toolkit 調整佈景主題與配色。您可參見 <a href="https://wiki.archlinux.org/index.php/KDE#Personalization">wiki</a> 來獲取協助資訊。我們也建議您切換到本週即將釋出的 Plasma 5.2 版。</p>
 
@@ -154,11 +154,11 @@
   <!-- Don't build paginator if we have only one page -->
   
     
-      <a href="/news/page3" class="previous">前頁</a>
+      <a href="/news/news/page3/" class="previous">前頁</a>
     
     <span class="page_number ">第 4 頁，共 5 頁</span>
     
-      <a href="/news/page5" class="next">次頁</a>
+      <a href="/news/news/page5/" class="next">次頁</a>
     
   
 </div>
