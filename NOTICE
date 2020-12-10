@@ -1,5 +1,5 @@
 Arch Linux Taiwan Community Website
-Copyright (c) 2013-2018 Huei-Horng Yo and other contributors
+Copyright (c) 2013-2020 Huei-Horng Yo and other contributors
 
 This software is released under the MIT license.
 
@@ -14,7 +14,7 @@ Third Party Software Notices:
   - Jekyll
     http://jekyllrb.com/
 
-    Copyright (c) 2008-2018 Tom Preston-Werner and Jekyll contributors
+    Copyright (c) 2008-present Tom Preston-Werner and Jekyll contributors
     Released under the MIT license
     https://github.com/jekyll/jekyll/blob/master/LICENSE
 
@@ -25,12 +25,12 @@ Third Party Software Notices:
     This plugin is released under the MIT license.
     https://github.com/jekyll/jekyll-feed/blob/master/LICENSE.txt
 
-  - Jekyll::Paginate
-    https://github.com/jekyll/jekyll-paginate
+  - Jekyll::Paginate V2
+    https://github.com/sverrirs/jekyll-paginate-v2
 
-    Copyright (c) 2014 Parker Moore
+    Copyright (c) 2016 Sverrir Sigmundarson
     This plugin is released under the MIT license.
-    https://github.com/jekyll/jekyll-paginate/blob/master/LICENSE.txt
+    https://github.com/sverrirs/jekyll-paginate-v2/blob/master/LICENSE
 
   - Jekyll Sitemap Generator Plugin
     https://github.com/jekyll/jekyll-sitemap
