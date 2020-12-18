@@ -4,7 +4,8 @@ url: https://archlinux.tw
 timezone: 'Asia/Taipei'
 exclude: [
   'Gemfile', 'Gemfile.lock', 'AUTHORS', 'LICENSE', 'NOTICE', 'README.md',
-  'CHRONICLES.md', 'config.rb', 'build.sh', 'Dockerfile', 'Makefile'
+  'CHRONICLES.md', 'config.rb', 'build.sh', 'Dockerfile', 'Makefile',
+  '.jekyll-cache'
 ]
 keep_files: ['bootstrap']
 destination: ./docs/
