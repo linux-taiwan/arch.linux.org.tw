@@ -31,7 +31,6 @@ jobs:
       - name: Build site
         run: |
           bundle exec jekyll build -d docs
-          echo 'archlinux.tw' >docs/CNAME
           rm -rf .jekyll-cache
 
       - name: Deploy build

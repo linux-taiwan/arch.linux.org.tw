@@ -29,12 +29,12 @@
 ## 佈署
 
 * 本網站代管於 GitHub Pages。
+* 設定客製化網域 `archlinux.tw` 於 `CNAME`，`jekyll build` 會將此檔案複製至 `docs/CNAME`。
+  * [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site)
 * 有新的 pull request 會自動執行 CI/CD。
 * CI/CD 由 [GitHub Actions](https://github.com/linux-taiwan/arch.linux.org.tw/actions) 執行。
   * 透過 `jekyll build` 產生靜態網頁於 `docs` 資料夾底下。
     * [jekyll Command Line Usage](https://jekyllrb.com/docs/usage/)
-  * 設定客製化網域 `archlinux.tw` 於 `docs/CNAME`。
-    * [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site)
   * 細節請參考 `.github/workflows/build.yaml`。
 * 由於 GitHub Action 會自動產生 `git commit`，可於自己的 fork 內關閉該功能。
 
