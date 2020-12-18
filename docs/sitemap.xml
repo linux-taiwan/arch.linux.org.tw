@@ -100,12 +100,12 @@
 <loc>https://archlinux.tw/</loc>
 </url>
 <url>
-<loc>https://archlinux.tw/contribute/</loc>
-</url>
-<url>
 <loc>https://archlinux.tw/getting-started/</loc>
 </url>
 <url>
 <loc>https://archlinux.tw/resources/</loc>
+</url>
+<url>
+<loc>https://archlinux.tw/contribute/</loc>
 </url>
 </urlset>
