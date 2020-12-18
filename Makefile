@@ -25,6 +25,9 @@ stop:
 update:
 	docker cp . archlinux_taiwan-runner:/srv/www/archlinux.tw
 
+inspect:
+	docker exec -it archlinux_taiwan-runner bash
+
 clean:
 	docker ps -aqf status=exited | xargs docker rm || true && \
 	docker images | awk '$$1 ~ /archlinux_taiwan/ { print $$3   }' | xargs docker rmi -f || true
