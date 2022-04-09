@@ -67,6 +67,17 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 [Installation Guide]: https://wiki.archlinux.org/index.php/Installation_guide_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)
 
+除了 Arch 官方維護的軟體倉庫之外，我們有 [AUR](https://aur.archlinux.org/)
+(Arch User Repository) 提供非常豐富的軟體資源，您可以透過
+[AUR helpers](https://wiki.archlinux.org/title/AUR_helpers) 進行安裝。
+
+如果您需要的軟體沒有在 AUR 上，Arch 提供易於使用的
+[PKGBUILD](https://wiki.archlinux.org/title/PKGBUILD) 以及
+[makepkg](https://wiki.archlinux.org/title/Makepkg) 的軟體打包工具，便於將
+您想要使用的軟體製做成 [pacman](https://wiki.archlinux.org/title/Pacman)
+工具可以安裝的形式。Arch 開發者 David Runge 的
+[Packaging for Arch Linux](https://sleepmap.de/2022/packaging-for-arch-linux/)
+一文是非常推薦的參考資源。
 
 # 我需要幫忙！
 
@@ -94,7 +105,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 目前就讀於中華大學，也會參加每個禮拜一的"MozTW + Arch Linux Lab in Hsinchu"聚會。
 
-### Yale Liang (HybridGlucose) <HybridGluicose@freedomwolf.cc> <HybridGlucose@gmail.com> 
+### Yale Liang (HybridGlucose) <HybridGluicose@freedomwolf.cc> <HybridGlucose@gmail.com>
 
 新竹人，住在新竹，大致上都可以問，比較熟悉小型網路架構及伺服器架設。
   
@@ -112,7 +123,7 @@ VirtualBox 的功能已經相當完備，您架出來的 Arch 經過適當的網
 
 台中人，出沒於台中 [CTLUG 社群](http://ct.lug.tw) 和各社群研討會
 
-### Kerwin Tsai (kerwin) <kerwen374@gmail.com> 
+### Kerwin Tsai (kerwin) <kerwen374@gmail.com>
 
 台中二中學生 在安裝上有問題的朋友可以提問
 
