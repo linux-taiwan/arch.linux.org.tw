@@ -54,6 +54,27 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2017/03/16/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention.html" title="升級到 ca-certificates-utils 20170307-1 版需要手動處理">升級到 ca-certificates-utils 20170307-1 版需要手動處理</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Thu, 16 Mar 2017 05:27:54 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/ca-certificates-utils-20170307-1-upgrade-requires-manual-intervention/">ca-certificates-utils 20170307-1 upgrade requires manual intervention</a></p>
+
+<p>由於在 <code class="language-plaintext highlighter-rouge">ca-certificates-utils</code> 裡頭有個符號連結檔案之前是在 post-install 階段生成的，但是現在已經直接移入套件內，所以升級到 <code class="language-plaintext highlighter-rouge">20170307-1</code> 版時，需要您手動處理。</p>
+
+<p>如果直接把這個符號連結檔案刪除，可能會導致無法正常下載套件，所以請依照以下三個步驟操作此項升級：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -Syuw                           # download packages
+# rm /etc/ssl/certs/ca-certificates.crt  # remove conflicting file
+# pacman -Su                             # perform upgrade
+</code></pre></div></div>
+
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2017/02/28/mesa-with-libglvnd-support-is-now-in-testing.html" title="啟用 libglvnd 支援的 mesa 已在 testing 套件庫">啟用 libglvnd 支援的 mesa 已在 testing 套件庫</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Tue, 28 Feb 2017 04:15:02 +0800</span></div>
@@ -128,23 +149,6 @@
 <p>如果您發現有使用此類金鑰，務必確認您有替代的登入方法，像是使用不同類型的金鑰，或是密碼驗證。</p>
 
 <p>最後，ssh-dss 型的機器用金鑰 (host keys) 同樣也被棄用了，當您連上更新後的機器時，也需要重新確認新產生的金鑰指紋（針對不同金鑰類型的 host key）。</p>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2015/05/22/data-corruption-on-software-raid-0-when-discard-is-used.html" title="若使用了 discard 參數，軟體型 RAID 0 會發生資料毀損">若使用了 discard 參數，軟體型 RAID 0 會發生資料毀損</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Fri, 22 May 2015 12:00:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/data-corruption-on-software-raid-0-when-discard-is-used/">Data corruption on software RAID 0 when discard is used</a></p>
-
-<p>幾週前送進 [core] 套件庫的 Linux 核心 (4.0.2+, LTS 3.14.41+) 有一個錯誤，檔案系統若以 <code class="language-plaintext highlighter-rouge">discard</code> 參數掛載、且配置在軟體型 RAID 0 陣列內就會引發資料毀損。然而即使未指定使用 <code class="language-plaintext highlighter-rouge">discard</code> 參數，當使用 <code class="language-plaintext highlighter-rouge">fstrim</code> 命令也同樣會觸發這個錯誤。 <strong>（如果您並未使用軟體型 RAID 0 搭配 <code class="language-plaintext highlighter-rouge">discard</code> 參數，那麼本問題並不會對您造成影響。）</strong></p>
-
-<p>本問題已經在 <code class="language-plaintext highlighter-rouge">linux 4.0.4-2</code> 與 <code class="language-plaintext highlighter-rouge">linux-lts 3.14.43-2</code> 修正。但是由於這個問題的發生原理使然，很可能系統資料已經在前述有問題的核心版本上發生毀損情況了。強烈建議您在受到影響的檔案系統上做資料完整性檢查，可使用 <code class="language-plaintext highlighter-rouge">fsck</code> 工具，並（或）從現存的完整備份那邊還原資料。</p>
-
-<p>若需要進一步的資訊，請參考 Holger Kiehl 在 LKML 發表的<a href="https://lkml.org/lkml/2015/5/21/167">貼文</a>、Phoronix 上的<a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=Linux-4-EXT4-RAID-Issue-Found">相關文章</a>以及被 backport 到 Arch 核心的<a href="http://git.neil.brown.name/?p=md.git;a=commitdiff;h=a81157768a00e8cf8a7b43b5ea5cac931262374f">修正</a>。</p>
 
   </div>
   </article>

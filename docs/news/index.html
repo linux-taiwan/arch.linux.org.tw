@@ -54,6 +54,22 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2022/04/20/coscup-2022-community-room-cfp.html" title="COSCUP 2022 社群議程，Arch Linux Series 熱烈徵稿中！">COSCUP 2022 社群議程，Arch Linux Series 熱烈徵稿中！</a>
+  </h1>
+  <div class="meta"><span itemprop="author">xatier</span> 發表於 <span itemprop="datePublished">Wed, 20 Apr 2022 10:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p>今年的 <a href="https://coscup.org/2022/">COSCUP</a> (2022)，Arch Linux 臺灣社群有申請社群議程軌，大會已經審核通過了！即刻起至 5 月 23 日熱烈徵稿，歡迎您來投稿，一起把 Arch 社群議程軌辦得豐富又精彩吧！</p>
+
+<ul>
+  <li><a href="https://blog.coscup.org/2022/04/coscup-x-kcd-taiwan-2022-cfp-is-now.html">COSCUP 官方公告</a></li>
+  <li><a href="https://pretalx.com/coscup-2022/cfp">投稿直通門</a></li>
+</ul>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2018/08/02/coscup-2018-events-outline.html" title="Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！">Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！</a>
   </h1>
   <div class="meta"><span itemprop="author">PN Wu (小平)</span> 發表於 <span itemprop="datePublished">Thu, 02 Aug 2018 20:00:00 +0800</span></div>
@@ -123,30 +139,6 @@
   <li><a href="http://blog.coscup.org/2018/04/coscup-2018-cfp-is-open.html">COSCUP 官方公告</a></li>
   <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfKnffsc_Ke2ZEP3fInJkAwEzXFUM24HZ7dYYluoGLmHMQjZw/viewform">投稿直通門</a></li>
 </ul>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2018/04/20/glibc-2.27-2-and-pam-1.3.0-2-may-require-manual-intervention.html" title="glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理">glibc 2.27-2 和 pam 1.3.0-2 的更新需要手動處理</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Nightfeather</span> 發表於 <span itemprop="datePublished">Fri, 20 Apr 2018 15:45:46 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/glibc-227-2-and-pam-130-2-may-require-manual-intervention/">glibc 2.27-2 and pam 1.3.0-2 may require manual intervention</a></p>
-
-<p>新版 glibc 移除了對 NIS 和 NIS+ 的支援。
-由套件 <code class="language-plaintext highlighter-rouge">filesystem</code> 提供的預設設定檔 <code class="language-plaintext highlighter-rouge">/etc/nsswitch.conf</code> 已經反應這個變動。
-請在更新前合併這個檔案的 .pacnew 。</p>
-
-<p>NIS 的功能仍能透過安裝 <code class="language-plaintext highlighter-rouge">libnss_nis</code> 這個套件取得。
-而 NIS+ 目前在官方套件庫尚未有對應的套件。</p>
-
-<p><code class="language-plaintext highlighter-rouge">pam 1.3.0-2</code> 不再提供 <code class="language-plaintext highlighter-rouge">pam_unix2</code> 模組以及 <code class="language-plaintext highlighter-rouge">pam_unix_*.so</code> 的相容性符號鏈結。
-請在更新前檢閱 <code class="language-plaintext highlighter-rouge">/etc/pam.d</code> 下的設定檔，並將已移除的模組替換為 <code class="language-plaintext highlighter-rouge">pam_unix.so</code>。
-而 <code class="language-plaintext highlighter-rouge">pam_unix2</code> 的使用者也應於該設定變更後重設密碼。
-至於由 <code class="language-plaintext highlighter-rouge">pambase</code> 套件提供的預設值不用做任何更動。</p>
-
 
   </div>
   </article>
