@@ -54,6 +54,27 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2023/06/22/tex-live-package-reorganization.html" title="TeX Live 套件重組">TeX Live 套件重組</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Ji Kuai</span> 發表於 <span itemprop="datePublished">Thu, 22 Jun 2023 17:10:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://archlinux.org/news/tex-live-package-reorganization/">TeX Live package reorganization</a></p>
+
+<p>自版本 2023.66594-9 起，Tex Live 的套件被重新編排成符合上游集合（upstream collections）的樣子。儘管有新的 <code class="language-plaintext highlighter-rouge">texlive-basic</code> 取代舊的 <code class="language-plaintext highlighter-rouge">texlive-core</code>，texlive-core 的許多內容（包括針對特定語言的檔案）都被劃分進不同的套件。如果要找出哪個 Arch 套件含有特定的 CTAN 套件，你可以用 <code class="language-plaintext highlighter-rouge">tlmgr</code>，例如：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tlmgr info euler | grep collection
+collection:  collection-latexrecommended
+</code></pre></div></div>
+
+<p>代表 euler CTAN 套件被放在 <code class="language-plaintext highlighter-rouge">texlive-latexrecommended</code> 裡面。你也可以用 <code class="language-plaintext highlighter-rouge">pacman -F</code> 來查詢特定的檔案。</p>
+
+<p>此外，新增了叫做 texlive-meta 的 metapackage 可以來安裝所有子套件（除了針對特定語言的那些），和新的 texlive-doc 套件提供了完整的文件供離線查看。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2022/04/20/coscup-2022-community-room-cfp.html" title="COSCUP 2022 社群議程，Arch Linux Series 熱烈徵稿中！">COSCUP 2022 社群議程，Arch Linux Series 熱烈徵稿中！</a>
   </h1>
   <div class="meta"><span itemprop="author">xatier</span> 發表於 <span itemprop="datePublished">Wed, 20 Apr 2022 10:00:00 +0800</span></div>
@@ -127,22 +148,6 @@
   </div>
   </article>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2018/04/26/coscup-2018-community-room-cfp.html" title="COSCUP 2018 社群議程，Arch Linux Taiwan 熱烈徵稿中！">COSCUP 2018 社群議程，Arch Linux Taiwan 熱烈徵稿中！</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Thu, 26 Apr 2018 10:00:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p>今年的 <a href="https://2018.coscup.org/">COSCUP</a> (2018)，Arch Linux 臺灣社群申請社群議程，大會已經審核通過了！即刻起至 5 月 25 日熱烈徵稿，歡迎您來投稿，一起把今年我們的 Arch 社群議程軌辦得豐富又精彩吧！</p>
-
-<ul>
-  <li><a href="http://blog.coscup.org/2018/04/coscup-2018-cfp-is-open.html">COSCUP 官方公告</a></li>
-  <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfKnffsc_Ke2ZEP3fInJkAwEzXFUM24HZ7dYYluoGLmHMQjZw/viewform">投稿直通門</a></li>
-</ul>
-
-  </div>
-  </article>
-
 
 <!-- Pagination links -->
 <div class="pagination">
@@ -151,7 +156,7 @@
     
       <span class="previous">前頁</span>
     
-    <span class="page_number ">第 1 頁，共 5 頁</span>
+    <span class="page_number ">第 1 頁，共 6 頁</span>
     
       <a href="/news/news/page2/" class="next">次頁</a>
     

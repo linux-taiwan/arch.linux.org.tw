@@ -54,6 +54,24 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2015/02/15/xorg-server-1171-is-now-available.html" title="xorg-server 1.17.1 已可取得">xorg-server 1.17.1 已可取得</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 15 Feb 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/xorg-server-1171-is-now-available/">xorg-server 1.17.1 is now available</a></p>
+
+<p>新版本有以下變動：</p>
+
+<ul>
+  <li>依循 upstream 規劃，<code class="language-plaintext highlighter-rouge">xf86-video-modesetting</code> 工具現在改由 <code class="language-plaintext highlighter-rouge">xorg-server</code> 套件提供。</li>
+  <li>以下套件已經棄用，並移到 AUR 內，當中某些被 modesetting 驅動程式取代：<code class="language-plaintext highlighter-rouge">xf86-video-ast</code>, <code class="language-plaintext highlighter-rouge">xf86-video-cirrus</code>, <code class="language-plaintext highlighter-rouge">xf86-video-geode</code>, <code class="language-plaintext highlighter-rouge">xf86-video-mga</code>, <code class="language-plaintext highlighter-rouge">xf86-video-sisimedia</code>, <code class="language-plaintext highlighter-rouge">xf86-video-v4l</code></li>
+</ul>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2015/01/26/transition-of-kde-software-to-the-kde-framework-and-qt-5.html" title="KDE 軟體將逐漸轉移至 KDE Framework 與 Qt 5">KDE 軟體將逐漸轉移至 KDE Framework 與 Qt 5</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Mon, 26 Jan 2015 12:00:00 +0800</span></div>
@@ -139,28 +157,6 @@ i8042: PNP: No PS/2 controller found. Probing ports directly.
   </div>
   </article>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2013/09/21/deprecation-of-etcsysctlconf.html" title="棄用 /etc/sysctl.conf">棄用 /etc/sysctl.conf</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sat, 21 Sep 2013 23:19:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/deprecation-of-etcsysctlconf/">Deprecation of /etc/sysctl.conf</a></p>
-
-<p>從 <code class="language-plaintext highlighter-rouge">systemd</code> 207 版開始，將不再採用 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 當中的設定，改成只採用 <code class="language-plaintext highlighter-rouge">/etc/sysctl.d/*</code> 裡頭的內容。因為我們在 <code class="language-plaintext highlighter-rouge">procps-ng</code> 套件中提供的原始 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 設定已經成為系統核心的預設值，所以我們決定要棄用這個檔案。</p>
-
-<p>當升級 <code class="language-plaintext highlighter-rouge">procps-ng</code> 到 3.3.8-3 版時，系統會提醒您將自訂的 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code> 設定改放在 <code class="language-plaintext highlighter-rouge">/etc/sysctl.d</code> 底下。最簡單的解法是這樣：</p>
-
-<pre>
-pacman -Syu
-mv /etc/sysctl.conf.pacsave /etc/sysctl.d/99-sysctl.conf
-</pre>
-
-<p>如果您不曾自訂 <code class="language-plaintext highlighter-rouge">/etc/sysctl.conf</code>，則無須配合做任何調整。</p>
-
-  </div>
-  </article>
-
 
 <!-- Pagination links -->
 <div class="pagination">
@@ -169,9 +165,9 @@ mv /etc/sysctl.conf.pacsave /etc/sysctl.d/99-sysctl.conf
     
       <a href="/news/news/page4/" class="previous">前頁</a>
     
-    <span class="page_number ">第 5 頁，共 5 頁</span>
+    <span class="page_number ">第 5 頁，共 6 頁</span>
     
-      <span class="next ">次頁</span>
+      <a href="/news/news/page6/" class="next">次頁</a>
     
   
 </div>

@@ -54,6 +54,28 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2015/08/15/openssh-70p1-deprecates-ssh-dss-keys.html" title="openssh-7.0p1 棄用 ssh-dss 類金鑰">openssh-7.0p1 棄用 ssh-dss 類金鑰</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sat, 15 Aug 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/openssh-70p1-deprecates-ssh-dss-keys/">openssh-7.0p1 deprecates ssh-dss keys</a></p>
+
+<p>因為近期揭露的安全弱點，新推出的 openssh-7.0p1 棄用了 ssh-dss 類型、亦即所謂的 DSA 型金鑰。詳情請參見<a href="http://lists.mindrot.org/pipermail/openssh-unix-announce/2015-August/000122.html">官方公告</a>。</p>
+
+<p>在更新與重新啟動遠端的 sshd 之前，請確認您沒有使用此類的金鑰來連接這台機器。要檢查機器上個別用戶是否採用了 DSA 型金鑰來獲取存取權限，可使用：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep ssh-dss ~/.ssh/authorized_keys
+</code></pre></div></div>
+
+<p>如果您發現有使用此類金鑰，務必確認您有替代的登入方法，像是使用不同類型的金鑰，或是密碼驗證。</p>
+
+<p>最後，ssh-dss 型的機器用金鑰 (host keys) 同樣也被棄用了，當您連上更新後的機器時，也需要重新確認新產生的金鑰指紋（針對不同金鑰類型的 host key）。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2015/05/22/data-corruption-on-software-raid-0-when-discard-is-used.html" title="若使用了 discard 參數，軟體型 RAID 0 會發生資料毀損">若使用了 discard 參數，軟體型 RAID 0 會發生資料毀損</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Fri, 22 May 2015 12:00:00 +0800</span></div>
@@ -126,24 +148,6 @@
   </div>
   </article>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2015/02/15/xorg-server-1171-is-now-available.html" title="xorg-server 1.17.1 已可取得">xorg-server 1.17.1 已可取得</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 15 Feb 2015 12:00:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/xorg-server-1171-is-now-available/">xorg-server 1.17.1 is now available</a></p>
-
-<p>新版本有以下變動：</p>
-
-<ul>
-  <li>依循 upstream 規劃，<code class="language-plaintext highlighter-rouge">xf86-video-modesetting</code> 工具現在改由 <code class="language-plaintext highlighter-rouge">xorg-server</code> 套件提供。</li>
-  <li>以下套件已經棄用，並移到 AUR 內，當中某些被 modesetting 驅動程式取代：<code class="language-plaintext highlighter-rouge">xf86-video-ast</code>, <code class="language-plaintext highlighter-rouge">xf86-video-cirrus</code>, <code class="language-plaintext highlighter-rouge">xf86-video-geode</code>, <code class="language-plaintext highlighter-rouge">xf86-video-mga</code>, <code class="language-plaintext highlighter-rouge">xf86-video-sisimedia</code>, <code class="language-plaintext highlighter-rouge">xf86-video-v4l</code></li>
-</ul>
-
-  </div>
-  </article>
-
 
 <!-- Pagination links -->
 <div class="pagination">
@@ -152,7 +156,7 @@
     
       <a href="/news/news/page3/" class="previous">前頁</a>
     
-    <span class="page_number ">第 4 頁，共 5 頁</span>
+    <span class="page_number ">第 4 頁，共 6 頁</span>
     
       <a href="/news/news/page5/" class="next">次頁</a>
     
