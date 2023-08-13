@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "TeX Live 套件重組"
-date:   2023-06-22T09:10:00+00:00
+date:   2023-06-22 17:10:00 +08:00
 author: "Ji Kuai"
 ---
 
