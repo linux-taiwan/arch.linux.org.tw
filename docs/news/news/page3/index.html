@@ -54,6 +54,37 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2017/09/02/perl-library-path-change.html" title="Perl 程式庫路徑變更">Perl 程式庫路徑變更</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Louie Lu</span> 發表於 <span itemprop="datePublished">Sat, 02 Sep 2017 19:44:22 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/perl-library-path-change/">Perl library path change</a></p>
+
+<p>從現在開始 perl 套件將會對編譯模組使用版號路徑。這表示不合於 perl 版號的模組將
+不會被載入，並且需要重新編譯。</p>
+
+<p>一個 pacman 鉤子將會在升級受影響的模組時，以下面的方式顯示出警告內容：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: '/usr/lib/perl5/vendor_perl' contains data from at least 143 pacages which will NOT be used by the installed perl interpreter.
+ -&gt; Run the following command to get a list of affected packages: pacman -Qqo '/usr/lib/perl5/vendor_perl'
+</code></pre></div></div>
+
+<p>你必須要重新編譯所有受影響的套件以及新的 perl 套件才能再次使用它們。這個變更
+也將會影響從 CPAN 安裝的模組。重編譯的動作在 perl 主要版號變更時 (如 <code class="language-plaintext highlighter-rouge">5.28</code>
+變成 <code class="language-plaintext highlighter-rouge">5.30</code>) 也會需要重新動作。</p>
+
+<p>請注意到，在此之前主要版號變更時就需要重新編譯了。只是這次的變更將讓 perl 不會
+再以奇怪的方式讀取套件然後失敗。</p>
+
+<p>如果編譯系統或是某些軟體沒有自動偵測到這樣的變更，你可以在你的 PKGBUILD 使用
+<code class="language-plaintext highlighter-rouge">perl -V:vendorarch</code> 來讓 perl 使用正確的路徑。同時也有 <code class="language-plaintext highlighter-rouge">sitearch</code> 來讓非
+pacman 打包的軟體來使用。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2017/05/15/deprecation-of-abs-tool-and-rsync-endpoint.html" title="棄用 ABS 工具與 rsync 端點">棄用 ABS 工具與 rsync 端點</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Mon, 15 May 2017 18:55:50 +0800</span></div>
@@ -129,21 +160,6 @@
 <p>然而，還是有人對繼續維持 i686 版本感興趣，我們鼓勵社群在我們的指引下來從事這項工作。透過 <code class="language-plaintext highlighter-rouge">arch-ports</code> 郵遞列表以及在 Freenode 上的 <code class="language-plaintext highlighter-rouge">#archlinux-ports</code> IRC 頻道這些媒體，我們會有進一步的協調討論。</p>
 
 <p><code class="language-plaintext highlighter-rouge">[multilib]</code> 套件庫不受此變動的影響。</p>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2016/03/24/required-update-to-pacman-501-before-2016-04-23.html" title="請務必在 2016-04-23 前升級到 pacman-5.0.1">請務必在 2016-04-23 前升級到 pacman-5.0.1</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Thu, 24 Mar 2016 12:00:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/required-update-to-pacman-501-before-2016-04-23/">Required update to pacman-5.0.1 before 2016-04-23</a></p>
-
-<p>從 <code class="language-plaintext highlighter-rouge">pacman-5.0</code> 版開始，新增了 “transactional hooks” 的支援。這項功能可以讓我們做到像是「在某次升級時，若有多組字型套件，以往每升級一組字型套件就要重建一次字型快取，現在則只需統一重建一次就好」如此的改進，無論在升級流程的速度提升，以及減少開發者與被信賴用戶 (Trusted Users) 的套件打包負擔都有所助益。</p>
-
-<p>為了讓 “transactional hooks” 可以啟用，我們需要所有用戶配合，請在 2016-04-23 前將 <code class="language-plaintext highlighter-rouge">pacman</code> 至少升級 5.0.1 版。Pacman-5.0.1 已於 2016-02-23 釋出，所以各位有兩個月的時間可以升級您們的系統。</p>
 
   </div>
   </article>

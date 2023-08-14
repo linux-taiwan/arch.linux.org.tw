@@ -54,6 +54,19 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2015/02/17/networkmanager-1.0-release.html" title="NetworkManager 1.0 發布">NetworkManager 1.0 發布</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Tue, 17 Feb 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p>廣為人知的網路連線管理軟體 NetworkManager 日前釋出 1.0 版，請見 <a href="https://mail.gnome.org/archives/networkmanager-list/2014-December/msg00030.html">ANN: NetworkManager 1.0.0 released!</a>。</p>
+
+<p>Arch Linux 業已提供 1.0 版套件，其中由於 DHCP 終端程式的已知相容問題，如果您原先使用的是 <code class="language-plaintext highlighter-rouge">dhcpcd</code> 有可能無法正常使用無線網路，請將您的 <code class="language-plaintext highlighter-rouge">/etc/NetworkManager/NetworkManager.conf</code> 當中 <code class="language-plaintext highlighter-rouge">dhcp=</code> 設定項目改成 <code class="language-plaintext highlighter-rouge">internal</code>，或 <code class="language-plaintext highlighter-rouge">dhclient</code>（需配合安裝 <code class="language-plaintext highlighter-rouge">dhclient</code> 方可使用）。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2015/02/15/xorg-server-1171-is-now-available.html" title="xorg-server 1.17.1 已可取得">xorg-server 1.17.1 已可取得</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 15 Feb 2015 12:00:00 +0800</span></div>
@@ -134,25 +147,6 @@ i8042: PNP: No PS/2 controller found. Probing ports directly.
 <p>加進您啟動程式 (bootloader) 的 kernel 命令列即可解決。</p>
 
 <p>為了讓大家在升級前有機會提前注意到本文，本文刊出之後，再過幾個小時我才會把 Linux 3.13 推進 [core] 套件庫中。如果這項異動帶來任何不便，我在此先跟您致歉。</p>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2013/09/22/factsheet-of-arch-tw-site.html" title="幾個 Arch 臺灣社群網站的冷知識">幾個 Arch 臺灣社群網站的冷知識</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 22 Sep 2013 21:14:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p>大家好，Huei-Horng Yo 報告。</p>
-
-<ul>
-  <li>Arch 臺灣社群網站根據 Carl X. Su 所提需求：「簡單的、靜態的形象網站」，使用 <a href="http://jekyllrb.com/">Jekyll</a> 作靜態頁面生成型態的內容管理，原因是 Huei-Horng Yo 本身是個 <a href="http://www.ruby-lang.org/">Ruby</a> 程式語言愛好者，看到 Ruby 官網這樣玩，就沒多想，也依樣畫葫蘆用在這裡。</li>
-  <li>決定製作網站的當天，Twitter 的 <a href="http://getbootstrap.com/">Bootstrap</a> 正好出 3.0 版，也被 Huei-Horng Yo 大膽採用，以滿足 <abbr title="Responsive Web Design">RWD</abbr> 的需求。Arch 臺灣社群網站在電腦、智慧型手機、平板電腦上瀏覽，會自動調整為最適合閱讀的版面。</li>
-  <li>網站主 logo 經多次調整至目前的模樣，使用 <a href="http://inkscape.org/">Inkscape</a> 向量繪圖軟體，以原始的 Arch logo 為基礎來製作。</li>
-  <li>網站從社群成員延聘主編，並以 <a href="http://git-scm.com/">Git</a>, <a href="https://github.com/linux-taiwan/arch.linux.org.tw">GitHub</a> 做版本管理。</li>
-  <li>託 <a href="http://kidwm.net/">WM</a> 長輩中間奔走之勞，以及各位社群前輩的幫忙，Arch 臺灣社群網站除了原有 <a href="http://archlinux.tw">archlinux.tw</a> 域名，<a href="http://arch.linux.org.tw">arch.linux.org.tw</a> 也設定指向本網站，特此感謝。</li>
-</ul>
 
   </div>
   </article>

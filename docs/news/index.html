@@ -54,6 +54,27 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2023/08/13/budgie-desktop-1072-6-update-requires-manual-intervention.html" title="升級 budgie-desktop >= 10.7.2-6 時需要手動處理">升級 budgie-desktop >= 10.7.2-6 時需要手動處理</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Ji Kuai</span> 發表於 <span itemprop="datePublished">Sun, 13 Aug 2023 16:14:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://archlinux.org/news/budgie-desktop-1072-6-update-requires-manual-intervention/">budgie-desktop &gt;= 10.7.2-6 update requires manual intervention</a></p>
+
+<p>將 budgie-desktop 從 10.7.2-5 更新到 10.7.2-6 時，mutter43 套件必須被換成 magpie-wm，其目前相依於 mutter。然而 mutter43 與 mutter 衝突，需要手動處理來完成更新。</p>
+
+<p>先移除 mutter43，接著立即更新。不要在這之間重登或重開機。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -Rdd mutter43
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -Syu
+</code></pre></div></div>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2023/06/22/tex-live-package-reorganization.html" title="TeX Live 套件重組">TeX Live 套件重組</a>
   </h1>
   <div class="meta"><span itemprop="author">Ji Kuai</span> 發表於 <span itemprop="datePublished">Thu, 22 Jun 2023 17:10:00 +0800</span></div>
@@ -129,21 +150,6 @@ collection:  collection-latexrecommended
 <p>請使用以下指令來完成升級作業：</p>
 
 <p><code class="language-plaintext highlighter-rouge">pacman -Suy --overwrite usr/lib/libutf8proc.so.2</code></p>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2018/05/05/js52-52.7.3-2-upgrade-requires-intervention.html" title="js52 52.7.3-2 升級時需要手動處理">js52 52.7.3-2 升級時需要手動處理</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sat, 05 May 2018 04:27:33 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/js52-5273-2-upgrade-requires-intervention/">js52 52.7.3-2 upgrade requires intervention</a></p>
-
-<p>因為 <code class="language-plaintext highlighter-rouge">/usr/lib/libmozjs-52.so</code> 的 SONAME 與它真正所屬的檔名不一致，ldconfig 會建立一個未能正常追溯的 <code class="language-plaintext highlighter-rouge">/usr/lib/libmozjs-52.so.0</code> 檔案。這個問題目前已經修正，兩個檔名也都在套件中了。</p>
-
-<p>要能通過升級檢查，請在升級前先手動刪除 <code class="language-plaintext highlighter-rouge">/usr/lib/libmozjs-52.so.0</code>。</p>
 
   </div>
   </article>
