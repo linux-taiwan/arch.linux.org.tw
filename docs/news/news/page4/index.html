@@ -54,6 +54,25 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2017/01/25/phasing-out-i686-support.html" title="分階段取消對 i686 處理器家族的支援">分階段取消對 i686 處理器家族的支援</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Wed, 25 Jan 2017 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/phasing-out-i686-support/">Phasing out i686 support</a></p>
+
+<p>因為 i686 處理器家族在我們的開發者與社群用戶裡的能見度愈來愈低，我們決定要逐步取消這個平台的支援。</p>
+
+<p>這項決策意謂著今年二月份的 ISO 映像檔會是最後一份可供安裝 32 位元版本 Arch Linux 的安裝媒體。接下來的為期九個月是不建議使用期，在這期間的 i686 處理器版本仍會收到更新的套件。自 2017 年 11 月開始，套件與套件庫相關工具的維護者將不再需要去特別標註他們維護的項目不支援 i686 處理器。</p>
+
+<p>然而，還是有人對繼續維持 i686 版本感興趣，我們鼓勵社群在我們的指引下來從事這項工作。透過 <code class="language-plaintext highlighter-rouge">arch-ports</code> 郵遞列表以及在 Freenode 上的 <code class="language-plaintext highlighter-rouge">#archlinux-ports</code> IRC 頻道這些媒體，我們會有進一步的協調討論。</p>
+
+<p><code class="language-plaintext highlighter-rouge">[multilib]</code> 套件庫不受此變動的影響。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2016/03/24/required-update-to-pacman-501-before-2016-04-23.html" title="請務必在 2016-04-23 前升級到 pacman-5.0.1">請務必在 2016-04-23 前升級到 pacman-5.0.1</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Thu, 24 Mar 2016 12:00:00 +0800</span></div>
@@ -121,31 +140,6 @@
   <li><a href="https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html">https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html</a></li>
 </ul>
 
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2015/05/16/pulseaudio-split.html" title="PulseAudio 拆分出數個模組子套件">PulseAudio 拆分出數個模組子套件</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sat, 16 May 2015 12:00:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/pulseaudio-split/">PulseAudio split</a></p>
-
-<p>因為要避免模組找不到動態函式庫的問題，某些模組已經從 <code class="language-plaintext highlighter-rouge">pulseaudio</code> 套件中拆分出來。請檢查您需要的模組，並重新安裝它們。</p>
-
-<p>這些拆分出來的模組如下：</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">pulseaudio-bluetooth</code>: Bluetooth (Bluez) support</li>
-  <li><code class="language-plaintext highlighter-rouge">pulseaudio-equalizer</code>: Equalizer sink (qpaeq)</li>
-  <li><code class="language-plaintext highlighter-rouge">pulseaudio-gconf</code>: GConf support (paprefs)</li>
-  <li><code class="language-plaintext highlighter-rouge">pulseaudio-jack</code>: JACK sink, source and jackdbus detection</li>
-  <li><code class="language-plaintext highlighter-rouge">pulseaudio-lirc</code>: Infrared (LIRC) volume control</li>
-  <li><code class="language-plaintext highlighter-rouge">pulseaudio-xen</code>: Xen paravirtual sink</li>
-  <li><code class="language-plaintext highlighter-rouge">pulseaudio-zeroconf</code>: Zeroconf (Avahi/DNS-SD) support</li>
-</ul>
 
   </div>
   </article>

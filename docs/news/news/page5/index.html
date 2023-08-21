@@ -54,6 +54,31 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2015/05/16/pulseaudio-split.html" title="PulseAudio 拆分出數個模組子套件">PulseAudio 拆分出數個模組子套件</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sat, 16 May 2015 12:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/pulseaudio-split/">PulseAudio split</a></p>
+
+<p>因為要避免模組找不到動態函式庫的問題，某些模組已經從 <code class="language-plaintext highlighter-rouge">pulseaudio</code> 套件中拆分出來。請檢查您需要的模組，並重新安裝它們。</p>
+
+<p>這些拆分出來的模組如下：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-bluetooth</code>: Bluetooth (Bluez) support</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-equalizer</code>: Equalizer sink (qpaeq)</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-gconf</code>: GConf support (paprefs)</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-jack</code>: JACK sink, source and jackdbus detection</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-lirc</code>: Infrared (LIRC) volume control</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-xen</code>: Xen paravirtual sink</li>
+  <li><code class="language-plaintext highlighter-rouge">pulseaudio-zeroconf</code>: Zeroconf (Avahi/DNS-SD) support</li>
+</ul>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2015/02/17/networkmanager-1.0-release.html" title="NetworkManager 1.0 發布">NetworkManager 1.0 發布</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Tue, 17 Feb 2015 12:00:00 +0800</span></div>
@@ -117,36 +142,6 @@
 <p>在最新的版本中，如果載入非以最新版本編譯的 Perl 模組將會印出錯誤訊息，甚至是導致 segment faults。請將所有手動安裝的 CPAN 模組重新編譯、安裝，並將二進位檔和 libperl.so 連結。</p>
 
 <p>請參考<a href="https://mailman.archlinux.org/pipermail/arch-dev-public/2014-June/026359.html">我在 arch-dev-public 郵件列表中的貼文</a>來取得一段 script 來幫忙你尋找那些需要被重新編譯的模組。</p>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2014/03/05/linux-313-warning-ps2-keyboard-support-is-now-modular.html" title="請注意：自 Linux 3.13 起 PS/2 鍵盤改以核心模組方式驅動">請注意：自 Linux 3.13 起 PS/2 鍵盤改以核心模組方式驅動</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Wed, 05 Mar 2014 14:44:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/linux-313-warning-ps2-keyboard-support-is-now-modular/">Linux 3.13 WARNING: PS/2 keyboard support is now modular</a></p>
-
-<p>我們收到要求支援 i8042 鍵盤、滑鼠控制器核心模組的請求。部份使用者看到怪異的錯誤訊息，因為他們沒有此一模組，且手動偵測又會拖慢開機速度。Tom 處理了這個核心問題（感謝 Tom！）而終於在 3.13 版解決了。</p>
-
-<p>為了能在 init 早期階段就獲取鍵盤輸入，如果您還沒有這麼做，請將 <code class="language-plaintext highlighter-rouge">keyboard</code> hook 加進 <code class="language-plaintext highlighter-rouge">/etc/mkinitcpio.conf</code> 的 <code class="language-plaintext highlighter-rouge">HOOK=</code> 這行，之後請執行 <code class="language-plaintext highlighter-rouge">mkinitcpio -P</code>。這項設定也有可能早就已經在您的預設配置裡了。</p>
-
-<p><em>注意：</em> 這項設定有個負面影響：在有些主機板（大部分是較舊款，但是新款的也會有）裡頭 i8042 控制器是無法被自動偵測的。這雖然很罕見，但是只要不巧遇上了就會有無法使用鍵盤的現象。您可以用下列指令先行偵測：</p>
-
-<pre>
-$ dmesg -t | grep '^i8042'
-i8042: PNP: No PS/2 controller found. Probing ports directly.
-</pre>
-
-<p>倘若您有個 PS/2 連接埠且看到這樣的輸出訊息，請將 <code class="language-plaintext highlighter-rouge">atkbd</code> 加進 ‘mkinitcpio.conf’ 的 <code class="language-plaintext highlighter-rouge">MODULES=</code> 這行，之後也請執行 <code class="language-plaintext highlighter-rouge">mkinitcpio -P</code>。如果您發現重開機後沒有鍵盤可用，別擔心！只要將</p>
-
-<p><code class="language-plaintext highlighter-rouge">earlymodules=atkbd modules-load=atkbd</code></p>
-
-<p>加進您啟動程式 (bootloader) 的 kernel 命令列即可解決。</p>
-
-<p>為了讓大家在升級前有機會提前注意到本文，本文刊出之後，再過幾個小時我才會把 Linux 3.13 推進 [core] 套件庫中。如果這項異動帶來任何不便，我在此先跟您致歉。</p>
 
   </div>
   </article>

@@ -54,6 +54,30 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2023/08/19/ansible-core-2153-1-update-may-require-manual-intervention.html" title="ansible-core >= 2.15.3-1 升級可能需要手動處理">ansible-core >= 2.15.3-1 升級可能需要手動處理</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Ji Kuai</span> 發表於 <span itemprop="datePublished">Sat, 19 Aug 2023 22:51:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://archlinux.org/news/ansible-core-2153-1-update-may-require-manual-intervention">ansible-core &gt;= 2.15.3-1 update may require manual intervention</a></p>
+
+<p>自 <code class="language-plaintext highlighter-rouge">ansible-core 2.15.3</code> 起，上游將文件和範例移到<a href="https://github.com/ansible/ansible-documentation">專門的倉庫</a>（見<a href="https://github.com/ansible/ansible/blob/v2.15.3/changelogs/CHANGELOG-v2.15.rst#minor-changes">相關的版本紀錄</a>）<br />
+這代表自版本 <code class="language-plaintext highlighter-rouge">2.15.3</code> 起，<code class="language-plaintext highlighter-rouge">ansible-core</code> 套件將會停止附帶文件以及 <code class="language-plaintext highlighter-rouge">/etc/ansible/ansible.cfg</code> 底下的預設設定檔。</p>
+
+<p>而文件現在可從線上取得：<a href="https://docs.ansible.com/">https://docs.ansible.com/</a><br />
+至於設定檔，如 <a href="https://wiki.archlinux.org/title/Ansible#Configuration">wiki</a> 所提到，一個基礎的設定可以用以下指令生成：</p>
+
+<p><code class="language-plaintext highlighter-rouge">ansible-config init --disabled &gt; ansible.cfg</code></p>
+
+<p>從 <code class="language-plaintext highlighter-rouge">ansible-core</code> &lt;= <code class="language-plaintext highlighter-rouge">2.15.2-1</code> 更新到 <code class="language-plaintext highlighter-rouge">2.15.3-1</code> 後，所有使用者存放在 <code class="language-plaintext highlighter-rouge">/etc/ansible/ansible.cfg</code> 底下的<strong>自訂義</strong>全域設定檔都會被存成一個 <code class="language-plaintext highlighter-rouge">pacsave</code> 檔。<br />
+可以使用以下指令還原它：</p>
+
+<p><code class="language-plaintext highlighter-rouge">mv /etc/ansible/ansible.cfg.pacsave /etc/ansible/ansible.cfg</code></p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2023/08/13/budgie-desktop-1072-6-update-requires-manual-intervention.html" title="升級 budgie-desktop >= 10.7.2-6 時需要手動處理">升級 budgie-desktop >= 10.7.2-6 時需要手動處理</a>
   </h1>
   <div class="meta"><span itemprop="author">Ji Kuai</span> 發表於 <span itemprop="datePublished">Sun, 13 Aug 2023 16:14:00 +0800</span></div>
@@ -131,25 +155,6 @@ collection:  collection-latexrecommended
 </ul>
 
 <p>其他資訊敬請密切鎖定 <a href="https://gitter.im/linux-taiwan/arch.linux.org.tw">Gitter 討論群組</a> 與 <a href="https://t.me/ArchLinuxTaiwan">Telegram 討論群組</a> ，快來跟我們一起共襄盛舉吧！</p>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2018/07/15/libutf8proc-=2.1.1-3-update-requires-manual-intervention.html" title="升級 libutf8proc>=2.1.1-3 時需要手動處理">升級 libutf8proc>=2.1.1-3 時需要手動處理</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 15 Jul 2018 00:55:19 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/libutf8proc211-3-update-requires-manual-intervention/">libutf8proc&gt;=2.1.1-3 update requires manual intervention</a></p>
-
-<p><code class="language-plaintext highlighter-rouge">libutf8proc</code> 套件在 <code class="language-plaintext highlighter-rouge">2.1.1-3</code> 版本之前含有一個錯誤的 soname 連結 (soname link)，在 <code class="language-plaintext highlighter-rouge">2.1.1-3</code> 版本已經修復了，所以升級到這個版本時需要覆寫先前未能由 <code class="language-plaintext highlighter-rouge">ldconfig</code> 正確產生的 soname 連結。如果您在升級過程中遇到這樣的錯誤：</p>
-
-<p><code class="language-plaintext highlighter-rouge">libutf8proc: /usr/lib/libutf8proc.so.2 exists in filesystem</code></p>
-
-<p>請使用以下指令來完成升級作業：</p>
-
-<p><code class="language-plaintext highlighter-rouge">pacman -Suy --overwrite usr/lib/libutf8proc.so.2</code></p>
 
   </div>
   </article>
