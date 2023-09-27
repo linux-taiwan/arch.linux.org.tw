@@ -54,6 +54,30 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2017/02/28/mesa-with-libglvnd-support-is-now-in-testing.html" title="啟用 libglvnd 支援的 mesa 已在 testing 套件庫">啟用 libglvnd 支援的 mesa 已在 testing 套件庫</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Tue, 28 Feb 2017 04:15:02 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/mesa-with-libglvnd-support-is-now-in-testing/">mesa with libglvnd support is now in testing</a></p>
+
+<p>由於 Fedora 團隊的協助，以及 xorg-server 上游貢獻的修補，<code class="language-plaintext highlighter-rouge">mesa</code>-17.0.0-3 現在可與 <code class="language-plaintext highlighter-rouge">nvidia</code>-378.13 驅動程式併存，無須再使用各種 libgl/libglx 的 hacks 了。</p>
+
+<ul>
+  <li>
+    <p>首先要做的是透過解除安裝某些 <code class="language-plaintext highlighter-rouge">libgl</code> 的相關套件，來移除 <code class="language-plaintext highlighter-rouge">libglx</code> 與 <code class="language-plaintext highlighter-rouge">xorg-server</code>-1.19.1-3 的符號連結，以及相關的 mesa/nvidia 驅動程式。這項工作非常艱難，因為會導致 optimus 系統失效，也需要手動更新 <code class="language-plaintext highlighter-rouge">xorg-server</code> 的設定。</p>
+  </li>
+  <li>
+    <p>接下來這步驟是藉由更新過的 <a href="https://git.archlinux.org/svntogit/packages.git/tree/trunk/nvidia-drm-outputclass.conf?h=packages/nvidia-utils">10-nvidia-drm-outputclass.conf</a> 設定檔的輔助，可以提供您的 <code class="language-plaintext highlighter-rouge">xorg-server</code> 在搭配 optimus 系統的環境下一個基本可用的體驗。</p>
+  </li>
+</ul>
+
+<p>敬請多加測試，並將您的意見反饋發表到<a href="https://bbs.archlinux.org/viewtopic.php?id=223603">論壇討論串</a>或是 <a href="https://bugs.archlinux.org/">bugtracker</a> 上。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2017/01/25/phasing-out-i686-support.html" title="分階段取消對 i686 處理器家族的支援">分階段取消對 i686 處理器家族的支援</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Wed, 25 Jan 2017 12:00:00 +0800</span></div>
@@ -121,25 +145,6 @@
 <p>本問題已經在 <code class="language-plaintext highlighter-rouge">linux 4.0.4-2</code> 與 <code class="language-plaintext highlighter-rouge">linux-lts 3.14.43-2</code> 修正。但是由於這個問題的發生原理使然，很可能系統資料已經在前述有問題的核心版本上發生毀損情況了。強烈建議您在受到影響的檔案系統上做資料完整性檢查，可使用 <code class="language-plaintext highlighter-rouge">fsck</code> 工具，並（或）從現存的完整備份那邊還原資料。</p>
 
 <p>若需要進一步的資訊，請參考 Holger Kiehl 在 LKML 發表的<a href="https://lkml.org/lkml/2015/5/21/167">貼文</a>、Phoronix 上的<a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=Linux-4-EXT4-RAID-Issue-Found">相關文章</a>以及被 backport 到 Arch 核心的<a href="http://git.neil.brown.name/?p=md.git;a=commitdiff;h=a81157768a00e8cf8a7b43b5ea5cac931262374f">修正</a>。</p>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2015/05/17/puppet-40-enters-community.html" title="Puppet 4.0 已納入 [community] 套件庫">Puppet 4.0 已納入 [community] 套件庫</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 17 May 2015 12:00:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/puppet-40-enters-community/">Puppet 4.0 enters [community]</a></p>
-
-<p>Puppet 4 已經發布，但與第 3 版不相容。所以用戶必須在升級客戶端前，先將伺服器端升級至 Puppet 4。請注意如果伺服器端是 Puppet 4，那麼 Puppet 3 的客戶端是無法與它共同正常運作的。且有不少的異動處，像是設定檔 (config)、宣告檔 (manifest) 與模組檔 (module) 等。您需要依照以下步驟說明文件來處理此次升版：</p>
-
-<ul>
-  <li><a href="https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_server.html">https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_server.html</a></li>
-  <li><a href="https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html">https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html</a></li>
-</ul>
-
 
   </div>
   </article>

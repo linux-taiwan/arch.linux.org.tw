@@ -54,6 +54,31 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2018/08/02/coscup-2018-events-outline.html" title="Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！">Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！</a>
+  </h1>
+  <div class="meta"><span itemprop="author">PN Wu (小平)</span> 發表於 <span itemprop="datePublished">Thu, 02 Aug 2018 20:00:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p>COSCUP 2018 從 Day0 到 Day2 (08/10 ~ 08/12) 各有不同的活動，Archers 皆有可能現身其中！</p>
+
+<ul>
+  <li>
+    <p>Day0 : <a href="https://coscup2018.kktix.cc/events/welcomeparty-2018">會前派對</a> 首度開放大眾購票參加，一起來跟大會講者及社群的同好喝酒哈啦！</p>
+  </li>
+  <li>
+    <p>Day1 : <a href="http://blog.coscup.org/2018/08/bof2018-zh.html">BoF</a> 訂於正式議程結束之後舉行，沒有 COSCUP 門票也可以參加，Free Pizza！想參加的 Archer 務必盡快到 <a href="https://goo.gl/d5C3QW">BoF 報名處</a> 簽上你的大名！</p>
+  </li>
+  <li>
+    <p>Day2 : Arch Linux Taiwan &amp; Archers @ COSUCP 2018 Community Room (IB302) 議程在下午開始，還有 <a href="https://goo.gl/9NJ7y4">Archers 專屬限量贈品</a> ，千萬不要錯過！</p>
+  </li>
+</ul>
+
+<p>其他資訊敬請密切鎖定 <a href="https://gitter.im/linux-taiwan/arch.linux.org.tw">Gitter 討論群組</a> 與 <a href="https://t.me/ArchLinuxTaiwan">Telegram 討論群組</a> ，快來跟我們一起共襄盛舉吧！</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2018/07/15/libutf8proc-=2.1.1-3-update-requires-manual-intervention.html" title="升級 libutf8proc>=2.1.1-3 時需要手動處理">升級 libutf8proc>=2.1.1-3 時需要手動處理</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Sun, 15 Jul 2018 00:55:19 +0800</span></div>
@@ -121,24 +146,6 @@
 請在更新前檢閱 <code class="language-plaintext highlighter-rouge">/etc/pam.d</code> 下的設定檔，並將已移除的模組替換為 <code class="language-plaintext highlighter-rouge">pam_unix.so</code>。
 而 <code class="language-plaintext highlighter-rouge">pam_unix2</code> 的使用者也應於該設定變更後重設密碼。
 至於由 <code class="language-plaintext highlighter-rouge">pambase</code> 套件提供的預設值不用做任何更動。</p>
-
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2018/02/22/zita-resampler-1.6.0-1-2-update-requires-manual-intervention.html" title="zita-resampler 升級到 1.6.0-2 需要手動處理">zita-resampler 升級到 1.6.0-2 需要手動處理</a>
-  </h1>
-  <div class="meta"><span itemprop="author">Nightfeather</span> 發表於 <span itemprop="datePublished">Thu, 22 Feb 2018 15:57:11 +0800</span></div>
-  <div itemprop="articleBody">
-  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/zita-resampler-160-1-2-update-requires-manual-intervention/">zita-resampler 1.6.0-1 -&gt; 2 update requires manual intervention</a></p>
-
-<p>
-zita-resampler 在 1.6.0-2 版加入了一個不存在於 1.6.0-1 的函式庫鏈結。
-如果你已經安裝了 1.6.0-1 版，因為 ldconfig 會在安裝時期產生這個鏈結，進而造成與新版本中擁有的鏈結衝突。
-所以在升級前請先手動刪除 `/usr/lib/libzita-resampler.so.1` 以避免衝突發生。
-</p>
 
 
   </div>

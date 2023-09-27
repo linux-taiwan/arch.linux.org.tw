@@ -54,6 +54,23 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2014/07/01/perl-updated-to-5.20.html" title="Perl 已經升級到 5.20">Perl 已經升級到 5.20</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Yushin Huang</span> 發表於 <span itemprop="datePublished">Tue, 01 Jul 2014 14:43:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://www.archlinux.org/news/perl-updated-to-520/">Perl updated to 5.20</a></p>
+
+<p>Perl 5.20 需要將所有不是以純 Perl 寫成的模組重新編譯。我們已經將所有軟體倉庫中的軟體包都重新編譯了。</p>
+
+<p>在最新的版本中，如果載入非以最新版本編譯的 Perl 模組將會印出錯誤訊息，甚至是導致 segment faults。請將所有手動安裝的 CPAN 模組重新編譯、安裝，並將二進位檔和 libperl.so 連結。</p>
+
+<p>請參考<a href="https://mailman.archlinux.org/pipermail/arch-dev-public/2014-June/026359.html">我在 arch-dev-public 郵件列表中的貼文</a>來取得一段 script 來幫忙你尋找那些需要被重新編譯的模組。</p>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2014/03/05/linux-313-warning-ps2-keyboard-support-is-now-modular.html" title="請注意：自 Linux 3.13 起 PS/2 鍵盤改以核心模組方式驅動">請注意：自 Linux 3.13 起 PS/2 鍵盤改以核心模組方式驅動</a>
   </h1>
   <div class="meta"><span itemprop="author">Huei-Horng Yo</span> 發表於 <span itemprop="datePublished">Wed, 05 Mar 2014 14:44:00 +0800</span></div>

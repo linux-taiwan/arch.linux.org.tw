@@ -54,6 +54,35 @@
     
   <article itemscope itemtype="http://schema.org/Article" class="post">
   <h1 itemprop="name" class="post__title">
+    <a href="/2023/09/23/changes-to-default-password-hashing-algorithm-and-umask-settings.html" title="預設的密碼雜湊演算法與 umask 設定的更動">預設的密碼雜湊演算法與 umask 設定的更動</a>
+  </h1>
+  <div class="meta"><span itemprop="author">Ji Kuai</span> 發表於 <span itemprop="datePublished">Sat, 23 Sep 2023 15:52:00 +0800</span></div>
+  <div itemprop="articleBody">
+  <p><strong>原文：</strong><a href="https://archlinux.org/news/changes-to-default-password-hashing-algorithm-and-umask-settings/">Changes to default password hashing algorithm and umask settings</a></p>
+
+<p>從 shadow &gt;= <code class="language-plaintext highlighter-rouge">4.14.0</code> 起，Arch Linux 的預設密碼雜湊演算法將從 <strong>SHA512</strong> 改成 <a href="https://www.openwall.com/yescrypt/"><strong>yescrypt</strong></a>。</p>
+
+<p>此外，<a href="https://man.archlinux.org/man/umask.1p"><code class="language-plaintext highlighter-rouge">umask</code></a> 的設定現在也位於 <code class="language-plaintext highlighter-rouge">/etc/login.defs</code> 而不是 <code class="language-plaintext highlighter-rouge">/etc/profile</code>。</p>
+
+<p>這應該不需要任何手動調整。</p>
+<h1 id="使用-yescrypt-的原因">使用 Yescrypt 的原因</h1>
+<p>因基於密碼的金鑰衍生函數（KDF）和密碼雜湊方式 <strong>yescrypt</strong> 已存在於 <a href="https://wiki.archlinux.org/title/PAM"><em>pam</em></a> 所使用的 <em>libxcrypt</em> 之中，並且與 <strong>SHA512</strong> 相比其面對於密碼破解時更牢靠，因此我們採用此演算法。</p>
+
+<p>儘管 <a href="https://www.password-hashing.net/">Password Hashing Competition</a> 的勝利者是 <strong>argon2</strong>，但這個更堅固的演算法目前還未存在於 <em>libxcrypt</em> 之中（<a href="https://github.com/besser82/libxcrypt/pull/113">第一次嘗試</a>、<a href="https://github.com/besser82/libxcrypt/pull/150">第二次嘗試</a>）。</p>
+<h1 id="設定-yescrypt">設定 yescrypt</h1>
+<p><code class="language-plaintext highlighter-rouge">/etc/login.defs</code> 內的 <code class="language-plaintext highlighter-rouge">YESCRYPT_COST_FACTOR</code> 設定目前沒有效果，<a href="https://github.com/linux-pam/linux-pam/issues/607">除非 <em>pam</em> 未來的實作讀取其值</a>。如果需要讓 <code class="language-plaintext highlighter-rouge">YESCRYPT_COST_FACTOR</code> 的值高過（或低於）其預設值（<code class="language-plaintext highlighter-rouge">5</code>），可以透過修改 <a href="https://man.archlinux.org/man/pam_unix.8"><code class="language-plaintext highlighter-rouge">pam_unix</code></a> 模組內（於 <code class="language-plaintext highlighter-rouge">/etc/pam.d/system-auth</code>）的 <code class="language-plaintext highlighter-rouge">rounds</code> 設定來達到。</p>
+<h1 id="改動列表">改動列表</h1>
+<ul>
+  <li><strong>yescrpyt</strong> 現在取代了 <strong>SHA512</strong> 成為預設的密碼雜湊演算法</li>
+  <li><em>pam</em> 現在採用 <code class="language-plaintext highlighter-rouge">/etc/login.defs</code> 內的 <code class="language-plaintext highlighter-rouge">ENCRYPT_METHOD</code> 而不再複寫其值</li>
+  <li>修改了 <em>filesystem</em> (&gt;= <code class="language-plaintext highlighter-rouge">2023.09.18</code>) 和 <em>pambase</em> (&gt;= <code class="language-plaintext highlighter-rouge">20230918</code>) 來確保 <code class="language-plaintext highlighter-rouge">umask</code> 是設定於 <code class="language-plaintext highlighter-rouge">/etc/login.defs</code> 而非 <code class="language-plaintext highlighter-rouge">/etc/profile</code></li>
+</ul>
+
+  </div>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post">
+  <h1 itemprop="name" class="post__title">
     <a href="/2023/08/19/ansible-core-2153-1-update-may-require-manual-intervention.html" title="ansible-core >= 2.15.3-1 升級可能需要手動處理">ansible-core >= 2.15.3-1 升級可能需要手動處理</a>
   </h1>
   <div class="meta"><span itemprop="author">Ji Kuai</span> 發表於 <span itemprop="datePublished">Sat, 19 Aug 2023 22:51:00 +0800</span></div>
@@ -130,31 +159,6 @@ collection:  collection-latexrecommended
   <li><a href="https://blog.coscup.org/2022/04/coscup-x-kcd-taiwan-2022-cfp-is-now.html">COSCUP 官方公告</a></li>
   <li><a href="https://pretalx.com/coscup-2022/cfp">投稿直通門</a></li>
 </ul>
-
-  </div>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post">
-  <h1 itemprop="name" class="post__title">
-    <a href="/2018/08/02/coscup-2018-events-outline.html" title="Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！">Archers @ COSCUP 2018 相關活動彙整，邀請您一同來參加 COSCUP！</a>
-  </h1>
-  <div class="meta"><span itemprop="author">PN Wu (小平)</span> 發表於 <span itemprop="datePublished">Thu, 02 Aug 2018 20:00:00 +0800</span></div>
-  <div itemprop="articleBody">
-  <p>COSCUP 2018 從 Day0 到 Day2 (08/10 ~ 08/12) 各有不同的活動，Archers 皆有可能現身其中！</p>
-
-<ul>
-  <li>
-    <p>Day0 : <a href="https://coscup2018.kktix.cc/events/welcomeparty-2018">會前派對</a> 首度開放大眾購票參加，一起來跟大會講者及社群的同好喝酒哈啦！</p>
-  </li>
-  <li>
-    <p>Day1 : <a href="http://blog.coscup.org/2018/08/bof2018-zh.html">BoF</a> 訂於正式議程結束之後舉行，沒有 COSCUP 門票也可以參加，Free Pizza！想參加的 Archer 務必盡快到 <a href="https://goo.gl/d5C3QW">BoF 報名處</a> 簽上你的大名！</p>
-  </li>
-  <li>
-    <p>Day2 : Arch Linux Taiwan &amp; Archers @ COSUCP 2018 Community Room (IB302) 議程在下午開始，還有 <a href="https://goo.gl/9NJ7y4">Archers 專屬限量贈品</a> ，千萬不要錯過！</p>
-  </li>
-</ul>
-
-<p>其他資訊敬請密切鎖定 <a href="https://gitter.im/linux-taiwan/arch.linux.org.tw">Gitter 討論群組</a> 與 <a href="https://t.me/ArchLinuxTaiwan">Telegram 討論群組</a> ，快來跟我們一起共襄盛舉吧！</p>
 
   </div>
   </article>
